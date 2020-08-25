@@ -225,6 +225,88 @@
 </div>
     </div>
   </div>
+	 <br>
+
+<h3> How to make a [animated barplot] race_barplot with python? </h3>
+
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/SbqQ2OAIrzg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br>
+<p> <b>code here ,note :  [you have to configure your system with ffmpeg] </b> 
+<div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load library</span>
+<span class="kn">import</span> <span class="nn">bar_chart_race</span> <span class="k">as</span> <span class="nn">bcr</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;datasets_826161_1412128_Countries Population from 1995 to 2020.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># bcr_html = bcr.bar_chart_race(df=df, filename=None)</span>
+
+<span class="n">pop</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Yearly % Change&#39;</span><span class="p">,</span> <span class="s1">&#39;Yearly Change&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;Migrants (net)&#39;</span><span class="p">,</span> <span class="s1">&#39;Median Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Fertility Rate&#39;</span><span class="p">,</span> <span class="s1">&#39;Density (P/Km²)&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;Urban Pop %&#39;</span><span class="p">,</span> <span class="s1">&#39;Urban Population&#39;</span><span class="p">,</span> <span class="s2">&quot;Country&#39;s Share of World Pop %&quot;</span><span class="p">,</span>
+               <span class="s1">&#39;World Population&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Global Rank&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># year=colum first ,column, country =first row</span>
+<span class="c1"># making pivot table </span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="s2">&quot;Population&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">],</span> <span class="s2">&quot;Country&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+
+<span class="c1"># make animated barplot as pop2020_horiz.mp4</span>
+
+<span class="n">bcr</span><span class="o">.</span><span class="n">bar_chart_race</span><span class="p">(</span>
+    <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;pop2020_horiz.mp4&#39;</span><span class="p">,</span>
+    <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">,</span>
+    <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;desc&#39;</span><span class="p">,</span>
+    <span class="n">n_bars</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">fixed_order</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">fixed_max</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">steps_per_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">interpolate_period</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">label_bars</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">bar_size</span><span class="o">=.</span><span class="mi">90</span><span class="p">,</span>
+    <span class="n">period_label</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="o">.</span><span class="mi">99</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="o">.</span><span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;ha&#39;</span><span class="p">:</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;va&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">},</span>
+    <span class="n">period_summary_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">v</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="o">.</span><span class="mi">99</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="o">.</span><span class="mi">18</span><span class="p">,</span>
+                                      <span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;Population</span><span class="si">{</span><span class="n">v</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">39</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s1">,.0f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                                      <span class="s1">&#39;ha&#39;</span><span class="p">:</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;Courier New&#39;</span><span class="p">},</span>
+    <span class="n">period_length</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">6.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;dark12&#39;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Population by Country from 1955 to 2020&#39;</span><span class="p">,</span>
+    <span class="n">title_size</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="n">bar_label_size</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+    <span class="n">tick_label_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">shared_fontdict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;Helvetica&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;.1&#39;</span><span class="p">},</span>
+    <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>
+    <span class="n">writer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">bar_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="o">.</span><span class="mi">7</span><span class="p">},</span>
+    <span class="n">filter_column_colors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+  
+</p>
+
+ </p>
+ 
 
 
 										
