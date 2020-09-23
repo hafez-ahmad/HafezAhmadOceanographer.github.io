@@ -1,5 +1,3 @@
-Editorial by Hafez Ahmad
-HafezAhmad | @hafez
 [![GitHub Badge](https://img.shields.io/github/followers/hafez-ahmad?style=social)](https://github.com/hafez-ahmad)
 [![Twitter Badge](https://img.shields.io/twitter/follow/hafezahmad100?style=social)](https://twitter.com/hafezahmad100)
 [![Google Scholar Badge](https://img.shields.io/badge/Google-Scholar-lightgrey)](https://scholar.google.com/citations?user=ToH-NhkAAAAJ&hl=en)
