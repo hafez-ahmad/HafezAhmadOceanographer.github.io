@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>whale-dectection</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="whale dectection_files/libs/clipboard/clipboard.min.js"></script>
+<script src="whale dectection_files/libs/quarto-html/quarto.js"></script>
+<script src="whale dectection_files/libs/quarto-html/popper.min.js"></script>
+<script src="whale dectection_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="whale dectection_files/libs/quarto-html/anchor.min.js"></script>
+<link href="whale dectection_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="whale dectection_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="whale dectection_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="whale dectection_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="whale dectection_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, glob, time, random, argparse, cv2, numpy <span class="im">as</span> np,PIL</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="132">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>path<span class="op">=</span><span class="st">"E:/python_projects/whale_dectection/trainimage"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># find .jpg and JPEG files in subdirectories</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> subdir <span class="kw">in</span> os.listdir(path):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># find .jpg and JPEG files in subdirectories</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> filename <span class="kw">in</span> glob.glob(os.path.join(path, subdir, <span class="st">'*.jpg'</span>)):</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            <span class="co"># read image</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            img <span class="op">=</span> cv2.imread(filename)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            <span class="co"># convert to RGB</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            img <span class="op">=</span> cv2.cvtColor(img, cv2.COLOR_BGR2RGB)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            <span class="co"># pring their dimensions</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            <span class="co">#print(img.shape)</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            <span class="co"># reshape all images to a common size</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            img <span class="op">=</span> cv2.resize(img, (<span class="dv">224</span>, <span class="dv">224</span>))</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            <span class="co"># save image</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            cv2.imwrite(filename, img)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f" </span><span class="sc">{</span>filename<span class="sc">}</span><span class="ss"> saved"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> E:/python_projects/whale_dectection/trainimage\beluga whale\beluga1.jpg saved
+ E:/python_projects/whale_dectection/trainimage\beluga whale\beluga2.jpg saved
+ E:/python_projects/whale_dectection/trainimage\beluga whale\beluga3.jpg saved
+ E:/python_projects/whale_dectection/trainimage\beluga whale\beluga4.jpg saved
+ E:/python_projects/whale_dectection/trainimage\beluga whale\beluga5.jpg saved
+ E:/python_projects/whale_dectection/trainimage\beluga whale\beluga6.jpg saved
+ E:/python_projects/whale_dectection/trainimage\beluga whale\beluga7.jpg saved
+ E:/python_projects/whale_dectection/trainimage\beluga whale\beluga8.jpg saved
+ E:/python_projects/whale_dectection/trainimage\beluga whale\beluga9.jpg saved
+ E:/python_projects/whale_dectection/trainimage\blue whale\blue1.JPG saved
+ E:/python_projects/whale_dectection/trainimage\blue whale\blue2.JPG saved
+ E:/python_projects/whale_dectection/trainimage\bowhead whale\bowhead1.jpg saved
+ E:/python_projects/whale_dectection/trainimage\fin whale\finn1.JPG saved
+ E:/python_projects/whale_dectection/trainimage\fin whale\finn2.JPG saved
+ E:/python_projects/whale_dectection/trainimage\ganges dolphin\ganges 1.jpg saved
+ E:/python_projects/whale_dectection/trainimage\ganges dolphin\ganges 2.jpg saved
+ E:/python_projects/whale_dectection/trainimage\ganges dolphin\ganges 3.jpg saved
+ E:/python_projects/whale_dectection/trainimage\ganges dolphin\ganges 4.jpg saved
+ E:/python_projects/whale_dectection/trainimage\ganges dolphin\ganges 5.jpg saved
+ E:/python_projects/whale_dectection/trainimage\ganges dolphin\ganges 6.jpg saved
+ E:/python_projects/whale_dectection/trainimage\gray whale\grey1.JPG saved
+ E:/python_projects/whale_dectection/trainimage\gray whale\grey2.JPG saved
+ E:/python_projects/whale_dectection/trainimage\humpback whale\humpback1.JPG saved
+ E:/python_projects/whale_dectection/trainimage\humpback whale\humpback2.JPG saved
+ E:/python_projects/whale_dectection/trainimage\humpback whale\humpback3.JPG saved
+ E:/python_projects/whale_dectection/trainimage\humpback whale\humpback4.JPG saved
+ E:/python_projects/whale_dectection/trainimage\humpback whale\humpback5.JPG saved
+ E:/python_projects/whale_dectection/trainimage\humpback whale\humpback6.JPG saved
+ E:/python_projects/whale_dectection/trainimage\humpback whale\humpback7.JPG saved
+ E:/python_projects/whale_dectection/trainimage\indoPacific dolphin\indopacific dolphin1.jpg saved
+ E:/python_projects/whale_dectection/trainimage\longfinnned whale\longfin1.JPG saved
+ E:/python_projects/whale_dectection/trainimage\river dolphin\river1.JPG saved
+ E:/python_projects/whale_dectection/trainimage\river dolphin\river10.JPG saved
+ E:/python_projects/whale_dectection/trainimage\river dolphin\river11.JPG saved
+ E:/python_projects/whale_dectection/trainimage\river dolphin\river12.JPG saved
+ E:/python_projects/whale_dectection/trainimage\river dolphin\river2.JPG saved
+ E:/python_projects/whale_dectection/trainimage\river dolphin\river3.JPG saved
+ E:/python_projects/whale_dectection/trainimage\river dolphin\river4.JPG saved
+ E:/python_projects/whale_dectection/trainimage\river dolphin\river5.JPG saved
+ E:/python_projects/whale_dectection/trainimage\river dolphin\river6.JPG saved
+ E:/python_projects/whale_dectection/trainimage\river dolphin\river7.JPG saved
+ E:/python_projects/whale_dectection/trainimage\river dolphin\river8.JPG saved
+ E:/python_projects/whale_dectection/trainimage\river dolphin\river9.JPG saved
+ E:/python_projects/whale_dectection/trainimage\sperm whale\sperm1.JPG saved
+ E:/python_projects/whale_dectection/trainimage\sperm whale\sperm2.JPG saved
+ E:/python_projects/whale_dectection/trainimage\sperm whale\sperm3.JPG saved
+ E:/python_projects/whale_dectection/trainimage\sperm whale\sperm4.JPG saved
+ E:/python_projects/whale_dectection/trainimage\sperm whale\sperm5.JPG saved
+ E:/python_projects/whale_dectection/trainimage\sperm whale\sperm6.JPG saved</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make tensorflow model</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.preprocessing.image <span class="im">import</span> ImageDataGenerator</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.applications.mobilenet_v2 <span class="im">import</span> MobileNetV2</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.layers <span class="im">import</span> Dropout, Flatten, Dense</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.models <span class="im">import</span> Model</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.optimizers <span class="im">import</span> Adam</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.applications.mobilenet_v2 <span class="im">import</span> preprocess_input</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.preprocessing.image <span class="im">import</span> img_to_array</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> keras</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.models <span class="im">import</span> Sequential</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.layers <span class="im">import</span> Dense, Dropout</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># download VGG19 model</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.applications.vgg19 <span class="im">import</span> VGG19</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="133">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subdirectories as classelabel</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>classes <span class="op">=</span> os.listdir(path)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>species_to_label<span class="op">=</span>{}</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, species <span class="kw">in</span> <span class="bu">enumerate</span>(classes):</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    species_to_label[species]<span class="op">=</span>i</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>species_to_label</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>label_to_species<span class="op">=</span>{value:key <span class="cf">for</span> key,value <span class="kw">in</span> species_to_label.items()}</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>label_to_species</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="133">
+<pre><code>{0: 'beluga whale',
+ 1: 'blue whale',
+ 2: 'bowhead whale',
+ 3: 'fin whale',
+ 4: 'ganges dolphin',
+ 5: 'gray whale',
+ 6: 'humpback whale',
+ 7: 'indoPacific dolphin',
+ 8: 'longfinnned whale',
+ 9: 'river dolphin',
+ 10: 'sperm whale'}</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="134">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>[]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># make dataframe with path and label</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> subdir <span class="kw">in</span> os.listdir(path):</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> filename <span class="kw">in</span> glob.glob(os.path.join(path, subdir, <span class="st">'*.jpg'</span>)):</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        df.append([filename, subdir])</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>pd.DataFrame(df,columns<span class="op">=</span>[<span class="st">'path'</span>,<span class="st">'label'</span>])</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="134">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>path</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>E:/python_projects/whale_dectection/trainimage...</td>
+      <td>beluga whale</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>E:/python_projects/whale_dectection/trainimage...</td>
+      <td>beluga whale</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>E:/python_projects/whale_dectection/trainimage...</td>
+      <td>beluga whale</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>E:/python_projects/whale_dectection/trainimage...</td>
+      <td>beluga whale</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>E:/python_projects/whale_dectection/trainimage...</td>
+      <td>beluga whale</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="135">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> preprocess_image(path):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    img<span class="op">=</span>plt.imread(path)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    im<span class="op">=</span>cv2.resize(img,(<span class="dv">224</span>,<span class="dv">224</span>))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> im<span class="op">/</span><span class="fl">255.0</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># preprocess images</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>img<span class="op">=</span>preprocess_image(df.loc[<span class="dv">15</span>,<span class="st">'path'</span>])</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>label<span class="op">=</span>df.loc[<span class="dv">15</span>,<span class="st">'label'</span>]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>plt.imshow(img)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>plt.title(label)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="135">
+<pre><code>Text(0.5, 1.0, 'ganges dolphin')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="whale%20dectection_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="136">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>n_examples<span class="op">=</span><span class="bu">len</span>(df)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>n_classes<span class="op">=</span><span class="bu">len</span>(classes)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># initialize X and Y</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>X<span class="op">=</span>np.zeros((n_examples,<span class="dv">224</span>,<span class="dv">224</span>,<span class="dv">3</span>),dtype<span class="op">=</span>np.float32)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>Y<span class="op">=</span>np.zeros((n_examples,n_classes),dtype<span class="op">=</span>np.float32)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, (path,label) <span class="kw">in</span> <span class="bu">enumerate</span>(df.values):</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    X[i]<span class="op">=</span>preprocess_image(path)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    Y[i,species_to_label[label]]<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X.shape)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Y.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(49, 224, 224, 3)
+(49, 11)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="137">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># split data into train and test</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>X_train, X_test, Y_train, Y_test <span class="op">=</span> train_test_split(X, Y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="140">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make model</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> Sequential()</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>base_model<span class="op">=</span>VGG19(weights<span class="op">=</span><span class="st">'imagenet'</span>,include_top<span class="op">=</span><span class="va">False</span>,input_shape<span class="op">=</span>(<span class="dv">224</span>,<span class="dv">224</span>,<span class="dv">3</span>),pooling<span class="op">=</span><span class="st">'avg'</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># add new layers</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>model.add(base_model)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>model.add(Dense(<span class="dv">1000</span>, activation<span class="op">=</span><span class="st">'relu'</span>, kernel_initializer<span class="op">=</span><span class="st">'he_uniform'</span>))</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>model.add(Dense(<span class="dv">128</span>, activation<span class="op">=</span><span class="st">'relu'</span>, kernel_initializer<span class="op">=</span><span class="st">'he_uniform'</span>))</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>model.add(Dense(n_classes,activation<span class="op">=</span><span class="st">'softmax'</span>))</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>model.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Model: "sequential_6"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+vgg19 (Functional)           (None, 512)               20024384  
+_________________________________________________________________
+dense_17 (Dense)             (None, 1000)              513000    
+_________________________________________________________________
+dense_18 (Dense)             (None, 128)               128128    
+_________________________________________________________________
+dense_19 (Dense)             (None, 11)                1419      
+=================================================================
+Total params: 20,666,931
+Trainable params: 20,666,931
+Non-trainable params: 0
+_________________________________________________________________</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="143">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>batch_size <span class="op">=</span> <span class="dv">16</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>learning_rate <span class="op">=</span> <span class="fl">1e-3</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># compile model</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">compile</span>(loss<span class="op">=</span><span class="st">'categorical_crossentropy'</span>,optimizer<span class="op">=</span><span class="st">'adam'</span>,metrics<span class="op">=</span>[<span class="st">'accuracy'</span>])</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># train model</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>history<span class="op">=</span>model.fit(X_train,Y_train,epochs<span class="op">=</span>epochs, batch_size<span class="op">=</span>batch_size,validation_data<span class="op">=</span>(X_test,Y_test))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Epoch 1/30
+3/3 [==============================] - 82s 24s/step - loss: 135.5160 - accuracy: 0.3077 - val_loss: 3.4185 - val_accuracy: 0.3000
+Epoch 2/30
+3/3 [==============================] - 67s 21s/step - loss: 5.0048 - accuracy: 0.0513 - val_loss: 2.5055 - val_accuracy: 0.0000e+00
+Epoch 3/30
+3/3 [==============================] - 80s 25s/step - loss: 2.1661 - accuracy: 0.2308 - val_loss: 2.8109 - val_accuracy: 0.1000
+Epoch 4/30
+3/3 [==============================] - 74s 22s/step - loss: 2.0730 - accuracy: 0.2821 - val_loss: 2.5080 - val_accuracy: 0.1000
+Epoch 5/30
+3/3 [==============================] - 76s 25s/step - loss: 2.0766 - accuracy: 0.3077 - val_loss: 2.6883 - val_accuracy: 0.1000
+Epoch 6/30
+3/3 [==============================] - 77s 23s/step - loss: 2.2028 - accuracy: 0.2308 - val_loss: 2.1229 - val_accuracy: 0.0000e+00
+Epoch 7/30
+3/3 [==============================] - 71s 22s/step - loss: 2.0935 - accuracy: 0.3333 - val_loss: 2.3295 - val_accuracy: 0.1000
+Epoch 8/30
+3/3 [==============================] - 81s 25s/step - loss: 2.0571 - accuracy: 0.2821 - val_loss: 2.5730 - val_accuracy: 0.1000
+Epoch 9/30
+3/3 [==============================] - 74s 22s/step - loss: 2.0983 - accuracy: 0.2821 - val_loss: 2.5278 - val_accuracy: 0.1000
+Epoch 10/30
+3/3 [==============================] - 63s 19s/step - loss: 2.0640 - accuracy: 0.2051 - val_loss: 2.3527 - val_accuracy: 0.0000e+00
+Epoch 11/30
+3/3 [==============================] - 70s 22s/step - loss: 2.0570 - accuracy: 0.2308 - val_loss: 2.4941 - val_accuracy: 0.1000
+Epoch 12/30
+3/3 [==============================] - 64s 19s/step - loss: 2.0568 - accuracy: 0.3333 - val_loss: 2.3143 - val_accuracy: 0.1000
+Epoch 13/30
+3/3 [==============================] - 62s 19s/step - loss: 2.1151 - accuracy: 0.2821 - val_loss: 2.2074 - val_accuracy: 0.1000
+Epoch 14/30
+3/3 [==============================] - 70s 22s/step - loss: 2.1120 - accuracy: 0.2821 - val_loss: 2.4766 - val_accuracy: 0.1000
+Epoch 15/30
+3/3 [==============================] - 64s 19s/step - loss: 2.0603 - accuracy: 0.2821 - val_loss: 2.5621 - val_accuracy: 0.1000
+Epoch 16/30
+3/3 [==============================] - 73s 22s/step - loss: 2.0687 - accuracy: 0.2308 - val_loss: 2.4641 - val_accuracy: 0.0000e+00
+Epoch 17/30
+3/3 [==============================] - 68s 21s/step - loss: 2.0662 - accuracy: 0.2308 - val_loss: 2.3878 - val_accuracy: 0.1000
+Epoch 18/30
+3/3 [==============================] - 77s 25s/step - loss: 2.0577 - accuracy: 0.2821 - val_loss: 2.4205 - val_accuracy: 0.1000
+Epoch 19/30
+3/3 [==============================] - 68s 19s/step - loss: 2.0544 - accuracy: 0.2308 - val_loss: 2.3655 - val_accuracy: 0.1000
+Epoch 20/30
+3/3 [==============================] - 70s 22s/step - loss: 2.0468 - accuracy: 0.3333 - val_loss: 2.3352 - val_accuracy: 0.1000
+Epoch 21/30
+3/3 [==============================] - 73s 23s/step - loss: 2.0125 - accuracy: 0.2821 - val_loss: 2.7639 - val_accuracy: 0.0000e+00
+Epoch 22/30
+3/3 [==============================] - 71s 23s/step - loss: 2.0100 - accuracy: 0.2564 - val_loss: 2.3822 - val_accuracy: 0.1000
+Epoch 23/30
+3/3 [==============================] - 93s 30s/step - loss: 2.0198 - accuracy: 0.3590 - val_loss: 3.3642 - val_accuracy: 0.0000e+00
+Epoch 24/30
+3/3 [==============================] - 81s 25s/step - loss: 1.9630 - accuracy: 0.3077 - val_loss: 3.6346 - val_accuracy: 0.1000
+Epoch 25/30
+3/3 [==============================] - 74s 23s/step - loss: 2.0163 - accuracy: 0.3590 - val_loss: 2.3716 - val_accuracy: 0.1000
+Epoch 26/30
+3/3 [==============================] - 84s 26s/step - loss: 2.3263 - accuracy: 0.2821 - val_loss: 2.1431 - val_accuracy: 0.0000e+00
+Epoch 27/30
+3/3 [==============================] - 76s 23s/step - loss: 2.1365 - accuracy: 0.1538 - val_loss: 2.4126 - val_accuracy: 0.1000
+Epoch 28/30
+3/3 [==============================] - 82s 26s/step - loss: 2.1137 - accuracy: 0.2821 - val_loss: 2.4048 - val_accuracy: 0.1000
+Epoch 29/30
+3/3 [==============================] - 76s 22s/step - loss: 2.0445 - accuracy: 0.2564 - val_loss: 2.3340 - val_accuracy: 0.0000e+00
+Epoch 30/30
+3/3 [==============================] - 77s 25s/step - loss: 2.0986 - accuracy: 0.2308 - val_loss: 2.3615 - val_accuracy: 0.0000e+00</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="144">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot loss and accuracy 2,2 subplot</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>plt.plot(history.history[<span class="st">'loss'</span>],label<span class="op">=</span><span class="st">'loss'</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>plt.plot(history.history[<span class="st">'val_loss'</span>],label<span class="op">=</span><span class="st">'val_loss'</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'epoch'</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>plt.plot(history.history[<span class="st">'accuracy'</span>],label<span class="op">=</span><span class="st">'accuracy'</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>plt.plot(history.history[<span class="st">'val_accuracy'</span>],label<span class="op">=</span><span class="st">'val_accuracy'</span>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="144">
+<pre><code>&lt;matplotlib.legend.Legend at 0x2074c092130&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="whale%20dectection_files/figure-html/cell-12-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save model</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>model.save(<span class="st">'model.h5'</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># load model</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.models <span class="im">import</span> load_model</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>model<span class="op">=</span>load_model(<span class="st">'model.h5'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="172">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make predictions</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(X_test[<span class="dv">1</span>])</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>plt.title(label_to_species[np.argmax(Y_test[<span class="dv">1</span>])]<span class="op">+</span><span class="st">'_model_prediction_'</span><span class="op">+</span>label_to_species[np.argmax(model.predict(X_test[<span class="dv">1</span>:<span class="dv">2</span>]))])</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print test accuracy  two decimal places with fsprintf</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">#print('Test accuracy: %.2f' % (model.evaluate(X_test,Y_test)[1]*100))</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print test accuracy  two decimal places with f string</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Test accuracy: </span><span class="sc">{</span>model<span class="sc">.</span>evaluate(X_test,Y_test)[<span class="dv">1</span>]<span class="op">*</span><span class="dv">100</span><span class="sc">:.3f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1/1 [==============================] - 3s 3s/step - loss: 2.3615 - accuracy: 0.0000e+00
+Test accuracy: 0.000</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="whale%20dectection_files/figure-html/cell-14-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="170">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model_predict(path):</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    img<span class="op">=</span>plt.imread(path)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    img<span class="op">=</span>cv2.resize(img,(<span class="dv">224</span>,<span class="dv">224</span>))</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    img<span class="op">=</span>img<span class="op">/</span><span class="fl">255.0</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    img<span class="op">=</span>img.reshape(<span class="dv">1</span>,<span class="dv">224</span>,<span class="dv">224</span>,<span class="dv">3</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> label_to_species[np.argmax(model.predict(img))]</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>model_predict(<span class="st">'E:/python_projects/whale_dectection/newimage/ganges 5.jpg'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="170">
+<pre><code>'beluga whale'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="171">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model_predict(path):</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    im <span class="op">=</span> np.array([preprocess_image(path)])</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    prediction <span class="op">=</span> model.predict(im)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># return prediction label and probability</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> label_to_species[np.argmax(prediction)], np.<span class="bu">max</span>(prediction)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n, path <span class="kw">in</span> <span class="bu">enumerate</span>(os.listdir(<span class="st">'E:/python_projects/whale_dectection/newimage'</span>)): </span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    prediction, confidence <span class="op">=</span> model_predict(<span class="st">'E:/python_projects/whale_dectection/newimage/'</span> <span class="op">+</span> path)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">2</span>, <span class="dv">2</span>, n<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># add title to each subplot</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f'model predicts </span><span class="sc">{</span>prediction<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>confidence<span class="op">*</span><span class="dv">100</span><span class="sc">:.2f}</span><span class="ss">%)'</span>)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    plt.imshow(preprocess_image(<span class="st">'E:/python_projects/whale_dectection/newimage/'</span> <span class="op">+</span> path))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="whale%20dectection_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
