@@ -7,6 +7,7 @@ import time
 from bokeh.io import output_file, show
 from bokeh.plotting import figure
 date=time.strftime("%Y-%m-%d")
+print(date)
 url='https://scholar.google.com/citations?user=ToH-NhkAAAAJ&hl=en'
 r=requests.get(url)
 soup=BeautifulSoup(r.text,'html.parser')
