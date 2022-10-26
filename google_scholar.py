@@ -20,7 +20,7 @@ for i in soup.find_all('td',class_="gsc_rsb_std"):
     total.append(i.text)
 print(total)
 # select the 0,3,5 elements
-all=['totalCitations','h-index','i10-index']
+all=['TotalCitations','H-index','I10-index']
 # select the 0,3,5 elemen
 index=[0,3,5]
 total=[total[i] for i in index]
@@ -44,7 +44,7 @@ graph.xaxis.major_label_text_font_style = "bold"
 output_file("E:/python_projects/HafezAhmadOceanographer.github.io/citebar.html")
 # add values to the bars
 for i, v in enumerate(df['value']):
-    graph.text(x=i, y=v, text=[str(v)], text_color="black", text_font_size="10pt", text_align="right")
+    graph.text(x=i+0.5, y=v, text=[str(v)], text_color="black", text_font_size="10pt", text_align="left")
 # bar plot with df
 graph.vbar(x = df.index.values.tolist(),  width=0.9,top = df['value'].values.tolist(),fill_color=['#36AB9D','#B1F9E1','#EB8E79'])
 show(graph)
