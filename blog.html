@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Hafez Ahmad Oceanographer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/event-drops/1.3.0/style.css"> <!-- Link to your CSS file -->
+  <style>
+    /* Additional CSS for pagination */
+    .pagination {
+      margin-top: 20px;
+    }
+    .pagination button {
+      margin-right: 10px;
+    }
+  </style>
+  <script>
+    // JavaScript for pagination
+    document.addEventListener('DOMContentLoaded', function() {
+      const postsPerPage = 3; // Number of posts to display per page
+      let currentPage = 1; // Current page
+      const posts = document.getElementsByClassName('post'); // Get all posts
+      const totalPosts = posts.length; // Total number of posts
+
+      // Function to show posts for a given page
+      function showPosts(page) {
+        const startIndex = (page - 1) * postsPerPage;
+        const endIndex = startIndex + postsPerPage;
+
+        // Hide all posts
+        for (let i = 0; i < totalPosts; i++) {
+          posts[i].style.display = 'none';
+        }
+
+        // Show posts for the current page
+        for (let i = startIndex; i < endIndex; i++) {
+          if (posts[i]) {
+            posts[i].style.display = 'block';
+          }
+        }
+      }
+
+      // Function to navigate to the next page
+      function nextPage() {
+        if (currentPage < Math.ceil(totalPosts / postsPerPage)) {
+          currentPage++;
+          showPosts(currentPage);
+        }
+      }
+
+      // Function to navigate to the previous page
+      function prevPage() {
+        if (currentPage > 1) {
+          currentPage--;
+          showPosts(currentPage);
+        }
+      }
+
+      // Initial page load
+      showPosts(currentPage);
+
+      // Event listeners for pagination buttons
+      document.getElementById('nextBtn').addEventListener('click', nextPage);
+      document.getElementById('prevBtn').addEventListener('click', prevPage);
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Hafez Ahmad Oceanographer</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Blog</h2>
+
+    <article class="post">
+      <h3>Blog Title 1</h3>
+      <p class="metadata">Published on June 1, 2023 by Hafez Ahmad</p>
+      <img src="images/data_anaylsis1.png" alt="Blog Image">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fringilla arcu vitae libero lacinia, sed ultrices est euismod. Fusce bibendum turpis odio, non lacinia arcu sollicitudin ut.</p>
+    </article>
+    <article class="post">
+        <h3>Blog Title 2</h3>
+        <p class="metadata">Published on June 1, 2023 by Hafez Ahmad</p>
+        <img src="images/data_anaylsis1.png" alt="Blog Image">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fringilla arcu vitae libero lacinia, sed ultrices est euismod. Fusce bibendum turpis odio, non lacinia arcu sollicitudin ut.</p>
+      </article>
+      <article class="post">
+        <h3>Blog Title 3</h3>
+        <p class="metadata">Published on June 1, 2023 by Hafez Ahmad</p>
+        <img src="images/data_anaylsis1.png" alt="Blog Image">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fringilla arcu vitae libero lacinia, sed ultrices est euismod. Fusce bibendum turpis odio, non lacinia arcu sollicitudin ut.</p>
+      </article>
+      <article class="post">
+        <h3>Blog Title 1</h3>
+        <p class="metadata">Published on June 1, 2023 by Hafez Ahmad</p>
+        <img src="images/data_anaylsis1.png" alt="Blog Image">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fringilla arcu vitae libero lacinia, sed ultrices est euismod. Fusce bibendum turpis odio, non lacinia arcu sollicitudin ut.</p>
+      </article>
+      <article class="post">
+        <h3>Blog Title 4</h3>
+        <p class="metadata">Published on June 1, 2023 by Hafez Ahmad</p>
+        <img src="images/data_anaylsis1.png" alt="Blog Image">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fringilla arcu vitae libero lacinia, sed ultrices est euismod. Fusce bibendum turpis odio, non lacinia arcu sollicitudin ut.</p>
+      </article>
+      <article class="post">
+        <h3>Introduction to Python Programming</h3>
+        <p class="metadata">Published on June 4, 2023 by Hafez Ahmad</p>
+        <img src="path-to-your-blog-image-4.jpg" alt="Blog Image">
+        <p>Python is a versatile programming language known for its simplicity and readability. It has gained popularity in various fields, including web development, data analysis, and artificial intelligence.</p>
+        
+        <h4>Getting Started with Python</h4>
+        <p>If you're new to Python, the first step is to install Python on your computer. You can download the latest version from the official Python website (https://www.python.org). Once installed, you can open a Python interactive shell or write Python code in a text editor.</p>
+        
+        <h4>Hello, World! Program</h4>
+        <p>Let's start with a classic "Hello, World!" program in Python:</p>
+        
+        <pre><code class="python">
+      print("Hello, World!")
+        </code></pre>
+        
+        <p>To run this program, save it with a .py extension (e.g., hello_world.py) and open a command prompt or terminal. Navigate to the directory where the file is located and run the following command:</p>
+        
+        <pre><code>$ python hello_world.py</code></pre>
+        
+        <p>You should see the output:</p>
+        
+        <pre><code>Hello, World!</code></pre>
+        
+        <h4>Python Libraries and Frameworks</h4>
+        <p>One of the strengths of Python is its vast ecosystem of libraries and frameworks. Here are a few popular ones:</p>
+        
+        <ul>
+          <li><strong>NumPy:</strong> A library for numerical computations in Python.</li>
+          <li><strong>Pandas:</strong> A library for data manipulation and analysis.</li>
+          <li><strong>Flask:</strong> A lightweight web framework for building web applications.</li>
+          <li><strong>Django:</strong> A full-featured web framework for building robust web applications.</li>
+          <li><strong>TensorFlow:</strong> A library for machine learning and deep learning.</li>
+        </ul>
+        
+        <p>These are just a few examples, and there are many more libraries available to enhance your Python development experience.</p>
+        
+        <h4>Conclusion</h4>
+        <p>Python is a powerful and versatile programming language that is widely used in various domains. Its simplicity and rich ecosystem of libraries make it a great choice for beginners and experienced developers alike.</p>
+      </article>
+
+    <div class="pagination">
+        <button id="prevBtn">Previous</button>
+        <button id="nextBtn">Next</button>
+      </div>
+    </main>
+  </body>
+  </html>
