@@ -12,7 +12,17 @@ url='https://scholar.google.com/citations?user=ToH-NhkAAAAJ&hl=en'
 r=requests.get(url)
 soup=BeautifulSoup(r.text,'html.parser')
 # find 'Citations"  in 'class="gsc_rsb_std"'
-Citations=soup.find('td',class_="gsc_rsb_std").text
+Citations = None
+
+# Find 'Citations' in 'class="gsc_rsb_std"'
+citation_elem = soup.find('td', class_="gsc_rsb_std")
+if citation_elem is not None:
+    Citations = citation_elem.text
+
+if Citations is not None:
+    print(Citations)
+else:
+    print("Unable to retrieve Citations.")
 print(Citations)
 total=[]
 # find 'h-index' in 'class="gsc_rsb_std"'
