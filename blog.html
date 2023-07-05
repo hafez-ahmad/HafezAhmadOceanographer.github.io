@@ -6,15 +6,118 @@
   <title>Blog - Hafez Ahmad Oceanographer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/event-drops/1.3.0/style.css"> <!-- Link to your CSS file -->
   <style>
-    /* Additional CSS for pagination */
-    .pagination {
-      margin-top: 20px;
+     body {
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      line-height: 1.6;
     }
+    .keywords {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f8f8}
+    .pagination {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+    .filter {
+  margin-bottom: 20px;
+}
+
+#filterInput {
+  padding: 5px;
+  width: 200px;
+}
+
+#filterBtn {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #008CBA; /* Change as needed */
+  color: white;
+  cursor: pointer;
+}
+
+#filterBtn:hover {
+  background-color: #007B9A; /* Change as needed */
+}
+
     .pagination button {
-      margin-right: 10px;
+      background-color: #009688;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    .pagination button:hover {
+      background-color: #00766c;
+    }
+    header {
+      padding: 20px 0;
+      margin-bottom: 20px;
+      background-color: #009688;
+      color: white;
+    }
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+    main {
+      padding: 0 10%;
+    }
+    .post img {
+      width: 100%;
+      height: auto;
+    }
+    .metadata {
+      color: #666;
+      margin-bottom: 20px;
     }
   </style>
-  <script>
+  <script src="https://unpkg.com/compromise">
+    document.addEventListener('DOMContentLoaded', function() {
+  // Your existing JavaScript here
+
+  const likeButtons = document.getElementsByClassName('likeBtn');
+  const likesCounters = document.getElementsByClassName('likesCounter');
+
+  for (let i = 0; i < likeButtons.length; i++) {
+    likeButtons[i].addEventListener('click', function() {
+      const currentLikes = parseInt(likesCounters[i].innerText, 10);
+      likesCounters[i].innerText = currentLikes + 1;
+    });
+  }
+})
+// First, include the compromise library in your HTML file
+// <script src="https://unpkg.com/compromise">
+
+document.addEventListener('DOMContentLoaded', function() {
+  const posts = document.getElementsByClassName('post');
+
+  for (let i = 0; i < posts.length; i++) {
+    const text = posts[i].innerText;
+    const nlp = nlp(text);
+    const keywords = nlp.topics().data().map(topic => topic.text);
+    const keywordsDiv = document.createElement('div');
+    keywordsDiv.className = 'keywords';
+
+    keywords.forEach(keyword => {
+      const link = document.createElement('a');
+      link.href = `#${keyword}`; // This should link to a search or tag page
+      link.innerText = keyword;
+      keywordsDiv.appendChild(link);
+    });
+
+    posts[i].appendChild(keywordsDiv);
+  }
+});
+
     // JavaScript for pagination
     document.addEventListener('DOMContentLoaded', function() {
       const postsPerPage = 3; // Number of posts to display per page
@@ -79,10 +182,16 @@
   </header>
 
   <main>
+    <div class="filter">
+      <input id="filterInput" type="text" placeholder="Filter by keyword">
+      <button id="filterBtn">Filter</button>
+    </div>
     <h2>Blog</h2>
         <article class="post">
           <h1>Professional Development Plan</h1>
           <p class="metadata">Published on July 5, 2023 by Hafez Ahmad</p>
+          <button class="likeBtn">Like</button>
+          <p class="likesCounter">0</p>
           <h2>Ocean Science and Coastal Research</h2>
           <p><strong>Goal:</strong> To become a leading expert in ocean science and coastal research, with a focus on coastal remote sensing, autonomous ocean platforms, advanced modeling techniques, and climate change impacts on marine ecosystems.</p>
           
@@ -122,11 +231,21 @@
           </ul>
           
           <p>By following this professional development plan, I aim to become a recognized expert in ocean science and coastal research, significantly contributing to understanding coastal dynamics and climate change impacts and utilizing remote sensing and autonomous technologies effectively. I am committed to lifelong learning, collaborative research, and applying scientific knowledge for sustainable coastal management and conservation of marine ecosystems.</p>
-          
+          <div class="keywords">
+            <h4>Keywords:</h4>
+            <ul>
+              <li><a href="#/">Programming</a></li>
+              <li><a href="#/">Data Science</a></li>
+              <li><a href="#/">Machine Learning</a></li>
+              <!-- Add more as needed -->
+            </ul>
+          </div>
           </article>  
     <article class="post">
 
       <h3>My Journey to Machine Learning</h3>
+      <button class="likeBtn">Like</button>
+        <p class="likesCounter">0</p>
       <p class="metadata">Published on June 3, 2023 by Hafez Ahmad</p>
       <img src="images/data_anaylsis1.png" alt="Blog Image">
       
@@ -157,6 +276,8 @@
 
     <article class="post">
       <h3>How I Started Loving Data-Driven Decision Making</h3>
+      <button class="likeBtn">Like</button>
+          <p class="likesCounter">0</p>
       <p class="metadata">Published on June 3, 2023 by Hafez Ahmad</p>
       <img src="path-to-your-blog-image.jpg" alt="Blog Image">
       <p>In today's data-rich world, making data-driven decisions is no longer a luxury but a necessity for businesses and individuals alike. By harnessing the power of data, we can unlock valuable insights, mitigate risks, and identify opportunities that may otherwise go unnoticed. However, being truly data-driven goes beyond just collecting and analyzing data—it requires a deliberate and thoughtful approach. Here are some key principles to consider when aiming to make data-driven decisions.
@@ -205,6 +326,8 @@
       
     <article class="post">
       <h3>How I Am Improving My Programming Skills</h3>
+      <button class="likeBtn">Like</button>
+          <p class="likesCounter">0</p>
       <p class="metadata">Published on June 3, 2023 by Hafez Ahmad</p>
       <img src="path-to-your-blog-image.jpg" alt="Blog Image">
     
@@ -240,6 +363,8 @@
 
     <article class="post">
       <h3>Best Practices in Remote Sensing for Earth Science Applications </h3>
+      <button class="likeBtn">Like</button>
+          <p class="likesCounter">0</p>
       <p class="metadata">Published on June 3, 2023 by Hafez Ahmad</p>
       <p> Remote sensing technology has revolutionized Earth science applications, providing researchers with valuable data for environmental monitoring, land use mapping, climate studies, and natural resource management. To ensure accurate and reliable results, it is essential to follow best practices in remote sensing. In this blog post, we will explore the top practices that researchers should consider when using remote sensing for Earth science-related applications.
 
