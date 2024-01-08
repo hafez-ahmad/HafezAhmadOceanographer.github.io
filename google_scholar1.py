@@ -1,31 +1,28 @@
-import pandas as pd
+
 import time 
 from bokeh.plotting import figure, output_file, show
-date=time.strftime("%Y-%m-%d")
+from bokeh.models import ColumnDataSource
+
+print('imported')
+date = time.strftime("%Y-%m-%d")
+
+from bokeh.plotting import figure, show
+
 # Dataframe with Google Scholar information
-data = {'TotalCitations': [178], 'H-index': [2], 'I10-index': [3]}
-df = pd.DataFrame(data)
+data = ['TotalCitations', 'H-index', 'I10-index']
+counts = [205, 2, 3]
 
-# Make bar plot and save to an HTML file
-# Instantiating the figure object
-graph = figure(x_range=df.columns.tolist(), plot_width=400, plot_height=400, title = 'Google Scholar information: '+date)
+# Create a figure
+p = figure(x_range=data, height=350, title="Citations up to "+ date, toolbar_location=None, tools="")
 
-# x-axis label with font size and style
-graph.xaxis.axis_label_text_font_size = "20pt"
-graph.xaxis.axis_label_text_font_style = "bold"
-
-# xticks font size and style
-graph.xaxis.major_label_text_font_size = "14pt"
-graph.xaxis.major_label_text_font_style = "bold"
-
+# Plot the vertical bars
+p.vbar(x=data, top=counts, width=0.9, color=['#36AB9D', '#B1F9E1', '#EB8E79'])
 # Save to an HTML file
-output_file("E:/python_projects/HafezAhmadOceanographer.github.io/citebar.html")
+output_file("D:/python_projects/HafezAhmadOceanographer.github.io/citebar.html")
+# Customize the plot
+p.xgrid.grid_line_color = None
+p.y_range.start = 0
 
-# Add values to the bars
-for i, v in enumerate(df.iloc[0]):
-    graph.text(x=i + 0.5, y=v, text=[str(v)], text_color="black", text_font_size="10pt", text_align="center")
+# Show the plot
+show(p)
 
-# Bar plot with df
-graph.vbar(x=df.columns.tolist(), width=0.9, top=df.iloc[0].values.tolist(), fill_color=['#36AB9D', '#B1F9E1', '#EB8E79'])
-
-show(graph)
