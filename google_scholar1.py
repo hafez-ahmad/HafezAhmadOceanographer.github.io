@@ -10,7 +10,7 @@ from bokeh.plotting import figure, show
 
 # Dataframe with Google Scholar information
 data = ['TotalCitations', 'H-index', 'I10-index']
-counts = [205, 2, 3]
+counts = [226, 4, 2]
 
 # Create a figure
 p = figure(x_range=data, height=350, title="Citations up to "+ date, toolbar_location=None, tools="")
