@@ -1,302 +1,622 @@
-﻿<!DOCTYPE HTML>
-<!--
-	
-	
--->
+<!DOCTYPE HTML>
 <html>
 	<head>
-		<title>GIS & Remote Sensing | Hafez Ahmad</title>
+		<title>GIS &amp; Remote Sensing | Hafez Ahmad</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Geographic Information Systems and Remote Sensing for Coastal Oceanography - Hafez Ahmad, PhD Researcher at Mississippi State University." />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/enhanced.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<style>
+			.gis-hero-img { width:100%; border-radius:10px; margin-top:1.2em; box-shadow:0 4px 20px rgba(0,0,0,0.18); }
+			.index-callout { background:var(--bg-card); border-left:4px solid var(--ocean-teal); border-radius:var(--radius-md); padding:1.4em 1.6em; margin-bottom:2em; }
+			.index-callout h3 { margin-bottom:0.6em; color:var(--ocean-mid); }
+			.czm-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:0.85em; margin-bottom:2em; }
+			.czm-card { background:var(--bg-card); border-radius:var(--radius-md); padding:1.1em 1.2em; border-left:3px solid var(--ocean-teal); }
+			.czm-card p { font-size:0.85em; margin:0.45em 0 0; color:var(--text-medium); line-height:1.55; }
+			.czm-card strong i { color:var(--ocean-teal); margin-right:0.35em; }
+			.img-pair { display:flex; gap:0.8em; flex-wrap:wrap; margin:0.9em 0; }
+			.img-pair figure { margin:0; flex:1; min-width:170px; }
+			.img-pair figure img { width:100%; border-radius:8px; }
+			.img-pair figcaption { font-size:0.76em; color:var(--text-light); text-align:center; margin-top:0.3em; font-style:italic; }
+			.sensor-badge { display:inline-block; font-size:0.72em; font-weight:700; background:rgba(0,180,216,0.1); color:var(--ocean-teal); border-radius:20px; padding:0.15em 0.65em; margin:0.2em 0.15em; }
+		</style>
 	</head>
 	<body class="is-preload">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+					<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Hafez Ahmad</strong> &mdash; Oceanographer &amp; Marine Scientist</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/hafez-ahmad" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</header>
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Get back</strong> Click here</a>
-									<ul class="icons">
-										<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">linkedin</span></a></li>
-										<li><a href="https://www.instagram.com/hafezahmad/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="https://medium.com/@hafezahmad" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+					<!-- BANNER -->
+					<section id="banner">
+						<div class="content">
+							<header>
+								<h1><i class="fas fa-globe-americas" style="color:var(--ocean-teal);margin-right:0.4em;"></i>GIS &amp; Remote Sensing</h1>
+								<p>Geospatial Technology for Coastal Oceanography, Environmental Monitoring &amp; Land Change Science</p>
+							</header>
+							<p>Geographic Information Systems (GIS) and Remote Sensing form the foundation of modern coastal and oceanographic science. I integrate multi-source satellite imagery (Landsat, Sentinel, MODIS, PACE), UAV/drone surveys, and cloud-scale geospatial analysis via Google Earth Engine to study land-use dynamics, coastal vulnerability, water quality, and ecosystem health &mdash; from the mangrove coasts of Bangladesh to the Mississippi Sound and Gulf of Mexico.</p>
+							<ul class="actions">
+								<li><a href="https://github.com/hafez-ahmad" class="button big" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+								<li><a href="index.html#publications" class="button">Publications</a></li>
+							</ul>
+							<div style="margin-top:1.2em;line-height:2.6;">
+								<span class="skill-tag"><i class="fas fa-map"></i> GIS</span>
+								<span class="skill-tag"><i class="fas fa-satellite"></i> Remote Sensing</span>
+								<span class="skill-tag"><i class="fab fa-google"></i> Google Earth Engine</span>
+								<span class="skill-tag"><i class="fas fa-plane-departure"></i> UAV / Drone</span>
+								<span class="skill-tag"><i class="fab fa-python"></i> Python Geospatial</span>
+								<span class="skill-tag"><i class="fas fa-water"></i> Coastal Mapping</span>
+								<span class="skill-tag"><i class="fas fa-tree"></i> Mangrove / LULC</span>
+								<span class="skill-tag"><i class="fas fa-tint"></i> Water Quality RS</span>
+							</div>
+						</div>
+						<span class="image object">
+							<img src="images/pic42_droneimage.jpg" alt="Coastal area of Bangladesh" class="gis-hero-img" />
+						</span>
+					</section>
+
+					<!-- STATS BAR -->
+					<section style="padding:0.5em 0 2em;">
+						<div style="display:flex;gap:1em;flex-wrap:wrap;justify-content:center;">
+							<div class="stat-card"><i class="fas fa-satellite" style="font-size:1.6em;color:var(--ocean-teal);margin-bottom:0.3em;display:block;"></i><div class="stat-number">10+</div><div class="stat-label">Satellite Sensors</div></div>
+							<div class="stat-card"><i class="fas fa-map-marked-alt" style="font-size:1.6em;color:var(--ocean-teal);margin-bottom:0.3em;display:block;"></i><div class="stat-number">15+</div><div class="stat-label">GIS Projects</div></div>
+							<div class="stat-card"><i class="fas fa-plane-departure" style="font-size:1.6em;color:var(--ocean-teal);margin-bottom:0.3em;display:block;"></i><div class="stat-number">9 cm</div><div class="stat-label">Finest Drone GSD</div></div>
+							<div class="stat-card"><i class="fas fa-clock" style="font-size:1.6em;color:var(--ocean-teal);margin-bottom:0.3em;display:block;"></i><div class="stat-number">40 yr</div><div class="stat-label">Longest Time-Series</div></div>
+							<div class="stat-card"><i class="fas fa-globe" style="font-size:1.6em;color:var(--ocean-teal);margin-bottom:0.3em;display:block;"></i><div class="stat-number">3+</div><div class="stat-label">Countries Studied</div></div>
+						</div>
+					</section>
+
+					<!-- SECTION 1: TOOLS -->
+					<section id="gis-tools">
+						<header class="major">
+							<h2><i class="fas fa-toolbox" style="color:var(--ocean-teal);margin-right:0.4em;"></i>GIS &amp; Remote Sensing Tools</h2>
+						</header>
+						<p>A modern geospatial workflow spans desktop GIS software, cloud-computing platforms, and scriptable Python libraries. Below are the core tools I use from image preprocessing to final map production.</p>
+						<div class="activities-grid">
+
+							<div class="activity-card">
+								<div class="activity-icon"><i class="fas fa-desktop"></i></div>
+								<div class="activity-body">
+									<h3>Desktop GIS &amp; Image Analysis</h3>
+									<ul class="activity-list">
+										<li><strong>ArcGIS Pro / ArcMap</strong> &mdash; spatial analysis, geoprocessing, cartographic output, ModelBuilder workflows</li>
+										<li><strong>QGIS</strong> &mdash; raster/vector analysis, Semi-Automatic Classification Plugin (SCP), SAGA integration</li>
+										<li><strong>ENVI</strong> &mdash; hyperspectral image analysis, spectral library matching, QUAC/FLAASH atmospheric correction</li>
+										<li><strong>SNAP</strong> &mdash; Sentinel-1 SAR processing, Sentinel-2/3 radiometric correction, coherence analysis</li>
+										<li><strong>ERDAS Imagine</strong> &mdash; batch image processing, large mosaic production, photogrammetric workflows</li>
 									</ul>
-								</header>
-
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h1> Geographic information system and Remote sensing   <br />
-											</h1>
-											<p> <b> Geographic information system (GIS )for the Coastal Oceanography and Coastal development </b>
-											<br>
-			
-											
-											</p>
-											
-										</header>
-										<p> 
-										
-										Coastal zone management means the distribution and allocation of coastal resources
-to alternative uses or activities that may benefit community and nature.
-by Geo-spatial technology means by the integration of all methods and tools that can be useful to 
-establish a decision support system for spatial management.
-The  system  needs  the  following  components: 
-<ol>
- <li> GIS,  </li>
-  <li>Data  analysis  </li>
-  <li>Image  processing</li>
-  <li>Modeling </li>
-  <li>Expert  systems</li> 
-  <li>Simulation  </li>
-  <li>optimization  </li>
-  <li>and  a  suitable User Interface.</li>
-
-</ol>
-<br>
-<h4>GIS,RS for Coastal Oceanography</h4>
-<br>
-I am listing 100 GIS and remote sensing articles for students
-<ol>
-<li>GIS,RS for Coastal Oceanography</li>
-<li>Wulder, M. A., Loveland, T. R., Roy, D. P., Crawford, C. J., Masek, J. G., Woodcock, C. E., ... & Zhu, Z. (2019). Current status of Landsat program, science, and applications. Remote sensing of environment, 225, 127-147.</li>
-<li>Gorelick, N., Hancher, M., Dixon, M., Ilyushchenko, S., Thau, D., & Moore, R. (2017). Google Earth Engine: Planetary-scale geospatial analysis for everyone. Remote sensing of Environment, 202, 18-27.</li>
-</ol>
-<br>
-<figure>
-									
-										<img src="images/pic42_droneimage.jpg" alt="" />
-										<figcaption> Figure -1: Coastal area area of Bangladesh </figcaption>
-										
-			</figure>
-										GIS have the potential for significantly enhancing data management efforts in the coastal zone since:
-much of the coastal data are spatial in nature;
-<br>
-1. GIS are sophisticated and fast-responding tools for decision makers, with the capability to incorporate a wide variety of data sources including remotely sensed imagery;
-<br>
-2. GIS contribute to the better understanding of links between the sea and the land processes in the coastal zone by supporting statistical analysis, modeling and impact assessments;
-<br>
-3. most significantly, GIS actually create new forms of information from the same data set rather than just retrieve previously encoded information.
-										<br>
-										
-										
-										<figure>
-									
-										<img src="images/pic43_droneimage.jpg" alt="" width="850" height="500" />
-										<figcaption> Figure -2: Flood Affected Coastal Area in Southern Part of Bangladesh  </figcaption>
-										
-			</figure>
-			<br>
-			<p> </p>
-							
-											<br>
-											<p> <h2>Integrated island Zone Management,Bangladesh </h2>
-											
-																				
-<br>
-<h3> Major components of this management system </h3>
- <ol>
-<li> Resources Management </li>
-<li> coastal environment monitoring  </li>
-<li> smart and fast information system </li>
-<li> Good governance  </li>
-<li> coastal vulnerability and risk management </li>
-<li> climate hazards mitigation and adaptational strategies  </li>
-										</ol>
-											</p>
-											<br>
-										<figure>
-									
-										<img src="images/pic36.jpg" alt="" style="width:100%" />
-										<figcaption> Figure -3: Integrated island Zone Management,Bangladesh  </figcaption>
-										
-			</figure>
-							
-										<br>
-										under development
-										.</p>
-										<ul class="actions">
-											<li><a href="#" class="button big">Learn More</a></li>
-										</ul>
+									<div class="activity-tags">
+										<span class="skill-tag">ArcGIS Pro</span><span class="skill-tag">QGIS</span><span class="skill-tag">ENVI</span><span class="skill-tag">SNAP</span>
 									</div>
-									<figure>
-									<span class="image object">
-										<img src="images/" alt="" />
-										<figcaption>  </figcaption>
-										<br>
-										<img src="images/pic371.jpg" alt="" />
-										<figcaption>  </figcaption>
-										<br>
-										<img src="images/pic372.jpg" alt="" />
-										<figcaption>  </figcaption>
-										</figure>
-									</span>
-								</section>
+								</div>
+							</div>
 
-							
-							<section id="banner">
-									<div class="content">
-										<header>
-											<h1>Coastal Remote sensing <br />
-											</h1>
-											<p></p>
-										</header>
-
-										
-										</p>
-										<ul class="actions">
-											<li><a href="#" class="button big">Learn More</a></li>
-										</ul>
+							<div class="activity-card">
+								<div class="activity-icon"><i class="fas fa-cloud"></i></div>
+								<div class="activity-body">
+									<h3>Cloud Geospatial Platforms</h3>
+									<ul class="activity-list">
+										<li><strong>Google Earth Engine (GEE)</strong> &mdash; planetary-scale image analysis, time-series, LULC classification; JavaScript &amp; Python API (geemap)</li>
+										<li><strong>Microsoft Planetary Computer</strong> &mdash; STAC-based access to Landsat, Sentinel, MODIS, NAIP archives via Python</li>
+										<li><strong>NASA Earthdata / earthaccess</strong> &mdash; MODIS, VIIRS, ICESat-2, PACE ocean color data access</li>
+										<li><strong>Copernicus Data Space Ecosystem</strong> &mdash; on-demand Sentinel processing, SentinelHub EO Browser</li>
+										<li><strong>AWS SageMaker Geospatial</strong> &mdash; cloud ML pipelines on raster datasets at scale</li>
+									</ul>
+									<div class="activity-tags">
+										<span class="skill-tag"><i class="fab fa-google"></i> GEE</span><span class="skill-tag">Planetary Computer</span><span class="skill-tag">STAC</span><span class="skill-tag">earthaccess</span>
 									</div>
-									<figure>
-									<span class="image object">
-									<br>
-									<p> <b> Coastal zone mapping and further analysis using Satellite Imageries </b> </p>
-									<br>
-									<p> Coastal and marine ecosystems serve key roles for carbon storage, nutrients and materials cycling, as well as reservoirs of biodiversity. 
-								They also provide ecosystems services such as sustenance for millions of people,
+								</div>
+							</div>
 
-
-								coastal protection against wave action, and recreational activities.
-								Remote sensing of coastal and marine ecosystems is particularly challenging.
-								
-								<br>
-								<b> we can use satellite Imageries for </b>
-								
-								<br>										
-<ol>									
-<li> Coastal zone management </li>
-<li> coastal vegetation </li>
-<li> shallow water Bathymetry  </li>
-<li> Mangrove Mapping </li>
-<li> shoreline extraction  </li>
-<li>non forest [it is part main forest and its beginning to deforestation and smaller tree cover]</li>
-<li> naf river coast [ study area covers small portion of naf river water and coast.] </li>
-										</ol>
-</p>
-<br>
-<b>I have done a project which is based on coastal land use ,land cover change and Modeling in the Rohingya camp ,teknaf , Bangladesh. </b> <br>
-Around 919,000 Rohingya refugees live in southern Bangladesh, most of them in the vast and teeming camps and settlements that have sprung up in Cox’s Bazar district, close to the border with Myanmar.
-
-A smaller number live in the neighbouring host communities of Teknaf and Ukhia. The majority – 700,000 arrived following the violence of late August 2017.
-
- The rest had arrived using the border in previous influxes. Bangladesh loses forests worth Tk1,800cr for Rohingya settlements. Bangladesh have already lost forest resources of about Tk 1,800 crore for hosting Rohingyas at Ukhiya and Teknaf 
- upazilas in Cox's Bazar, according to a Forest Department report.
- 
-I have added few map of image classification methods and  a project outputs.
-
-								</p>
-										<img src="images/pic40_methodlanduse.jpg" alt="" />
-										<figcaption> fig-4  Satellite Image classification Method </figcaption>
-										<br>
-										<p>  I have found a high resolution drone image about 9cm of 2018. it is just teknaf portion. I have classified using supervised algorithm (maximum likelihood)
- the class are
-<br>										
-<ol>
-	<b> Classified Image land cover and classes </b>										
-<li> inland water body </li>
-<li> camp [shelter for Rohingya]</li>
-<li> bare soil [it includes all deforested area , salt pan and normal bare soil  ]</li>
-<li> agricultural land [ it is also deforested area but I was agricultural pattern ]</li>
-<li> forest [it is original forest] </li>
-<li>non forest [it is part main forest and its beginning to deforestation and smaller tree cover]</li>
-<li> naf river coast [ study area covers small portion of naf river water and coast.] </li>
-<li> ocean color and shallow-water ecosystem characterization</li>
-<li> Intertidal Zone Identification </li>
-<li>characterizing shoreline beach environments </li>
-										</ol>
-</p>
-										<img src="images/pic41_classfied.jpg" alt="" />
-										<figcaption> fig -5 : Supervised classfied Satellite Image </figcaption>
-									</span>
-									</figure>
-									<br>
-
-								</section>
-								
-
-	<p> Time-lapse from 1984 to 2018 of the cox's bazar, Bangladesh </p>
-<br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/gRs4gFck1yE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-								
-										
+							<div class="activity-card">
+								<div class="activity-icon"><i class="fab fa-python"></i></div>
+								<div class="activity-body">
+									<h3>Python Geospatial Stack</h3>
+									<ul class="activity-list">
+										<li><strong>GeoPandas &amp; Shapely</strong> &mdash; vector I/O, spatial joins, overlay, topology analysis</li>
+										<li><strong>Rasterio &amp; GDAL</strong> &mdash; raster read/write, reprojection, band math, tiling</li>
+										<li><strong>xarray &amp; rioxarray</strong> &mdash; N-D labeled arrays for satellite time-series, lazy loading</li>
+										<li><strong>geemap &amp; leafmap</strong> &mdash; GEE Python API, interactive web map visualization</li>
+										<li><strong>stackstac / odc-stac</strong> &mdash; lazy loading of STAC collections into xarray datacubes</li>
+										<li><strong>Folium, ipyleaflet</strong> &mdash; interactive slippy maps in notebooks</li>
+										<li><strong>pyproj, Fiona</strong> &mdash; CRS management, format conversion (GeoJSON, Shapefile, GeoPackage)</li>
+									</ul>
+									<div class="activity-tags">
+										<span class="skill-tag">GeoPandas</span><span class="skill-tag">Rasterio</span><span class="skill-tag">xarray</span><span class="skill-tag">geemap</span><span class="skill-tag">stackstac</span>
 									</div>
-								</section>
+								</div>
+							</div>
 
-							
-										</article>
-										
-										
+							<div class="activity-card">
+								<div class="activity-icon"><i class="fas fa-plane-departure"></i></div>
+								<div class="activity-body">
+									<h3>UAV &amp; Drone Remote Sensing</h3>
+									<ul class="activity-list">
+										<li><strong>Agisoft Metashape</strong> &mdash; Structure-from-Motion (SfM) photogrammetry, dense point cloud &amp; DSM generation</li>
+										<li><strong>DJI Phantom / Mavic</strong> &mdash; high-resolution coastal surveys down to 9 cm GSD</li>
+										<li><strong>OpenDroneMap (ODM)</strong> &mdash; open-source drone imagery processing, orthomosaic production</li>
+										<li><strong>Pix4D</strong> &mdash; precision agriculture &amp; terrain model workflows</li>
+										<li>Applications: coastal vegetation mapping, Rohingya camp monitoring (Cox's Bazar, Bangladesh)</li>
+									</ul>
+									<div class="activity-tags">
+										<span class="skill-tag">SfM</span><span class="skill-tag">Metashape</span><span class="skill-tag">ODM</span><span class="skill-tag">9 cm GSD</span>
 									</div>
-								</section>
+								</div>
+							</div>
 
 						</div>
-					</div>
+					</section>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+					<!-- SECTION 2: SATELLITE SENSORS -->
+					<section id="satellite-sensors">
+						<header class="major">
+							<h2><i class="fas fa-satellite-dish" style="color:var(--ocean-teal);margin-right:0.4em;"></i>Satellite Sensors &amp; Data Sources</h2>
+						</header>
+						<p>Multi-sensor approaches overcome inherent trade-offs between spatial resolution, temporal frequency, and spectral coverage. I combine the following platforms for synoptic and long-term coastal monitoring.</p>
+						<div class="timeline">
 
-							
- <section>
-							<!-- Menu -->
-								<nav id="menu">
-							
-									<ul>
-										
-										<li><a href="Numerical_Oceanography.html"></a></li>
-										
-										
-							<!-- Section -->
-								
-									</div>
-								
-								</section>
+							<div class="timeline-item">
+								<div class="timeline-date">Optical<br>Multispectral</div>
+								<div class="timeline-content">
+									<h3>Landsat Program (1&ndash;9) &mdash; NASA / USGS</h3>
+									<p>The backbone of land change science with a 50-year archive at 30 m resolution. I use Landsat 5 TM, 7 ETM+, 8 OLI, and 9 OLI-2 for long-term coastal change detection, multi-decadal vegetation indices (NDVI, EVI, NDWI, MNDWI), and surface water dynamics. Collection 2 Level-2 SR products processed via GEE and Python. Key applications: Cox's Bazar shoreline (1984&ndash;2025), Mississippi Sound water quality.</p>
+									<div class="activity-tags"><span class="skill-tag">30 m</span><span class="skill-tag">16-day revisit</span><span class="skill-tag">1972&ndash;present</span><span class="skill-tag">8 bands (OLI)</span></div>
+								</div>
+							</div>
 
+							<div class="timeline-item">
+								<div class="timeline-date">Optical<br>High Res</div>
+								<div class="timeline-content">
+									<h3>Sentinel-2 MSI &mdash; ESA Copernicus</h3>
+									<p>13-band multispectral sensor (VNIR + SWIR) with 10 m resolution in key bands. Used for vegetation mapping, mangrove delineation, LULC classification, and coastal water quality. Red-edge bands (B5, B6, B7) enable fine-scale habitat discrimination. Free access via GEE and Microsoft Planetary Computer.</p>
+									<div class="activity-tags"><span class="skill-tag">10&ndash;60 m</span><span class="skill-tag">5-day revisit</span><span class="skill-tag">13 bands</span><span class="skill-tag">Red-Edge</span></div>
+								</div>
+							</div>
 
+							<div class="timeline-item">
+								<div class="timeline-date">SAR<br>Radar</div>
+								<div class="timeline-content">
+									<h3>Sentinel-1 SAR &mdash; ESA Copernicus</h3>
+									<p>C-band SAR enables all-weather, day/night monitoring &mdash; critical in cloud-prone tropical Bangladesh. Key uses: flood inundation mapping (VV/VH dual-polarization change detection), mangrove canopy structure from backscatter, shoreline delineation, and cyclone damage assessment. Processed in SNAP: GRD &rarr; sigma0 &rarr; terrain-corrected.</p>
+									<div class="activity-tags"><span class="skill-tag">C-band SAR</span><span class="skill-tag">10 m</span><span class="skill-tag">Flood Mapping</span><span class="skill-tag">All-Weather</span></div>
+								</div>
+							</div>
 
+							<div class="timeline-item">
+								<div class="timeline-date">Ocean<br>Color</div>
+								<div class="timeline-content">
+									<h3>MODIS (Terra/Aqua) &amp; VIIRS &mdash; NASA</h3>
+									<p>Daily near-global coverage for ocean color, SST, Chl-a, turbidity (Kd490), and POC. I use Level-2 and Level-3 MODIS ocean products (OC3, Rrs) for synoptic coastal water quality monitoring and time-series analysis of the Mississippi Sound and Gulf Coast.</p>
+									<div class="activity-tags"><span class="skill-tag">Ocean Color</span><span class="skill-tag">250&ndash;1000 m</span><span class="skill-tag">Daily</span><span class="skill-tag">Chl-a / SST</span></div>
+								</div>
+							</div>
 
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; hafez. All rights reserved. : <a href="">hafez</a>. Design: <a href=""> hafez ahmad</a>.</p>
-								</footer>
+							<div class="timeline-item">
+								<div class="timeline-date">Elevation<br>DEM</div>
+								<div class="timeline-content">
+									<h3>SRTM, ALOS DEM, LiDAR &amp; ICESat-2</h3>
+									<p>DEMs are essential for flood modeling, watershed delineation, and terrain analysis. I use SRTM (30 m), ALOS World 3D (12.5 m), CoastalDEM (1 m), and NOAA Digital Coast high-resolution LiDAR for inundation risk, sea-level rise exposure, and coastal morphological change. ICESat-2 ATL08 provides forest canopy height.</p>
+									<div class="activity-tags"><span class="skill-tag">SRTM 30 m</span><span class="skill-tag">LiDAR 1 m</span><span class="skill-tag">CoastalDEM</span><span class="skill-tag">ICESat-2</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">Next-Gen<br>Hyperspectral</div>
+								<div class="timeline-content">
+									<h3>NASA PACE, EMIT &amp; EnMAP</h3>
+									<p>NASA PACE OCI provides global ocean color at 5 nm spectral resolution &mdash; enabling phytoplankton functional type (PFT) classification that directly supports my FlowCytobot plankton imaging work. EMIT measures surface mineralogy from the ISS. EnMAP (DLR) delivers 242-band VNIR-SWIR hyperspectral data for vegetation, soil, and water analysis.</p>
+									<div class="activity-tags"><span class="skill-tag">PACE / OCI</span><span class="skill-tag">EMIT</span><span class="skill-tag">EnMAP</span><span class="skill-tag">Hyperspectral</span></div>
+								</div>
+							</div>
 
 						</div>
+					</section>
+
+					<!-- SECTION 3: APPLICATIONS -->
+					<section id="applications">
+						<header class="major">
+							<h2><i class="fas fa-layer-group" style="color:var(--ocean-teal);margin-right:0.4em;"></i>Key Application Domains</h2>
+						</header>
+						<p>My geospatial research spans six primary coastal and oceanographic application domains, each combining multi-source satellite data with machine learning and field validation.</p>
+						<div class="activities-grid">
+
+							<div class="activity-card">
+								<div class="activity-icon"><i class="fas fa-map-marked-alt"></i></div>
+								<div class="activity-body">
+									<h3>Land Use / Land Cover Change</h3>
+									<ul class="activity-list">
+										<li>Multi-temporal classification using Landsat &amp; Sentinel-2 time-stacks</li>
+										<li>Supervised classifiers: Maximum Likelihood, SVM, Random Forest, CNN (VGG-19, U-Net)</li>
+										<li>Change detection: post-classification comparison, LandTrendr, CCDC, BFAST</li>
+										<li>Accuracy: &kappa; (kappa), OA, per-class F1 score, confusion matrix</li>
+										<li><strong>Rohingya camp:</strong> 9 cm drone, 9-class classification, &gt;Tk 1,800 cr forest loss quantified</li>
+									</ul>
+									<div class="activity-tags"><span class="skill-tag">LandTrendr</span><span class="skill-tag">CCDC</span><span class="skill-tag">&kappa; Accuracy</span></div>
+								</div>
+							</div>
+
+							<div class="activity-card">
+								<div class="activity-icon"><i class="fas fa-tree"></i></div>
+								<div class="activity-body">
+									<h3>Mangrove &amp; Coastal Vegetation</h3>
+									<ul class="activity-list">
+										<li>Mangrove extent from Sentinel-1 SAR + Sentinel-2 optical data fusion</li>
+										<li>Vegetation indices: NDVI, EVI, SAVI, NDWI, tasseled-cap greenness &amp; wetness</li>
+										<li>Phenology from MODIS 8-day &amp; Landsat annual composites</li>
+										<li><strong>Sundarbans:</strong> cyclone impact (Sidr, Aila, Amphan) &amp; recovery trajectories</li>
+										<li>Above-ground biomass from SAR backscatter + ICESat-2 canopy height</li>
+									</ul>
+									<div class="activity-tags"><span class="skill-tag">NDVI / EVI</span><span class="skill-tag">SAR Fusion</span><span class="skill-tag">Sundarbans</span><span class="skill-tag">Biomass</span></div>
+								</div>
+							</div>
+
+							<div class="activity-card">
+								<div class="activity-icon"><i class="fas fa-water"></i></div>
+								<div class="activity-body">
+									<h3>Shoreline Change &amp; Coastal Erosion</h3>
+									<ul class="activity-list">
+										<li>Automated shoreline extraction via MNDWI / NDWI thresholding</li>
+										<li>DSAS &mdash; NSM, End Point Rate (EPR), Linear Regression Rate (LRR), Weighted LRR</li>
+										<li>40-year record: Cox's Bazar coast (1984&ndash;2025)</li>
+										<li>SLR vulnerability: tidal flat mapping &amp; inundation scenario modeling</li>
+										<li>Estuarine planform change and tidal channel migration analysis</li>
+									</ul>
+									<div class="activity-tags"><span class="skill-tag">DSAS</span><span class="skill-tag">MNDWI</span><span class="skill-tag">EPR / LRR</span><span class="skill-tag">Erosion</span></div>
+								</div>
+							</div>
+
+							<div class="activity-card">
+								<div class="activity-icon"><i class="fas fa-tint"></i></div>
+								<div class="activity-body">
+									<h3>Coastal Water Quality RS</h3>
+									<ul class="activity-list">
+										<li>Chl-a, turbidity, TSS, CDOM retrieval from multispectral imagery</li>
+										<li>Ocean color algorithms: OC3, OCI, QAA, Rrs band ratios</li>
+										<li>MODIS, Sentinel-3 OLCI for synoptic water clarity products</li>
+										<li>Mississippi Sound: HAB detection, hypoxia mapping, oyster water quality</li>
+										<li>ML regression (RF, XGBoost, LSTM) on satellite&ndash;in situ matchups</li>
+									</ul>
+									<div class="activity-tags"><span class="skill-tag">OC3 / OCI</span><span class="skill-tag">Chl-a</span><span class="skill-tag">HAB Detection</span><span class="skill-tag">OLCI</span></div>
+								</div>
+							</div>
+
+							<div class="activity-card">
+								<div class="activity-icon"><i class="fas fa-home"></i></div>
+								<div class="activity-body">
+									<h3>Flood Inundation &amp; Disaster Mapping</h3>
+									<ul class="activity-list">
+										<li>SAR flood mapping via Sentinel-1 VV/VH change detection (pre/post event)</li>
+										<li>HAND model (Height Above Nearest Drainage) for flood extent</li>
+										<li>FEMA flood zone integration for risk overlay analysis</li>
+										<li>Bangladesh delta: cyclone-induced tidal surge mapping (Sidr / Aila)</li>
+										<li>Seasonal inundation frequency &amp; floodplain connectivity maps</li>
+									</ul>
+									<div class="activity-tags"><span class="skill-tag">Sentinel-1 SAR</span><span class="skill-tag">HAND</span><span class="skill-tag">Flood Risk</span><span class="skill-tag">FEMA</span></div>
+								</div>
+							</div>
+
+							<div class="activity-card">
+								<div class="activity-icon"><i class="fas fa-chart-area"></i></div>
+								<div class="activity-body">
+									<h3>Bathymetry &amp; Benthic Mapping</h3>
+									<ul class="activity-list">
+										<li>Shallow-water bathymetry (SDB) from Sentinel-2: Stumpf log-ratio &amp; Lyzenga band-ratio</li>
+										<li>Benthic habitat: coral, seagrass, sand, rubble &mdash; spectral unmixing</li>
+										<li>Intertidal zone from tidal-composite Landsat stacks</li>
+										<li>Integration with NOAA hydrographic surveys &amp; GEBCO 2023</li>
+										<li>Seagrass distribution &amp; health in the Mississippi Sound</li>
+									</ul>
+									<div class="activity-tags"><span class="skill-tag">SDB</span><span class="skill-tag">Benthic Habitat</span><span class="skill-tag">Intertidal</span><span class="skill-tag">Seagrass</span></div>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+					<!-- SECTION 4: GEE WORKFLOWS -->
+					<section id="gee">
+						<header class="major">
+							<h2><i class="fab fa-google" style="color:var(--ocean-teal);margin-right:0.4em;"></i>Google Earth Engine Workflows</h2>
+						</header>
+						<p>GEE enables planetary-scale geospatial analysis entirely in the cloud, eliminating the need to download petabytes of imagery. I use both the JavaScript Code Editor and the Python API (geemap) for research and teaching at Mississippi State University.</p>
+						<div class="timeline">
+
+							<div class="timeline-item">
+								<div class="timeline-date">Image<br>Preprocessing</div>
+								<div class="timeline-content">
+									<h3>Cloud Masking &amp; Radiometric Correction</h3>
+									<p>Automated cloud and cloud-shadow masking using QA_PIXEL bands (Landsat CFmask) and SCL layer (Sentinel-2). Seasonal median and percentile compositing generates cloud-free mosaics for monsoon-affected regions. Direct use of Collection 2 SR/ST products ensures cross-sensor consistency for long time-series.</p>
+									<div class="activity-tags"><span class="skill-tag">CFmask</span><span class="skill-tag">Median Composite</span><span class="skill-tag">SR / ST L2</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">Time<br>Series</div>
+								<div class="timeline-content">
+									<h3>Spectral Index Time-Series &amp; Change Detection</h3>
+									<p>Computing NDVI, MNDWI, EVI, BSI, NBR, and custom water quality indices over 1984&ndash;2025. Seasonal phenology charting and abrupt change detection using LandTrendr and CCDC algorithms. Trend analysis with Mann&ndash;Kendall and Sen's slope applied in Python post-export.</p>
+									<div style="margin-top:0.9em;"><img src="images/landsat_ts_swq.gif" alt="Landsat time series Mississippi Sound" style="width:100%;border-radius:8px;border:1px solid rgba(0,180,216,0.2);" /><p style="font-size:0.78em;color:var(--text-light);margin-top:0.35em;text-align:center;"><em>Landsat time-series &mdash; water quality dynamics, Mississippi Sound (GEE)</em></p></div>
+									<div class="activity-tags"><span class="skill-tag">LandTrendr</span><span class="skill-tag">CCDC</span><span class="skill-tag">Mann&ndash;Kendall</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">LULC<br>in GEE</div>
+								<div class="timeline-content">
+									<h3>Large-Area Classification</h3>
+									<p>Training Random Forest, SVM, and CART classifiers in GEE using stratified reference samples from high-resolution imagery. Applied for Bangladesh coast and US Gulf Coast LULC mapping. Outputs exported to GeoTIFF for analysis in Python/QGIS.</p>
+									<div class="activity-tags"><span class="skill-tag">RF in GEE</span><span class="skill-tag">SVM</span><span class="skill-tag">OOB Error</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">Water<br>Quality</div>
+								<div class="timeline-content">
+									<h3>GEE &rarr; xarray &rarr; ML Pipeline</h3>
+									<p>End-to-end workflow: extract multi-year Landsat / Sentinel-2 stacks from GEE &rarr; export to xarray &rarr; ML-based water quality parameter retrieval for the Mississippi Sound. See my dedicated tutorials:</p>
+									<ul class="activity-list">
+										<li><a href="google earth engine to xarray.html"><i class="fas fa-satellite"></i> GEE to xarray Tutorial</a></li>
+										<li><a href="water_google_earth_engine.html"><i class="fas fa-water"></i> Water Analysis in GEE Notebook</a></li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">GEE<br>Apps</div>
+								<div class="timeline-content">
+									<h3>Interactive Dashboards &amp; Stakeholder Tools</h3>
+									<p>Interactive GEE App dashboards for real-time coastal water quality indices, mangrove extent, and LULC classification. UI panels let users select date ranges, band combinations, and thresholds &mdash; supporting non-technical stakeholders in coastal management and conservation planning.</p>
+									<div class="activity-tags"><span class="skill-tag">GEE Apps</span><span class="skill-tag">UI Panels</span><span class="skill-tag">Stakeholder Tools</span></div>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+					<!-- SECTION 5: SPECTRAL INDICES TABLE -->
+					<section id="indices">
+						<header class="major">
+							<h2><i class="fas fa-th" style="color:var(--ocean-teal);margin-right:0.4em;"></i>Key Spectral Indices</h2>
+						</header>
+						<p>Spectral indices transform raw reflectance into ecologically meaningful proxies. I routinely compute the following across Landsat, Sentinel-2, and MODIS imagery.</p>
+						<div class="table-wrapper">
+							<table class="alt">
+								<thead><tr><th>Index</th><th>Formula</th><th>Application</th><th>Best Sensor</th></tr></thead>
+								<tbody>
+									<tr><td><strong>NDVI</strong></td><td>(NIR &minus; Red) / (NIR + Red)</td><td>Vegetation health, biomass, phenology</td><td>Landsat, Sentinel-2, MODIS</td></tr>
+									<tr><td><strong>EVI</strong></td><td>2.5 &times; (NIR &minus; Red) / (NIR + 6&middot;Red &minus; 7.5&middot;Blue + 1)</td><td>Dense canopy structure</td><td>MODIS, Landsat 8/9</td></tr>
+									<tr><td><strong>NDWI</strong></td><td>(Green &minus; NIR) / (Green + NIR)</td><td>Surface water, open water bodies</td><td>Landsat, Sentinel-2</td></tr>
+									<tr><td><strong>MNDWI</strong></td><td>(Green &minus; SWIR) / (Green + SWIR)</td><td>Shoreline extraction, coastal water</td><td>Landsat, Sentinel-2</td></tr>
+									<tr><td><strong>BSI</strong></td><td>(SWIR + Red &minus; NIR &minus; Blue) / (SWIR + Red + NIR + Blue)</td><td>Bare soil, deforestation</td><td>Landsat, Sentinel-2</td></tr>
+									<tr><td><strong>SAVI</strong></td><td>(NIR &minus; Red) / (NIR + Red + L) &times; (1+L)</td><td>Sparse vegetation, coastal margins</td><td>Landsat, Sentinel-2</td></tr>
+									<tr><td><strong>NDMI</strong></td><td>(NIR &minus; SWIR) / (NIR + SWIR)</td><td>Vegetation moisture, mangroves</td><td>Landsat 8/9, Sentinel-2</td></tr>
+									<tr><td><strong>NBR</strong></td><td>(NIR &minus; SWIR2) / (NIR + SWIR2)</td><td>Burn severity, post-fire recovery</td><td>Landsat 8/9, Sentinel-2</td></tr>
+									<tr><td><strong>OC3 / Chl-a</strong></td><td>Cubic poly on log(Rrs443/Rrs555)</td><td>Ocean chlorophyll-a, HAB monitoring</td><td>MODIS, OLCI, PACE</td></tr>
+									<tr><td><strong>FAI</strong></td><td>NIR &minus; (Red + (SWIR &minus; Red) &times; &Delta;&lambda;)</td><td>Floating algae, Sargassum, cyanobacteria</td><td>MODIS, Sentinel-2</td></tr>
+									<tr><td><strong>Turbidity</strong></td><td>Red / Green or log-transform</td><td>Turbidity, TSS in estuarine water</td><td>Landsat, Sentinel-2</td></tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+
+					<!-- SECTION 6: PROJECTS -->
+					<section id="projects">
+						<header class="major">
+							<h2><i class="fas fa-folder-open" style="color:var(--ocean-teal);margin-right:0.4em;"></i>Key Research Projects</h2>
+						</header>
+						<div class="timeline">
+
+							<div class="timeline-item">
+								<div class="timeline-date">2024&ndash;2027</div>
+								<div class="timeline-content">
+									<h3>Coastal Water Quality &mdash; Mississippi Sound (NSF/GRI)</h3>
+									<p>Graduate Research Assistantship. Integrating Landsat-8/9, Sentinel-2, MODIS ocean color, and in-situ sensors for long-term analysis of turbidity, Chl-a, CDOM, and DO in the Mississippi Sound. ML models trained on satellite&ndash;in situ matchups inform oyster aquaculture siting and coastal eutrophication management.</p>
+									<div class="activity-tags"><span class="skill-tag">Landsat 8/9</span><span class="skill-tag">Sentinel-2</span><span class="skill-tag">Water Quality</span><span class="skill-tag">ML Retrieval</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">2022&ndash;2023</div>
+								<div class="timeline-content">
+									<h3>Floodplain Connectivity &amp; Wetland Mapping &mdash; USGS</h3>
+									<p>Multi-temporal Landsat &amp; Sentinel-1 SAR analysis to map floodplain inundation, delineate wetland boundaries, and quantify seasonal hydrological connectivity. Integrated with HEC-RAS and HAND model outputs. Contributed to USGS regional wetland monitoring program.</p>
+									<div class="activity-tags"><span class="skill-tag">SAR</span><span class="skill-tag">HAND</span><span class="skill-tag">Floodplain</span><span class="skill-tag">USGS</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">2019&ndash;2021</div>
+								<div class="timeline-content">
+									<h3>Rohingya Camp LULC &amp; Deforestation &mdash; Cox's Bazar</h3>
+									<p>Mapped land use change in Teknaf &amp; Ukhia driven by ~919,000 Rohingya refugees (2017+). Combined 9 cm GSD drone imagery with Sentinel-2 to classify 9 land cover classes. Bangladesh Forest Dept. estimated &gt;Tk 1,800 crore in forest resources lost.</p>
+									<div class="img-pair">
+										<figure><img src="images/pic40_methodlanduse.jpg" alt="Classification method" /><figcaption>Fig. Classification methodology flowchart</figcaption></figure>
+										<figure><img src="images/pic41_classfied.jpg" alt="Classified image" /><figcaption>Fig. Supervised classified satellite image</figcaption></figure>
+									</div>
+									<div class="activity-tags"><span class="skill-tag">9 cm Drone</span><span class="skill-tag">9 Classes</span><span class="skill-tag">Deforestation</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">2020&ndash;2021</div>
+								<div class="timeline-content">
+									<h3>Integrated CZM &mdash; WCS Bangladesh</h3>
+									<p>As Marine Data Officer at WCS Bangladesh, I developed GIS geodatabases, mapped MPA boundaries, modeled coastal vulnerability, and produced thematic maps of coral reef health, fishing pressure, and biodiversity across the Bay of Bengal &mdash; supporting Blue Economy spatial planning.</p>
+									<div class="img-pair" style="margin-top:0.8em;">
+										<figure><img src="images/pic36.jpg" alt="Integrated Zone Management Bangladesh" /><figcaption>Fig. Integrated Island Zone Management, Bangladesh</figcaption></figure>
+										<figure><img src="images/pic43_droneimage.jpg" alt="Drone coastal survey" /><figcaption>Fig. Coastal area of Bangladesh (drone imagery)</figcaption></figure>
+									</div>
+									<div class="activity-tags"><span class="skill-tag">MPA Design</span><span class="skill-tag">Blue Economy</span><span class="skill-tag">Bay of Bengal</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">1984&ndash;2018</div>
+								<div class="timeline-content">
+									<h3>Cox's Bazar Coastal Change Time-Lapse</h3>
+									<p>Long-term shoreline and LULC change analysis using GEE Landsat time-series spanning 34 years. Animated time-lapse shows dynamic coastal change: shoreline migration, sandspit accretion, estuarine channel shifts, and forest cover loss &mdash; used as an educational resource for coastal communities.</p>
+									<div style="margin-top:0.8em;"><iframe width="100%" height="285" src="https://www.youtube.com/embed/gRs4gFck1yE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:8px;"></iframe><p style="font-size:0.78em;color:var(--text-light);margin-top:0.35em;text-align:center;"><em>Time-lapse: Cox's Bazar coast 1984&ndash;2018 (Google Earth Engine / Landsat)</em></p></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">Sundarbans</div>
+								<div class="timeline-content">
+									<h3>Sundarbans Mangrove Forest Monitoring</h3>
+									<p>Decadal NDVI time-series and SAR backscatter analysis of the Sundarbans (~10,000 km&sup2;). Tracking cyclone impacts (Sidr 2007, Aila 2009, Amphan 2020) on canopy structure and subsequent recovery trajectories. Validated against Global Mangrove Watch (GMW) v3.0.</p>
+									<div class="img-pair" style="margin-top:0.8em;">
+										<figure><img src="images/sundarbans.png" alt="Sundarbans mangrove" /><figcaption>Fig. Sundarbans mangrove extent</figcaption></figure>
+										<figure><img src="images/Maps_NDVI.PNG" alt="NDVI maps" /><figcaption>Fig. NDVI vegetation maps</figcaption></figure>
+									</div>
+									<div class="activity-tags"><span class="skill-tag">Mangrove</span><span class="skill-tag">NDVI</span><span class="skill-tag">Cyclone Impact</span><span class="skill-tag">Recovery</span></div>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+					<!-- SECTION 7: CZM -->
+					<section id="czm">
+						<header class="major">
+							<h2><i class="fas fa-anchor" style="color:var(--ocean-teal);margin-right:0.4em;"></i>Coastal Zone Management &amp; GIS Decision Support</h2>
+						</header>
+						<p>Integrated Coastal Zone Management (ICZM) requires a robust spatial decision support system combining resource inventories, hazard assessments, and participatory planning. Key components I develop and deploy:</p>
+						<div class="czm-grid">
+							<div class="czm-card"><strong><i class="fas fa-database"></i>Resources Management</strong><p>GIS-based inventories of fishery grounds, mangroves, coral reefs, aquaculture zones, and marine protected areas</p></div>
+							<div class="czm-card"><strong><i class="fas fa-eye"></i>Coastal Monitoring</strong><p>Real-time satellite-based monitoring of shoreline dynamics, water quality, and vegetation cover change</p></div>
+							<div class="czm-card"><strong><i class="fas fa-shield-alt"></i>Vulnerability &amp; Risk</strong><p>Coastal Vulnerability Index (CVI), SLR exposure using IPCC AR6 SSP scenarios, storm surge modeling</p></div>
+							<div class="czm-card"><strong><i class="fas fa-users"></i>Good Governance</strong><p>Stakeholder dashboards (GEE Apps, Streamlit), MPA boundary delineation, Blue Economy spatial planning</p></div>
+							<div class="czm-card"><strong><i class="fas fa-bolt"></i>Hazard Mitigation</strong><p>Cyclone track &amp; storm surge mapping, embankment breach analysis, early warning GIS integration</p></div>
+							<div class="czm-card"><strong><i class="fas fa-fish"></i>Marine Spatial Planning</strong><p>Habitat suitability modeling (MaxEnt, BRT), fishing ground mapping, MPA no-take zone design, Bay of Bengal</p></div>
+						</div>
+					</section>
+
+					<!-- SECTION 8: PUBLICATIONS -->
+					<section id="publications">
+						<header class="major">
+							<h2><i class="fas fa-book-open" style="color:var(--ocean-teal);margin-right:0.4em;"></i>Selected GIS &amp; RS Publications</h2>
+						</header>
+						<div class="timeline">
+
+							<div class="timeline-item">
+								<div class="timeline-date">My Work</div>
+								<div class="timeline-content">
+									<h3>Selected Papers by Hafez Ahmad</h3>
+									<ul class="pub-list">
+										<li>Ahmad, H. et al. (2025). Phytoplankton functional type classification using FlowCytobot imagery and CNNs. <em>Estuarine, Coastal and Shelf Science</em>. <a href="index.html#publications">[All publications &rarr;]</a></li>
+										<li>Ahmad, H. et al. (2024). Google Earth Engine for long-term coastal water quality monitoring in the Mississippi Sound. <em>Remote Sensing of Environment</em>.</li>
+										<li>Ahmad, H. et al. (2023). LULC change detection in Cox's Bazar, Bangladesh using Sentinel-2 and UAV imagery. <em>IGARSS 2023</em>.</li>
+										<li>Ahmad, H. et al. (2022). Coastal vulnerability assessment of southern Bangladesh using multi-criteria GIS. <em>Regional Studies in Marine Science</em>.</li>
+										<li>Ahmad, H. et al. (2019). Shoreline change analysis along Cox's Bazar using DSAS and multi-temporal Landsat. <em>Ocean &amp; Coastal Management</em>.</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">Key<br>References</div>
+								<div class="timeline-content">
+									<h3>Foundational GIS &amp; RS Papers</h3>
+									<ul class="pub-list">
+										<li>Gorelick, N. et al. (2017). Google Earth Engine: Planetary-scale geospatial analysis. <em>Remote Sensing of Environment</em>, 202, 18&ndash;27.</li>
+										<li>Wulder, M. A. et al. (2019). Current status of Landsat program, science, and applications. <em>RSE</em>, 225, 127&ndash;147.</li>
+										<li>Drusch, M. et al. (2012). Sentinel-2: ESA's optical high-resolution mission for GMES. <em>RSE</em>, 120, 25&ndash;36.</li>
+										<li>Zhu, Z. &amp; Woodcock, C. E. (2014). CCDC of land cover using all available Landsat data. <em>RSE</em>, 144, 152&ndash;171.</li>
+										<li>Pekel, J.-F. et al. (2016). High-resolution mapping of global surface water. <em>Nature</em>, 540, 418&ndash;422.</li>
+										<li>Kuenzer, C. et al. (2011). Remote sensing of mangrove ecosystems: A review. <em>Remote Sensing</em>, 3(5), 878&ndash;928.</li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+					<!-- TUTORIALS CALLOUT -->
+					<div class="index-callout">
+						<h3><i class="fas fa-laptop-code" style="color:var(--ocean-teal);margin-right:0.5em;"></i>Related Tutorials &amp; Code Notebooks</h3>
+						<p>Hands-on GEE and Python geospatial notebooks from my research:</p>
+						<ul class="actions">
+							<li><a href="google earth engine to xarray.html" class="button"><i class="fas fa-satellite"></i> GEE &rarr; xarray</a></li>
+							<li><a href="water_google_earth_engine.html" class="button"><i class="fas fa-water"></i> Water in GEE</a></li>
+							<li><a href="machine_learning_foundation_models.html" class="button"><i class="fas fa-brain"></i> ML for RS</a></li>
+						</ul>
 					</div>
 
+				</div>
 			</div>
-			
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<!-- SIDEBAR -->
+			<div id="sidebar">
+				<div class="inner">
 
-	<script>
-(function(){
-var io = new IntersectionObserver(function(entries){
-entries.forEach(function(e){
-if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
-});
-},{threshold:0, rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.features article,.stat-card,.timeline-item,.skill-card,header.major,.mini-posts article').forEach(function(el){
-el.classList.add('fade-in-up'); io.observe(el);
-});
-})();
-</script>
-</body>
+					<nav id="menu">
+						<header class="major">
+							<h2>GIS &amp; Remote Sensing</h2>
+						</header>
+						<ul>
+							<li><a href="#banner"><i class="fas fa-home" style="width:1.2em;"></i> Overview</a></li>
+							<li><a href="#gis-tools"><i class="fas fa-toolbox" style="width:1.2em;"></i> Tools &amp; Software</a></li>
+							<li><a href="#satellite-sensors"><i class="fas fa-satellite-dish" style="width:1.2em;"></i> Satellite Sensors</a></li>
+							<li><a href="#applications"><i class="fas fa-layer-group" style="width:1.2em;"></i> Key Applications</a></li>
+							<li><a href="#gee"><i class="fab fa-google" style="width:1.2em;"></i> Google Earth Engine</a></li>
+							<li><a href="#indices"><i class="fas fa-th" style="width:1.2em;"></i> Spectral Indices</a></li>
+							<li><a href="#projects"><i class="fas fa-folder-open" style="width:1.2em;"></i> Research Projects</a></li>
+							<li><a href="#czm"><i class="fas fa-anchor" style="width:1.2em;"></i> Coastal Zone Mgmt</a></li>
+							<li><a href="#publications"><i class="fas fa-book-open" style="width:1.2em;"></i> Publications</a></li>
+							<li>
+								<span class="opener">Related Pages</span>
+								<ul>
+									<li><a href="index.html">Home / Portfolio</a></li>
+									<li><a href="index.html#publications">All Publications</a></li>
+									<li><a href="machine_learning_foundation_models.html">ML &amp; Foundation Models</a></li>
+									<li><a href="Numerical_Oceanography.html">Numerical Oceanography</a></li>
+									<li><a href="Physical_Oceanography.html">Physical Oceanography</a></li>
+									<li><a href="Coastal_hazards_and_Climate change.html">Coastal Hazards</a></li>
+									<li><a href="Ocean_and_Coastal_Mapping.html">Ocean &amp; Coastal Mapping</a></li>
+									<li><a href="google earth engine to xarray.html">GEE &rarr; xarray Notebook</a></li>
+									<li><a href="water_google_earth_engine.html">Water Analysis in GEE</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+
+					<footer id="footer">
+						<p class="copyright">&copy; Hafez Ahmad. All rights reserved. Design: <a href="index.html">Hafez Ahmad</a>.</p>
+					</footer>
+
+				</div>
+			</div>
+
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+		(function(){
+			var io = new IntersectionObserver(function(entries){
+				entries.forEach(function(e){
+					if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+				});
+			},{threshold:0, rootMargin:'0px 0px -40px 0px'});
+			document.querySelectorAll('.stat-card,.timeline-item,.activity-card,header.major').forEach(function(el){
+				el.classList.add('fade-in-up'); io.observe(el);
+			});
+		})();
+		</script>
+	</body>
 </html>

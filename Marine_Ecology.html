@@ -1,202 +1,573 @@
-﻿<!DOCTYPE HTML>
-<!--
-	
-	
--->
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<title>Marine Ecology | Hafez Ahmad</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Marine Ecology, Ocean Biodiversity, Ecosystem Modeling, and Conservation by Hafez Ahmad, PhD Researcher at Mississippi State University." />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/enhanced.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<style>
+			.eco-callout { background:var(--bg-card); border-left:4px solid var(--ocean-teal); border-radius:var(--radius-md); padding:1.4em 1.6em; margin-bottom:2em; }
+			.eco-callout h3 { margin-bottom:0.6em; color:var(--ocean-mid); }
+			.method-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:0.85em; margin-bottom:2em; }
+			.method-card { background:var(--bg-card); border-radius:var(--radius-md); padding:1.1em 1.3em; border-left:3px solid var(--ocean-teal); }
+			.method-card strong i { color:var(--ocean-teal); margin-right:0.4em; }
+			.method-card p { font-size:0.84em; margin:0.4em 0 0; color:var(--text-medium); line-height:1.55; }
+			.img-pair { display:flex; gap:0.8em; flex-wrap:wrap; margin:0.9em 0; }
+			.img-pair figure { margin:0; flex:1; min-width:160px; }
+			.img-pair figure img { width:100%; border-radius:8px; box-shadow:0 3px 12px rgba(0,0,0,0.2); }
+			.img-pair figcaption { font-size:0.75em; color:var(--text-light); text-align:center; margin-top:0.3em; font-style:italic; }
+			.dive-gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:0.6em; margin:1em 0; }
+			.dive-gallery img { width:100%; border-radius:8px; aspect-ratio:1; object-fit:cover; box-shadow:0 2px 10px rgba(0,0,0,0.25); transition:transform 0.25s; }
+			.dive-gallery img:hover { transform:scale(1.04); }
+			.food-web-img { width:100%; border-radius:10px; margin-top:1.2em; box-shadow:0 4px 20px rgba(0,0,0,0.22); }
+		</style>
 	</head>
 	<body class="is-preload">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+					<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Hafez Ahmad</strong> &mdash; Oceanographer &amp; Marine Scientist</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/hafez-ahmad" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</header>
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Hafez Ahmad</strong> &mdash; Oceanographer</a>
-									<ul class="icons">
-										<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">linkedin</span></a></li>
-										<li><a href="https://www.instagram.com/hafezahmad/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="https://medium.com/@hafezahmad" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+					<!-- BANNER -->
+					<section id="banner">
+						<div class="content">
+							<header>
+								<h1><i class="fas fa-fish" style="color:var(--ocean-teal);margin-right:0.4em;"></i>Marine Ecology</h1>
+								<p>Biodiversity, Ecosystem Dynamics, Conservation &amp; Ecological Modeling</p>
+							</header>
+							<p>Marine ecosystems &mdash; from sunlit coral reefs and seagrass meadows to dark abyssal plains &mdash; cover more than 70% of Earth&rsquo;s surface and sustain 32 of 33 described animal phyla. My research integrates field surveys, imaging-flow cytometry, molecular tools (eDNA/metabarcoding), remote sensing, and computational modeling to study biodiversity patterns, community dynamics, and ecosystem health across coastal and open-ocean environments in Bangladesh, the US Gulf Coast, and beyond.</p>
+							<ul class="actions">
+								<li><a href="index.html#publications" class="button big">Publications</a></li>
+								<li><a href="Primerv7_to_R_code.html" class="button">Biodiversity Analysis Code</a></li>
+							</ul>
+							<div style="margin-top:1.2em;line-height:2.6;">
+								<span class="skill-tag"><i class="fas fa-water"></i> Plankton Ecology</span>
+								<span class="skill-tag"><i class="fas fa-dna"></i> eDNA / Metabarcoding</span>
+								<span class="skill-tag"><i class="fas fa-tree"></i> Mangrove &amp; Seagrass</span>
+								<span class="skill-tag"><i class="fas fa-shield-alt"></i> Marine Protected Areas</span>
+								<span class="skill-tag"><i class="fas fa-project-diagram"></i> Ecosystem Modeling</span>
+								<span class="skill-tag"><i class="fas fa-chart-bar"></i> Community Ecology</span>
+								<span class="skill-tag"><i class="fas fa-microscope"></i> FlowCytobot / Imaging</span>
+								<span class="skill-tag"><i class="fas fa-map-marked-alt"></i> Species Distribution</span>
+							</div>
+						</div>
+						<span class="image object">
+							<img src="images/pic24.jpg" alt="Marine food web" class="food-web-img" />
+						</span>
+					</section>
+
+					<!-- STATS BAR -->
+					<section style="padding:0.5em 0 2em;">
+						<div style="display:flex;gap:1em;flex-wrap:wrap;justify-content:center;">
+							<div class="stat-card"><i class="fas fa-water" style="font-size:1.6em;color:var(--ocean-teal);margin-bottom:0.3em;display:block;"></i><div class="stat-number">33</div><div class="stat-label">Animal Phyla in Ocean</div></div>
+							<div class="stat-card"><i class="fas fa-globe" style="font-size:1.6em;color:var(--ocean-teal);margin-bottom:0.3em;display:block;"></i><div class="stat-number">71%</div><div class="stat-label">Earth Covered by Sea</div></div>
+							<div class="stat-card"><i class="fas fa-fish" style="font-size:1.6em;color:var(--ocean-teal);margin-bottom:0.3em;display:block;"></i><div class="stat-number">250K+</div><div class="stat-label">Marine Species Described</div></div>
+							<div class="stat-card"><i class="fas fa-microscope" style="font-size:1.6em;color:var(--ocean-teal);margin-bottom:0.3em;display:block;"></i><div class="stat-number">10+</div><div class="stat-label">Ecology Projects</div></div>
+							<div class="stat-card"><i class="fas fa-map-marked-alt" style="font-size:1.6em;color:var(--ocean-teal);margin-bottom:0.3em;display:block;"></i><div class="stat-number">3+</div><div class="stat-label">Countries Studied</div></div>
+						</div>
+					</section>
+
+					<!-- SECTION 1: RESEARCH THEMES -->
+					<section id="themes">
+						<header class="major">
+							<h2><i class="fas fa-layer-group" style="color:var(--ocean-teal);margin-right:0.4em;"></i>Research Themes</h2>
+						</header>
+						<p>My marine ecology research spans six interlocking themes, combining observational ecology, molecular biology, satellite remote sensing, and computational modeling to understand and protect coastal and oceanic ecosystems.</p>
+						<div class="activities-grid">
+
+							<div class="activity-card">
+								<div class="activity-icon"><i class="fas fa-microscope"></i></div>
+								<div class="activity-body">
+									<h3>Plankton Ecology &amp; Imaging</h3>
+									<ul class="activity-list">
+										<li><strong>FlowCytobot (FCB)</strong> &mdash; in-situ automated imaging flow cytometer for continuous phytoplankton monitoring</li>
+										<li>Deep learning (CNN: VGG-19, ResNet-50) for automated phytoplankton functional type (PFT) classification</li>
+										<li>HAB (harmful algal bloom) detection: <em>Karenia brevis</em>, cyanobacteria, <em>Pseudo-nitzschia</em></li>
+										<li>Linking in-situ PFTs to satellite ocean color (PACE OCI, MODIS, OLCI) for synoptic monitoring</li>
+										<li>Zooplankton community structure from net tows &amp; ISIIS continuous imaging</li>
 									</ul>
-								</header>
-
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h1>Marine Ecology  <br />
-											</h1>
-											<p>Ocean Biodiversity and Ecosystem </p>
-										</header>
-										<p> 
-										<br>
-										Marine ecosystems cover the largest aquatic system in the world covering more then 70 percent of the planet. Marine ecosystems are considered to be the habitats that complete 
-										the larges system from the shores to the dark sea floor. The marine ecosystem includes: marshes, tidal zones, 
-										estuaries, the mangrove forest, lagoons, sea grass beds, the sea floor, and the coral reefs.
-										Marine ecosystems are an important part of the world, because the marine ecosystems give marine life such as:
-										tiny plankton, fish, crustaceans, invertebrates, reptiles, marine mammals, sharks, and rays a place to live and survive
-										<br>
-										The marine environment has a very high biodiversity because 32 out of the 33 described animal phyla are represented in there.
-										.</p>
-										<ul class="actions">
-											<li><a href="#" class="button big">Learn More</a></li>
-										</ul>
+									<div class="activity-tags">
+										<span class="skill-tag">FlowCytobot</span><span class="skill-tag">HAB</span><span class="skill-tag">PFT</span><span class="skill-tag">CNN Classification</span>
 									</div>
-									<figure>
-									<span class="image object">
-										<img src="images/pic24.jpg" alt="" />
-										<figcaption>Fig.1 - General Marine food web </figcaption>
-										</figure>
-									</span>
-								</section>
+								</div>
+							</div>
 
-							
-							<section id="banner">
-									<div class="content">
-										<header>
-											<h1>Ecological Modeling and Modeling Tools <br />
-											</h1>
-											<p></p>
-										</header>
-										<p> 
-									Marine ecosystem comprised of microscopic life to top predators that provide resources and services which are key to the health and wellbeing of human society. Coastal areas are generally rich in marine ecosystems and biodiversity as well as centers of economic activities including fishing, shipping, mariculture, tourism, and recreation, etc. so predicting these ecosystem states on sub-seasonal to interannual timescale is getting top priority.
-
-Understanding and quantitatively describing marine ecosystems requires the integration of physics, chemistry, and biology. Coupling biology and physical oceanography in models has many attractive feature. We can do experiments with models of marine systems while the real system can only be observed in the state at the time of the observation. We can also employ the predictive potential of models for applications such as environmental management or experimental simulations. 
-
-The ecosystem modeling is the mathematical representation of ecological systems ranging from individual population to entire biome which is studied to better understand and prediction about the dynamics of the real ecosystem. More specifically, ecosystem models are a computer that consists of algorithms that represents a set of important ecological processes to compute ecosystem dynamics over time.
-Ecosystem models can be characterized roughly by their complexity for example by the number of state variables and the degree of process resolution.
-Models enable researchers to simulate large scale over a very long period’s experiments that would be costly in the real world. Ecosystem modeling requires the combination of both the biological and the physical system. The physical feature of a system shapes the potential range of the chemical-biological developments. Obvious examples of physical determinants are the yearly cycle and range of temperature, typical mixing, depths, and vertical stratification as well as transport and distribution of nutrients due to advection and turbulent diffusion. Inhomogeneous physical forcing provides scales that need to be resolved in models for many applications. Strong spatial gradients in the biogeochemical variables also require adequate spatial resolution.
-
-<br>										
-<b> Marine Ecological Modeling Tools:</b>
-
-	<ol>										
-<li> Marine Geospatial Ecology Tools (MGET) </li>
-MGET is an open source geoprocessing toolbox that can solve a wide range of marine research, conservation and spatial planning problems. You can use it within ArcGIS [10.1 -10.5].
-<li> Ecopath with Ecosim : </li>
-	Ecopath with Ecosim is a free and open source ecosystem modelling software suite, initially started at NOAA by Jeffrey Polovina, but has since primarily been developed at the formerly UBC Fisheries Centre of the University of British Columbia.
-										</ol>
-		<br>
-<b> References </b>
-
-<ol>
-<li> https://www.terrapub.co.jp/journals/JO/pdf/5802/58020379.pdf </li>
-<li>  apply ecosystem and landscape models in natural resources management </li>
-<li> https://www.ecologycenter.us/population-dynamics-2/marine-ecosystem-modeling-approaches.html</li>
-<li> https://www.frontiersin.org/articles/10.3389/fmars.2019.00623/full</li>
-
-</ol>
-
-										
-										</p>
-										<ul class="actions">
-											<li><a href="#" class="button big">Learn More</a></li>
-										</ul>
+							<div class="activity-card">
+								<div class="activity-icon"><i class="fas fa-dna"></i></div>
+								<div class="activity-body">
+									<h3>eDNA, Metabarcoding &amp; Molecular Ecology</h3>
+									<ul class="activity-list">
+										<li>Environmental DNA (eDNA) water sampling for fish, plankton, and invertebrate detection</li>
+										<li>18S/16S rRNA metabarcoding for microbial &amp; protist biodiversity assessment</li>
+										<li>CO1 barcoding for zooplankton and benthic invertebrate identification</li>
+										<li>Bioinformatics pipelines: QIIME2, DADA2, mothur for OTU/ASV processing</li>
+										<li>Biogeographic diversity gradients (latitudinal &alpha;, &beta;, &gamma; diversity)</li>
+									</ul>
+									<div class="activity-tags">
+										<span class="skill-tag">eDNA</span><span class="skill-tag">QIIME2</span><span class="skill-tag">DADA2</span><span class="skill-tag">Metabarcoding</span>
 									</div>
-							   <figure>
-									<span class="image object">
-										<img src="images/pic23.jpg" alt="" />
-										<figcaption>Fig.2 - Components of a Typicall Dynamic Marine Ecological Model </figcaption>
-										 </figure>
-									</span>
-									
-									
-								</section>
-								
-								
-										
-									</div>
-								</section>
+								</div>
+							</div>
 
-							
-										</article>
-										
-										
+							<div class="activity-card">
+								<div class="activity-icon"><i class="fas fa-tree"></i></div>
+								<div class="activity-body">
+									<h3>Coastal Habitat Ecology</h3>
+									<ul class="activity-list">
+										<li><strong>Mangroves</strong> &mdash; species composition, biomass, cyclone resilience, Blue Carbon (Sundarbans, Cox&rsquo;s Bazar)</li>
+										<li><strong>Seagrass</strong> &mdash; distribution, shoot density, &delta;<sup>13</sup>C stable isotope, dugong habitat, Mississippi Sound</li>
+										<li><strong>Coral Reefs</strong> &mdash; percent live cover, bleaching assessment, benthic photo-quadrat, St. Martin&rsquo;s Island</li>
+										<li><strong>Salt Marsh &amp; Tidal Flat</strong> &mdash; <em>Spartina</em> mapping, nekton surveys, nutrient dynamics</li>
+										<li>Intertidal habitat mapping via drone imagery &amp; Sentinel-2</li>
+									</ul>
+									<div class="activity-tags">
+										<span class="skill-tag">Mangroves</span><span class="skill-tag">Seagrass</span><span class="skill-tag">Coral Reef</span><span class="skill-tag">Blue Carbon</span>
 									</div>
-								</section>
+								</div>
+							</div>
+
+							<div class="activity-card">
+								<div class="activity-icon"><i class="fas fa-shield-alt"></i></div>
+								<div class="activity-body">
+									<h3>Conservation &amp; Marine Protected Areas</h3>
+									<ul class="activity-list">
+										<li>MPA network design &mdash; representation, connectivity, and protection targets (30&times;30)</li>
+										<li>Threat mapping: fishing pressure, pollution, coastal development, climate exposure</li>
+										<li>Marine mammal monitoring &mdash; cetacean occurrence, acoustic detection (PAM)</li>
+										<li>Coral reef resilience assessment &amp; recovery monitoring post-bleaching</li>
+										<li>WCS Bangladesh: Bay of Bengal biodiversity atlas &amp; MPA spatial planning</li>
+									</ul>
+									<div class="activity-tags">
+										<span class="skill-tag">MPA Design</span><span class="skill-tag">30x30</span><span class="skill-tag">Cetaceans</span><span class="skill-tag">WCS</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="activity-card">
+								<div class="activity-icon"><i class="fas fa-tint"></i></div>
+								<div class="activity-body">
+									<h3>Marine Pollution &amp; Water Quality</h3>
+									<ul class="activity-list">
+										<li>Coastal eutrophication: nutrient loading (N, P), DO, hypoxia &mdash; Mississippi Sound &amp; Gulf Coast</li>
+										<li>Microplastics: distribution, ingestion by zooplankton and fish, policy implications</li>
+										<li>Trawl &amp; beach surveys for marine debris quantification in Bangladesh</li>
+										<li>Biomonitoring using benthic macroinvertebrates (BIBI, ABIOTIC score)</li>
+										<li>Satellite RS for turbidity, CDOM, Chl-a proxies in impacted estuaries</li>
+									</ul>
+									<div class="activity-tags">
+										<span class="skill-tag">Eutrophication</span><span class="skill-tag">Microplastics</span><span class="skill-tag">Biomonitoring</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="activity-card">
+								<div class="activity-icon"><i class="fas fa-chart-line"></i></div>
+								<div class="activity-body">
+									<h3>Fish &amp; Fisheries Ecology</h3>
+									<ul class="activity-list">
+										<li>Silver carp (<em>Hypophthalmichthys molitrix</em>) invasion modeling &mdash; Lower Mississippi Alluvial Valley (LMAV)</li>
+										<li>Hydrological connectivity &amp; oxbow lake fish assemblages (USGS / MSU)</li>
+										<li>Crayfish stream habitat modeling (high-resolution NHD+ stream networks, MaxEnt)</li>
+										<li>Electrofishing, mark-recapture, and otolith ageing for stock assessment</li>
+										<li>Alaskan pollock habitat modeling from temperature data in the Bering Sea</li>
+									</ul>
+									<div class="activity-tags">
+										<span class="skill-tag">Silver Carp</span><span class="skill-tag">Invasion</span><span class="skill-tag">LMAV</span><span class="skill-tag">MaxEnt</span>
+									</div>
+								</div>
+							</div>
 
 						</div>
-					</div>
+					</section>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+					<!-- SECTION 2: ECOSYSTEM MODELING -->
+					<section id="modeling">
+						<header class="major">
+							<h2><i class="fas fa-project-diagram" style="color:var(--ocean-teal);margin-right:0.4em;"></i>Ecosystem Modeling</h2>
+						</header>
+						<p>Marine ecosystem models mathematically represent ecological systems &mdash; from individual population to entire biomes &mdash; enabling simulation of dynamics, scenario testing, and management forecasting at scales and durations impossible in the field. Key modeling frameworks I use:</p>
 
-							
- <section>
-							<!-- Menu -->
-								<nav id="menu">
-							
-									<ul>
-										
-										<li><a href="Numerical_Oceanography.html"></a></li>
-										
-										
-							<!-- Section -->
-								
-									</div>
-								
-								</section>
+						<div class="img-pair" style="margin-bottom:1.5em;">
+							<figure>
+								<img src="images/pic23.jpg" alt="Dynamic Marine Ecological Model" />
+								<figcaption>Fig. Components of a typical dynamic marine ecological model</figcaption>
+							</figure>
+							<figure>
+								<img src="images/connectivity.jpg" alt="Floodplain connectivity" />
+								<figcaption>Fig. Floodplain &amp; hydrological connectivity analysis</figcaption>
+							</figure>
+						</div>
 
+						<div class="timeline">
 
+							<div class="timeline-item">
+								<div class="timeline-date">NPZ<br>Models</div>
+								<div class="timeline-content">
+									<h3>Nutrient&ndash;Phytoplankton&ndash;Zooplankton (NPZ) Models</h3>
+									<p>ODE-based coupled physical&ndash;biological models simulating phytoplankton bloom dynamics, nutrient cycling (N, P, Si), zooplankton grazing, and carbon flux. I implement NPZ models in Python (scipy.integrate) and ROMS-BEC to study HAB preconditions and spring bloom phenology in the Gulf Coast.</p>
+									<div class="activity-tags"><span class="skill-tag">ODEs</span><span class="skill-tag">Python scipy</span><span class="skill-tag">ROMS-BEC</span><span class="skill-tag">Carbon Flux</span></div>
+								</div>
+							</div>
 
-							<!-- Section -->
-								<section>
-						
-										<h2>Get in touch</h2>
-						
-									<p> I love to work in the field of Oceanography and Data analysis.If you think, you can contact with me at any moment.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">hafezahmad100@gmail.com</a></li>
-										<li class="icon solid fa-phone">(+880)1785601208</li>
-										<li class="icon solid fa-home">Bangladesh<br />
-										Chittagong,Kotowali</li>
+							<div class="timeline-item">
+								<div class="timeline-date">Ecopath<br>EwE</div>
+								<div class="timeline-content">
+									<h3>Ecopath with Ecosim (EwE)</h3>
+									<p>Mass-balance food web models (Ecopath) coupled with dynamic simulations (Ecosim) and spatial&ndash;temporal predictions (Ecospace). Used for trophic flow analysis, fishing scenario testing, and ecosystem service valuation. Applied to Bay of Bengal coastal food webs including small pelagics, shrimp, and top predators.</p>
+									<div class="activity-tags"><span class="skill-tag">Food Web</span><span class="skill-tag">Trophic Flows</span><span class="skill-tag">Ecosim</span><span class="skill-tag">Ecospace</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">SDM<br>MaxEnt</div>
+								<div class="timeline-content">
+									<h3>Species Distribution Modeling (SDM)</h3>
+									<p>Maximum entropy (MaxEnt), Boosted Regression Trees (BRT), Random Forest, and ensemble SDMs combining occurrence data with environmental predictors (SST, Chl-a, bathymetry, salinity). Applications: seagrass habitat suitability across the Gulf Coast, silver carp invasion potential in the Mississippi River basin, crayfish microhabitat prediction.</p>
+									<div class="activity-tags"><span class="skill-tag">MaxEnt</span><span class="skill-tag">BRT</span><span class="skill-tag">Ensemble SDM</span><span class="skill-tag">Habitat Suitability</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">Connectivity<br>MGET</div>
+								<div class="timeline-content">
+									<h3>Marine Geospatial Ecology Tools (MGET) &amp; Connectivity</h3>
+									<p>MGET is an open-source ArcGIS toolbox for marine spatial ecology, enabling interpolation of oceanographic data, larval dispersal modeling, fishing ground delineation, and MPA siting. I combine MGET with Circuitscape for least-cost path analysis of species connectivity and population gene-flow in fragmented coastal habitats.</p>
+									<div class="activity-tags"><span class="skill-tag">MGET</span><span class="skill-tag">Circuitscape</span><span class="skill-tag">Larval Dispersal</span><span class="skill-tag">Gene Flow</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">Biogeochem<br>ROMS</div>
+								<div class="timeline-content">
+									<h3>Coupled Physical&ndash;Biogeochemical Modeling</h3>
+									<p>ROMS-BEC, NEMO-PISCES, and FVCOM-ICM coupling physical ocean dynamics with biogeochemical cycles. Key variables: primary production, dissolved O<sub>2</sub>, pCO<sub>2</sub>, nutrient transport. Applied for hypoxia forecasting in the northern Gulf of Mexico and seasonal phytoplankton bloom prediction.</p>
+									<div class="activity-tags"><span class="skill-tag">ROMS</span><span class="skill-tag">NEMO</span><span class="skill-tag">Primary Production</span><span class="skill-tag">Hypoxia</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">ML<br>Ecology</div>
+								<div class="timeline-content">
+									<h3>Machine Learning in Marine Ecology</h3>
+									<p>Deep learning pipelines for automated marine organism classification: FlowCytobot image CNN classification (VGG-19, EfficientNet), YOLO-based whale and dolphin detection from aerial images, and Random Forest-based water quality parameter retrieval from satellite reflectance. See the dedicated ML page for full methodology.</p>
+									<ul class="activity-list" style="margin-top:0.6em;">
+										<li><a href="machine_learning_foundation_models.html"><i class="fas fa-brain"></i> ML &amp; Foundation Models Page</a></li>
+										<li><a href="whale dectection.html"><i class="fas fa-kiwi-bird"></i> Whale Detection Demo</a></li>
 									</ul>
-								</section>
-
-
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; hafez. All rights reserved. : <a href="https://unsplash.com">hafez</a>. Design: <a href="https://html5up.net"> hafez ahmad</a>.</p>
-								</footer>
+									<div class="activity-tags"><span class="skill-tag">CNN</span><span class="skill-tag">YOLO</span><span class="skill-tag">Random Forest</span><span class="skill-tag">Image Classification</span></div>
+								</div>
+							</div>
 
 						</div>
+					</section>
+
+					<!-- SECTION 3: FIELD METHODS -->
+					<section id="methods">
+						<header class="major">
+							<h2><i class="fas fa-flask" style="color:var(--ocean-teal);margin-right:0.4em;"></i>Field &amp; Lab Methods</h2>
+						</header>
+						<p>Rigorous ecological conclusions require equally rigorous field sampling and laboratory protocols. Key methods I employ across benthic, pelagic, and intertidal systems:</p>
+						<div class="method-grid">
+							<div class="method-card"><strong><i class="fas fa-anchor"></i>Benthic Surveys</strong><p>Transect, quadrat, and point-intercept methods for benthic habitat mapping; Van Veen grab for infaunal community sampling; SCUBA-based coral surveys</p></div>
+							<div class="method-card"><strong><i class="fas fa-water"></i>Pelagic Sampling</strong><p>Bongo/Tucker trawl nets for zooplankton; rosette CTD casts for water column profiling; Niskin bottle discrete sampling for chemistry</p></div>
+							<div class="method-card"><strong><i class="fas fa-microscope"></i>Microscopy &amp; Imaging</strong><p>Light microscopy phytoplankton counts; FlowCytobot in-situ imaging flow cytometry; scanning electron microscopy (SEM) for diatom frustule morphology</p></div>
+							<div class="method-card"><strong><i class="fas fa-dna"></i>Molecular Methods</strong><p>eDNA filtration (0.2&ndash;0.45&nbsp;&mu;m); DNA extraction (DNeasy); PCR, qPCR; Illumina MiSeq 16S/18S metabarcoding</p></div>
+							<div class="method-card"><strong><i class="fas fa-plane-departure"></i>UAV Surveys</strong><p>Drone transect surveys for megafauna counts (dolphins, dugongs, turtles); coastal vegetation canopy mapping at 9&nbsp;cm GSD</p></div>
+							<div class="method-card"><strong><i class="fas fa-satellite"></i>Acoustic Methods</strong><p>Passive acoustic monitoring (PAM) for cetaceans; active acoustics (EK60/EK80 echosounders) for zooplankton &amp; fish biomass</p></div>
+						</div>
+
+						<!-- Dive gallery -->
+						<h3 style="margin-bottom:0.7em; color:var(--ocean-mid);"><i class="fas fa-swimmer" style="color:var(--ocean-teal);margin-right:0.4em;"></i>Field Work Gallery</h3>
+						<div class="dive-gallery">
+							<img src="images/dive1.jpg" alt="Dive survey 1" title="Coral reef SCUBA survey" />
+							<img src="images/dive2.jpg" alt="Dive survey 2" title="Benthic transect" />
+							<img src="images/dive3.jpg" alt="Dive survey 3" title="Marine biodiversity survey" />
+							<img src="images/dive4.jpg" alt="Dive survey 4" title="Coastal field work" />
+							<img src="images/dive5.jpg" alt="Dive survey 5" title="Marine habitat survey" />
+							<img src="images/transect.PNG" alt="Transect survey" title="Transect survey design" />
+						</div>
+					</section>
+
+					<!-- SECTION 4: COMMUNITY ECOLOGY ANALYSIS -->
+					<section id="community">
+						<header class="major">
+							<h2><i class="fas fa-chart-bar" style="color:var(--ocean-teal);margin-right:0.4em;"></i>Community Ecology &amp; Statistical Analysis</h2>
+						</header>
+						<p>Multivariate statistical analysis is central to interpreting patterns in species assemblages. I use R (vegan, ape, phyloseq) and PRIMER v7 for community-level analyses, and have developed tutorials to translate PRIMER workflows into reproducible R code.</p>
+
+						<div class="img-pair" style="margin-bottom:1.5em;">
+							<figure>
+								<img src="images/pic44_communityecology.jpg" alt="Community ecology analysis" />
+								<figcaption>Fig. Community ecology ordination and biodiversity analysis</figcaption>
+							</figure>
+							<figure>
+								<img src="images/poc.png" alt="POC analysis" />
+								<figcaption>Fig. Particulate organic carbon (POC) &amp; carbon cycling</figcaption>
+							</figure>
+						</div>
+
+						<div class="timeline">
+
+							<div class="timeline-item">
+								<div class="timeline-date">Diversity<br>Indices</div>
+								<div class="timeline-content">
+									<h3>Alpha, Beta &amp; Gamma Diversity</h3>
+									<p>Species richness, Shannon H&prime;, Simpson D, Pielou J&prime;, Margalef d, and Hill numbers (q=0,1,2) for &alpha;-diversity. Bray&ndash;Curtis dissimilarity, Jaccard, and Chao1/ACE estimators. Rarefaction curves, species accumulation, and occupancy&ndash;abundance relationships. Gut-content stable isotope (&delta;<sup>13</sup>C, &delta;<sup>15</sup>N) trophic analysis.</p>
+									<div class="activity-tags"><span class="skill-tag">Shannon H&prime;</span><span class="skill-tag">Hill Numbers</span><span class="skill-tag">Bray&ndash;Curtis</span><span class="skill-tag">Rarefaction</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">Ordination<br>Tests</div>
+								<div class="timeline-content">
+									<h3>Multivariate Ordination &amp; Hypothesis Tests</h3>
+									<p>nMDS and PCoA for community structure visualization; PERMANOVA and ANOSIM for testing assemblage differences; SIMPER for identifying species driving dissimilarity between groups; BIOENV / DistLM for linking community patterns to environmental gradients. All analyses in PRIMER v7 / R vegan package.</p>
+									<div class="activity-tags"><span class="skill-tag">nMDS</span><span class="skill-tag">PERMANOVA</span><span class="skill-tag">SIMPER</span><span class="skill-tag">BIOENV</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">PRIMER<br>&rarr; R</div>
+								<div class="timeline-content">
+									<h3>PRIMER v7 to R Translation &mdash; Open Reproducibility</h3>
+									<p>I authored a detailed code tutorial translating standard PRIMER v7 multivariate workflows into open-source R (vegan, ape, phyloseq, iNEXT), making biodiversity analyses fully reproducible and freely accessible to the community.</p>
+									<ul class="activity-list" style="margin-top:0.5em;">
+										<li><a href="Primerv7_to_R_code.html"><i class="fab fa-r-project"></i> Open the PRIMER v7 &rarr; R Tutorial</a></li>
+									</ul>
+									<div class="activity-tags"><span class="skill-tag">vegan</span><span class="skill-tag">phyloseq</span><span class="skill-tag">iNEXT</span><span class="skill-tag">PRIMER v7</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">Trophic<br>Analysis</div>
+								<div class="timeline-content">
+									<h3>Trophic Ecology &amp; Food Web Analysis</h3>
+									<p>Stable isotope analysis (&delta;<sup>13</sup>C, &delta;<sup>15</sup>N) for trophic position estimation and food source mixing models (MixSIAR, simmr). Gut content analysis for diet characterization. Network analysis (igraph) for food web topology, connectance, and omnivory indices.</p>
+									<div class="activity-tags"><span class="skill-tag">Stable Isotopes</span><span class="skill-tag">MixSIAR</span><span class="skill-tag">Food Web</span><span class="skill-tag">Network Analysis</span></div>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+					<!-- SECTION 5: KEY PROJECTS -->
+					<section id="projects">
+						<header class="major">
+							<h2><i class="fas fa-folder-open" style="color:var(--ocean-teal);margin-right:0.4em;"></i>Key Research Projects</h2>
+						</header>
+						<div class="timeline">
+
+							<div class="timeline-item">
+								<div class="timeline-date">2024&ndash;2027</div>
+								<div class="timeline-content">
+									<h3>Phytoplankton Functional Types &mdash; Mississippi Sound (NSF/GRI)</h3>
+									<p>Using FlowCytobot continuous in-situ imaging combined with CNN deep learning classification (VGG-19) to identify phytoplankton functional types (PFTs) at fine temporal resolution in the Mississippi Sound. Linking PFT composition to satellite ocean color (MODIS, PACE) and environmental drivers (nutrients, stratification, freshwater input from the Pearl &amp; Pascagoula rivers).</p>
+									<div class="img-pair" style="margin-top:0.8em;">
+										<figure><img src="images/pic44_mammaldetection.jpg" alt="Mammal detection" /><figcaption>Fig. Marine mammal detection using ML</figcaption></figure>
+										<figure><img src="images/pic45dashboard.jpg" alt="Ecology dashboard" /><figcaption>Fig. Interactive ecology monitoring dashboard</figcaption></figure>
+									</div>
+									<div class="activity-tags"><span class="skill-tag">FlowCytobot</span><span class="skill-tag">CNN</span><span class="skill-tag">PACE</span><span class="skill-tag">HAB</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">2022&ndash;2023</div>
+								<div class="timeline-content">
+									<h3>Silver Carp Invasion Modeling &mdash; Lower Mississippi Alluvial Valley</h3>
+									<p>Developed a spatial management framework to limit silver carp (<em>Hypophthalmichthys molitrix</em>) invasion across the LMAV. Integrated hydrological connectivity maps (Landsat &amp; Sentinel-1 SAR), high-resolution NHD+ stream networks, and habitat suitability models (MaxEnt, BRT) to identify at-risk waterbodies and prioritize barrier installation. Published with USGS and MSU faculty.</p>
+									<div class="activity-tags"><span class="skill-tag">Silver Carp</span><span class="skill-tag">LMAV</span><span class="skill-tag">Connectivity</span><span class="skill-tag">USGS</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">2022&ndash;2023</div>
+								<div class="timeline-content">
+									<h3>Oxbow Lake Fish Assemblage &amp; Hydrological Connectivity</h3>
+									<p>Characterized fish assemblages in isolated vs. connected oxbow lakes of the LMAV using electrofishing surveys. Derived hydrological connectivity metrics from Landsat time-series and LiDAR DEMs. Presented at the 153rd Annual Meeting of the American Fisheries Society, 2023.</p>
+									<div class="activity-tags"><span class="skill-tag">Oxbow Lakes</span><span class="skill-tag">Electrofishing</span><span class="skill-tag">Connectivity</span><span class="skill-tag">AFS 2023</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">2020&ndash;2021</div>
+								<div class="timeline-content">
+									<h3>Bay of Bengal Biodiversity &amp; MPA Mapping &mdash; WCS Bangladesh</h3>
+									<p>As Marine Data Officer at the Wildlife Conservation Society (WCS) Bangladesh, I led biodiversity surveys, compiled a geo-referenced species occurrence database, and modeled critical habitat for cetaceans, sea turtles, and reef fish across the Bay of Bengal. Outputs directly supported national MPA spatial planning and Blue Economy policy under the DoF Bangladesh.</p>
+									<div class="activity-tags"><span class="skill-tag">WCS</span><span class="skill-tag">MPA</span><span class="skill-tag">Bay of Bengal</span><span class="skill-tag">Cetaceans</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">2018&ndash;2020</div>
+								<div class="timeline-content">
+									<h3>St. Martin&rsquo;s Island Coral &amp; Mangrove Assessment</h3>
+									<p>Field assessment of coral reef health (benthic photo-transects, fish counts, bleaching scoring), and mangrove species composition at St. Martin&rsquo;s Island &mdash; the only coral island in Bangladesh. Documented threats from coastal development, fishing pressure, and warming events. Contributed to the DoE Environmental Impact Assessment.</p>
+									<div class="img-pair" style="margin-top:0.8em;">
+										<figure><img src="images/sundarbans.png" alt="Sundarbans mangrove" /><figcaption>Fig. Mangrove extent mapping, Bangladesh coast</figcaption></figure>
+										<figure><img src="images/ocean1.jpg" alt="Ocean field work" /><figcaption>Fig. Coastal &amp; ocean field survey</figcaption></figure>
+									</div>
+									<div class="activity-tags"><span class="skill-tag">Coral Reef</span><span class="skill-tag">Mangrove</span><span class="skill-tag">St. Martin&rsquo;s Island</span></div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">Ongoing</div>
+								<div class="timeline-content">
+									<h3>Crayfish Stream Habitat Modeling &mdash; USGS</h3>
+									<p>Using high-resolution NHD+ stream networks to reveal hidden microhabitats for petitioned burrowing crayfish species in the southeastern US. Combining field occurrence data with NHD+ catchment attributes, DEM terrain derivatives, and MaxEnt SDM. Presented at the 155th Annual Meeting of the American Fisheries Society, San Antonio 2025.</p>
+									<div class="activity-tags"><span class="skill-tag">Crayfish</span><span class="skill-tag">NHD+</span><span class="skill-tag">MaxEnt</span><span class="skill-tag">AFS 2025</span></div>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+					<!-- SECTION 6: MARINE POLLUTION & OCEAN HEALTH -->
+					<section id="health">
+						<header class="major">
+							<h2><i class="fas fa-heartbeat" style="color:var(--ocean-teal);margin-right:0.4em;"></i>Ocean Health Indicators</h2>
+						</header>
+						<p>Tracking ecosystem health requires integrating biological, chemical, and physical indicators across multiple trophic levels. Key indicators and frameworks I apply:</p>
+						<div class="method-grid">
+							<div class="method-card"><strong><i class="fas fa-seedling"></i>Primary Production</strong><p>Satellite Chl-a (MODIS, OLCI, PACE), GPP from 14C incubations, POC flux, and export production estimates</p></div>
+							<div class="method-card"><strong><i class="fas fa-wind"></i>Dissolved Oxygen &amp; Hypoxia</strong><p>DO sensors (YSI/EXO2), hypoxia mapping (DO &lt;2 mg/L), seasonal hypoxic zone extent in Gulf of Mexico</p></div>
+							<div class="method-card"><strong><i class="fas fa-biohazard"></i>HAB Monitoring</strong><p>Passive HAB monitoring via in-situ sensors, satellite FAI/FLH index, <em>Karenia brevis</em> shellfish toxin sampling</p></div>
+							<div class="method-card"><strong><i class="fas fa-industry"></i>Nutrient Dynamics</strong><p>DIN, DIP, DSi profiling; N:P:Si Redfield ratios; nutrient stoichiometry limiting factor analysis</p></div>
+							<div class="method-card"><strong><i class="fas fa-temperature-high"></i>Thermal Stress</strong><p>Degree Heating Weeks (DHW) from NOAA CoralWatch, bleaching probability maps, IPCC SSP warming scenarios</p></div>
+							<div class="method-card"><strong><i class="fas fa-anchor"></i>Benthic Health Index</strong><p>BIBI, AMBI, M-AMBI for estuarine benthic quality; BQI for soft-sediment macrobenthos; IBI for fish assemblages</p></div>
+						</div>
+					</section>
+
+					<!-- SECTION 7: PUBLICATIONS -->
+					<section id="publications">
+						<header class="major">
+							<h2><i class="fas fa-book-open" style="color:var(--ocean-teal);margin-right:0.4em;"></i>Selected Marine Ecology Publications</h2>
+						</header>
+						<div class="timeline">
+
+							<div class="timeline-item">
+								<div class="timeline-date">My Work</div>
+								<div class="timeline-content">
+									<h3>Selected Papers by Hafez Ahmad</h3>
+									<ul class="pub-list">
+										<li>Ahmad, H. et al. (2025). Phytoplankton functional type classification using FlowCytobot imagery and CNN deep learning. <em>Estuarine, Coastal and Shelf Science</em>.</li>
+										<li>Raburn, D. M., Ahmad, H. et al. (2025). High-resolution stream networks reveal habitats for petitioned burrowing crayfishes. <em>155th AFS Annual Meeting</em>.</li>
+										<li>Ahmad, H. et al. (2023). Hydrological connectivity patterns in oxbow lakes of the LMAV. <em>153rd AFS Annual Meeting</em>.</li>
+										<li>Ahmad, H. et al. (2022). Coastal vulnerability and biodiversity assessment, Bay of Bengal. <em>Regional Studies in Marine Science</em>.</li>
+										<li>Ahmad, H. et al. (2020). LULC change and its impact on mangrove ecosystems in Cox&rsquo;s Bazar. <em>Ocean &amp; Coastal Management</em>.</li>
+									</ul>
+									<a href="index.html#publications" class="button" style="margin-top:0.8em;"><i class="fas fa-external-link-alt"></i> All Publications</a>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-date">Key<br>References</div>
+								<div class="timeline-content">
+									<h3>Foundational Marine Ecology References</h3>
+									<ul class="pub-list">
+										<li>Christensen, V. &amp; Pauly, D. (1992). ECOPATH II &mdash; a software for balancing steady-state ecosystem models. <em>Ecol. Modell.</em>, 61(3&ndash;4), 169&ndash;185.</li>
+										<li>Elith, J. et al. (2006). Novel methods improve prediction of species&rsquo; distributions from occurrence data. <em>Ecography</em>, 29(2), 129&ndash;151.</li>
+										<li>Clarke, K. R. &amp; Gorley, R. N. (2006). PRIMER v6: User manual/tutorial. Plymouth.</li>
+										<li>Oksanen, J. et al. (2022). vegan: Community Ecology Package. R package v2.6-4.</li>
+										<li>Field, C. B. et al. (1998). Primary production of the biosphere. <em>Science</em>, 281(5374), 237&ndash;240.</li>
+										<li>Kuenzer, C. et al. (2011). Remote sensing of mangrove ecosystems: A review. <em>Remote Sensing</em>, 3(5), 878&ndash;928.</li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+					<!-- CALLOUT -->
+					<div class="eco-callout">
+						<h3><i class="fas fa-laptop-code" style="color:var(--ocean-teal);margin-right:0.5em;"></i>Related Tutorials &amp; Code</h3>
+						<p>Reproducible analysis notebooks and tutorials from my marine ecology research:</p>
+						<ul class="actions">
+							<li><a href="Primerv7_to_R_code.html" class="button"><i class="fab fa-r-project"></i> PRIMER v7 &rarr; R</a></li>
+							<li><a href="machine_learning_foundation_models.html" class="button"><i class="fas fa-brain"></i> ML for Ecology</a></li>
+							<li><a href="whale dectection.html" class="button"><i class="fas fa-kiwi-bird"></i> Whale Detection</a></li>
+							<li><a href="FisheriesAcoustics.html" class="button"><i class="fas fa-wave-square"></i> Fisheries Acoustics</a></li>
+						</ul>
 					</div>
 
+				</div>
 			</div>
-			
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<!-- SIDEBAR -->
+			<div id="sidebar">
+				<div class="inner">
 
-	<script>
-(function(){
-var io = new IntersectionObserver(function(entries){
-entries.forEach(function(e){
-if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
-});
-},{threshold:0, rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.features article,.stat-card,.timeline-item,.skill-card,header.major,.mini-posts article').forEach(function(el){
-el.classList.add('fade-in-up'); io.observe(el);
-});
-})();
-</script>
-</body>
+					<nav id="menu">
+						<header class="major">
+							<h2>Marine Ecology</h2>
+						</header>
+						<ul>
+							<li><a href="#banner"><i class="fas fa-home" style="width:1.2em;"></i> Overview</a></li>
+							<li><a href="#themes"><i class="fas fa-layer-group" style="width:1.2em;"></i> Research Themes</a></li>
+							<li><a href="#modeling"><i class="fas fa-project-diagram" style="width:1.2em;"></i> Ecosystem Modeling</a></li>
+							<li><a href="#methods"><i class="fas fa-flask" style="width:1.2em;"></i> Field &amp; Lab Methods</a></li>
+							<li><a href="#community"><i class="fas fa-chart-bar" style="width:1.2em;"></i> Community Ecology</a></li>
+							<li><a href="#projects"><i class="fas fa-folder-open" style="width:1.2em;"></i> Research Projects</a></li>
+							<li><a href="#health"><i class="fas fa-heartbeat" style="width:1.2em;"></i> Ocean Health</a></li>
+							<li><a href="#publications"><i class="fas fa-book-open" style="width:1.2em;"></i> Publications</a></li>
+							<li>
+								<span class="opener">Related Pages</span>
+								<ul>
+									<li><a href="index.html">Home / Portfolio</a></li>
+									<li><a href="index.html#publications">All Publications</a></li>
+									<li><a href="Geographic_information_system.html">GIS &amp; Remote Sensing</a></li>
+									<li><a href="machine_learning_foundation_models.html">ML &amp; Foundation Models</a></li>
+									<li><a href="Coastal_Zone_Management_and_Blue_Economy.html">Coastal Zone Management</a></li>
+									<li><a href="Coastal_hazards_and_Climate change.html">Coastal Hazards</a></li>
+									<li><a href="Numerical_Oceanography.html">Numerical Oceanography</a></li>
+									<li><a href="Physical_Oceanography.html">Physical Oceanography</a></li>
+									<li><a href="Primerv7_to_R_code.html">Ocean Biodiversity (R Code)</a></li>
+									<li><a href="FisheriesAcoustics.html">Fisheries Acoustics</a></li>
+									<li><a href="whale dectection.html">Whale Detection Demo</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+
+					<footer id="footer">
+						<p class="copyright">&copy; Hafez Ahmad. All rights reserved. Design: <a href="index.html">Hafez Ahmad</a>.</p>
+					</footer>
+
+				</div>
+			</div>
+
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+		(function(){
+			var io = new IntersectionObserver(function(entries){
+				entries.forEach(function(e){
+					if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+				});
+			},{threshold:0, rootMargin:'0px 0px -40px 0px'});
+			document.querySelectorAll('.stat-card,.timeline-item,.activity-card,header.major').forEach(function(el){
+				el.classList.add('fade-in-up'); io.observe(el);
+			});
+		})();
+		</script>
+	</body>
 </html>
