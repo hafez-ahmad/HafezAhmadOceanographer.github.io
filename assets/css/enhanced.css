@@ -873,10 +873,60 @@ ul.contact li:before { color: var(--ocean-teal); }
   margin-top: 0.85em;
 }
 
-/* Section spacing for Education / Experience */
+/* Section spacing for Education / Experience / Publications */
 #education,
-#experience {
+#experience,
+#publications {
   padding-top: 1em;
+}
+
+/* Publications list inside timeline cards */
+.pub-list {
+  padding-left: 1.3em;
+  margin: 0.7em 0 0;
+}
+.pub-list li {
+  font-size: 0.86em;
+  line-height: 1.72;
+  color: var(--text-medium);
+  margin-bottom: 0.7em;
+  padding-bottom: 0.65em;
+  border-bottom: 1px dashed rgba(0,180,216,0.15);
+}
+.pub-list li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.pub-list li em {
+  color: var(--ocean-mid);
+  font-style: italic;
+}
+.pub-list li a {
+  color: var(--ocean-teal);
+  font-size: 0.85em;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  background: rgba(0,180,216,0.08);
+  transition: var(--transition);
+  margin-left: 0.3em;
+}
+.pub-list li a:hover {
+  background: var(--ocean-teal);
+  color: #fff;
+}
+.pub-count {
+  font-size: 0.72em;
+  font-weight: 500;
+  color: var(--ocean-teal);
+  background: rgba(0,180,216,0.1);
+  padding: 0.15em 0.6em;
+  border-radius: 20px;
+  margin-left: 0.5em;
+  vertical-align: middle;
+  letter-spacing: 0.02em;
 }
 
 /* ===================================================
