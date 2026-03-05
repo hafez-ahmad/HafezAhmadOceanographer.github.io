@@ -1,420 +1,849 @@
-﻿<!DOCTYPE HTML>
-<!--
-	
-	
--->
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Numerical Oceanography | Hafez Ahmad</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/enhanced.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-	</head>
-	<body class="is-preload">
+<head>
+  <title>Numerical &amp; Computational Oceanography &mdash; Hafez Ahmad</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/enhanced.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default"></script>
+  <style>
+    .eq-box {
+      background: var(--bg-card);
+      border-left: 4px solid var(--ocean-teal);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1.4rem;
+      margin: 0.75rem 0;
+      overflow-x: auto;
+    }
+    .eq-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ocean-teal);
+      margin-bottom: 0.35rem;
+    }
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1rem;
+      margin: 1.4rem 0;
+    }
+    .method-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(0,206,209,0.18);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.1rem;
+      text-align: center;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .method-card:hover { transform: translateY(-3px); border-color: var(--ocean-teal); }
+    .method-card i { font-size: 1.7rem; color: var(--ocean-teal); margin-bottom: 0.45rem; display: block; }
+    .method-card h4 { margin: 0 0 0.25rem; font-size: 0.92rem; color: #e8f4f8; }
+    .method-card p { font-size: 0.8rem; color: #8aabb0; margin: 0; line-height: 1.5; }
+    .num-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 1.4rem 0; }
+    .num-table th { background: var(--ocean-dark); color: var(--ocean-teal); padding: 0.55rem 0.8rem; text-align: left; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.07em; }
+    .num-table td { padding: 0.5rem 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.06); color: #c0d4d8; }
+    .num-table tr:hover td { background: rgba(0,206,209,0.05); }
+    .sticky-nav {
+      position: sticky; top: 0; z-index: 999;
+      background: rgba(10,30,40,0.97);
+      border-bottom: 1px solid rgba(0,206,209,0.22);
+      padding: 0.5rem 1.4rem;
+      display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap;
+    }
+    .sticky-nav a { color: #9ab8bc; text-decoration: none; font-size: 0.81rem; padding: 0.28rem 0.65rem; border-radius: 20px; transition: all 0.2s; }
+    .sticky-nav a:hover, .sticky-nav a.active { background: var(--ocean-teal); color: #0a1e28; font-weight: 600; }
+    .sticky-nav .nav-brand { font-weight: 700; color: var(--ocean-teal); margin-right: 0.7rem; font-size: 0.86rem; }
+  </style>
+</head>
+<body class="is-preload">
+<div id="wrapper">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+<!-- Sticky Nav -->
+<nav class="sticky-nav">
+  <span class="nav-brand"><i class="fas fa-water"></i> NumOcean</span>
+  <a href="index.html">Home</a>
+  <a href="Geographic_information_system.html">GIS &amp; RS</a>
+  <a href="Ocean_and_Coastal_Mapping.html">Ocean Mapping</a>
+  <a href="Marine_Ecology.html">Marine Ecology</a>
+  <a href="Numerical_Oceanography.html" class="active">Numerical Oceanography</a>
+  <a href="Physical_Oceanography.html">Physical Oceanography</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+<!-- Main -->
+<div id="main" class="alt">
+<div class="inner">
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Hafez Ahmad</strong> &mdash; Oceanographer</a>
-									<ul class="icons">
-										<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">linkedin</span></a></li>
-										<li><a href="https://www.instagram.com/hafezahmad/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="https://medium.com/@hafezahmad" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
-									</ul>
-								</header>
-
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h1>Numerical Oceanography<br />
-											</h1>
-											<p>Most Governing Equations & Numerical Modeling </p>
-										</header>
-										<p> Numerical ocean models have become increasingly valuable tools as we strive to understand the nature of the ocean’s 
-										dynamics. They have progressed from the necessarily crude and idealized tools of decades past to capture much of the complexity and beauty of the real ocean. Many oceanographic research projects utilize numerical models as a fully equal partner and complement to the long-established 
-										physical oceanographic approaches of seagoing observational inference, theory, and fluids lab experimentation.
-										<br>
-										Simulation models can calculate realistic oceanic circulation by resolving the 
-										primitive equations coupled with the international equation of the state of the sea, as well as 
-										the equations temperature and salt conservation (Maria, 2012). Furthermore, The importance of predicting the state of the ocean currents, tide, temperature, salinity, and sea level in real time have been recognized years ago in many modern developed countries for their different regional and global purposes. Different ocean models can be loosely characterized by 
-										their approaches to spatial discretization and vertical coordinate treatment
-										<br>
-										<b> Most important equations in Ocean Modeling</b>
-										
-										<ol>
-										<li> hydrostatic equation</li>
-										<li> continuity equation</li>
-										<li>state equation </li>
-										<li> conservation of temperature and salt</li>
-										<li> Navier-Stokes equations </li>
-										<li> Momentum equations</li>
-										<li>Advection-diffusion equation </li>
-										<br>
-										<b> sources </b>
-										1. https://stephengriffies.github.io/assets/pdfs/CH18_griffies_adcroft.pdf
-										2. https://www.myroms.org/wiki/Documentation_Portal
-										
-										</ol>
-										</p>
-										<ul class="actions">
-											<li><a href="#" class="button big">Learn More</a></li>
-										</ul>
-									</div>
-									<span class="image object">
-										<img src="images/pic20.jpg" alt="" />
-									</span>
-								</section>
-
-							
-							<section id="banner">
-									<div class="content">
-										<header>
-											<h1> Oceanography with Programming  <br />
-											</h1>
-											<p>Computational Oceanography </p>
-											<br>
-											<p>let's solve and visualize Laplace Equations with python programming ,Laplace equation in 2-D cartesian coordinates (for heat equation)</p>
-											<br>
-											<p>  </p>
-										</header>
-										<br> 
-										<p>$$ {\nabla ^2}T = \frac{{{\partial ^2}T}}{{\partial {x^2}}} + \frac{{{\partial ^2}T}}{{\partial {y^2}}} = 0$$ </p>
-										<br>
-										Where T is temperature, x is x-dimension, and y is y-dimension. x and y are functions of position in Cartesian coordinates
-										</p> 
-										
-										<p> 
-										
-
- <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="c1"># Set maximum iteration</span>
-<span class="n">maxIter</span> <span class="o">=</span> <span class="mi">500</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="c1"># Set maximum iteration</span>
-<span class="n">maxIter</span> <span class="o">=</span> <span class="mi">500</span>
-
-<span class="c1"># Set Dimension and delta</span>
-<span class="n">lenX</span> <span class="o">=</span> <span class="n">lenY</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1">#we set it rectangular</span>
-<span class="n">delta</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="c1"># Boundary condition</span>
-<span class="n">Ttop</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#100,0</span>
-<span class="n">Tbottom</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">Tleft</span> <span class="o">=</span> <span class="mi">30</span>
-<span class="n">Tright</span> <span class="o">=</span> <span class="mi">30</span> <span class="c1">#0,30</span>
-
-<span class="c1"># Initial guess of interior grid</span>
-<span class="n">Tguess</span> <span class="o">=</span> <span class="mi">30</span>
-<span class="c1"># Set colour interpolation and colour map.</span>
-<span class="c1"># You can try set it to 10, or 100 to see the difference</span>
-<span class="c1"># You can also try: colourMap = plt.cm.coolwarm</span>
-<span class="n">colorinterpolation</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">colourMap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span>
-
-<span class="c1">#set mesh</span>
-
-<span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">lenX</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">lenY</span><span class="p">))</span>
-
-<span class="c1"># Set array size and set the interior value with Tguess</span>
-<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">lenX</span><span class="p">,</span> <span class="n">lenY</span><span class="p">))</span>
-<span class="n">T</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">Tguess</span><span class="p">)</span>
-
-<span class="c1"># Set Boundary condition</span>
-<span class="n">T</span><span class="p">[(</span><span class="n">lenY</span><span class="o">-</span><span class="mi">1</span><span class="p">):,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">Ttop</span> <span class="c1"># bottom row 100</span>
-<span class="n">T</span><span class="p">[:</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">Tbottom</span>  <span class="c1">#top row 0</span>
-<span class="n">T</span><span class="p">[:,</span> <span class="p">(</span><span class="n">lenX</span><span class="o">-</span><span class="mi">1</span><span class="p">):]</span> <span class="o">=</span> <span class="n">Tright</span>
-<span class="n">T</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Tleft</span>
-
-<span class="c1"># Iteration (We assume that the iteration is convergence in maxIter = 500)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please wait for a moment&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">maxIter</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">lenX</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">delta</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">lenY</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">delta</span><span class="p">):</span>
-            <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="mf">0.25</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-        
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;finisted&#39;</span><span class="p">)</span>
-<span class="c1">#Configure the contour</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Contour of Temperature&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">T</span><span class="p">,</span> <span class="n">colorinterpolation</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">colourMap</span><span class="p">)</span>
-
-<span class="c1"># Set Colorbar</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
-
-<span class="c1"># Show the result in the plot window</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
-
-<span class="n">Ca0</span> <span class="o">=</span> <span class="mi">2</span>     <span class="c1"># Entering concentration</span>
-<span class="n">vo</span> <span class="o">=</span> <span class="mi">2</span>      <span class="c1"># volumetric flow rate</span>
-<span class="n">volume</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1"># total volume of reactor, spacetime = 10</span>
-<span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c1"># reaction rate constant</span>
-
-<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>     <span class="c1"># number of points to discretize the reactor volume on</span>
-
-<span class="n">init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>    <span class="c1"># Concentration in reactor at t = 0</span>
-<span class="n">init</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ca0</span>         <span class="c1"># concentration at entrance</span>
-
-<span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="c1"># discretized volume elements</span>
-<span class="n">tspan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>    <span class="c1"># time span to integrate over</span>
-
-<span class="k">def</span> <span class="nf">method_of_lines</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-    <span class="s1">&#39;coupled ODES at each node point&#39;</span>
-    <span class="n">D</span> <span class="o">=</span> <span class="o">-</span><span class="n">vo</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">-</span> <span class="n">k</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">**</span><span class="mi">2</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span><span class="n">D</span><span class="p">])</span>
-
-<span class="n">sol</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">method_of_lines</span><span class="p">,</span> <span class="n">init</span><span class="p">,</span> <span class="n">tspan</span><span class="p">)</span>
-
-    
-<span class="c1"># steady state solution</span>
-<span class="k">def</span> <span class="nf">pfr</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">V</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">vo</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="n">C</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="n">ssol</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">pfr</span><span class="p">,</span> <span class="n">Ca0</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tspan</span><span class="p">,</span><span class="n">sol</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">ssol</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Steady state&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">sol</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;t = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tspan</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volume&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$C_A$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
-
-
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span> 
-
-<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
-<span class="n">line</span><span class="p">,</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">init</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="k">def</span> <span class="nf">anim</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-    <span class="n">line</span><span class="o">.</span><span class="n">set_xdata</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
-    <span class="n">line</span><span class="o">.</span><span class="n">set_ydata</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;t = </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tspan</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">line</span><span class="p">,</span>
-
-<span class="n">anim</span><span class="o">=</span><span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="n">anim</span><span class="p">,</span><span class="n">frames</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">anim</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="c1"># save it as mp4 file </span>
-<span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;transient_pfr.mp4&#39;</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-<span class="image object">
-										<br> 
-										<p> <iframe width="560" height="315" src="https://www.youtube.com/embed/xj4H3Lv5ba8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
-										
-    
+<!-- ══════════════ BANNER ══════════════ -->
+<section id="banner" style="background:linear-gradient(135deg,#0a1e28 0%,#0d2d3a 55%,#0a2230 100%);padding:3.4rem 2rem 2.4rem;border-radius:12px;margin-bottom:2rem;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:url('images/ocean1.jpg') center/cover;opacity:0.11;"></div>
+  <div style="position:relative;z-index:2;max-width:860px;">
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+      <div style="width:54px;height:54px;background:linear-gradient(135deg,var(--ocean-teal),#0077b6);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.55rem;color:#fff;flex-shrink:0;">
+        <i class="fas fa-water"></i>
+      </div>
+      <div>
+        <p style="margin:0;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--ocean-teal);font-weight:600;">Research Domain</p>
+        <h1 style="margin:0;font-size:2.3rem;line-height:1.1;color:#e8f4f8;">Numerical &amp; Computational Oceanography</h1>
+      </div>
     </div>
-</div>
-</div>
-
-</div>
+    <p style="font-size:1.02rem;color:#a0c4c8;margin:0.4rem 0 1.2rem;line-height:1.75;">
+      Translating the physics of ocean circulation into numerical frameworks &mdash; from primitive equations and coastal hydrodynamics to scientific programming and high-performance ocean model simulations.
+    </p>
+    <div style="display:flex;flex-wrap:wrap;gap:0.45rem;margin-bottom:1.3rem;">
+      <span class="skill-tag">ROMS</span>
+      <span class="skill-tag">FVCOM</span>
+      <span class="skill-tag">ADCIRC</span>
+      <span class="skill-tag">SCHISM</span>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">Julia</span>
+      <span class="skill-tag">MATLAB</span>
+      <span class="skill-tag">Governing Equations</span>
+      <span class="skill-tag">Coastal Hydrodynamics</span>
+      <span class="skill-tag">NetCDF / xarray</span>
+    </div>
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+      <a href="https://github.com/HafezAhmadOceanographer" target="_blank" class="button small" style="background:var(--ocean-teal);color:#0a1e28;font-weight:700;border:none;"><i class="fab fa-github"></i> GitHub Code</a>
+      <a href="#publications" class="button small" style="background:transparent;border:1px solid var(--ocean-teal);color:var(--ocean-teal);"><i class="fas fa-book-open"></i> Publications</a>
+      <a href="#equations" class="button small" style="background:transparent;border:1px solid #4a8898;color:#a0c4c8;"><i class="fas fa-square-root-variable"></i> Equations</a>
     </div>
   </div>
-	 <br>
+</section>
 
-<h3> How to make a [animated barplot] race_barplot with python? </h3>
+<!-- ══════════════ STATS ══════════════ -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-bottom:2.5rem;">
+  <div class="stat-card">
+    <div class="stat-icon"><i class="fas fa-cube"></i></div>
+    <div class="stat-number">7+</div>
+    <div class="stat-label">Ocean Models</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon"><i class="fas fa-infinity"></i></div>
+    <div class="stat-number">8</div>
+    <div class="stat-label">Core Equations</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon"><i class="fas fa-code"></i></div>
+    <div class="stat-number">4</div>
+    <div class="stat-label">Languages</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon"><i class="fas fa-server"></i></div>
+    <div class="stat-number">50+</div>
+    <div class="stat-label">Model Runs</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+    <div class="stat-number">40+</div>
+    <div class="stat-label">Yrs of Data</div>
+  </div>
+</div>
 
-<p><iframe width="560" height="315" src="https://www.youtube.com/embed/SbqQ2OAIrzg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!-- ══════════════ SCIENTIFIC PROGRAMMING ══════════════ -->
+<section id="languages">
+  <header class="major">
+    <h2><i class="fas fa-code" style="color:var(--ocean-teal);margin-right:0.5rem;"></i>Scientific Programming for Ocean Science</h2>
+    <p>High-performance languages and toolkits for numerical ocean modeling, data analysis, and visualization workflows.</p>
+  </header>
+  <div class="activities-grid">
 
-<br>
-<p> <b>code here ,note :  [you have to configure your system with ffmpeg] </b> 
-<div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load library</span>
-<span class="kn">import</span> <span class="nn">bar_chart_race</span> <span class="k">as</span> <span class="nn">bcr</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;datasets_826161_1412128_Countries Population from 1995 to 2020.csv&quot;</span><span class="p">)</span>
-
-<span class="c1"># bcr_html = bcr.bar_chart_race(df=df, filename=None)</span>
-
-<span class="n">pop</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Yearly % Change&#39;</span><span class="p">,</span> <span class="s1">&#39;Yearly Change&#39;</span><span class="p">,</span>
-               <span class="s1">&#39;Migrants (net)&#39;</span><span class="p">,</span> <span class="s1">&#39;Median Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Fertility Rate&#39;</span><span class="p">,</span> <span class="s1">&#39;Density (P/Km²)&#39;</span><span class="p">,</span>
-               <span class="s1">&#39;Urban Pop %&#39;</span><span class="p">,</span> <span class="s1">&#39;Urban Population&#39;</span><span class="p">,</span> <span class="s2">&quot;Country&#39;s Share of World Pop %&quot;</span><span class="p">,</span>
-               <span class="s1">&#39;World Population&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Global Rank&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># year=colum first ,column, country =first row</span>
-<span class="c1"># making pivot table </span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="s2">&quot;Population&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">],</span> <span class="s2">&quot;Country&quot;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
-
-<span class="c1"># make animated barplot as pop2020_horiz.mp4</span>
-
-<span class="n">bcr</span><span class="o">.</span><span class="n">bar_chart_race</span><span class="p">(</span>
-    <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
-    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;pop2020_horiz.mp4&#39;</span><span class="p">,</span>
-    <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">,</span>
-    <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;desc&#39;</span><span class="p">,</span>
-    <span class="n">n_bars</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="n">fixed_order</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">fixed_max</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">steps_per_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="n">interpolate_period</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">label_bars</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">bar_size</span><span class="o">=.</span><span class="mi">90</span><span class="p">,</span>
-    <span class="n">period_label</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="o">.</span><span class="mi">99</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="o">.</span><span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;ha&#39;</span><span class="p">:</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;va&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">},</span>
-    <span class="n">period_summary_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">v</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="o">.</span><span class="mi">99</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="o">.</span><span class="mi">18</span><span class="p">,</span>
-                                      <span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;Population</span><span class="si">{</span><span class="n">v</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">39</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s1">,.0f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
-                                      <span class="s1">&#39;ha&#39;</span><span class="p">:</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;Courier New&#39;</span><span class="p">},</span>
-    <span class="n">period_length</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
-    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">6.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
-    <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;dark12&#39;</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Population by Country from 1955 to 2020&#39;</span><span class="p">,</span>
-    <span class="n">title_size</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-    <span class="n">bar_label_size</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
-    <span class="n">tick_label_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-    <span class="n">shared_fontdict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;Helvetica&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;.1&#39;</span><span class="p">},</span>
-    <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>
-    <span class="n">writer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">bar_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="o">.</span><span class="mi">7</span><span class="p">},</span>
-    <span class="n">filter_column_colors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
+    <div class="activity-card">
+      <div class="card-icon"><i class="fab fa-python"></i></div>
+      <h3>Python</h3>
+      <p>Primary language for oceanographic data processing, model pre/post-processing, and publication-quality visualization of ocean fields and time series.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.32rem;margin-top:0.8rem;">
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">SciPy</span>
+        <span class="skill-tag">xarray</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">Matplotlib</span>
+        <span class="skill-tag">Cartopy</span>
+        <span class="skill-tag">netCDF4</span>
+        <span class="skill-tag">cmocean</span>
+        <span class="skill-tag">gsw (TEOS-10)</span>
+        <span class="skill-tag">Dask</span>
+      </div>
     </div>
-</div>
-</div>
 
-</div>
+    <div class="activity-card">
+      <div class="card-icon"><i class="fas fa-bolt"></i></div>
+      <h3>Julia</h3>
+      <p>High-performance ocean modeling and biogeochemical simulations. Julia's speed rivals Fortran/C while maintaining Python-like syntax, ideal for large-scale eddy-resolving simulations.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.32rem;margin-top:0.8rem;">
+        <span class="skill-tag">Oceananigans.jl</span>
+        <span class="skill-tag">OceanBioME.jl</span>
+        <span class="skill-tag">Plots.jl</span>
+        <span class="skill-tag">DifferentialEquations.jl</span>
+        <span class="skill-tag">Distributed.jl</span>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+      <h3>MATLAB / Octave</h3>
+      <p>Classic ocean data analysis, ADCP/CTD processing, spectral analysis, and legacy oceanographic toolboxes that remain standard in the research community.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.32rem;margin-top:0.8rem;">
+        <span class="skill-tag">m_map</span>
+        <span class="skill-tag">SeaWater Toolbox</span>
+        <span class="skill-tag">ADCP Analysis</span>
+        <span class="skill-tag">Signal Processing</span>
+        <span class="skill-tag">Time Series</span>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
+      <h3>R for Oceanography</h3>
+      <p>Statistical analysis, ecological modeling, and oceanographic visualization in R's rich scientific ecosystem, particularly for biogeochemical and fisheries-linked ocean studies.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.32rem;margin-top:0.8rem;">
+        <span class="skill-tag">oce</span>
+        <span class="skill-tag">marmap</span>
+        <span class="skill-tag">cmocean</span>
+        <span class="skill-tag">ggOceanMaps</span>
+        <span class="skill-tag">ncdf4</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ OCEAN MODELS ══════════════ -->
+<section id="models">
+  <header class="major">
+    <h2><i class="fas fa-water" style="color:var(--ocean-teal);margin-right:0.5rem;"></i>Ocean &amp; Coastal Hydrodynamic Models</h2>
+    <p>Operational and research-grade ocean circulation models for coastal, regional, and global applications.</p>
+  </header>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-cube"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">ROMS</div>
+        <h3>Regional Ocean Modeling System</h3>
+        <p>Terrain-following sigma-coordinate model widely used for regional and coastal simulations. Supports baroclinic dynamics, nested domains, tidal forcing, and biogeochemical coupling. Applied for Gulf of Mexico circulation, tidal mixing, and sediment transport studies.</p>
+        <div style="display:flex;gap:0.38rem;flex-wrap:wrap;margin-top:0.6rem;">
+          <span class="skill-tag">Sigma Coordinates</span>
+          <span class="skill-tag">Baroclinic</span>
+          <span class="skill-tag">Nested Domains</span>
+          <span class="skill-tag">Biogeochemistry</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-project-diagram"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">FVCOM</div>
+        <h3>Finite Volume Community Ocean Model</h3>
+        <p>Unstructured triangular-grid finite-volume model ideal for estuaries, tidal inlets, and complex coastal geometry. Handles wetting/drying of intertidal flats and incorporates atmosphere-wave-ocean coupling for realistic coastal simulations.</p>
+        <div style="display:flex;gap:0.38rem;flex-wrap:wrap;margin-top:0.6rem;">
+          <span class="skill-tag">Unstructured Grid</span>
+          <span class="skill-tag">Wetting/Drying</span>
+          <span class="skill-tag">Estuaries</span>
+          <span class="skill-tag">Tidal Channels</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-wind"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">ADCIRC</div>
+        <h3>Advanced Circulation Model</h3>
+        <p>High-resolution unstructured-grid model for storm surge, tidal circulation, and coastal flooding. The gold standard for hurricane impact assessment along the Gulf and Atlantic coasts, supporting FEMA flood maps and emergency preparedness planning.</p>
+        <div style="display:flex;gap:0.38rem;flex-wrap:wrap;margin-top:0.6rem;">
+          <span class="skill-tag">Storm Surge</span>
+          <span class="skill-tag">Hurricane Modeling</span>
+          <span class="skill-tag">Coastal Flooding</span>
+          <span class="skill-tag">FEMA Applications</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-layer-group"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">SCHISM</div>
+        <h3>Semi-implicit Cross-scale Hydroscience Integrated System</h3>
+        <p>Next-generation hybrid V-grid model (unstructured horizontal + terrain-following/z-level vertical) supporting fully baroclinic dynamics, atmosphere-ocean-wave-sediment coupling, and seamless cross-scale simulations from rivers to ocean basins.</p>
+        <div style="display:flex;gap:0.38rem;flex-wrap:wrap;margin-top:0.6rem;">
+          <span class="skill-tag">Hybrid V-grid</span>
+          <span class="skill-tag">Baroclinic</span>
+          <span class="skill-tag">Cross-scale</span>
+          <span class="skill-tag">Multi-physics</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-globe"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">MOM6 / HYCOM</div>
+        <h3>Global &amp; Basin-Scale Ocean Models</h3>
+        <p>Isopycnal-coordinate models used for global ocean reanalysis and forecasting. HYCOM (Hybrid Coordinate Ocean Model) and MOM6 provide open-boundary conditions for regional models and long-term climate simulations with high fidelity in deep-ocean layer representation.</p>
+        <div style="display:flex;gap:0.38rem;flex-wrap:wrap;margin-top:0.6rem;">
+          <span class="skill-tag">Isopycnal Coords</span>
+          <span class="skill-tag">Ocean Reanalysis</span>
+          <span class="skill-tag">Global Scale</span>
+          <span class="skill-tag">GODAE</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-wave-square"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">WaveWatch III / SWAN</div>
+        <h3>Spectral Wave Models</h3>
+        <p>Third-generation spectral wave models simulating wind-wave generation, propagation, and dissipation. WAVEWATCH III for oceanic scales; SWAN for nearshore wave transformation, shoaling, refraction, and diffraction in coastal zones.</p>
+        <div style="display:flex;gap:0.38rem;flex-wrap:wrap;margin-top:0.6rem;">
+          <span class="skill-tag">Spectral Waves</span>
+          <span class="skill-tag">Wind-Wave</span>
+          <span class="skill-tag">Nearshore</span>
+          <span class="skill-tag">Wave Shoaling</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-tint"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">SWAT / HEC-RAS</div>
+        <h3>Watershed &amp; Riverine Models</h3>
+        <p>Hydrological and hydraulic models for watershed runoff, riverine floodplain inundation, and land-ocean connectivity. Coupled with ADCIRC for compound flooding scenarios integrating riverine discharge, tidal forcing, and storm surge contributions.</p>
+        <div style="display:flex;gap:0.38rem;flex-wrap:wrap;margin-top:0.6rem;">
+          <span class="skill-tag">Watershed</span>
+          <span class="skill-tag">Floodplain</span>
+          <span class="skill-tag">Compound Flooding</span>
+          <span class="skill-tag">Land-Ocean Coupling</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ GOVERNING EQUATIONS ══════════════ -->
+<section id="equations">
+  <header class="major">
+    <h2><i class="fas fa-square-root-variable" style="color:var(--ocean-teal);margin-right:0.5rem;"></i>Governing Equations of Ocean Dynamics</h2>
+    <p>The mathematical foundation of numerical ocean modeling &mdash; primitive equations, thermodynamics, and transport.</p>
+  </header>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-arrows-alt-h"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">Momentum</div>
+        <h3>Momentum Equations (Horizontal)</h3>
+        <p>The horizontal momentum equations governing large-scale ocean circulation, incorporating the Coriolis force, pressure gradient force, and turbulent friction terms.</p>
+        <div class="eq-box">
+          <div class="eq-label">Zonal (x) Momentum</div>
+          $$\frac{Du}{Dt} - fv = -\frac{1}{\rho_0}\frac{\partial p}{\partial x} + \mathcal{F}_u$$
+        </div>
+        <div class="eq-box">
+          <div class="eq-label">Meridional (y) Momentum</div>
+          $$\frac{Dv}{Dt} + fu = -\frac{1}{\rho_0}\frac{\partial p}{\partial y} + \mathcal{F}_v$$
+        </div>
+        <p style="font-size:0.86rem;color:#8aabb0;margin-top:0.5rem;">where \( f = 2\Omega\sin\phi \) is the Coriolis parameter, \( \rho_0 \) is a reference density, and \( \mathcal{F} \) represents turbulent friction/mixing terms.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-compress-arrows-alt"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">Hydrostatic</div>
+        <h3>Hydrostatic Equation</h3>
+        <p>Fundamental vertical force balance in the ocean under the hydrostatic approximation, valid for large horizontal-to-vertical scale ratios typical in ocean basins and continental shelves.</p>
+        <div class="eq-box">
+          <div class="eq-label">Vertical Pressure Balance</div>
+          $$\frac{\partial p}{\partial z} = -\rho g$$
+        </div>
+        <p style="font-size:0.86rem;color:#8aabb0;margin-top:0.5rem;">This approximation eliminates solving the vertical momentum equation, dramatically reducing computation cost in large-scale ocean models.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-equals"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">Continuity</div>
+        <h3>Continuity Equation (Mass Conservation)</h3>
+        <p>Mass conservation for an incompressible Boussinesq fluid, ensuring the divergence of the velocity field is zero throughout the ocean volume.</p>
+        <div class="eq-box">
+          <div class="eq-label">Incompressible Continuity</div>
+          $$\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0$$
+        </div>
+        <p style="font-size:0.86rem;color:#8aabb0;margin-top:0.5rem;">In Boussinesq models, density variations are only retained in the buoyancy term; the full mass conservation uses incompressibility.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-thermometer-half"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">T &amp; S Conservation</div>
+        <h3>Temperature &amp; Salinity Conservation</h3>
+        <p>Advection-diffusion equations for potential temperature and salinity, the two fundamental tracers determining seawater density and driving thermohaline circulation.</p>
+        <div class="eq-box">
+          <div class="eq-label">Temperature Conservation</div>
+          $$\frac{\partial T}{\partial t} + \mathbf{u}\cdot\nabla T = \kappa_T \nabla^2 T + Q_T$$
+        </div>
+        <div class="eq-box">
+          <div class="eq-label">Salinity Conservation</div>
+          $$\frac{\partial S}{\partial t} + \mathbf{u}\cdot\nabla S = \kappa_S \nabla^2 S + Q_S$$
+        </div>
+        <p style="font-size:0.86rem;color:#8aabb0;margin-top:0.5rem;">\( \kappa_T \) and \( \kappa_S \) are turbulent diffusivities; \( Q_T \) and \( Q_S \) represent surface heat flux and freshwater forcing respectively.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-flask"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">Equation of State</div>
+        <h3>Seawater Equation of State (TEOS-10)</h3>
+        <p>The nonlinear thermodynamic relationship between seawater density, temperature, salinity, and pressure &mdash; the closure equation for all ocean models.</p>
+        <div class="eq-box">
+          <div class="eq-label">Full Nonlinear Form</div>
+          $$\rho = \rho(T,\, S,\, p)$$
+        </div>
+        <div class="eq-box">
+          <div class="eq-label">Linear Approximation</div>
+          $$\rho \approx \rho_0\left[1 - \alpha(T-T_0) + \beta(S-S_0)\right]$$
+        </div>
+        <p style="font-size:0.86rem;color:#8aabb0;margin-top:0.5rem;">\( \alpha \) = thermal expansion coefficient, \( \beta \) = haline contraction coefficient. The Gibbs SeaWater (<code>gsw</code>) Python library implements full TEOS-10.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-exchange-alt"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">Advection-Diffusion</div>
+        <h3>Advection-Diffusion Equation</h3>
+        <p>General transport equation for any scalar tracer (dissolved oxygen, nutrients, sediment, dye) capturing both advective transport by currents and turbulent mixing.</p>
+        <div class="eq-box">
+          <div class="eq-label">1-D Scalar Transport</div>
+          $$\frac{\partial C}{\partial t} + u\frac{\partial C}{\partial x} = K\frac{\partial^2 C}{\partial x^2} + S_C$$
+        </div>
+        <div class="eq-box">
+          <div class="eq-label">3-D Conservative Form</div>
+          $$\frac{\partial C}{\partial t} + \nabla\cdot(\mathbf{u}C) = \nabla\cdot(K\nabla C) + S_C$$
+        </div>
+        <p style="font-size:0.86rem;color:#8aabb0;margin-top:0.5rem;">\( K \) is the turbulent eddy diffusivity; \( S_C \) is a source/sink term. This equation governs water quality and biogeochemical modeling in coastal systems.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-border-all"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">Laplace / Poisson</div>
+        <h3>Laplace &amp; Poisson Equations</h3>
+        <p>Used for the pressure solver in incompressible flow, stream-function computation, and as the classic teaching example in finite-difference methods for numerical oceanography.</p>
+        <div class="eq-box">
+          <div class="eq-label">Laplace Equation (Steady-State Diffusion)</div>
+          $$\nabla^2 T = \frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} = 0$$
+        </div>
+        <div class="eq-box">
+          <div class="eq-label">Poisson Equation (Stream Function &ndash; Vorticity)</div>
+          $$\nabla^2 \psi = \zeta$$
+        </div>
+        <p style="font-size:0.86rem;color:#8aabb0;margin-top:0.5rem;">Solved numerically via Gauss-Seidel iteration or direct matrix methods. The 2-D heat equation solver is a foundational code exercise in computational ocean science.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-atom"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">Navier-Stokes</div>
+        <h3>Navier-Stokes Equations (Full)</h3>
+        <p>The complete momentum balance for a viscous fluid. Ocean models derive from the Reynolds-averaged Navier-Stokes (RANS) equations with turbulence closure schemes (k-&epsilon;, Mellor-Yamada, KPP).</p>
+        <div class="eq-box">
+          <div class="eq-label">Vector Form</div>
+          $$\rho\left(\frac{\partial \mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u}\right) = -\nabla p + \mu\nabla^2\mathbf{u} + \rho\mathbf{g}$$
+        </div>
+        <p style="font-size:0.86rem;color:#8aabb0;margin-top:0.5rem;">In ocean modeling, the Coriolis force \( -2\boldsymbol{\Omega}\times\mathbf{u} \) is added to the right-hand side to account for Earth's rotation.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ NUMERICAL METHODS ══════════════ -->
+<section id="methods">
+  <header class="major">
+    <h2><i class="fas fa-calculator" style="color:var(--ocean-teal);margin-right:0.5rem;"></i>Numerical Methods &amp; Grid Architectures</h2>
+    <p>Discretization schemes, time-stepping methods, and vertical coordinate systems used in operational ocean models.</p>
+  </header>
+
+  <div class="method-grid">
+    <div class="method-card">
+      <i class="fas fa-th"></i>
+      <h4>Finite Difference</h4>
+      <p>Structured grids, simple implementation. Arakawa C-grid staggering for pressure-velocity. Used in ROMS, MOM6, POM.</p>
+    </div>
+    <div class="method-card">
+      <i class="fas fa-draw-polygon"></i>
+      <h4>Finite Element</h4>
+      <p>Unstructured triangular/quad meshes. High flexibility for complex coastal geometry. Used in ADCIRC, SELFE.</p>
+    </div>
+    <div class="method-card">
+      <i class="fas fa-object-group"></i>
+      <h4>Finite Volume</h4>
+      <p>Conservative flux-based formulation. Unstructured grid capability. Used in FVCOM and SCHISM.</p>
+    </div>
+    <div class="method-card">
+      <i class="fas fa-mountain"></i>
+      <h4>Sigma Coordinates</h4>
+      <p>Terrain-following vertical coordinate system. Ideal for shallow coastal flows. Smooth bottom boundary layer.</p>
+    </div>
+    <div class="method-card">
+      <i class="fas fa-layer-group"></i>
+      <h4>Z-Level Coordinates</h4>
+      <p>Fixed horizontal layers. Simple for deep ocean. Staircase bottom approximation. Used in MOM and NEMO.</p>
+    </div>
+    <div class="method-card">
+      <i class="fas fa-water"></i>
+      <h4>Isopycnal Coordinates</h4>
+      <p>Density-following layers. No diapycnal diffusion. Ideal for basin-scale deep-ocean models (HYCOM, MOM6).</p>
     </div>
   </div>
-  
-</p>
 
- </p>
- 
+  <table class="num-table">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Grid Type</th>
+        <th>Time Scheme</th>
+        <th>Key Advantage</th>
+        <th>Example Model</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Finite Difference (FD)</td>
+        <td>Structured</td>
+        <td>Leapfrog / AB3</td>
+        <td>Simple, computationally fast</td>
+        <td>ROMS, MOM6, POM</td>
+      </tr>
+      <tr>
+        <td>Finite Element (FE)</td>
+        <td>Unstructured</td>
+        <td>Runge-Kutta / Implicit</td>
+        <td>Handles complex geometry</td>
+        <td>ADCIRC, SELFE</td>
+      </tr>
+      <tr>
+        <td>Finite Volume (FV)</td>
+        <td>Unstructured</td>
+        <td>Semi-implicit</td>
+        <td>Flux conservation guaranteed</td>
+        <td>FVCOM, SCHISM</td>
+      </tr>
+      <tr>
+        <td>Spectral (SE)</td>
+        <td>Structured</td>
+        <td>Leapfrog</td>
+        <td>High spectral accuracy</td>
+        <td>WaveWatch III</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 
+<!-- ══════════════ DATA PRODUCTS ══════════════ -->
+<section id="data">
+  <header class="major">
+    <h2><i class="fas fa-database" style="color:var(--ocean-teal);margin-right:0.5rem;"></i>Oceanographic Data Products &amp; Forcing</h2>
+    <p>Observational datasets and reanalysis products used for model initialization, open boundary conditions, and skill validation.</p>
+  </header>
+  <div class="activities-grid">
 
-										
-										</p>
-										
-										<ul class="actions">
-											<li><a href="#" class="button big">under development </a></li>
-										</ul>
-									</div>
-									<span class="image object">
-										<img src="images/" alt="" />
-									</span>
-								</section>
-								
-								
-										
-									</div>
-								</section>
+    <div class="activity-card">
+      <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+      <h3>HYCOM Reanalysis / GOFS 3.1</h3>
+      <p>Global Ocean Forecast System at 1/12&deg; resolution providing reanalysis and forecast fields of SSH, temperature, salinity, and currents. Standard open-boundary forcing for regional ROMS and FVCOM configurations.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.32rem;margin-top:0.8rem;">
+        <span class="skill-tag">SSH</span>
+        <span class="skill-tag">Temperature</span>
+        <span class="skill-tag">Salinity</span>
+        <span class="skill-tag">Currents</span>
+      </div>
+    </div>
 
-							
-										</article>
-										
-										
-									</div>
-								</section>
+    <div class="activity-card">
+      <div class="card-icon"><i class="fas fa-satellite"></i></div>
+      <h3>CMEMS &mdash; Copernicus Marine</h3>
+      <p>Comprehensive European ocean data service providing satellite-derived and ensemble reanalysis products: sea level anomaly, SST, chlorophyll, and multi-model ocean forecasts for scientific and operational use.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.32rem;margin-top:0.8rem;">
+        <span class="skill-tag">SLA</span>
+        <span class="skill-tag">SST</span>
+        <span class="skill-tag">Chl-a</span>
+        <span class="skill-tag">Multi-model</span>
+      </div>
+    </div>
 
-						</div>
-					</div>
+    <div class="activity-card">
+      <div class="card-icon"><i class="fas fa-circle-notch"></i></div>
+      <h3>Argo Float Profiles</h3>
+      <p>Global array of autonomous profiling floats measuring T/S from the surface down to 2000 m depth. Essential for deep-ocean model validation, mixed layer depth climatologies, and thermohaline structure analysis.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.32rem;margin-top:0.8rem;">
+        <span class="skill-tag">T/S Profiles</span>
+        <span class="skill-tag">MLD</span>
+        <span class="skill-tag">Deep Ocean</span>
+        <span class="skill-tag">0&ndash;2000 m</span>
+      </div>
+    </div>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+    <div class="activity-card">
+      <div class="card-icon"><i class="fas fa-broadcast-tower"></i></div>
+      <h3>NOAA CoastWatch / ERDDAP</h3>
+      <p>Satellite-derived coastal ocean products including AVHRR/MODIS SST, ocean color, and wind stress fields. ERDDAP enables standardized programmatic data access for satellite-model matchup studies and validation.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.32rem;margin-top:0.8rem;">
+        <span class="skill-tag">AVHRR SST</span>
+        <span class="skill-tag">MODIS</span>
+        <span class="skill-tag">Ocean Color</span>
+        <span class="skill-tag">ERDDAP API</span>
+      </div>
+    </div>
 
-							
- <section>
-							<!-- Menu -->
-								<nav id="menu">
-							
-									<ul>
-										
-										<li><a href="Numerical_Oceanography.html"></a></li>
-										
-										
-							<!-- Section -->
-								
-									</div>
-								
-								</section>
+    <div class="activity-card">
+      <div class="card-icon"><i class="fas fa-archive"></i></div>
+      <h3>World Ocean Database (WOD)</h3>
+      <p>NCEI's global in-situ oceanographic database spanning 1770&ndash;present with CTD, XBT, Argo, and mooring data. Used for climatological T/S fields (WOA23), model initialization, and long-term Gulf of Mexico trend analysis.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.32rem;margin-top:0.8rem;">
+        <span class="skill-tag">WOA23</span>
+        <span class="skill-tag">CTD</span>
+        <span class="skill-tag">Climatology</span>
+        <span class="skill-tag">1770&ndash;present</span>
+      </div>
+    </div>
 
+    <div class="activity-card">
+      <div class="card-icon"><i class="fas fa-tachometer-alt"></i></div>
+      <h3>NOAA Tide Gauges &amp; ADCP</h3>
+      <p>Real-time and historical tidal elevation records from NOAA CO-OPS network, combined with ADCP current profiles for tidal harmonic analysis, model skill assessment (RMSE, bias, correlation), and storm surge hindcast validation.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.32rem;margin-top:0.8rem;">
+        <span class="skill-tag">Tidal Harmonics</span>
+        <span class="skill-tag">Sea Level</span>
+        <span class="skill-tag">Current Profiles</span>
+        <span class="skill-tag">Model Skill</span>
+      </div>
+    </div>
 
+  </div>
+</section>
 
-							<!-- Section -->
-								<section>
-						
-										<h2>Get in touch</h2>
-						
-									<p> I love to work in the field of Oceanography and Data analysis.If you think, you can contact with me at any moment.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">hafezahmad100@gmail.com</a></li>
-										<li class="icon solid fa-phone">(+880)1785601208</li>
-										<li class="icon solid fa-home">Bangladesh<br />
-										Chittagong,Kotowali</li>
-									</ul>
-								</section>
+<!-- ══════════════ RESEARCH PROJECTS ══════════════ -->
+<section id="projects">
+  <header class="major">
+    <h2><i class="fas fa-flask" style="color:var(--ocean-teal);margin-right:0.5rem;"></i>Research Projects</h2>
+    <p>Applied numerical oceanography projects combining model simulations, data analysis, and coastal management applications.</p>
+  </header>
+  <div class="timeline">
 
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-microscope"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">2024 &ndash; 2027</div>
+        <h3>Mississippi Sound Hydrodynamics &amp; Water Quality</h3>
+        <p>Coupled hydrodynamic&ndash;water quality modeling of the Mississippi Sound using FVCOM and CE-QUAL-ICM. Investigating freshwater discharge influence on harmful algal bloom dynamics, seasonal hypoxia, and salinity stratification variability. NSF-funded doctoral research at Mississippi State University.</p>
+        <img src="images/landsat_ts_swq.gif" alt="Mississippi Sound water quality time series" style="width:100%;max-width:520px;border-radius:8px;margin-top:0.8rem;opacity:0.88;" onerror="this.style.display='none'"/>
+        <div style="display:flex;gap:0.38rem;flex-wrap:wrap;margin-top:0.7rem;">
+          <span class="skill-tag">FVCOM</span>
+          <span class="skill-tag">Water Quality</span>
+          <span class="skill-tag">Hypoxia</span>
+          <span class="skill-tag">Mississippi Sound</span>
+        </div>
+      </div>
+    </div>
 
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; hafez. All rights reserved. : <a href="https://unsplash.com">hafez</a>. Design: <a href="https://html5up.net"> hafez ahmad</a>.</p>
-								</footer>
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-sitemap"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">2022 &ndash; 2023</div>
+        <h3>Floodplain Connectivity &mdash; Lower Mississippi Alluvial Valley</h3>
+        <p>HEC-RAS and SWAT-coupled floodplain inundation modeling to quantify hydrological connectivity in the Lower Mississippi Alluvial Valley. Assessed habitat restoration scenarios for bottomland hardwood ecosystems and migration corridors for fish and waterfowl.</p>
+        <img src="images/connectivity.jpg" alt="Floodplain connectivity analysis LMAV" style="width:100%;max-width:520px;border-radius:8px;margin-top:0.8rem;opacity:0.88;" onerror="this.style.display='none'"/>
+        <div style="display:flex;gap:0.38rem;flex-wrap:wrap;margin-top:0.7rem;">
+          <span class="skill-tag">HEC-RAS</span>
+          <span class="skill-tag">SWAT</span>
+          <span class="skill-tag">Floodplain</span>
+          <span class="skill-tag">Connectivity</span>
+        </div>
+      </div>
+    </div>
 
-						</div>
-					</div>
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-circle-notch"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">Gulf of Mexico</div>
+        <h3>ROMS Simulation: Mesoscale Eddies &amp; Loop Current</h3>
+        <p>Regional ROMS simulation of Gulf of Mexico seasonal circulation, focusing on Loop Current dynamics, mesoscale eddy formation, and sea surface temperature anomalies. Validated against satellite altimetry (CMEMS) and HYCOM reanalysis products.</p>
+        <img src="images/2010_1_eddied.png" alt="Gulf of Mexico mesoscale eddies simulation" style="width:100%;max-width:520px;border-radius:8px;margin-top:0.8rem;opacity:0.88;" onerror="this.style.display='none'"/>
+        <div style="display:flex;gap:0.38rem;flex-wrap:wrap;margin-top:0.7rem;">
+          <span class="skill-tag">ROMS</span>
+          <span class="skill-tag">Mesoscale Eddies</span>
+          <span class="skill-tag">Loop Current</span>
+          <span class="skill-tag">Gulf of Mexico</span>
+        </div>
+      </div>
+    </div>
 
-			</div>
-			
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-thermometer-half"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">Bay of Bengal</div>
+        <h3>Sea Surface Temperature Trend Analysis</h3>
+        <p>Long-term SST trend analysis for the Bay of Bengal using AVHRR, MODIS, and in-situ CTD observations. Identified warming signatures (&gt;10&deg;C seasonal anomalies) linked to altered monsoon-driven circulation and implications for tropical cyclone intensification.</p>
+        <img src="images/longer_than_10_c.png" alt="Bay of Bengal SST anomaly analysis" style="width:100%;max-width:520px;border-radius:8px;margin-top:0.8rem;opacity:0.88;" onerror="this.style.display='none'"/>
+        <div style="display:flex;gap:0.38rem;flex-wrap:wrap;margin-top:0.7rem;">
+          <span class="skill-tag">SST Analysis</span>
+          <span class="skill-tag">Bay of Bengal</span>
+          <span class="skill-tag">AVHRR/MODIS</span>
+          <span class="skill-tag">Trend Detection</span>
+        </div>
+      </div>
+    </div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-book-open"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">Ongoing</div>
+        <h3>Python Computational Oceanography Tutorials</h3>
+        <p>Open-source educational materials for computational oceanography: 2-D Laplace heat equation solver (Gauss-Seidel), advection schemes stability analysis, tidal harmonic analysis with t_tide, HYCOM API data access workflows, and xarray-based ocean climatology processing. Published on GitHub and Medium.</p>
+        <div style="display:flex;gap:0.38rem;flex-wrap:wrap;margin-top:0.7rem;">
+          <span class="skill-tag">Open Source</span>
+          <span class="skill-tag">Education</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">GitHub</span>
+        </div>
+      </div>
+    </div>
 
-	<script>
+  </div>
+</section>
+
+<!-- ══════════════ PUBLICATIONS ══════════════ -->
+<section id="publications">
+  <header class="major">
+    <h2><i class="fas fa-book-open" style="color:var(--ocean-teal);margin-right:0.5rem;"></i>Selected Publications &amp; Reports</h2>
+    <p>Peer-reviewed journal articles and technical reports in numerical and coastal oceanography.</p>
+  </header>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-file-alt"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">In Preparation</div>
+        <h3>Coupled Hydrodynamic&ndash;Water Quality Modeling of Mississippi Sound</h3>
+        <p>Manuscript describing FVCOM-based simulation of coastal circulation and dissolved oxygen dynamics in the Mississippi Sound under varying freshwater discharge and wind forcing regimes. Target journal: <em>Estuarine, Coastal and Shelf Science</em>.</p>
+        <div style="display:flex;gap:0.38rem;flex-wrap:wrap;margin-top:0.6rem;">
+          <span class="skill-tag">FVCOM</span>
+          <span class="skill-tag">Water Quality</span>
+          <span class="skill-tag">Mississippi Sound</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"><i class="fas fa-newspaper"></i></div>
+      <div class="timeline-content">
+        <div class="timeline-date">2022</div>
+        <h3>Hydrological Connectivity in the Lower Mississippi Alluvial Valley</h3>
+        <p>Floodplain inundation frequency and habitat connectivity analysis using HEC-RAS coupled with multi-temporal remote sensing, informing conservation planning for migratory fish corridors and waterbird breeding habitat in the LMAV.</p>
+        <div style="display:flex;gap:0.38rem;flex-wrap:wrap;margin-top:0.6rem;">
+          <span class="skill-tag">HEC-RAS</span>
+          <span class="skill-tag">Connectivity</span>
+          <span class="skill-tag">Remote Sensing</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ CALLOUT ══════════════ -->
+<section style="background:linear-gradient(135deg,var(--ocean-dark),#0d2d3a);border:1px solid rgba(0,206,209,0.2);border-radius:12px;padding:2rem;margin:2rem 0;text-align:center;">
+  <i class="fab fa-github" style="font-size:2.4rem;color:var(--ocean-teal);display:block;margin-bottom:0.75rem;"></i>
+  <h3 style="color:#e8f4f8;margin:0 0 0.5rem;">Explore the Code</h3>
+  <p style="color:#a0c4c8;margin:0 0 1.2rem;">Ocean model scripts, Python notebooks for data analysis, equation solvers, and HYCOM data-access tools are available on GitHub.</p>
+  <a href="https://github.com/HafezAhmadOceanographer" target="_blank" class="button" style="background:var(--ocean-teal);color:#0a1e28;font-weight:700;border:none;">
+    <i class="fab fa-github"></i> View GitHub Repository
+  </a>
+</section>
+
+</div><!-- /.inner -->
+</div><!-- /#main -->
+
+<!-- ══════════════ SIDEBAR ══════════════ -->
+<div id="sidebar">
+  <div class="inner">
+    <nav id="menu">
+      <header class="major"><h2>Numerical Oceanography</h2></header>
+      <ul>
+        <li><a href="#banner"><i class="fas fa-water"></i> Overview</a></li>
+        <li><a href="#languages"><i class="fas fa-code"></i> Scientific Programming</a></li>
+        <li><a href="#models"><i class="fas fa-cube"></i> Ocean &amp; Coastal Models</a></li>
+        <li><a href="#equations"><i class="fas fa-square-root-variable"></i> Governing Equations</a></li>
+        <li><a href="#methods"><i class="fas fa-calculator"></i> Numerical Methods</a></li>
+        <li><a href="#data"><i class="fas fa-database"></i> Data Products</a></li>
+        <li><a href="#projects"><i class="fas fa-flask"></i> Research Projects</a></li>
+        <li><a href="#publications"><i class="fas fa-book-open"></i> Publications</a></li>
+        <li>
+          <span class="opener">Related Pages</span>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Home / Portfolio</a></li>
+            <li><a href="Physical_Oceanography.html">Physical Oceanography</a></li>
+            <li><a href="Geographic_information_system.html">GIS &amp; Remote Sensing</a></li>
+            <li><a href="Ocean_and_Coastal_Mapping.html">Ocean &amp; Coastal Mapping</a></li>
+            <li><a href="Marine_Ecology.html">Marine Ecology</a></li>
+            <li><a href="Coastal_hazards_and_Climate change.html">Coastal Hazards &amp; Climate</a></li>
+            <li><a href="Coastal_Zone_Management_and_Blue_Economy.html">CZM &amp; Blue Economy</a></li>
+            <li><a href="machine_learning_foundation_models.html">ML &amp; Foundation Models</a></li>
+            <li><a href="FisheriesAcoustics.html">Fisheries Acoustics</a></li>
+            <li><a href="google earth engine to xarray.html">GEE to xarray</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <section>
+      <header class="major"><h2>Get in Touch</h2></header>
+      <p>Available for research collaborations in numerical oceanography, coastal modeling, and computational ocean science.</p>
+      <ul class="contact">
+        <li class="icon solid fa-envelope"><a href="mailto:hafezahmad100@gmail.com">hafezahmad100@gmail.com</a></li>
+        <li class="icon brands fa-github"><a href="https://github.com/HafezAhmadOceanographer" target="_blank">GitHub Profile</a></li>
+        <li class="icon solid fa-university">Mississippi State University<br/>Department of Coastal Sciences</li>
+      </ul>
+    </section>
+
+    <footer id="footer">
+      <p class="copyright">&copy; Hafez Ahmad. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+    </footer>
+  </div>
+</div>
+
+</div><!-- /#wrapper -->
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
 (function(){
-var io = new IntersectionObserver(function(entries){
-entries.forEach(function(e){
-if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
-});
-},{threshold:0, rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.features article,.stat-card,.timeline-item,.skill-card,header.major,.mini-posts article').forEach(function(el){
-el.classList.add('fade-in-up'); io.observe(el);
-});
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  },{threshold:0, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.stat-card,.timeline-item,.activity-card,.method-card,header.major').forEach(function(el){
+    el.classList.add('fade-in-up'); io.observe(el);
+  });
 })();
 </script>
 </body>
