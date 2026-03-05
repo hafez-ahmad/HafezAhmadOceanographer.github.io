@@ -1,14 +1,16 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <!--
 	
 	
 -->
 <html>
 	<head>
-		<title>Welcome to My Website! </title>
+		<title>GIS & Remote Sensing | Hafez Ahmad</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/enhanced.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 	</head>
 	<body class="is-preload">
 
@@ -284,5 +286,17 @@ I have added few map of image classification methods and  a project outputs.
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-	</body>
+	<script>
+(function(){
+var io = new IntersectionObserver(function(entries){
+entries.forEach(function(e){
+if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+});
+},{threshold:0, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.features article,.stat-card,.timeline-item,.skill-card,header.major,.mini-posts article').forEach(function(el){
+el.classList.add('fade-in-up'); io.observe(el);
+});
+})();
+</script>
+</body>
 </html>

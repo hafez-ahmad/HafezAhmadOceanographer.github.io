@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <!--
 	
 	
@@ -6,7 +6,7 @@
 <html>
 	
 	<head><meta charset="utf-8" />
-		<title>Welcome to My Website! </title>
+		<title>Physical Oceanography | Hafez Ahmad</title>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
@@ -14,6 +14,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/enhanced.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 	</head>
 	<body class="is-preload">
 
@@ -26,7 +28,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Editorial</strong> by Hafez Ahmad</a>
+									<a href="index.html" class="logo"><strong>Hafez Ahmad</strong> &mdash; Oceanographer</a>
 									<ul class="icons">
 										<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 										<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -722,5 +724,17 @@ Hello Julia, I want to analyze the sea water property </pre>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-	</body>
+	<script>
+(function(){
+var io = new IntersectionObserver(function(entries){
+entries.forEach(function(e){
+if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+});
+},{threshold:0, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.features article,.stat-card,.timeline-item,.skill-card,header.major,.mini-posts article').forEach(function(el){
+el.classList.add('fade-in-up'); io.observe(el);
+});
+})();
+</script>
+</body>
 </html>

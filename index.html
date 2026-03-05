@@ -1,25 +1,244 @@
-  
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <!--
 	
 	Free for personal and commercial use under the CCA 3.0 license 
 -->
 <html>
 	<head>
-		<title>Welcome to My Website! </title>
+		<title>Hafez Ahmad | Oceanographer &amp; Marine Scientist</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Personal portfolio of Hafez Ahmad – Oceanographer, Marine Scientist, PhD Candidate at Mississippi State University." />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Roboto+Slab:wght@400;700&display=swap" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/enhanced.css" />
 		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 		<script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"> </script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 		<style>
 			p.b { 
 			  word-spacing: -5px;
 			}
-			</style>
+
+			/* Smooth Scrolling */
+			html {
+				scroll-behavior: smooth;
+			}
+
+			/* Back to Top Button */
+			.back-to-top {
+				position: fixed;
+				bottom: 30px;
+				right: 30px;
+				z-index: 99;
+				display: none;
+				width: 50px;
+				height: 50px;
+				text-align: center;
+				line-height: 50px;
+				background: #1976D2;
+				color: white;
+				cursor: pointer;
+				border-radius: 50%;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+				transition: all 0.3s ease;
+			}
+
+			.back-to-top:hover {
+				background: #03A9F4;
+				transform: translateY(-3px);
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+			}
+
+			.back-to-top i {
+				font-size: 20px;
+			}
+
+			/* Section Navigation */
+			.section-nav {
+				position: fixed;
+				left: 20px;
+				top: 50%;
+				transform: translateY(-50%);
+				z-index: 99;
+				display: flex;
+				flex-direction: column;
+				gap: 15px;
+			}
+
+			@media screen and (max-width: 736px) {
+				.section-nav {
+					display: none;
+				}
+			}
+
+			.section-nav a {
+				display: block;
+				width: 12px;
+				height: 12px;
+				border-radius: 50%;
+				background: rgba(0, 0, 0, 0.3);
+				transition: all 0.3s ease;
+			}
+
+			.section-nav a:hover,
+			.section-nav a.active {
+				background: #1976D2;
+				transform: scale(1.3);
+			}
+
+			.section-nav a span {
+				position: absolute;
+				left: 25px;
+				top: 50%;
+				transform: translateY(-50%);
+				padding: 5px 10px;
+				background: rgba(0, 0, 0, 0.7);
+				color: white;
+				border-radius: 4px;
+				font-size: 12px;
+				opacity: 0;
+				visibility: hidden;
+				transition: all 0.3s ease;
+				white-space: nowrap;
+			}
+
+			.section-nav a:hover span {
+				opacity: 1;
+				visibility: visible;
+				left: 30px;
+			}
+
+			/* Table of Contents for Mobile */
+			.mobile-toc {
+				display: none;
+				margin: 20px 0;
+				padding: 15px;
+				background: #f5f5f5;
+				border-radius: 8px;
+				box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+			}
+
+			.mobile-toc h3 {
+				margin-bottom: 10px;
+			}
+
+			.mobile-toc ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.mobile-toc li {
+				margin-bottom: 8px;
+			}
+
+			.mobile-toc a {
+				display: block;
+				padding: 8px 10px;
+				border-radius: 4px;
+				transition: all 0.3s ease;
+			}
+
+			.mobile-toc a:hover {
+				background: rgba(25, 118, 210, 0.1);
+			}
+
+			@media screen and (max-width: 736px) {
+				.mobile-toc {
+					display: block;
+				}
+			}
+
+			/* Content Section Styling */
+			section[id] {
+				scroll-margin-top: 70px;
+			}
+
+			/* Lazy Loading for Images */
+			.lazy-image {
+				opacity: 0;
+				transition: opacity 0.5s ease;
+			}
+
+			.lazy-image.loaded {
+				opacity: 1;
+			}
+
+			/* Responsive Grid Enhancements */
+			@media screen and (max-width: 980px) {
+				.features article {
+					margin-bottom: 2rem;
+				}
+
+				.stats-grid {
+					overflow-x: auto;
+					padding-bottom: 15px;
+				}
+
+				.posts article {
+					margin-bottom: 3rem;
+				}
+			}
+
+			@media screen and (max-width: 736px) {
+				.content h1 {
+					font-size: 2.5em;
+				}
+
+				.stats-grid {
+					gap: 10px;
+				}
+
+				.stat-card {
+					padding: 15px 10px;
+				}
+			}
+
+			.content-section {
+				margin-bottom: 3rem;
+				position: relative;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				padding-bottom: 2rem;
+			}
+
+			.content-section:last-child {
+				border-bottom: none;
+			}
+
+			.section-divider {
+				height: 2px;
+				background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+				margin: 3rem 0;
+			}
+		</style>
 	</head>
 	
 	<body class="is-preload">
+
+		<!-- Floating Ocean Bubbles -->
+		<div class="ocean-bubbles" aria-hidden="true" id="oceanBubbles"></div>
+
+		<!-- Back to Top Button -->
+		<a href="#" class="back-to-top" id="backToTop">
+			<i class="fas fa-arrow-up"></i>
+		</a>
+
+		<!-- Section Navigation -->
+		<div class="section-nav">
+			<a href="#banner" class="active"><span>Top</span></a>
+			<a href="#projects"><span>Projects</span></a>
+			<a href="#activities"><span>Activities</span></a>
+			<a href="#education"><span>Education</span></a>
+			<a href="#experience"><span>Experience</span></a>
+			<a href="#about"><span>About</span></a>
+			<a href="#publications"><span>Publications</span></a>
+			<a href="#modeling"><span>Modeling</span></a>
+			<a href="#remote-sensing"><span>GIS</span></a>
+			<a href="#teaching"><span>Teaching</span></a>
+		</div>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -30,7 +249,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong> Hafez Ahmad - Professional Portfolio website </strong>  </a>
+									<a href="index.html" class="logo"><strong>Hafez Ahmad</strong> &mdash; Oceanographer &amp; Marine Scientist</a>
 									<ul class="icons">
 										<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 										<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -39,10 +258,25 @@
 										<li><a href="https://medium.com/@hafezahmad" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
 										<li><a href="https://github.com/hafez-ahmad" class="icon brands fa-github"><span class="label">Github</span></a></li>
 										<li><a href="https://www.researchgate.net/profile/Hafez_Ahmad" class='fab fa-researchgate' style='font-size:25px;color:black'><span class="label"></span></a></li>
-										
-
 									</ul>
 								</header>
+
+								<!-- Mobile Table of Contents -->
+								<div class="mobile-toc">
+									<h3>Jump to Section</h3>
+									<ul>
+										<li><a href="#banner">Introduction</a></li>
+										<li><a href="#projects">Current Projects</a></li>
+										<li><a href="#activities">My Activities</a></li>
+										<li><a href="#education">Education</a></li>
+										<li><a href="#experience">Experience</a></li>
+										<li><a href="#about">About Me</a></li>
+										<li><a href="#publications">Publications</a></li>
+										<li><a href="#modeling">Modeling</a></li>
+										<li><a href="#remote-sensing">GIS &amp; Remote Sensing</a></li>
+										<li><a href="#teaching">Teaching Experience</a></li>
+									</ul>
+								</div>
 
 							<!-- Banner -->
 								<section id="banner">
@@ -50,29 +284,34 @@
 										<header>
 											<h1>Hi, I’m Hafez Ahmad<br />
 											</h1>
-											<p>Personal Website for Regular Writing, Training,and Teaching</p>
+											<p id="typed-subtitle">Oceanographer &bull; Marine Scientist &bull; PhD Researcher</p>
 										</header>
 										<p> <b>Experienced in Project Management,Observational Oceanography,Marine Community Ecology, Geoinformatics, Wildlife habitat management, Hydrology and Remote Sensing, 
 											Strategic Planning, and Data Analysis , and  problem solving with automation (Python, R, MATLAB, Julia, Google Earth Engine, ArcGIS, Adobe Illustrator, Excel).
 											I am passionate about physical Oceanographic research ,Marine Ecology, Coastal water dynamics, Aquatic wild habitats ,Coastal Development Research and Machine learning . I will be happy to be part of your Research Groups. 
 											I have a Bachelor’s and Master's Degree in Oceanography from the Faculty of Marine Science and Fisheries, 
 											<a href="https://cu.ac.bd/"> University of Chittagong ,Bangladesh and Mississippi State University, USA </a> and  I  was also  an Exchange student at <a href="https://www.fgcu.edu/"> Florida Gulf Coast University, Florida, USA. </a>
-											I am currently PhD student at <a href="https://www.msstate.edu/"> Mississippi State University, Mississippi, USA </a> .</b>
+											I earned my PhD <a href="https://www.msstate.edu/"> from Mississippi State University, Mississippi, USA, with an expected graduation in May 2026 </a> .</b>
 										More information about my Research and Activities can be found at Education section. </p>
 										<ul class="actions">
-											<li><a href="https://medium.com/me/stories/public" class="button big">Learn More</a></li>
+											<li><a href="https://hafez-ahmad.github.io/site/" class="button big">Read My Blog</a></li>
+											<li><a href="contact.html" class="button">Get In Touch</a></li>
 										</ul>
+										<div style="margin-top:1.2em;line-height:2.4;">
+											<span class="skill-tag"><i class="fas fa-water"></i> Physical Oceanography</span>
+											<span class="skill-tag"><i class="fas fa-fish"></i> Marine Ecology</span>
+											<span class="skill-tag"><i class="fas fa-satellite"></i> Remote Sensing</span>
+											<span class="skill-tag"><i class="fas fa-map"></i> GIS</span>
+											<span class="skill-tag"><i class="fas fa-brain"></i> Machine Learning</span>
+											<span class="skill-tag"><i class="fas fa-code"></i> Python / R / Julia</span>
+										</div>
 									</div>
 									<span class="image object">
-
-                                         I love to visit historical places in the world and I am a huge fan of the ocean.
-										<img src="images/pic10.jpg" alt="hafez" style="object-fit:contain; width:600px;
-										height:800px;" />
+										<img src="images/pic10.jpg" alt="Hafez Ahmad - Oceanographer" style="object-fit:contain; width:600px; height:800px;" />
 										
 									</span>
 								</section>
-		<section>
-								
+			<section id="projects">								
 				<h3> Current Projects(*) and Completed Projects </h3>
 				<p>  <b>
 												<ol>
@@ -94,63 +333,326 @@
 of Oktibbeha County of Mississippi, USA </li>
 												<li>Integrated Management of Coastal Resources of Saint Martin’s Island  in Bangladesh.</li>
 												
-												<p> Google Scholar total citations <b> 305, h-index: 5, and i10-index: 3</b>,https://scholar.google.com/citations?user=ToH-NhkAAAAJ&hl=en [5/2/2022]</p>
+												<p> Google Scholar total citations <b> 475, h-index: 7, and i10-index: 6</b>, <a href="https://scholar.google.com/citations?user=ToH-NhkAAAAJ&hl=en">scholar.google.com</a> [3/5/2026]</p>
 													</b>							
 					</ol>
 								</p>
 								</section>
 							<!-- Section -->
-								<section>
+								<section id="activities">
 									<header class="major">
-										<h2>My Activities at a glance </h2>
+										<h2>My Activities at a Glance</h2>
 									</header>
-									<div class="features">
-										<article>
-											<span class="icon fa-gem"></span>
-											<div class="content">
-												<h3>Oceanographic  Researcher</h3>
-												<p > <b> Ocean Remote Sensing and Satellite Data Analysis, Physical Oceanography,Ecosystem monitoring,Ocean Dynamics and Circulation,Bio-optics Oceanography </b> Ocean productivity, Biological effects on Ocean's optical properties,Marine Pollution and Environmental Contamination,Coastal zone management, climate change,Climate hazards, SDM,EcoHydrology,connectivity, Estuarine processes, Aquatic wildlife habitats </b>and  Oceanographic data collection distribution of temperature and salinity,Coastal and Deep-ocean processes, up-welling, water mass formation and movement, ocean currents, interior and surface mixing, energy inputs and dissipation, surface and internal waves, and surface and internal tides.<b>Marine Biodiversity , Ecosystem and Modeling </b> </p>
+									<div class="activities-grid">
+
+										<!-- Card 1 -->
+										<div class="activity-card">
+											<div class="activity-icon">
+												<i class="fas fa-water"></i>
 											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-globe"></span>
-											<div class="content">
-												<h3>Nature conservation and Ocean Literacy</h3>
-												<p> Nature Conservation is important for many reasons, not least of all to the health of the planet. However, the study of the subject goes merely beyond health and ecosystems.
-													I like to work with Nature and Nature based solutions projects. I did some conservation stuffs and Research in the coastal area of Bangladesh and
-													I love to teach Ocean Literacy and you can visit Our official website <a href="http://bgfbd.org" > bgfbd </a>.</p>
+											<div class="activity-body">
+												<h3>Oceanographic Research</h3>
+												<p>I study the physical and biological dynamics of the ocean — from satellite-derived sea surface temperatures to coastal upwelling and deep-ocean circulation. My core focus areas include:</p>
+												<ul class="activity-list">
+													<li>Ocean Remote Sensing &amp; Satellite Data Analysis</li>
+													<li>Physical Oceanography &amp; Ocean Dynamics</li>
+													<li>Bio-optics &amp; Ocean Productivity</li>
+													<li>Coastal Hazards, Climate Change &amp; SDM</li>
+													<li>Estuarine Processes &amp; Aquatic Wildlife Habitats</li>
+													<li>Marine Biodiversity, Ecosystem Modeling</li>
+												</ul>
+												<div class="activity-tags">
+													<span class="skill-tag"><i class="fas fa-satellite"></i> Remote Sensing</span>
+													<span class="skill-tag"><i class="fas fa-fish"></i> Marine Ecology</span>
+													<span class="skill-tag"><i class="fas fa-wind"></i> Ocean Dynamics</span>
+												</div>
 											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-file-code"></span>
-											<div class="content">
-												<h3>Programming and Mapping </h3>
-												<p>Many oceanographers grow up loving the sea and its creatures. but when It comes in Data analysis and Modeling , you have to gain programming knowledge. fortran is widely used langauge in ocean Model. then 
-												During the last couple of decades, Matlab has been the most commonly-used scripting language in physical oceanography, and it has a large user base in many other fields.
-													
-												<br> Recently, however, Python has been gaining ground, often being adopted by former Matlab users as well as by newcomers.<b> I have excellent working skill of  Python ,Julia , R , Matlab, FORTRAN. ArcGIS , QGIS,SAGA,GRASS </b>.<br> you can find more in github repo</p>
+										</div>
+
+										<!-- Card 2 -->
+										<div class="activity-card">
+											<div class="activity-icon">
+												<i class="fas fa-leaf"></i>
 											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-paper-plane"></span>
-											<div class="content">
-												<h3>Traveling </h3> 
-												<p> I love traveling. Traveling makes you more open and accepting .
-													If you travel, you will not only learn about foreign cultures,
-													but about your own as well. You will notice the cultural differences,
-													and will find out what makes your culture unique. After retrurning from a long journey, 
-													you will see your country with new eyes. I have visitied United States of America, Washington DC,
-													FLORIDA,New YORK ,Dubai,Qatar,Memphis,Birmingham,Athens, Saint Martin island , Cox'S bazar,sunburbans Mangrove.</p>
+											<div class="activity-body">
+												<h3>Nature Conservation &amp; Ocean Literacy</h3>
+												<p>Conservation is not merely about protecting ecosystems — it is about building a sustainable relationship between people and nature. I have conducted conservation research along the coastal areas of Bangladesh and actively promote Ocean Literacy through education and outreach.</p>
+												<p>I co-founded <strong>BGFBD</strong>, an initiative dedicated to coastal biodiversity and community-based conservation in Bangladesh.</p>
+												<div class="activity-tags">
+													<span class="skill-tag"><i class="fas fa-globe-asia"></i> Conservation</span>
+													<span class="skill-tag"><i class="fas fa-book-open"></i> Ocean Literacy</span>
+													<a href="http://bgfbd.org" target="_blank" class="skill-tag" style="text-decoration:none;"><i class="fas fa-external-link-alt"></i> bgfbd.org</a>
+												</div>
 											</div>
-										</article>
+										</div>
+
+										<!-- Card 3 -->
+										<div class="activity-card">
+											<div class="activity-icon">
+												<i class="fas fa-code"></i>
+											</div>
+											<div class="activity-body">
+												<h3>Programming &amp; Geospatial Mapping</h3>
+												<p>Oceanography today is data-intensive. I combine scientific programming with geospatial tools to analyze, model, and visualize ocean and coastal data at scale.</p>
+												<ul class="activity-list">
+													<li><strong>Scientific Programming:</strong> Python, R, Julia, MATLAB, FORTRAN</li>
+													<li><strong>GIS &amp; Remote Sensing:</strong> ArcGIS, QGIS, SAGA, GRASS GIS</li>
+													<li><strong>Platforms:</strong> Google Earth Engine, GitHub, Jupyter</li>
+												</ul>
+												<div class="activity-tags">
+													<span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+													<span class="skill-tag"><i class="fas fa-map"></i> GIS</span>
+													<span class="skill-tag"><i class="fab fa-github"></i> GitHub</span>
+												</div>
+											</div>
+										</div>
+
+										<!-- Card 4 -->
+										<div class="activity-card">
+											<div class="activity-icon">
+												<i class="fas fa-plane-departure"></i>
+											</div>
+											<div class="activity-body">
+												<h3>Travel &amp; Cultural Exploration</h3>
+												<p>Travel has shaped my perspective as both a scientist and a human being. Experiencing different cultures, coastlines, and ecosystems has deepened my appreciation for the ocean and the communities that depend on it.</p>
+												<p>Places visited: <strong>USA</strong> (Washington DC, Florida, New York, Mississippi), <strong>UAE</strong> (Dubai), <strong>Qatar</strong>, and coastal regions of <strong>Bangladesh</strong> — including Saint Martin Island, Cox's Bazar, and the Sundarbans Mangrove.</p>
+												<div class="activity-tags">
+													<span class="skill-tag"><i class="fas fa-map-marker-alt"></i> 10+ Cities</span>
+													<span class="skill-tag"><i class="fas fa-ship"></i> Coastal Fieldwork</span>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</section>
+
+							<!-- ══════════════════════════════════════
+								 EDUCATION SECTION
+							══════════════════════════════════════ -->
+								<section id="education">
+									<header class="major">
+										<h2><i class="fas fa-graduation-cap" style="color:var(--ocean-teal);margin-right:0.45em;"></i>Education</h2>
+									</header>
+
+									<div class="timeline">
+
+										<div class="timeline-item">
+											<div class="timeline-date">Jan 2024 – Present</div>
+											<div class="timeline-content">
+												<h4>Doctor of Philosophy (PhD) — Earth &amp; Atmospheric Sciences</h4>
+												<p class="timeline-place"><i class="fas fa-university"></i> Mississippi State University, Starkville, MS, USA</p>
+												<p>Dissertation: <em>Integrated Assessment of Water Quality Dynamics in the Western Mississippi Sound — Combining Field Observations, Remote Sensing, Material Transport, and Phytoplankton Community Structure.</em></p>
+												<p>Key coursework: Geodatabase, Philosophy &amp; Ethics, GIS Research Applications, Quantitative Analysis of Climate Data, Simulation of Biological Systems.<br>
+												Outputs: Multiple peer-reviewed publications, calibrated SWAT+EFDC models, CNN-based workflows for Imaging FlowCytobot. <strong>GPA 4.0 (all semesters).</strong></p>
+												<div class="timeline-tags">
+													<span class="skill-tag">Physical Oceanography</span>
+													<span class="skill-tag">Remote Sensing</span>
+													<span class="skill-tag">Machine Learning</span>
+													<span class="skill-tag">Hydrodynamic Modeling</span>
+												</div>
+											</div>
+										</div>
+
+										<div class="timeline-item">
+											<div class="timeline-date">2021 – 2023</div>
+											<div class="timeline-content">
+												<h4>Master of Science (MS) — Wildlife, Fisheries &amp; Aquaculture</h4>
+												<p class="timeline-place"><i class="fas fa-university"></i> Mississippi State University, Starkville, MS, USA</p>
+												<p>Thesis focused on geospatial data analysis and developing a management framework to limit Silver Carp invasion across the Lower Mississippi Alluvial Valley. Worked with USGS Cooperative Fish and Wildlife Research Unit.</p>
+												<div class="timeline-tags">
+													<span class="skill-tag">GIS &amp; Remote Sensing</span>
+													<span class="skill-tag">Hydrological Connectivity</span>
+													<span class="skill-tag">Fisheries Science</span>
+												</div>
+											</div>
+										</div>
+
+										<div class="timeline-item">
+											<div class="timeline-date">2019 – 2020</div>
+											<div class="timeline-content">
+												<h4>Exchange Student — Marine &amp; Environmental Sciences</h4>
+												<p class="timeline-place"><i class="fas fa-university"></i> Florida Gulf Coast University (FGCU), Fort Myers, FL, USA</p>
+												<p>Conducted research under Dr. Felix Jose (Physical Oceanography), Dr. James Douglass (Marine Ecology), and Dr. Tosi. Field work at the Keys Marine Laboratory — seagrass, coral reef, and fish species identification; benthic sampling in the Gulf of Mexico and Atlantic Ocean.</p>
+												<div class="timeline-tags">
+													<span class="skill-tag">Marine Ecology</span>
+													<span class="skill-tag">Seagrass Research</span>
+													<span class="skill-tag">Field Oceanography</span>
+												</div>
+											</div>
+										</div>
+
+										<div class="timeline-item">
+											<div class="timeline-date">2012 – 2018</div>
+											<div class="timeline-content">
+												<h4>Bachelor's &amp; Master's — Oceanography</h4>
+												<p class="timeline-place"><i class="fas fa-university"></i> University of Chittagong, Chittagong, Bangladesh</p>
+												<p>Comprehensive training in physical, chemical, biological, and geological oceanography. Research focused on coastal zone management, climate change impacts, and ocean remote sensing applications in the Bay of Bengal.</p>
+												<div class="timeline-tags">
+													<span class="skill-tag">Oceanography</span>
+													<span class="skill-tag">Coastal Science</span>
+													<span class="skill-tag">Marine Biology</span>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</section>
+
+							<!-- ══════════════════════════════════════
+								 EXPERIENCE SECTION
+							══════════════════════════════════════ -->
+								<section id="experience">
+									<header class="major">
+										<h2><i class="fas fa-briefcase" style="color:var(--ocean-teal);margin-right:0.45em;"></i>Research &amp; Professional Experience</h2>
+									</header>
+
+									<div class="timeline">
+
+										<div class="timeline-item">
+											<div class="timeline-date">Aug 2025 – 2026</div>
+											<div class="timeline-content">
+												<h4>Graduate Teaching Assistant</h4>
+												<p class="timeline-place"><i class="fas fa-chalkboard-teacher"></i> Mississippi State University, Starkville, MS, USA</p>
+												<p>Served as teaching assistant for multiple remote sensing and GIS courses, supporting a combined enrollment of 98+ students across four course sections.</p>
+												<ul class="activity-list" style="margin-top:0.5em;">
+													<li>Remote Sensing of the Physical Environment — 17 students (Fall 2025)</li>
+													<li>Maps and Remote Sensing — 2 sections, 39 students (Fall 2025)</li>
+													<li>Advanced Remote Sensing — 12 students (Spring 2026)</li>
+													<li>Maps and Remote Sensing — 2 sections, 30 students (Spring 2026)</li>
+												</ul>
+												<div class="timeline-tags">
+													<span class="skill-tag"><i class="fas fa-satellite"></i> Remote Sensing</span>
+													<span class="skill-tag"><i class="fas fa-map"></i> GIS / Cartography</span>
+													<span class="skill-tag"><i class="fas fa-users"></i> Teaching</span>
+												</div>
+											</div>
+										</div>
+
+										<div class="timeline-item">
+											<div class="timeline-date">Jan 2024 – May 2025</div>
+											<div class="timeline-content">
+												<h4>Graduate Research Assistant</h4>
+												<p class="timeline-place"><i class="fas fa-building"></i> Mississippi State University, Starkville, MS, USA</p>
+												<p>Modeled and assessed seasonal trends in Mississippi Sound water quality, investigated the dynamics of freshwater inflow into the Sound, and evaluated the suitability of Sound waters for sustainable oyster production. Funded by the <strong>U.S. Department of the Treasury</strong>.</p>
+												<div class="timeline-tags">
+													<span class="skill-tag">Water Quality Modeling</span>
+													<span class="skill-tag">Freshwater Dynamics</span>
+													<span class="skill-tag">Oyster Habitat Assessment</span>
+												</div>
+											</div>
+										</div>
+
+										<div class="timeline-item">
+											<div class="timeline-date">2024 – 2027</div>
+											<div class="timeline-content">
+												<h4>Graduate Research Assistant</h4>
+												<p class="timeline-place"><i class="fas fa-building"></i> Geosystems Research Institute (GRI), Mississippi State University, MS, USA</p>
+												<p>Leveraging cutting-edge remote sensing technologies and hydrodynamic modeling to advance surface-to-ground water quality assessment in the Mississippi Coastal region. Developing and implementing scalable algorithms to process large satellite and drone datasets. Coupled SWAT and EFDC models; designed CNN-based workflows for plankton classification using an Imaging FlowCytobot.</p>
+												<div class="timeline-tags">
+													<span class="skill-tag">Water Quality Remote Sensing</span>
+													<span class="skill-tag">SWAT + EFDC Modeling</span>
+													<span class="skill-tag">Machine Learning</span>
+													<a href="https://mbrace.usm.edu/" target="_blank" class="skill-tag" style="text-decoration:none;"><i class="fas fa-external-link-alt"></i> Project</a>
+												</div>
+											</div>
+										</div>
+
+										<div class="timeline-item">
+											<div class="timeline-date">May – Aug 2023</div>
+											<div class="timeline-content">
+												<h4>HPC Summer Research Intern</h4>
+												<p class="timeline-place"><i class="fas fa-building"></i> Geosystems Research Institute / MSU + USDA, Starkville, MS, USA</p>
+												<p>Joined an elite cohort of eight students from universities across the USA to work with a High-Performance Computer (Supercomputer) on cutting-edge machine learning projects. My project classified cattle behavior using machine and deep learning (VGG-19, custom CNN) with HPC facilities.</p>
+												<div class="timeline-tags">
+													<span class="skill-tag">Deep Learning (CNN)</span>
+													<span class="skill-tag">HPC / Supercomputing</span>
+													<span class="skill-tag">Python</span>
+													<a href="https://lnkd.in/g3VXBGvw" target="_blank" class="skill-tag" style="text-decoration:none;"><i class="fas fa-external-link-alt"></i> Project</a>
+												</div>
+											</div>
+										</div>
+
+										<div class="timeline-item">
+											<div class="timeline-date">2022 – 2023</div>
+											<div class="timeline-content">
+												<h4>Graduate Research Assistant</h4>
+												<p class="timeline-place"><i class="fas fa-building"></i> Mississippi USGS Cooperative Fish and Wildlife Research Unit, MSU, MS, USA</p>
+												<p>Investigated hydrological connectivity patterns in oxbow lakes of the Lower Mississippi Alluvial Valley using remote sensing and GIS. Developed innovation for quantifying floodplain connectivity dynamics; presented findings at the AFS Annual Meeting and MSU Graduate Research Symposium.</p>
+												<div class="timeline-tags">
+													<span class="skill-tag">Hydrological Connectivity</span>
+													<span class="skill-tag">GIS &amp; Remote Sensing</span>
+													<span class="skill-tag">Fisheries Ecology</span>
+													<a href="https://www1.usgs.gov/coopunits/staff/2357792" target="_blank" class="skill-tag" style="text-decoration:none;"><i class="fas fa-external-link-alt"></i> Project</a>
+												</div>
+											</div>
+										</div>
+
+										<div class="timeline-item">
+											<div class="timeline-date">Oct 2020 – Nov 2021</div>
+											<div class="timeline-content">
+												<h4>Marine Data Management Officer</h4>
+												<p class="timeline-place"><i class="fas fa-building"></i> Wildlife Conservation Society (WCS) Bangladesh Program, Bangladesh</p>
+												<p>Managed marine databases; quality-checked, summarized, and extracted GPX data. Developed the Marine Spatial Monitoring and Reporting Tool (SMART) for the Bay of Bengal. Co-authored the <em>Sharks and Rays of Bangladesh</em> field guide. Assisted with MPA management plans and marine spatial planning.</p>
+												<ul class="activity-list" style="margin-top:0.5em;">
+													<li>SMART tool development for the Bay of Bengal region</li>
+													<li>Sharks &amp; Rays ID guide development and data collection SOP</li>
+													<li>Compiled secondary information for MPA management plans</li>
+													<li>Advanced data analysis, modeling, and geospatial visualization</li>
+												</ul>
+												<div class="timeline-tags">
+													<span class="skill-tag">Marine Spatial Planning</span>
+													<span class="skill-tag">Biodiversity Data</span>
+													<span class="skill-tag">Conservation GIS</span>
+													<a href="https://bangladesh.wcs.org/" target="_blank" class="skill-tag" style="text-decoration:none;"><i class="fas fa-external-link-alt"></i> WCS Bangladesh</a>
+												</div>
+											</div>
+										</div>
+
 									</div>
 								</section>
 
 							<!-- Section -->
-								<section>
+									<section id="about">
 									<header class="major">
 										<h2>About Me</h2>
 									</header>
+									
+									<!-- Adding Stats Section -->
+									<div class="stats-section">
+										<h3>Research Impact at a Glance</h3>
+										<p>My research work has reached significant milestones in the field of oceanography and marine science.</p>
+										<div class="stats-grid" style="display: flex; flex-direction: row; flex-wrap: nowrap; overflow-x: auto; gap: 15px; justify-content: space-between;">
+											<div class="stat-card" style="min-width: 200px; flex: 1;">
+												<div class="stat-icon">
+													<i class="fas fa-book-open"></i>
+												</div>
+												<div class="stat-number" data-count="18">0</div>
+												<div class="stat-label">Publications</div>
+											</div>
+											<div class="stat-card" style="min-width: 200px; flex: 1;">
+												<div class="stat-icon">
+													<i class="fas fa-chalkboard-teacher"></i>
+												</div>
+												<div class="stat-number" data-count="14">0</div>
+												<div class="stat-label">Conference Presentations</div>
+											</div>
+											<div class="stat-card" style="min-width: 200px; flex: 1;">
+												<div class="stat-icon">
+													<i class="fas fa-globe-americas"></i>
+												</div>
+												<div class="stat-number" data-count="15">0</div>
+												<div class="stat-label">Research Projects</div>
+											</div>
+											<div class="stat-card" style="min-width: 200px; flex: 1;">
+												<div class="stat-icon">
+													<i class="fas fa-award"></i>
+												</div>
+												<div class="stat-number" data-count="8">0</div>
+												<div class="stat-label">Awards & Honors</div>
+											</div>
+										</div>
+									</div>
+
 									<div class="posts">
 										<article>
 											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
@@ -428,41 +930,52 @@ I can do the using following method including machine learning models using R/ A
 											</ul>
 										</article>
 										<article>
+											<section id="Research">
 											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
 											<h3>Education in the United States of America and Bangladesh</h3>
-											<p>I am currently a graduate student at Mississippi State University in Mississippi, USA. I am pursuing a master's degree in wildlife, aquaculture, and fisheries, with a focus on geospatial data analysis and developing a management framework to limit silver carp invasion across the Lower Mississippi Alluvial Valley . I was a student of  Florida Gulf Coast University(FGCU), Florida, USA, . I worked with  Dr. Felix Jose ,Dr. James Douglass and Dr. Tosi. they are doing great research activities.
+											<p><b>Doctor of Philosophy (January 2024-May 2026)</b><br>
+Department of Geosciences, Mississippi State University, Starkville, Mississippi, Expected Graduation in May 2026<br>
+•	Major in Earth and Atmospheric Sciences<br>
+•	Dissertation: Integrated Assessment of Water Quality Dynamics in the Western Mississippi Sound: Combining Field Observations, Remote Sensing, Material Transport, and Phytoplankton Community Structure<br>
+•	Coursework: Geodatabase, Philosophy and Ethics, GIS research applications, Quantitively analysis of climate data, Simulation of Biological Systems.<br>
+•	Outputs: One publication (3 under revision), calibrated models, and novel algorithms. Developed scalable pipelines for water quality, coupled the SWAT and EFDC model and designed CNN-based workflows for Imaging FlowCytobot<br>
+•	GPA (4.0 for Spring, Fall 2024, & Spring, Fall 2025)<br>
+<br>
+I was a graduate student at Mississippi State University in Mississippi, USA, where I pursued a master's degree in wildlife, aquaculture, and fisheries, with a focus on geospatial data analysis and developing a management framework to limit silver carp invasion across the Lower Mississippi Alluvial Valley. I was a student of Florida Gulf Coast University (FGCU), Florida, USA, where I worked with Dr. Felix Jose, Dr. James Douglass and Dr. Tosi on great research activities.
 											</p>
-											<br> <p> <b>My Research activities  and publications (* submitted)</b>: 
+											<br> <p id="publications"> <b>My Research activities  and publications (* submitted)</b>: 
+
+<b>PEER-REVIEWED PUBLICATIONS (25)</b>
 			<ol>
-<li>H. Ahmad, F. Jose and Dash Padmanava, and et al.,2024. "Mapping the long-term influence of river discharge on coastal ocean net primary productivity in the Northern Gulf of Mexico* </li>
-<li>H. Ahmad, F. Jose and Nabi, and et al.,2024.Assessing Land Use and Land Cover Dynamics of Irrawaddy Delta: Remote
-	Sensing Analysis and Future Projections*</li>
-<li>H. Ahmad, et al.,2025.Machine learning Ocean optics algorithm development for Coastal of Gulf of Mexico*</li>
+<li>Ahmad, H., Dash, P., Ahmad, H. et al. (2026). Ensemble machine learning and landsat observations reveal seasonal and spatial dynamics of water quality in a river-influenced estuarine system. Science of Remote Sensing.</li>
+<li>Ahmad, H. High-Resolution Spatiotemporal Monitoring of Water Quality and Trophic Status in Bay St. Louis Using Sentinel-2 NDCI Time Series on Google Earth Engine. Transactions in GIS 29, no. 8: e70166. <a href="https://doi.org/10.1111/tgis.70166">https://doi.org/10.1111/tgis.70166</a></li>
+<li>Ahmad, H. Discharge–Chlorophyll-a Relationship and Seasonal Variability in the Northern Gulf of Mexico. Ocean-Land-Atmos Res. 2025;4:0120. <a href="https://doi.org/10.34133/olar.0120">DOI:10.34133/olar.0120</a></li>
 <li>H. Ahmad,  et al.,2025.Long-Term Trends and Seasonal Drivers of Water Quality in US Southern Coastal National Reserves: Unraveling the Impacts of Climate Change*</li>
 <li>H. Ahmad et al.,2024.Mapping the Dynamics of Particulate Organic Carbon: Satellite Observations of Coastal to Shelf Variability in the Northeastern Gulf of Mexico <a href="https://link.springer.com/article/10.1007/s12601-024-00203-9"> link </a></li>
-<li>H Ahmad, LE Miranda, CG Dunn, MR Boudreau, ME Colvin.,2024.Connectivity patterns between floodplain lakes and neighboring streams in the historical floodplain of the Lower Mississippi River <a href="https://www.sciencedirect.com/science/article/pii/S1470160X24012652"> link </a></li>
-<li>MS Islam, P Dash, AM Nur, <b>H Ahmad</b>, RM Panda, JS Wolfe, G Turnage..,2024.Estimation of chlorophyll-a in uncrewed aircraft systems imagery using autonomous surface vessel data with machine learning algorithms and feature selection techniques <a href="https://www.sciencedirect.com/science/article/pii/S1574954124004965"> link </a></li>
+<li>Ahmad, H.; Jose, F.; Dash, P.; Jhara, S.I. (2025) Detection, Tracking, and Statistical Analysis of Mesoscale Eddies in the Bay of Bengal. Oceans. <a href="https://doi.org/10.3390/oceans6030052">https://doi.org/10.3390/oceans6030052</a></li>
+<li>Ahmad, H., Jose, F., Dash, P., Shoemaker, D. J., & Jhara, S. I. (2025). Hypoxia in the Gulf of Mexico: A machine learning approach for evaluation and prediction. Regional Studies in Marine Science, 104363. <a href="https://doi.org/10.1016/j.rsma.2025.104363">https://doi.org/10.1016/j.rsma.2025.104363</a></li>
+<li>Ahmad, H., Jose, Felix, MM Nabi; Shakila Islam Jhara, Frank Juma Ong'ondo (2025). Land Use and Land Cover Dynamics of Irrawaddy Delta: Remote Sensing Analysis and Future Projection. Remote Sensing Applications: Society and Environment. <a href="https://doi.org/10.1016/j.rsase.2025.101607">https://doi.org/10.1016/j.rsase.2025.101607</a></li>
+<li>Islam, M. S., Dash, P., Liles, J. P., Ahmad, H., Nur, A. M., Panda, R. M., ... & Moorhead, R. J. (2025). Spatiotemporal dynamics of cyanobacterial blooms: Integrating machine learning and feature selection techniques with uncrewed aircraft systems and autonomous surface vessel data. Journal of Environmental Management, 381, 124878. <a href="https://doi.org/10.1016/j.jenvman.2025.124878">https://doi.org/10.1016/j.jenvman.2025.124878</a></li>
+<li>Ahmad, H, F. Jose, Dash, P., D. J. Shoemaker, and Jhara, S.I. (2025). Machine Learning-Based Estimation of Chlorophyll-a in the Mississippi Sound using Landsat and Ocean Optics Data. Environmental Earth Sciences.</li>
+<li>Ahmad, H, Miranda, LE, Corey G. Dunn, Colvin, Mike, and Dash, P. (2025). Confluence of time and space: an innovation for quantifying dynamics of hydrologic floodplain connectivity with remote sensing and GIS. River Research and Applications. <a href="https://doi.org/10.1002/RRA.4426">doi.org/10.1002/RRA.4426</a></li>
+<li>Ong'ondo, F. J., Ambinakudige, S., Malaki, P. A., Ahmad, H., Meng, Q., Chesire, D. K., ... & Said, Y. (2025). Monitoring and Prediction of Land Use and Land Cover Using Remote Sensing and CA-ANN. Rangeland Ecology & Management, 102, 160-171.</li>
+<li>Ong'ondo, F. J., Ambinakudige, S., Malaki, P. A., Njoroge, P., & Ahmad, H. (2025). Using GIS and remote sensing to classify land cover types and predict grassland bird abundance in Nairobi National Park. International Journal of Geoheritage and Parks, 13(1), 92-101. <a href="https://doi.org/10.1016/j.ijgeop.2025.02.003">doi.org/10.1016/j.ijgeop.2025.02.003</a></li>
+<li>Islam, M. S., Dash, P., Nur, A., Ahmad, H., Lone, F. A., & Hossain, M. S. (2025). Satellite monitoring of surface phytoplankton functional types in the Gulf of Mexico using the PhytoDOAS method. Ecological Informatics, 85, 102954. <a href="https://doi.org/10.1016/j.ecoinf.2024.102954">doi.org/10.1016/j.ecoinf.2024.102954</a></li>
+<li>Ahmad, H., Jhara, S.I. (2024). Mapping the Dynamics of Particulate Organic Carbon in the Bay of Bengal Using Satellite Remote Sensing. POC Ocean Science Journal.</li>
+<li>Ahmad, H., Dash, P., Panda, R. M., Islam, M. S., & Moorhead, R. J. (2024). Integrating machine learning and remote sensing for water quality assessment of Chilika Lagoon, India. Remote Sensing Applications: Society and Environment.</li>
+<li>Ahmad, H., Jose, F., & Shoemaker, D. J. (2024). Mapping, Dynamics, and Future Change Analysis of Sundarbans Delta Using Cellular Automata and Artificial Neural Network Modeling. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 17, 5594–5603. <a href="https://doi.org/10.1109/JSTARS.2024.3367116">doi.org/10.1109/JSTARS.2024.3367116</a></li>
+<li>Ahmad, H., Jose, F., Bhuyan, M. S., Islam, M. N., & Dash, P. (2024). Seasonal influence of freshwater discharge on spatio-temporal variations in primary productivity, sea surface temperature, and euphotic zone depth in the northern Bay of Bengal. Acta Oceanologica Sinica, 43, 1–13. <a href="https://doi.org/10.1007/s13131-023-2254-y">doi.org/10.1007/s13131-023-2254-y</a></li>
+<li>Ahmad, H., Jose, F., Islam, M. S., & Jhara, S. I. (2023). Green Energy, Blue Economy: Integrating Renewable Energy and Sustainable Development for Bangladesh. Marine Technology Society Journal. <a href="https://doi.org/10.4031/MTSJ.57.4.4">doi.org/10.4031/MTSJ.57.4.4</a></li>
+<li>Ahmad, H., Abdallah, M., Jose, F., Elzain, H. E., Bhuyan, M. S., Shoemaker, D. J., & Selvam, S. (2023). Evaluation and mapping of predicted future land use changes using hybrid models in a coastal area. Ecological Informatics, 78, 102324. <a href="https://doi.org/10.1016/j.ecoinf.2023.102324">doi.org/10.1016/j.ecoinf.2023.102324</a></li>
+<li>Ahmad, H. (2022). Machine learning applications in oceanography. Aquatic Research, 2(3), 161-169. <a href="https://doi.org/10.3153/AR19014">doi.org/10.3153/AR19014</a></li>
+<li>Ahmad, H., &amp; Jhara, S. I. (2019). Present status of impacts of climate change and adaptations in Bangladesh coastal areas. Social Change: A Journal for Social Development, 9, 71-81. <a href="http://ypsa.org/ypsa/wp-content/uploads/2020/05/Social-change-vol-9-2019.pdf">link</a></li>
 
-<li>H. Ahmad, Dash Padmanava, and et al.,2024.Integrating Machine Learning and Remote Sensing for Long-Term Monitoring of Chl-a in Chilika Lake, India <a href="https://link.springer.com/article/10.1007/s10661-024-13463-8"> link </a></li>
-<li> Machine Learning Algorithm Development from Remote Sensing Ocean Data*</li>
-<li> Satellite Monitoring of Surface Phytoplankton Functional Types in the Gulf of Mexico* </li>
-<li> Ahmad Hafez, Jose Felix, and  et al. 2024. Hypoxia in the northern and eastern Gulf of Mexico: A Machine Learning Approach for Evaluation and Prediction* </li>
-<li>Ahmad Hafez, Jose Felix, and  et al. 2024. Mesoscale Eddies and their impact on primary productivity in the Bay of Bengal* </li>
-<li> H. Ahmad, F. Jose and D. J. Shoemaker, "Mapping, Dynamics, and Future Change Analysis of Sundarbans Delta Using Cellular Automata and Artificial Neural Network Modeling," in IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, vol. 17, pp. 5594-5603, 2024, doi: 10.1109/JSTARS.2024.3367116 <a href=" https://ieeexplore.ieee.org/document/10439621"> link </a></li>				
-<li> Ahmad Hafez, Jose Felix, Bhuyan Md. Simul, Islam Md. Nazrul, Dash Padmanava. 2024. Seasonal influence of freshwater discharge on spatio-temporal variations in primary productivity, sea surface temperature, and euphotic zone depth in the northern Bay of Bengal. Acta Oceanologica Sinica, 43(0): 1–13, doi: 10.1007/s13131-023-2254-y <a href=" https://link.springer.com/article/10.1007/s13131-023-2254-y"> link </a></li>				
-<li>Ahmad, H.,  Jose, Felix; Islam, Md. Shaiful; Jhara, Shakila Islam (2023). Green Energy, Blue Economy: Integrating Renewable Energy and Sustainable Development for Bangladesh. Marine Technology Society Journal.<a href="https://doi.org/10.4031/MTSJ.57.4.4"> link </a> </li>
-<li>Ahmad, H., Abdallah, M., Jose, F., Elzain, H. E., Bhuyan, M. S., Shoemaker, D. J., & Selvam, S. (2023). Evaluation and mapping of predicted future land use changes using hybrid models in a coastal area. Ecological informatics, 102324.<a href="https://www.sciencedirect.com/science/article/pii/S1574954123003539"> link </a> </li>
-<li>Ahmad, H.,  Jose, F.Seasonal influence of freshwater discharge on primary productivity and euphotic depth in the northern Bay of Bengal.2023 IEEE International Geoscience and Remote Sensing Symposium.<a href="https://ieeexplore.ieee.org/document/10281755/"></a></li>
-<li>Ahmad, H.,  Jose, F.Mapping, Dynamics, and Future Change Analysis of Sundarbans delta using Cellular Automata and Artificial Neural Network Modeling.2023 IEEE International Geoscience and Remote Sensing Symposium.<a href="https://ieeexplore.ieee.org/document/10282057"></a></li>
 
-<li>Ahmad, Hafez, Jose, Felix , Bhuyan, Md. Simul (2021). Simulation of future land use, 
-land surface temperature, and vegetation using remote sensing and machine learning techniques for the Chittagong city corporation of Bangladesh.</li>
-<li> Ahmad, Hafez ,Jose, Felix, Bhuyan, Simul and Dash, P (2024). Seasonal Influence of Freshwater Discharge and Saptio-temporal Variation of Sea Surface Functions on 
-Primary Productivity in the Northern Bay of Bengal</li>
-<li>  Ahmad, Hafez. 2019. “A Field Assessment on Karnafully Estuarine Ecology.” International Journal of Fisheries and Aquatic Studies 7 (1): 35–38. <a href="https://www.researchgate.net/publication/330188554_A_field_assessment_on_Karnafully_estuarine_ecology_International_Journal_of_Fisheries_and_Aquatic_Studies_2019_7135-38"> link </a> </li>
+
+
 <li>  Ahmad, H. (2019a) ‘Applications of Remote Sensing in Oceanographic Research, International Journal of Oceanography & Aquaculture, 3(1), pp. 1–9. doi: 10.23880/ijoac-16000159. <a href="https://www.researchgate.net/publication/330873011_Applications_of_Remote_Sensing_in_Oceanographic_ResearchInternational_Journal_of_Oceanography_Aquaculture"> link</a> </li>
-<li>  Ahmad, H. (2019). Machine learning applications in oceanography. Aquatic Research, 2(3), 161-169. https://doi.org/10.3153/AR19014 <a href="https://www.researchgate.net/publication/334598821_Machine_learning_applications_in_oceanography"> link </a> </li> 
-<li>  Hafez Ahmad,  Shakila islam jhara. (2019). Present status of impacts of climate change and adaptations in Bangladesh coastal areas. In Social Change A journal for social development (Vol. 9, pp. 71–81). Young Power in Social Action. <a href="http://ypsa.org/ypsa/wp-content/uploads/2020/05/Social-change-vol-9-2019.pdf"> link </a> </li>
+ 
+
 <li> Ahmad, H. (2019b) ‘Bangladesh Coastal Zone Management Status and Future Trends’, Journal of Coastal Zone Management, 22(1), pp. 1–7. doi: 10.4172/2473-3350.1000466. <a href="https://www.researchgate.net/publication/330956716_Bangladesh_Coastal_Zone_Management_Status_and_Future_Trends"> link </a> </li>
 	</ol>
 <br>
@@ -484,31 +997,61 @@ Primary Productivity in the Northern Bay of Bengal</li>
 </a>
 
 
+<br> <p> <b>SUBMITTED MANUSCRIPTS</b>: 
+<ol>
+<li>Ahmad, H. et al. (2026). Spatiotemporal Analysis of Water Quality in the Western Mississippi Sound Using High-Frequency Data from an Autonomous Surface Vessel. Estuaries and Coastal Shelf Science.</li>
+<li>Ahmad, H. et al. (2026). Integration of SWAT and EFDC Models for Hydrodynamic Simulation and Material Flux Assessment in the Mississippi Sound Estuarine System. Environmental Modelling & Software.</li>
+<li>Ahmad, H. et al. (2026). Harmful algal toxins and their producing species composition using the Imaging FlowCytobot. Harmful Algae.</li>
+<li>Ahmad, H. et al. (2025). Modeling land cover dynamics across wildlife management areas and surrounding landscapes to inform conservation planning. Environmental Management.</li>
+<li>Ahmad, H. et al. (2025). AI-driven geospatial modeling of urban expansion and environmental impacts. Remote Sensing in Earth Systems Sciences.</li>
+<li>Ahmad, H. (2025). Spatial and Temporal Patterns of Vegetation Greenness in Response to Climate Variability and Land-Use Changes in the Irrawaddy Delta. International Journal of Applied Earth Observation and Geoinformation.</li>
+<li>Ahmad, H., Jose, Felix, Dash, P. Bhuyan, Md. Simul. (2025). Predictive Analysis of Land Use Modeling for Chittagong, Bangladesh Utilizing Remote Sensing and Machine Learning. Remote Sensing in Earth Systems Sciences.</li>
+<li>Ahmad, H, et al. (2025). Long-Term Trends and Seasonal Drivers of Water Quality in US Southern Coastal National Reserves: Unraveling the Impacts of Climate Change. Estuarine, Coastal and Shelf Science.</li>
+<li>Ahmad, H, et al. (2025). Estimating algal bloom and trophic status in Lake Okeechobee, Florida, using VIIRS and OCI/PACE satellite imagery and Machine learning.</li>
+<li>Frank Juma Ong'ondo, Shrinidhi Ambinakudige, Philista Adhiambo Malaki; Hafez Ahmad; Qingmin Meng; Kuria Antony. (2025). Land cover change and future projection analysis for Nairobi National Park and adjacent landscapes, using GIS, remote sensing, and cellular automata-artificial neural network. Remote Sensing Applications: Society and Environment.</li>
+</ol>
 
-	<br> <p> <b>Abstracts and Conference proceedings</b>: 
+<b>BOOKS / CHAPTERS</b>: 
+<ol>
+<li>Elisabeth Fahrni Mansur, G M Masum Billah, Nadim Parves, Robiul Kauser, Mohammad Shamsuddoha, Ashik Jahan Galib, Naim Khandakar, Hafez Ahmad, Rasel Mia, Md. Arafat Rahman Khan and Brian D. Smith (2022). Sharks and Rays of Bangladesh: A guide to identifying protected species and their commonly traded parts. Bangladesh Forest Department and Wildlife Conservation Society, Bangladesh.</li>
+</ol>
+
+<b>PROCEEDINGS AND CONFERENCE ARTICLES</b>: 
+<ol>
+<li>Md. Mazaharul Islam, Hafez Ahmad, Mohammad Saydul Islam Sarkar, Jose Felix. Sustainable Coastal Zone Management in Bangladesh: A Blue Economy Perspective through Remote Sensing Data. Taiwan International Conference on Ocean Governance 2023 (TICOG 2023).</li>
+<li>H. Ahmad and F. Jose, "Mapping, Dynamics, and Future Change Analysis of Sundarbans delta using Cellular Automata and Artificial Neural Network Modeling," IGARSS 2023 - 2023 IEEE International Geoscience and Remote Sensing Symposium, Pasadena, CA, USA, 2023, pp. 2600-2602, doi: 10.1109/IGARSS52108.2023.10282057.</li>
+<li>Md. Mazaharul Islam, Hafez Ahmad, Mohammad Saydul Islam Sarkar, Jose Felix. A comprehensive framework for harnessing blue economy benefits in Bangladesh's central coastal zone. 9th International Conference on Water and Flood Management-ICWFM 2023.</li>
+<li>H. Ahmad and F. Jose, "Seasonal influence of freshwater discharge on primary productivity and euphotic depth in the northern Bay of Bengal," IGARSS 2023 - 2023 IEEE International Geoscience and Remote Sensing Symposium, Pasadena, CA, USA, 2023, pp. 4023-4024, doi: 10.1109/IGARSS52108.2023.10281755.</li>
+</ol>
+
+<b>ABSTRACTS/PRESENTATIONS/POSTERS</b>: 
 			<ol>
-<li>Hafez Ahmad, L. E. Miranda. A systematic review on hydrological connectivity relevant 
-	to oxbow lakes: Research concepts, progress, approaches, scales, and future directions.49th Annual meeting of the MSAFS,2023</li>
-<li>Hafez Ahmad, L. E. Miranda. Assessing the Relationship between Hydrological 
-Connectivity and Fish Assemblage in the Mississippi Alluvial Valley Floodplain.MSU, Graduate Research Symposium</li>
-<li>Hafez Ahmad, Shakila Islam Jhara, and Md. Wahidul Alam.2021. Collaborative approach and role of the marine spatial planning to support integrated coastal zone management in 
-Bangladesh.8th International Conference on Water and Flood Management (ICWFM 2021)29-31 March 2021, Dhaka, Bangladesh</li>
-<li>Mazaharul Islam , Hafez Ahmad, Mohammad Saydul Islam Sarkar, Jose Felix. Sustainable Coastal Zone Management in Bangladesh: A Blue Economy Perspective through Remote Sensing data. Taiwan International Conference on Ocean Governance 2023 (TICOG 2023). </li>
+<li>Ahmad, H., & Dash, P. Monitoring Estuarine Dynamics Using Remote Sensing, Machine Learning, and Coupled Hydrodynamic–Watershed Modeling: A Multi-Method Approach. AGU 2025. New Orleans, Louisiana.</li>
+<li>Dash, P., & Ahmad, H. Water Quality Time Series of Mississippi Sound: Insights from Satellite and Unmanned Aerial Systems Imagery and Autonomous Surface Vessel Data. 14th International Symposium on Biogeochemistry of Wetland & Aquatic Systems, June 1-5, 2025, Baton Rouge, LA.</li>
+<li>Ahmad, H., & Dash, P. Long-Term Water Quality Trends and Seasonal Drivers in the Western Mississippi Sound: A Remote Sensing and Machine Learning Approach. 14th International Symposium on Biogeochemistry of Wetland & Aquatic Systems, June 1-5, 2025, Baton Rouge, LA.</li>
+<li>Devin M. Raburn, Hafez Ahmad, Patrick F. Allison Jr., Susan B. Adams, Zanethia C. Barnett, Ryan C. Garrick, Kenneth A. Sterling, Sara Cathey, Michael E. Colvin, and Corey G. Dun. Hidden in plain sight: high-resolution stream networks reveal habitats for petitioned burrowing crayfishes. 155th Annual Meeting of the American Fisheries Society, 2025. San Antonio, Texas.</li>
 
 
 
-<a href="#" class="image"> <img src="images/IGARS2023.jpg" alt=""/> </a>
-<li>Hafez Ahmad, Felix Jose. Seasonal influence of freshwater discharge on primary productivity and euphotic depth in the northern Bay of Bengal. 2023 IEEE International Geoscience and Remote Sensing Symposium</li>
-<li>Hafez Ahmad, Felix Jose. Mapping, Dynamics, and Future Change Analysis of Sundarbans delta using Cellular Automata and Artificial Neural Network Modeling. 2023 IEEE International Geoscience and Remote Sensing Symposium </li>
+<li>Ahmad, H., & Dash, P. Remote Sensing and Machine Learning for Long-Term Water Quality Monitoring in the Western Mississippi Sound. Spring 2025 Graduate Research Symposium, Feb 15, 2025, Starkville, MS.</li>
+<li>Ahmad, H., & Dash, P. Remote Sensing of Water Quality Parameters over Western Mississippi Sound by Using Sentinel-3 OLCI and Machine Learning. ASLO 2025, Charlotte, NC.</li>
 <li> Md. Mazaharul Islam , Hafez Ahmad, Mohammad Saydul Islam Sarkar, Jose Felix. A comprehensive framework for harnessing blue economy benefits in Bangladesh’s central coastal zone. 	9th International Conference on Water and Flood Management-ICWFM 2023.</li>
 
 					</ol>
 	
-	<br> <b> I earned a place on  honor roll by finishing semester with a 3.75 GPA <a href="https://blog.worldlearning.org/global-gazette/2020/01/13/fall-2019-honor-roll/">Fall-2019 honor roll </a> < . I presented two Poster presentations in STEM Undergraduate Research and Internship Symposium ,2019,<a href="https://www.fgcu.edu/"> Florida Gulf Coast Uuniversity, Florida, USA.  </a> </b>  <br> 
-<ol>	
-<li>   Spatio –temporal variability of SST and primary productivity in the Bay of Bengal by Hafez ahmad and Dr. Felix Jose at Florida gulf coast university (FGCU) ,Florida ,U.S.A <a href="http://fgcu.digital.flvc.org/islandora/object/fgcu%3A36777"> link </a> </li>
-
-<li>  Are invertebrate in tape grass beds as diverse and productive as those in seagrass beds ? By Kelly chase , Hafez ahmad and Dr. James Douglass at FGCU  <a href="https://www.fgcu.edu/cas/centers/whitaker/FINAL2019STEMUndergraduateResearchandInternshipSymposiumAbstracts.pdf"> link </a> </li>
+<li>Ahmad, H., & Dash, P. Modeling Hypoxia in the Gulf of Mexico: A Machine Learning Approach with Remote Sensing and Field Data. Fall 2024 Graduate Research Symposium.</li>
+<li>Ahmad, H., Jhara, S.I. AI-Driven Approaches for Real-Time Satellite Data Processing and Analysis. NASA Accelerating Informatics for Earth Science, 2024.</li>
+<li>Ahmad, H., Jose, F., Jhara, S. I. & Dash, P. Mesoscale Eddies and their Impact on Primary Productivity in the Northern Bay of Bengal. Ocean Sciences Meeting 2024 – AGU, New Orleans, Louisiana.</li>
+<li>Ahmad, H., Jose, F., Jhara, S. I., & Dash, P. Hypoxia in the Northern Gulf of Mexico: A Comparative Analysis of Machine Learning Algorithms for Evaluation and Prediction. Ocean Sciences Meeting 2024 – AGU, New Orleans, Louisiana.</li>
+<li>Ahmad, H., Jose, F., Jhara, S. I., & Dash, P. Eddy-driven Chlorophyll Concentration Variability in the Andaman Sea. Ocean Sciences Meeting 2024 – AGU, New Orleans, Louisiana.</li>
+<li>Ahmad, H., Jose, F., Islam, M. S., & Jhara, S. I. Sustainable Development through the Synergy of Green Energy and Blue Economy in Bangladesh. 1st International Conference on Oceanographic 2024 (ICO-2024), BORI, Cox's Bazar, Bangladesh.</li>
+<li>Hafez Ahmad, L. E. Miranda, Corey G. Dunn, Mike Colvin. Hydrological connectivity patterns in oxbow lakes of the Lower Mississippi Alluvial Valley. 153rd Annual Meeting of the American Fisheries Society, 2023.</li>
+<li>Devin. M. Raburn, Hafez Ahmad, Patrick Allison Jr., Susan B. Adams, Zanethia C. Barnett, Ryan Garrick, Kenneth A. Sterling, Sara Cathey, Michael E. Colvin, and Corey G. Dunn. Uncharted waters: high-resolution stream networks reveal hidden habitats for petitioned headwater crayfishes. Southern Division of the American Fisheries Society, 2023.</li>
+<li>Hafez Ahmad, L. E. Miranda, Corey G. Dunn, Mike Colvin. A systematic review on hydrological connectivity relevant to oxbow lakes. 49th Annual Meeting of the MSAFS, 2023.</li>
+<li>Hafez Ahmad, L. E. Miranda, Corey G. Dunn, Mike Colvin. Assessing the Relationship between Hydrological Connectivity and Fish Assemblage in the Mississippi Alluvial Valley Floodplain. MSU Graduate Research Symposium, 2023.</li>
+<li>Hafez Ahmad and Felix Jose. Spatiotemporal variability of SST and primary productivity in the Bay of Bengal. STEM Undergraduate Research and Internship Symposium, 2019, Florida Gulf Coast University, Florida, USA.</li>
+<li>Kelly Chase, Hafez Ahmad, and James Douglass. 2019. Are invertebrates in tape grass beds as diverse and productive as those in seagrass beds? STEM Undergraduate Research and Internship Symposium, 2019, Florida Gulf Coast University, Florida, USA.</li>
+<li>Hafez Ahmad, Shakila Islam Jhara, and Md. Wahidul Alam. 2021. Collaborative approach and role of the marine spatial planning to support integrated coastal zone management in Bangladesh. 8th International Conference on Water and Flood Management (ICWFM 2021), 29-31 March 2021, Dhaka, Bangladesh.</li>
 											</ol>
 									
 											<br>
@@ -584,121 +1127,71 @@ I built a COVID Dashboard. It is a simple dashboard to show the COVID-19 cases f
 												<li><a href="#" class="button">More</a></li>
 											</ul>
 										</article>
+										
+										<!-- New Modeling Section -->
 										<article>
-											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-											<h3>Ocean Simulation Modeling</h3>
-											<p>Ocean models are numerical models with a focus on the properties of oceans and their circulation. Ocean models play a large role 
-												in aiding our understanding of the ocean's influence on weather and 
-												climate.I love to work in the Ocean Modeling . I have little experience in Regional Ocean Modeling system 
-												by scientists to better understand the earth climate system.
-												<a href="https://www.youtube.com/watch?time_continue=9&v=TTXi8D--euE&feature=emb_title" class="image"><img src="images/pic12.jpg" alt="" /></a>
-											<p>
-											<br> </br>
+											<section id="modeling">
+											<a href="#" class="image"><img src="images/swat.jpg" alt="SWAT Model" /></a>
+											<h2>Hydrologic and Oceanographic Modeling</h2>
+											<div class="content-section">
+												<h3>The Soil & Water Assessment Tool (SWAT)</h3>
+												<p>SWAT is a river basin-scale model developed to quantify the impact of land management practices on water, 
+												sediment, and agricultural chemical yields in large complex watersheds with varying soils, land use, and management conditions 
+												over long periods of time. My work with SWAT includes:</p>
+												<ul>
+													<li>Watershed delineation and hydrologic response unit (HRU) definition</li>
+													<li>Calibration and validation using SWAT-CUP</li>
+													<li>Scenario analysis for climate change impacts on water resources</li>
+													<li>Integration with GIS for spatial analysis of model outputs</li>
+													<li>Assessment of best management practices (BMPs) for reducing nutrient loading</li>
+												</ul>
+												<a href="#" class="image"><img src="images/pic21.jpg" alt="Watershed Modeling" /></a>
+											</div>
 											
-											<b> Why do we need to Model Ocean? </b> <br>
-Ocean models play a large role in aiding our understanding of the ocean’s influence on weather and climate. 
-They are a repository for mechanistic theories of how the ocean works with numerical methods used to transform the mathematical expression of the theories into
- a computational tool for scientific investigations. In particular numerical models are for hypothesis-driven experimental and theoretical studies that 
-				make them an essential tool in the hierarchy of methods used 
-by scientists to better understand the earth climate system.</p>
-
-  <a href="#" class="image"><img src="images/pic13.jpg" alt="" /></a>
-  <b>Ecological Modeling</b> <br>
-  <p> Ecosystem modeling is the mathematical representation of ecological systems from individuals to the whole biome 
-  which is studied to understand the real nature, the models can be analytic or simulations based.
-  It has applications in a wide variety of disciplines. 
-  
-  <br>
-  <h4> Coral shallow and deep-water species  distribution</h4>
-		<p>author: Hafez ahmad  </p>
-<a href="#" class="image"><img src="images/pic14.jpg" alt="" /></a>
-  
-  <br>
-  <h4> Vertical Ocean Temperature and salinity with pressure  distribution </h4>
-		<p> this is created by R using Argo data. author: Hafez ahmad  </p>
-  <a href="#" class="image"><img src="images/pic15.jpg" alt="" /></a>
-  <br>
-  <h4> Depth Ocean temperature in the Bay of Bengal </h4>
-		<p> this is created by R and Python using Argo data. author: Hafez Ahmad  </p>
-
-  <a href="#" class="image"><img src="images/pic16.jpg" alt="" /></a>
-<br>
-
-  <br>
-  <h4> Cross sectional plot of the Indian Ocean </h4>
-		<p> Cross sectional Plot:  A section plot is a vertical "slice" through the ocean, along an alignment that is often a straight line, 
-			portraying the vertical structure of a selected property along the alignment. 
-			this type of plot is extremely useful in the case of multidimensional data analysis. I made it using Python programming for the presentation purpose. </p>
-  <a href="#" class="image"><img src="images/pic17.jpg" alt="" /></a>
-<br>
- <a href="#" class="image"><img src="images/transect.PNG" alt="" /></a>
-  <br>
-  <h4> Significant wave height of the Ocean  </h4>
-		<p> author: Hafez ahmad ,data source :  NOAA's WAVEWATCH III (</p>
-  <a href="#" class="image"><img src="images/pic19.jpg" alt="" /></a>
-<br>
-
-		 <h4> Mesoscale Eddies Extracted from Satellite Data </h4>
-		<p>Have you noticed that offshore, the eddies are warm, while near the River mouth, water is cold and lower SLA values</p>
-  <a href="#" class="image"><img src="images/2010_1_eddied.png" alt="" /></a>
-<br>
-
- <h4> Mesoscale Cyclonic Eddies those are longer 10 weeks  </h4>
-		<p> Mesoscale cyclonic eddies (cold core) are though known to enhance the phytoplankton biomass in the Bay of Bengal,
-			 their contribution to the carbon export to the deep ocean are yet to be quantified.Eddies exist principally in the western Bay of Bengal and most of them propagate westward. The polarity distribution of eddies shows cyclones prefer to occur in the northwest and south of the Bay of Bengal, 
-			 while anticyclones mainly occur in the east of the bay.</p>
-  <a href="#" class="image"><img src="images/longer_than_10_c.png" alt="" /></a>
-<br>
-<h4> Sample works on Traditional data analysis and visualization</h4>
-		<p> </p>
-  <a href="#" class="image"><img src="images/data_anaylsis1.png" alt="" /></a>
-<br>
- <h4> Normalized difference Vegetation Index(NDVI) with R :To calculate the Normalized Difference Vegetation Index (NDVI) for the continental United States using R, begin by acquiring suitable satellite imagery, such as Landsat data, which can be obtained from the USGS Earth Explorer. Load the necessary R packages, including raster and rgdal, to handle and process the imagery. After loading the Red and Near-Infrared (NIR) bands into R, compute the NDVI using the formula: (NIR - Red) / (NIR + Red). Visualize the resulting NDVI raster to assess vegetation health across the region. 
-	Given the extensive data size for the entire continental U.S., ensure your system has adequate computational resources </h4>
-		<p> </p>
-  <a href="#" class="image"><img src="images/Maps_NDVI.PNG" alt="" /></a>
-<br>
-
-<h4> Sample works on  data analysis and visualization on SDM with R:</h4>
-		<p> </p>
-  <a href="#" class="image"><img src="images/Presentation1.png" alt="" /></a>
-
-  <h4> Published Method on  Spatial temporal dynamics of Particulate Organic Carbon:
-	This study analyzed the spatial and temporal variability of POC in the northeastern coastal waters to the continental shelf of the Gulf of Mexico using satellite remote sensing data within the United States. 
-	Over 19 years, surface water POC averaged 155.57 ± 13.56 mg/m3, with values ranging from 127.17 to 188.81 mg/m3, and an insignificant annual increase of 0.78 mg/m3. 
-	Spatial analysis across five transects (T1–T5) revealed significant variability </h4>
-  <p> </p>
-<a href="#" class="image"><img src="images/poc.png" alt="" /></a>
-
-<h4> Published works on  data analysis and visualization on Hydrologic Connectivity: This study quantified hydrologic connectivity for 1,283 lakes in the Lower Mississippi River floodplain using satellite imagery, 
-	streamgauge data, and geospatial information. We aimed to assess connection frequency patterns between lakes and streams. 
-	Eight metrics describing temporal aspects of hydrologic connectivity were estimated, identifying trends by lake features and by stream size. Each lake exhibited a distinct pattern of connection, with specific months of connectivity followed by disconnection, likely influenced by lake characteristics and seasonal precipitation. Larger lakes showed increased connectivity, likely due to their surface area and volume, while smaller lakes were more prone to isolation, especially during dry periods. 
-	Lakes connected to large streams exhibited more prolonged and recurring connections, with less seasonal variation. In contrast, lakes near agricultural areas experienced reduced connectivity. </h4>
-<p> </p>
-<a href="#" class="image"><img src="images/connectivity.jpg" alt="" /></a>
-
-<h4> Published works on   Chla estimation from Landsat satellite image:This study aimed to develop and validate a robust ML model for estimating Chla using Landsat data, 
-	produce a time series of Chl a maps, and analyze the spatiotemporal variability of Chla in Chilika Lagoon, Asia’s largest brackish water lagoon. Nine ML regression models, 
-	including Extreme Gradient Boost, Support Vector Regression, Random Forest, and Bagging Regression, were evaluated using Landsat imagery and field data. After extensive hyperparameter tuning,
-	the Bagging Regression model achieved the highest estimation accuracy, with an R2 of 0.8776 and a Root Mean Square Error of 0.9190 µg/L. This optimized model was subsequently applied to generate 
-	a time series of Chla maps for Chilika Lagoon from 2014 to 2023, revealing notable seasonal and spatial variability. Chla concentrations peaked during summer months and were generally higher in the lagoon’s 
-	northwestern region, gradually decreasing towards the southern area. 
-	This approach holds promise for precise Chla monitoring in diverse lagoon environments and may aid in the assessment and management of similar coastal and inland lake ecosystems worldwide </h4>
-<p> </p>
-<a href="#" class="image"><img src="images/12month.jpg" alt="" /></a>
+											<div class="content-section">
+												<h3>Environmental Fluid Dynamics Code (EFDC)</h3>
+												<p>EFDC is a state-of-the-art hydrodynamic model that can be used to simulate aquatic systems in one, two, and three dimensions. 
+												It has evolved into one of the most widely used and technically defensible hydrodynamic models in the world. In my research, I utilize EFDC for:</p>
+												<ul>
+													<li>Simulating water circulation patterns in coastal environments</li>
+													<li>Modeling sediment transport processes</li>
+													<li>Analyzing water quality parameters including dissolved oxygen, nutrients, and contaminants</li>
+													<li>Studying thermal dispersion from industrial outfalls</li>
+													<li>Investigating the impacts of engineering modifications on estuarine systems</li>
+												</ul>
+												<a href="#" class="image"><img src="images/pic22.jpg" alt="EFDC Modeling" /></a>
+											</div>
 											
-											</p>
-											
-											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
-											</ul>
+											<div class="content-section">
+												<h3>Ocean Circulation Modeling</h3>
+												<p>Ocean models are numerical models that simulate the physical processes governing ocean circulation. These models play a crucial role in 
+												understanding ocean dynamics, climate patterns, and marine ecosystems. My experience includes working with:</p>
+												<ul>
+													<li><strong>Regional Ocean Modeling System (ROMS)</strong> - A free-surface, terrain-following, primitive equations ocean model used by the scientific community for a diverse range of applications</li>
+													<li><strong>HYCOM (HYbrid Coordinate Ocean Model)</strong> - A data-assimilative hybrid isopycnal-sigma-pressure coordinate ocean model</li>
+													<li><strong>Modular Ocean Model (MOM)</strong> - A numerical ocean model based on the hydrostatic primitive equations</li>
+													<li><strong>NEMO (Nucleus for European Modelling of the Ocean)</strong> - A state-of-the-art modeling framework for oceanographic research and operational oceanography</li>
+												</ul>
+												<p>My modeling work focuses on:</p>
+												<ul>
+													<li>Simulating ocean circulation patterns in the Bay of Bengal and Gulf of Mexico</li>
+													<li>Analyzing mesoscale eddies and their impact on primary productivity</li>
+													<li>Studying the influence of freshwater discharge on coastal dynamics</li>
+													<li>Investigating climate change impacts on ocean circulation</li>
+													<li>Developing machine learning approaches to enhance model parameterizations</li>
+												</ul>
+												<a href="#" class="image"><img src="images/pic12.jpg" alt="Ocean Modeling" /></a>
+												
+												<p>Ocean models represent a synthesis of our theoretical understanding, observational data, and computational capabilities. They enable us to explore complex ocean processes across various temporal and spatial scales, from local coastal dynamics to global circulation patterns. Through my research, I aim to advance our understanding of ocean processes and contribute to more accurate predictions of oceanographic phenomena.</p>
+											</div>
+											</section>
 										</article>
-										<article>
+
+										<article id="remote-sensing">
 											<h2>GIS and Remote sensing </h2>
 											<p>Remote Sensing (RS) has a wide range of applications in the field of physical, biological, coastal, and satellite oceanography. RS in Oceanographic research is the collection of oceanographic, monitoring of coastal and oceanic processes data, and analysis of various processes using space-borne and airborne sensors. </p>
 										
 											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-											
 											<p>Each year in Bangladesh about 26,000 square kilometres (10,000 sq mi) (around 18% of the country) is flooded, killing over 5,000 people and destroying more than seven million homes. During severe floods the affected area may exceed 75% of the country, as was seen in 1998. This volume is 95% of the total annual inflow.
 											<br>
 											<h3> Application of remote sensing data in Oceanographic Research</h3>
@@ -792,7 +1285,7 @@ coral reefs, marine algae, mollusks, etc. that has been playing a significant ro
 											<br>
 												<b> Surface water dynamics using Landsat Imageries </b>
 													<br>
-												<iframe width="400" height="315" src="https://www.youtube.com/embed/iM7nI9N8q8c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+												<iframe width="400" height="315" src="https://www.youtube.com/embed/iM7nI9N8q8q8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 											<br>
 											<h4> Heat_Map of NYC Cab Pickups  created by Python </h4>
@@ -804,7 +1297,7 @@ coral reefs, marine algae, mollusks, etc. that has been playing a significant ro
 												<li><a href="#" class="button">More</a></li>
 											</ul>
 										</article>
-										<article>
+										<article id="teaching">
 											<h2>Online teaching Experiences</h2>
 											<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
 											
@@ -1107,6 +1600,240 @@ coral reefs, marine algae, mollusks, etc. that has been playing a significant ro
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+			<script>
+				// Animate stats counters when they come into view
+				function isElementInViewport(el) {
+					const rect = el.getBoundingClientRect();
+					return (
+						rect.top >= 0 &&
+						rect.left >= 0 &&
+						rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+						rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+					);
+				}
+				
+				function animateStatCounters() {
+					const statNumbers = document.querySelectorAll('.stat-number');
+					
+					statNumbers.forEach(statNumber => {
+						if (isElementInViewport(statNumber) && !statNumber.classList.contains('counted')) {
+							const finalValue = parseInt(statNumber.getAttribute('data-count'));
+							let currentValue = 0;
+							const duration = 1500; // ms
+							const interval = 30; // ms
+							const increment = finalValue / (duration / interval);
+							
+							const counter = setInterval(() => {
+								currentValue += increment;
+								if (currentValue >= finalValue) {
+									currentValue = finalValue;
+									clearInterval(counter);
+								}
+								statNumber.textContent = Math.floor(currentValue);
+							}, interval);
+							
+							statNumber.classList.add('counted');
+						}
+					});
+				}
+				
+				// Run on scroll and on page load
+				window.addEventListener('scroll', animateStatCounters);
+				window.addEventListener('load', animateStatCounters);
 
+				// Back to Top Button Functionality
+				const backToTopButton = document.getElementById('backToTop');
+				window.addEventListener('scroll', () => {
+					if (window.scrollY > 300) {
+						backToTopButton.style.display = 'block';
+					} else {
+						backToTopButton.style.display = 'none';
+					}
+				});
+				backToTopButton.addEventListener('click', (e) => {
+					e.preventDefault();
+					window.scrollTo({ top: 0, behavior: 'smooth' });
+				});
+
+				// Section Navigation Highlighting
+				document.addEventListener('DOMContentLoaded', function() {
+					// Define all sections to track
+					const sections = [
+						document.getElementById('banner'),
+						document.getElementById('projects'),
+						document.getElementById('activities'),
+						document.getElementById('about')
+					];
+					
+					// Find additional sections and add them if they exist
+					const additionalSections = ['research', 'education', 'modeling'];
+					additionalSections.forEach(id => {
+						const section = document.querySelector(`section[id="${id}"]`);
+						if (section) sections.push(section);
+					});
+					
+					// Get all navigation dots
+					const navDots = document.querySelectorAll('.section-nav a');
+					
+					// Function to update active section in navigation
+					function updateActiveSection() {
+						let currentSection = null;
+						const scrollPosition = window.scrollY + window.innerHeight / 2;
+						
+						// Find the current section based on scroll position
+						for (let i = 0; i < sections.length; i++) {
+							if (!sections[i]) continue;
+							
+							const sectionTop = sections[i].offsetTop;
+							const sectionHeight = sections[i].offsetHeight;
+							
+							if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+								currentSection = sections[i].id;
+								break;
+							}
+						}
+						
+						// If we're at the bottom of the page, highlight the last section
+						if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+							currentSection = sections[sections.length - 1]?.id;
+						}
+						
+						// Update active class on navigation dots
+						navDots.forEach(dot => {
+							const href = dot.getAttribute('href').substring(1); // Remove the # from href
+							if (href === currentSection) {
+								dot.classList.add('active');
+							} else {
+								dot.classList.remove('active');
+							}
+						});
+					}
+					
+					// Listen for scroll events
+					window.addEventListener('scroll', updateActiveSection);
+					
+					// Also update on page load
+					updateActiveSection();
+					
+					// Add smooth scrolling to all navigation links
+					navDots.forEach(dot => {
+						dot.addEventListener('click', function(e) {
+							e.preventDefault();
+							const targetId = this.getAttribute('href').substring(1);
+							const targetElement = document.getElementById(targetId);
+							
+							if (targetElement) {
+								window.scrollTo({
+									top: targetElement.offsetTop,
+									behavior: 'smooth'
+								});
+							}
+						});
+					});
+				});
+			</script>
+
+			<!-- ===== Enhanced: Bubbles + Scroll Animations ===== -->
+			<script>
+			(function() {
+				// ── Floating Ocean Bubbles ──
+				var container = document.getElementById('oceanBubbles');
+				if (container) {
+					var count = 18;
+					for (var i = 0; i < count; i++) {
+						(function(idx) {
+							var b = document.createElement('div');
+							b.className = 'bubble';
+							var size = Math.random() * 40 + 10;
+							b.style.width  = size + 'px';
+							b.style.height = size + 'px';
+							b.style.left   = Math.random() * 100 + 'vw';
+							b.style.animationDuration = (Math.random() * 18 + 12) + 's';
+							b.style.animationDelay    = (Math.random() * 20) + 's';
+							container.appendChild(b);
+						})(i);
+					}
+				}
+
+				// ── Intersection Observer: fade-in-up on small cards only ──
+				// NOTE: We intentionally do NOT apply fade-in-up to full <section> elements
+				// because very tall sections (like #about with publications) would never reach
+				// the visibility threshold and would remain permanently hidden.
+				var animEls = document.querySelectorAll(
+					'.stat-card, .mini-posts article, .timeline-item, header.major'
+				);
+				animEls.forEach(function(el) {
+					el.classList.add('fade-in-up');
+				});
+
+				var io = new IntersectionObserver(function(entries) {
+					entries.forEach(function(e) {
+						if (e.isIntersecting) {
+							e.target.classList.add('visible');
+							io.unobserve(e.target);
+						}
+					});
+				}, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+
+				animEls.forEach(function(el) { io.observe(el); });
+
+				// ── Skill bar animation (if any .skill-bar-fill elements exist) ──
+				var sbIo = new IntersectionObserver(function(entries) {
+					entries.forEach(function(e) {
+						if (e.isIntersecting) {
+							var fill = e.target;
+							fill.style.width = fill.getAttribute('data-width') || '0%';
+							sbIo.unobserve(fill);
+						}
+					});
+				}, { threshold: 0.3 });
+
+				document.querySelectorAll('.skill-bar-fill').forEach(function(el) {
+					sbIo.observe(el);
+				});
+
+				// ── Typed subtitle effect ──
+				var typedEl = document.getElementById('typed-subtitle');
+				if (typedEl) {
+					var phrases = [
+						'Physical Oceanographer',
+						'Marine Ecologist',
+						'Remote Sensing Specialist',
+						'GIS & Data Analyst',
+						'Machine Learning Researcher',
+						'PhD Candidate @ MSU'
+					];
+					var pi = 0, ci = 0, deleting = false;
+					function typeLoop() {
+						var phrase = phrases[pi];
+						if (!deleting) {
+							typedEl.textContent = phrase.substring(0, ci + 1);
+							ci++;
+							if (ci === phrase.length) {
+								deleting = true;
+								setTimeout(typeLoop, 1800);
+								return;
+							}
+						} else {
+							typedEl.textContent = phrase.substring(0, ci - 1);
+							ci--;
+							if (ci === 0) {
+								deleting = false;
+								pi = (pi + 1) % phrases.length;
+							}
+						}
+						setTimeout(typeLoop, deleting ? 50 : 80);
+					}
+					typedEl.textContent = '';
+					setTimeout(typeLoop, 800);
+				}
+			})();
+			</script>
 	</body>
 </html>
+
+
+
+
+

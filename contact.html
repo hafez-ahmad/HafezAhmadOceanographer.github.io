@@ -1,0 +1,209 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Contact - Hafez Ahmad | Oceanographer</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Roboto+Slab:wght@400;700&display=swap" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/enhanced.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<style>
+			.contact-section {
+				background: white;
+				padding: 2rem;
+				border-radius: 8px;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+				margin-bottom: 2rem;
+			}
+
+			.contact-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				margin: 2rem 0;
+			}
+
+			.contact-info {
+				padding: 2rem;
+				background: #f5f5f5;
+				border-radius: 8px;
+			}
+
+			.contact-form {
+				padding: 2rem;
+				background: #ffffff;
+				border-radius: 8px;
+			}
+
+			.contact-form input,
+			.contact-form textarea {
+				width: 100%;
+				padding: 0.75rem;
+				margin-bottom: 1rem;
+				border: 1px solid #e0e0e0;
+				border-radius: 4px;
+				transition: border-color 0.3s ease;
+			}
+
+			.contact-form input:focus,
+			.contact-form textarea:focus {
+				border-color: #009688;
+				outline: none;
+			}
+
+			.contact-form button {
+				background: #009688;
+				color: white;
+				border: none;
+				padding: 1rem 2rem;
+				border-radius: 30px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+			}
+
+			.contact-form button:hover {
+				background: #00796b;
+				transform: translateY(-2px);
+				box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+			}
+
+			.social-links {
+				display: flex;
+				gap: 1rem;
+				margin-top: 1rem;
+			}
+
+			.social-links a {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background: #009688;
+				color: white;
+				transition: all 0.3s ease;
+			}
+
+			.social-links a:hover {
+				background: #00796b;
+				transform: translateY(-2px);
+			}
+
+			.map-container {
+				height: 300px;
+				border-radius: 8px;
+				overflow: hidden;
+				margin-top: 2rem;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Contact</strong> &mdash; Hafez Ahmad</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/hafez-ahmad" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.researchgate.net/profile/Hafez_Ahmad" class='fab fa-researchgate'><span class="label">ResearchGate</span></a></li>
+						</ul>
+					</header>
+
+					<div class="contact-grid">
+						<div class="contact-info">
+							<h2>Contact Information</h2>
+							<ul class="contact">
+								<li class="icon solid fa-envelope">
+									<h3>Email</h3>
+									<a href="mailto:hafezahmad100@gmail.com">hafezahmad100@gmail.com</a>
+								</li>
+								<li class="icon solid fa-phone">
+									<h3>Phone</h3>
+									<span>Available upon request</span>
+								</li>
+								<li class="icon solid fa-home">
+									<h3>Address</h3>
+									<span>
+										Starkville, Mississippi<br />
+										United States
+									</span>
+								</li>
+							</ul>
+							<div class="social-links">
+								<a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"></a>
+								<a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"></a>
+								<a href="https://github.com/hafez-ahmad" class="icon brands fa-github"></a>
+								<a href="https://www.researchgate.net/profile/Hafez_Ahmad" class="fab fa-researchgate"></a>
+							</div>
+						</div>
+
+						<div class="contact-form">
+							<h2>Send a Message</h2>
+							<form action="https://formspree.io/f/xbjnylky" method="POST">
+								<input type="text" name="name" placeholder="Your Name" required>
+								<input type="email" name="_replyto" placeholder="Your Email" required>
+								<input type="text" name="subject" placeholder="Subject" required>
+								<input type="hidden" name="_subject" value="New contact form submission">
+								<input type="text" name="_gotcha" style="display:none">
+								<textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+								<button type="submit">Send Message</button>
+							</form>
+						</div>
+					</div>
+
+					<div class="map-container">
+						<iframe 
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26779.354751054857!2d-88.85699884999999!3d33.4620031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8886e5a8c2eac4b7%3A0x806bda4f0dbb4d36!2sStarkville%2C%20MS!5e0!3m2!1sen!2sus!4v1680000000000!5m2!1sen!2sus" 
+							width="100%" 
+							height="100%" 
+							style="border:0;" 
+							allowfullscreen="" 
+							loading="lazy">
+						</iframe>
+					</div>
+				</div>
+			</div>
+
+			<!-- Sidebar -->
+			<div id="sidebar">
+				<div class="inner">
+					<nav id="menu">
+						<header class="major">
+							<h2>Menu</h2>
+						</header>
+						<ul>
+							<li><a href="index.html">Homepage</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="blog.html">Blog</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+(function(){
+var io = new IntersectionObserver(function(entries){
+entries.forEach(function(e){
+if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+});
+},{threshold:0, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.features article,.stat-card,.timeline-item,.skill-card,header.major,.mini-posts article').forEach(function(el){
+el.classList.add('fade-in-up'); io.observe(el);
+});
+})();
+</script>
+	</body>
+</html>

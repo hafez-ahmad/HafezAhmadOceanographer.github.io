@@ -3,407 +3,684 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog - Hafez Ahmad Oceanographer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/event-drops/1.3.0/style.css"> <!-- Link to your CSS file -->
+  <title>Blog - Hafez Ahmad | Oceanographer</title>
+  <meta name="description" content="Blog posts and writings by Hafez Ahmad – Oceanographer, Marine Scientist." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Roboto+Slab:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqcloud/1.0.4/jqcloud.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqcloud/1.0.4/jqcloud.min.css">
   <style>
-     body {
-      font-family: 'Roboto', sans-serif;
-      color: #333;
-      line-height: 1.6;
+    :root {
+      --ocean-deep: #0d2137;
+      --ocean-dark: #1a3a5c;
+      --ocean-mid: #1565c0;
+      --ocean-teal: #00b4d8;
+      --seafoam: #4ecdc4;
+      --coral: #f56a6a;
+      --bg-main: #f0f5fa;
+      --bg-card: #ffffff;
+      --text-dark: #1a2332;
+      --text-medium: #4a5568;
+      --shadow-sm: 0 2px 8px rgba(13,33,55,0.10);
+      --shadow-md: 0 4px 20px rgba(13,33,55,0.14);
+      --shadow-lg: 0 8px 40px rgba(13,33,55,0.18);
+      --radius-md: 12px;
+      --radius-xl: 30px;
+      --transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
     }
-    .keywords {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #f8f8}
-    .pagination {
-      display: flex;
-      justify-content: space-between;
-      margin: 20px 0;
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-medium);
+      line-height: 1.7;
+      background-color: var(--bg-main);
+      margin: 0; padding: 0;
+      -webkit-font-smoothing: antialiased;
     }
-    .filter {
-  margin-bottom: 20px;
-}
-
-#filterInput {
-  padding: 5px;
-  width: 200px;
-}
-
-#filterBtn {
-  margin-left: 10px;
-  padding: 5px 10px;
-  border: none;
-  background-color: #008CBA; /* Change as needed */
-  color: white;
-  cursor: pointer;
-}
-
-#filterBtn:hover {
-  background-color: #007B9A; /* Change as needed */
-}
-
-    .pagination button {
-      background-color: #009688;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-main); }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--ocean-teal), var(--ocean-mid));
+      border-radius: 4px;
     }
-    .pagination button:hover {
-      background-color: #00766c;
-    }
+    ::selection { background: var(--ocean-teal); color: #fff; }
     header {
-      padding: 20px 0;
-      margin-bottom: 20px;
-      background-color: #009688;
+      background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-dark) 60%, #1565c0 100%);
+      padding: 2.5rem 0 3rem;
+      margin-bottom: 0;
       color: white;
+      box-shadow: 0 4px 20px rgba(13,33,55,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 50px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 50'%3E%3Cpath fill='%23f0f5fa' fill-opacity='1' d='M0,25 C240,50 480,0 720,25 C960,50 1200,0 1440,25 L1440,50 L0,50 Z'/%3E%3C/svg%3E") no-repeat bottom;
+      background-size: cover;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
     nav ul {
       list-style-type: none;
       display: flex;
-      justify-content: space-between;
+      gap: 2rem;
       padding: 0;
+      flex-wrap: wrap;
     }
     nav ul li a {
-      color: white;
+      color: rgba(255,255,255,0.9);
       text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      padding: 0.4em 0.8em;
+      border-radius: 6px;
     }
-    main {
-      padding: 0 10%;
+
+    nav ul li a:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.15);
     }
-    .post img {
-      width: 100%;
-      height: auto;
+
+    .post {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: var(--transition);
+      animation: fadeIn 0.5s ease-out;
+      position: relative;
+      overflow: hidden;
     }
+    .post::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--ocean-teal), var(--ocean-mid));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .post:hover::before { opacity: 1; }
+      position: relative;
+      overflow: hidden;
+    }
+
+    .post:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(0,180,216,0.20);
+    }
+
     .metadata {
+      color: var(--ocean-teal);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: 0.03em;
+    }
+
+    .filter {
+      margin: 2rem 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    #filterInput {
+      flex: 1;
+      padding: 0.8rem 1.2rem;
+      border: 2px solid rgba(0,180,216,0.25);
+      border-radius: var(--radius-xl);
+      font-size: 1rem;
+      background: rgba(240,248,255,0.6);
+      transition: var(--transition);
+    }
+
+    #filterInput:focus {
+      border-color: var(--ocean-teal);
+      box-shadow: 0 0 0 3px rgba(0,180,216,0.15);
+      outline: none;
+      background: #fff;
+    }
+
+    #filterBtn {
+      padding: 0.8rem 1.8rem;
+      background: linear-gradient(135deg, var(--ocean-mid), var(--ocean-teal));
+      color: white;
+      border: none;
+      border-radius: var(--radius-xl);
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(21,101,192,0.25);
+    }
+
+    #filterBtn:hover {
+      background: linear-gradient(135deg, var(--ocean-teal), var(--seafoam));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,180,216,0.35);
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .pagination button {
+      padding: 0.7rem 1.5rem;
+      background: white;
+      border: 2px solid var(--ocean-teal);
+      border-radius: var(--radius-xl);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .pagination button:hover {
+      background: #009688;
+      color: white;
+    }
+
+    .pagination button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .likeBtn {
+      padding: 0.5rem 1rem;
+      background: #e0e0e0;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.3s;
+    }
+
+    .likeBtn:hover {
+      background: #009688;
+      color: white;
+    }
+
+    .likesCounter {
+      font-size: 0.9rem;
       color: #666;
-      margin-bottom: 20px;
+      margin: 0.5rem 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .post-preview {
+      max-height: 400px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .post-preview.expanded {
+      max-height: none;
+    }
+
+    .post-preview::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: linear-gradient(transparent, white);
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+
+    .post-preview.expanded::after {
+      opacity: 0;
+    }
+
+    .read-more-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #009688;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      margin: 10px 0;
+      transition: background 0.3s;
+    }
+
+    .read-more-btn:hover {
+      background: #00796b;
+    }
+
+    .post-image {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+
+    .post-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 1rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .post-grid {
+        grid-template-columns: 1fr;
+      }
+    
+
+    .tag-cloud {
+      width: 100%;
+      height: 150px;
+      margin: 1rem 0;
+      background: white;
+      border-radius: 1px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 10px;
+      margin: 5px;
+      background: #e0e0e0;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .tag:hover, .tag.active {
+      background: #009688;
+      color: white;
+    }
+
+    .post-tags {
+      margin: 1rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
   </style>
-  <script src="https://unpkg.com/compromise">
-    document.addEventListener('DOMContentLoaded', function() {
-  // Your existing JavaScript here
-
-  const likeButtons = document.getElementsByClassName('likeBtn');
-  const likesCounters = document.getElementsByClassName('likesCounter');
-
-  for (let i = 0; i < likeButtons.length; i++) {
-    likeButtons[i].addEventListener('click', function() {
-      const currentLikes = parseInt(likesCounters[i].innerText, 10);
-      likesCounters[i].innerText = currentLikes + 1;
-    });
-  }
-})
-// First, include the compromise library in your HTML file
-// <script src="https://unpkg.com/compromise">
-
-document.addEventListener('DOMContentLoaded', function() {
-  const posts = document.getElementsByClassName('post');
-
-  for (let i = 0; i < posts.length; i++) {
-    const text = posts[i].innerText;
-    const nlp = nlp(text);
-    const keywords = nlp.topics().data().map(topic => topic.text);
-    const keywordsDiv = document.createElement('div');
-    keywordsDiv.className = 'keywords';
-
-    keywords.forEach(keyword => {
-      const link = document.createElement('a');
-      link.href = `#${keyword}`; // This should link to a search or tag page
-      link.innerText = keyword;
-      keywordsDiv.appendChild(link);
-    });
-
-    posts[i].appendChild(keywordsDiv);
-  }
-});
-
-    // JavaScript for pagination
-    document.addEventListener('DOMContentLoaded', function() {
-      const postsPerPage = 3; // Number of posts to display per page
-      let currentPage = 1; // Current page
-      const posts = document.getElementsByClassName('post'); // Get all posts
-      const totalPosts = posts.length; // Total number of posts
-
-      // Function to show posts for a given page
-      function showPosts(page) {
-        const startIndex = (page - 1) * postsPerPage;
-        const endIndex = startIndex + postsPerPage;
-
-        // Hide all posts
-        for (let i = 0; i < totalPosts; i++) {
-          posts[i].style.display = 'none';
-        }
-
-        // Show posts for the current page
-        for (let i = startIndex; i < endIndex; i++) {
-          if (posts[i]) {
-            posts[i].style.display = 'block';
-          }
-        }
-      }
-
-      // Function to navigate to the next page
-      function nextPage() {
-        if (currentPage < Math.ceil(totalPosts / postsPerPage)) {
-          currentPage++;
-          showPosts(currentPage);
-        }
-      }
-
-      // Function to navigate to the previous page
-      function prevPage() {
-        if (currentPage > 1) {
-          currentPage--;
-          showPosts(currentPage);
-        }
-      }
-
-      // Initial page load
-      showPosts(currentPage);
-
-      // Event listeners for pagination buttons
-      document.getElementById('nextBtn').addEventListener('click', nextPage);
-      document.getElementById('prevBtn').addEventListener('click', prevPage);
-    });
-  </script>
 </head>
 <body>
   <header>
-    <h1>My personal writing and story telling blog</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <h1 style="font-family:'Roboto Slab',serif;font-size:2.2em;margin-bottom:0.3em;letter-spacing:-0.01em;">
+        <i class="fas fa-pen-nib" style="margin-right:0.4em;color:var(--ocean-teal);"></i>
+        Ocean Science Blog
+      </h1>
+      <p style="color:rgba(255,255,255,0.75);font-size:1em;margin-bottom:1.2em;">Writings, stories, and insights by Hafez Ahmad – Oceanographer &amp; Marine Scientist</p>
+      <nav>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home" style="margin-right:0.3em;"></i>Home</a></li>
+          <li><a href="about.html"><i class="fas fa-user" style="margin-right:0.3em;"></i>About</a></li>
+          <li><a href="blog.html"><i class="fas fa-pen" style="margin-right:0.3em;"></i>Blog</a></li>
+          <li><a href="contact.html"><i class="fas fa-envelope" style="margin-right:0.3em;"></i>Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main class="container">
+    <div id="tagCloud" class="tag-cloud"></div>
+    
     <div class="filter">
-      <input id="filterInput" type="text" placeholder="Filter by keyword">
-      <button id="filterBtn">Filter</button>
+      <input id="filterInput" type="text" placeholder="Search blog posts or click tags above...">
+      <button id="filterBtn">Search</button>
     </div>
-    <h2>Blog</h2>
-        <article class="post">
-          <h1>Professional Development Plan</h1>
-          <p class="metadata">Published on July 5, 2023 by Hafez Ahmad</p>
-          <button class="likeBtn">Like</button>
+
+    <div id="posts">
+      <article class="post">
+        <h1>Professional Development Plan</h1>
+        <p class="metadata">Published on July 5, 2023 by Hafez Ahmad</p>
+        <div class="post-actions">
+          <button class="likeBtn"><i class="far fa-heart"></i> Like</button>
           <p class="likesCounter">0</p>
-          <h2>Ocean Science and Coastal Research</h2>
-          <p><strong>Goal:</strong> To become a leading expert in ocean science and coastal research, with a focus on coastal remote sensing, autonomous ocean platforms, advanced modeling techniques, and climate change impacts on marine ecosystems.</p>
-          
-          <h3>1. Enhance Technical Skills:</h3>
-          <ul>
+        </div>
+        <h2>Ocean Science and Coastal Research</h2>
+        <p><strong>Goal:</strong> To become a leading expert in ocean science and coastal research, with a focus on coastal remote sensing, autonomous ocean platforms, advanced modeling techniques, and climate change impacts on marine ecosystems.</p>
+        
+        <h3>1. Enhance Technical Skills:</h3>
+        <ul>
           <li>Attend workshops, seminars, and training programs to stay updated on the latest advancements in remote sensing technologies, autonomous ocean platforms, and advanced modeling techniques.</li>
           <li>Acquire hands-on experience with state-of-the-art equipment and software used in coastal remote sensing and autonomous data collection.</li>
           <li>Collaborate with experts in the field to gain insights and expertise in utilizing advanced modeling techniques for climate variability and change predictions.</li>
-          </ul>
-          
-          <h3>2. Research Excellence:</h3>
-          <ul>
+        </ul>
+        
+        <h3>2. Research Excellence:</h3>
+        <ul>
           <li>Conduct in-depth literature reviews to deepen knowledge on coastal remote sensing, autonomous ocean platforms, and climate change impacts on marine ecosystems.</li>
           <li>Design and execute research projects focusing on applying remote sensing and autonomous platforms to study coastal dynamics, ocean-atmosphere interactions, and ecosystem responses to climate change.</li>
           <li>Publish research findings in reputable peer-reviewed journals to contribute to the scientific community's understanding of ocean science and coastal research.</li>
-          </ul>
-          
-          <h3>3. Collaborative Networking:</h3>
-          <ul>
+        </ul>
+        
+        <h3>3. Collaborative Networking:</h3>
+        <ul>
           <li>Attend conferences, symposiums, and research events to connect with experts in the field of ocean science and coastal research.</li>
           <li>Collaborate with interdisciplinary research teams to foster knowledge exchange and develop collaborative projects addressing complex research questions.</li>
           <li>Actively participate in professional societies and organizations related to ocean science and coastal research to expand professional networks and stay informed about emerging trends and opportunities.</li>
-          </ul>
-          
-          <h3>4. Policy and Outreach:</h3>
-          <ul>
+        </ul>
+        
+        <h3>4. Policy and Outreach:</h3>
+        <ul>
           <li>Engage in science communication activities to bridge the gap between scientific research and policy-making processes.</li>
           <li>Contribute to public awareness by presenting research findings at public lectures, workshops, and community events.</li>
           <li>Seek opportunities to collaborate with government agencies, NGOs, and environmental organizations to provide scientific expertise and inform decision-making processes related to coastal management and climate change mitigation.</li>
-          </ul>
-          
-          <h3>5. Professional Growth and Leadership:</h3>
-          <ul>
+        </ul>
+        
+        <h3>5. Professional Growth and Leadership:</h3>
+        <ul>
           <li>Pursue continuous professional development by attending leadership and management training programs to acquire essential skills for leading research teams and projects.</li>
           <li>Seek mentorship opportunities with renowned experts to gain valuable guidance and insights into successful career development in ocean science and coastal research.</li>
           <li>Actively contribute to the professional community through peer mentoring, reviewing scientific papers, and serving on relevant committees or advisory boards.</li>
-          </ul>
-          
-          <p>By following this professional development plan, I aim to become a recognized expert in ocean science and coastal research, significantly contributing to understanding coastal dynamics and climate change impacts and utilizing remote sensing and autonomous technologies effectively. I am committed to lifelong learning, collaborative research, and applying scientific knowledge for sustainable coastal management and conservation of marine ecosystems.</p>
-          <div class="keywords">
-            <h4>Keywords:</h4>
-            <ul>
-              <li><a href="#/">Programming</a></li>
-              <li><a href="#/">Data Science</a></li>
-              <li><a href="#/">Machine Learning</a></li>
-              <!-- Add more as needed -->
-            </ul>
-          </div>
-          </article>  
-    <article class="post">
-
-      <h3>My Journey to Machine Learning</h3>
-      <button class="likeBtn">Like</button>
-        <p class="likesCounter">0</p>
-      <p class="metadata">Published on June 3, 2023 by Hafez Ahmad</p>
-      <p>Machine learning has become an incredibly fascinating field in recent years, and my journey into it has been an exciting and rewarding experience. In this blog post, I would like to share my personal journey to machine learning and the lessons I've learned along the way.</p>
-    
-      <img src="images/data_anaylsis1.png" alt="Blog Image">
-      
-      
-      
-      <h4>The Spark of Curiosity</h4>
-      <p>My journey began with a spark of curiosity. I was always fascinated by the ability of machines to learn and make intelligent decisions. This curiosity led me to delve deeper into the world of artificial intelligence and machine learning.</p>
-    
-      <h4>Education and Learning Resources</h4>
-      <p>Education played a crucial role in my journey. I started by taking online courses and tutorials that introduced me to the fundamentals of machine learning. Platforms like Coursera, Udemy, and edX provided excellent resources that helped me understand concepts like regression, classification, and neural networks.</p>
-    
-      <h4>Hands-On Projects</h4>
-      <p>Theoretical knowledge alone was not enough. To solidify my understanding, I actively engaged in hands-on projects. I started with simple exercises, implementing basic algorithms and models. As my confidence grew, I took on more complex projects, such as image classification and natural language processing.</p>
-    
-      <h4>Community and Collaboration</h4>
-      <p>Being part of the machine learning community was a game-changer. I joined online forums, participated in Kaggle competitions, and attended local meetups. Engaging with like-minded individuals and collaborating on projects not only expanded my knowledge but also exposed me to different perspectives and innovative approaches.</p>
-    
-      <h4>Real-World Applications</h4>
-      <p>Applying machine learning to real-world problems was a significant milestone in my journey. I sought opportunities to work on projects in domains like healthcare, finance, and computer vision. These experiences allowed me to witness the impact of machine learning firsthand and reinforced my passion for the field.</p>
-    
-      <h4>Continual Learning and Growth</h4>
-      <p>Machine learning is a rapidly evolving field, and staying updated with the latest advancements is essential. I continue to learn and explore new techniques, frameworks, and research papers. Reading blogs, attending conferences, and taking part in online courses keep me engaged and motivated.</p>
-    
-      <h4>Conclusion</h4>
-      <p>My journey to machine learning has been an incredible adventure of self-discovery and continuous learning. It has opened up a world of possibilities and allowed me to contribute to solving complex problems. If you're considering diving into machine learning, remember that the journey is unique for everyone. Embrace the challenges, stay curious, and keep pushing your boundaries.</p>
-    </article>
-
-    <article class="post">
-      <h3>How I Started Loving Data-Driven Decision Making</h3>
-      <button class="likeBtn">Like</button>
-          <p class="likesCounter">0</p>
-      <p class="metadata">Published on June 3, 2023 by Hafez Ahmad</p>
-      <img src="path-to-your-blog-image.jpg" alt="Blog Image">
-      <p>In today's data-rich world, making data-driven decisions is no longer a luxury but a necessity for businesses and individuals alike. By harnessing the power of data, we can unlock valuable insights, mitigate risks, and identify opportunities that may otherwise go unnoticed. However, being truly data-driven goes beyond just collecting and analyzing data—it requires a deliberate and thoughtful approach. Here are some key principles to consider when aiming to make data-driven decisions.
-
-        Firstly, clarity of purpose is essential. Before diving into data analysis, it's crucial to clearly define the problem or question you are trying to answer. Having a specific objective in mind allows you to focus your efforts and ensure that the data you collect and analyze aligns with your goals. Without a clear purpose, you risk drowning in a sea of data without gaining any meaningful insights.
+        </ul>
         
-        Secondly, data quality and reliability are paramount. Garbage in, garbage out. To make sound decisions, you need reliable and accurate data. This involves ensuring data integrity, verifying the sources of your data, and performing data cleansing and validation processes. By maintaining data quality, you can have confidence in the insights derived and the decisions made based on that data.
-        
-        Next, context is key. Data alone may not provide the complete picture. It's important to consider the broader context surrounding the data, such as the industry trends, market conditions, and relevant external factors. Understanding the context allows you to interpret the data correctly and make informed decisions that consider the larger business or societal landscape.
-        
-        Furthermore, data-driven decision making involves adopting a hypothesis-driven approach. Rather than blindly exploring the data, it's beneficial to formulate hypotheses or assumptions based on your domain knowledge and then use data to test and validate those hypotheses. This iterative process of hypothesis formulation, data analysis, and validation helps to uncover insights and guide decision making.
-        
-        Additionally, effective data visualization plays a critical role in making data-driven decisions. Visualizing data in meaningful ways enhances understanding and communication. By utilizing charts, graphs, and dashboards, you can present complex data in a clear and concise manner, making it easier for stakeholders to comprehend and act upon the insights derived from the data.
-        
-        Finally, data-driven decision making is an ongoing and iterative process. It requires continuous learning, adaptation, and refinement. It's crucial to regularly review and evaluate the outcomes of the decisions made based on data. By tracking the impact of your decisions, you can learn from successes and failures, refine your approaches, and continuously improve your decision-making capabilities.
-        
-        In conclusion, making data-driven decisions is not a one-time event but a mindset and a process. By defining clear objectives, ensuring data quality, considering context, employing hypothesis-driven analysis, utilizing effective data visualization, and embracing a culture of learning and adaptation, you can pave the way for successful data-driven decision making. Embracing data-driven approaches empowers you to make informed choices, capitalize on opportunities, and navigate an increasingly complex and data-driven world with confidence.</p>
-            
-      <p>Data-driven decision making has revolutionized the way businesses operate and the way we make choices in our personal lives. In this blog post, I want to share my journey of how I discovered the power of data and how it transformed the way I approach decision making.</p>
-    
-      <h4>The Awakening</h4>
-      <p>My journey into the world of data-driven decision making started with an awakening. I realized that we are surrounded by an incredible amount of data that holds valuable insights. It dawned on me that I could leverage this data to make informed decisions and improve outcomes.</p>
-    
-      <h4>Curiosity and Learning</h4>
-      <p>Driven by curiosity, I delved into the field of data science and analytics. I immersed myself in online courses, books, and tutorials to understand the foundations of data analysis. Learning statistical concepts, data visualization, and data manipulation techniques provided me with a solid grounding in the field.</p>
-    
-      <h4>Exploring Real-World Data</h4>
-      <p>Applying what I learned, I sought out opportunities to work with real-world data. Whether it was analyzing customer behavior, market trends, or operational metrics, I dove into datasets to uncover patterns and insights. This hands-on experience solidified my understanding and showcased the potential of data-driven decision making.</p>
-    
-      <h4>Data Visualization and Storytelling</h4>
-      <p>I discovered the power of data visualization in conveying complex information effectively. I honed my skills in creating visually compelling charts, graphs, and dashboards that not only presented the data but also told a compelling story. This skill became instrumental in influencing decision makers and driving change.</p>
-    
-      <h4>Impact on Decision Making</h4>
-      <p>As I started incorporating data-driven approaches into my decision-making process, I witnessed the tangible impact it had on outcomes. By basing decisions on evidence and insights derived from data, I could make more informed choices, mitigate risks, and uncover opportunities that were previously hidden.</p>
-    
-      <h4>Sharing and Collaboration</h4>
-      <p>I realized the importance of sharing my knowledge and collaborating with others in the field. I actively participated in data science communities, attended conferences, and engaged in discussions with fellow data enthusiasts. This collaborative environment fostered growth, sparked new ideas, and pushed me to further refine my skills.</p>
-    
-      <h4>Continuous Improvement</h4>
-      <p>Data-driven decision making is an ever-evolving field. I recognized the need for continuous learning and staying abreast of the latest tools, techniques, and trends. By staying curious and dedicating time to self-improvement, I ensure that my data-driven decision-making skills remain sharp and relevant.</p>
-    
-      <h4>Conclusion</h4>
-      <p>My journey into data-driven decision making has been transformative. It has empowered me to make more informed choices, unlock valuable insights, and drive positive change. If you're yet to embark on this journey, I encourage you to embrace the power of data and witness the tremendous impact it can have on your decision-making process.</p>
-    </article>
-
-      
-    <article class="post">
-      <h3>How I Am Improving My Programming Skills</h3>
-      <button class="likeBtn">Like</button>
-          <p class="likesCounter">0</p>
-      <p class="metadata">Published on June 3, 2023 by Hafez Ahmad</p>
-      <img src="path-to-your-blog-image.jpg" alt="Blog Image">
-    
-      <p>Programming is a dynamic and ever-evolving field, and as a developer, I am constantly striving to improve my skills. In this blog post, I would like to share some strategies and techniques that I have found helpful in my journey to enhance my programming abilities.</p>
-    
-      <h5>Setting Clear Goals</h5>
-      <p>Improving programming skills starts with setting clear and achievable goals. Whether it's mastering a new programming language, learning a specific framework, or tackling a complex project, defining what you want to achieve helps provide direction and focus.</p>
-    
-      <h5>Continuous Learning</h5>
-      <p>The key to improving programming skills is a commitment to continuous learning. I dedicate time to regularly learn new concepts, explore different programming paradigms, and stay updated with the latest industry trends. Online courses, tutorials, and coding resources have been invaluable in expanding my knowledge.</p>
-    
-      <h5>Practical Application</h5>
-      <p>Applying what you learn in real-world scenarios is crucial to reinforce your programming skills. I actively seek out opportunities to work on projects that challenge me and require me to apply the concepts I've learned. These hands-on experiences provide practical insights and foster problem-solving abilities.</p>
-      <iframe src="water_google_earth_engine.html" style="width: 100%; height: 600px;"></iframe>
-      <h5>Working on Open Source Projects</h5>
-      <p>Contributing to open source projects is a fantastic way to improve programming skills. By collaborating with experienced developers and contributing to real-world projects, I gain exposure to different coding styles, best practices, and project management techniques. It also allows me to receive feedback and learn from the programming community.</p>
-    
-      <h5>Code Review and Feedback</h5>
-      <p>Seeking feedback on your code is an essential part of growth. I actively engage in code reviews with peers and more experienced developers. Constructive feedback helps identify areas for improvement, highlights coding patterns, and promotes writing cleaner and more efficient code.</p>
-    
-      <h5>Building a Supportive Network</h5>
-      <p>Building a network of fellow programmers and mentors is invaluable. Engaging in programming communities, attending meetups, and participating in online forums allows me to connect with like-minded individuals. Sharing knowledge, discussing challenges, and seeking guidance from experienced developers greatly accelerates my learning process.</p>
-    
-      <h5>Problem-Solving Practice</h5>
-      <p>Improving programming skills involves honing problem-solving abilities. I regularly practice coding exercises, participate in coding competitions, and solve algorithmic challenges. These activities enhance my analytical thinking, algorithmic understanding, and ability to tackle complex problems.</p>
-    
-      <h5>Maintaining a Growth Mindset</h5>
-      <p>Embracing a growth mindset is crucial for continuous improvement. Recognizing that programming skills can be developed through effort and perseverance, I approach challenges with a positive attitude and view setbacks as opportunities to learn. This mindset fosters resilience and motivates me to push boundaries.</p>
-    
-      <h4>Conclusion</h4>
-      <p>Improving programming skills is an ongoing journey that requires dedication, persistence, and a thirst for knowledge. By setting clear goals, staying curious, applying what you learn, seeking feedback, and building a supportive network, you can significantly enhance your programming abilities. Embrace the process, enjoy the challenges, and never stop learning.</p>
-    </article>
-
-    <article class="post">
-      <h3>Best Practices in Remote Sensing for Earth Science Applications </h3>
-      <button class="likeBtn">Like</button>
-          <p class="likesCounter">0</p>
-      <p class="metadata">Published on June 3, 2023 by Hafez Ahmad</p>
-      <p> Remote sensing technology has revolutionized Earth science applications, providing researchers with valuable data for environmental monitoring, land use mapping, climate studies, and natural resource management. To ensure accurate and reliable results, it is essential to follow best practices in remote sensing. In this blog post, we will explore the top practices that researchers should consider when using remote sensing for Earth science-related applications.
-
-        <li> Selection of Appropriate Sensors</li>
-        Choosing the right remote sensing sensors is crucial for successful Earth science applications. Researchers should carefully assess the requirements of their study and select sensors that offer the necessary spatial resolution, spectral range, and temporal coverage. Consider factors such as the sensor's accuracy, sensitivity, and compatibility with the research objectives to ensure optimal data acquisition.
-        
-        <li>Ground Truth Data Collection</li>
-        Collecting ground truth data is fundamental for validating and calibrating remote sensing imagery. Researchers should conduct field surveys to gather accurate ground measurements and establish reference sites that can be used for comparison with the remotely sensed data. This step ensures the accuracy and reliability of the remote sensing products.
-        
-        <li>Pre-processing and Image Enhancement</li>
-        To obtain high-quality results, it is essential to perform pre-processing on remote sensing data. This includes correcting for atmospheric effects, radiometric and geometric distortions, and sensor-specific artifacts. Additionally, researchers can apply image enhancement techniques such as contrast stretching, histogram equalization, or filtering to improve visualization and highlight specific features of interest.
-        
-        <li>Spectral Signature Analysis</li>
-        Analyzing the spectral signatures of different land cover or atmospheric features is key to identifying unique spectral characteristics. Researchers can distinguish and classify various objects or phenomena by studying their spectral responses. This analysis facilitates accurate mapping and monitoring of vegetation, water bodies, urban areas, and atmospheric constituents.
-        
-        <li>Image Classification and Analysis</li>
-        Utilizing image classification techniques enables researchers to categorize and map different land cover types or land use classes. Supervised or unsupervised classification methods can be employed, and advanced algorithms such as machine learning or object-based image analysis can improve classification accuracy. Spatial and temporal analysis can further detect changes, assess trends, and understand the dynamics of Earth systems.
-        
-        <li>Integration of Multiple Data Sources</li>
-        Integrating data from various remote sensing sensors and platforms enhances the analysis outcomes by leveraging complementary information. Researchers can combine optical, radar, and thermal data to capture different aspects of Earth's surface and its interactions. This fusion of data enhances accuracy and improves the understanding of Earth science applications.
-        
-        <li>Validation and Accuracy Assessment</li>
-        Validating remote sensing products is crucial for ensuring their reliability. Researchers should compare the results with ground truth data and other independent sources to assess accuracy. Proper statistical measures should be applied to evaluate the accuracy and reliability of classification results, thematic maps, or derived parameters. Documenting uncertainties associated with the remote sensing data and analysis results is essential for proper interpretation and use.
-        
-        <li>Long-Term Data Archives and Accessibility</li>
-        Establishing mechanisms for long-term storage and accessibility of remote sensing data is vital for future research and analysis. Researchers should adhere to data standards, maintain comprehensive metadata, and promote open data principles to facilitate data sharing, collaboration, and reproducibility.
-        
-        <li>Continuous Learning and Skill Development</li>
-        Staying up to date with advancements in remote sensing technology, algorithms, and data analysis techniques is crucial. Researchers should actively engage in conferences, workshops, and training programs to enhance their skills and knowledge. Participating in collaborative networks and scientific communities fosters idea exchange and helps researchers stay informed about best practices.
-        
-        <li>Ethical Considerations</li>
-        Adhering to ethical guidelines and legal requirements is essential when using remote sensing data. Researchers should respect privacy concerns, intellectual property rights, and data usage agreements. It is important to consider the potential impacts of research on the environment, society, and indigenous communities,</p>
+        <p>By following this professional development plan, I aim to become a recognized expert in ocean science and coastal research, significantly contributing to understanding coastal dynamics and climate change impacts and utilizing remote sensing and autonomous technologies effectively. I am committed to lifelong learning, collaborative research, and applying scientific knowledge for sustainable coastal management and conservation of marine ecosystems.</p>
       </article>
 
+      <article class="post">
+        <h1>My Journey to Machine Learning</h1>
+        <p class="metadata">Published on June 3, 2023 by Hafez Ahmad</p>
+        <div class="post-actions">
+          <button class="likeBtn"><i class="far fa-heart"></i> Like</button>
+          <p class="likesCounter">0</p>
+        </div>
+        <p>Machine learning has become an incredibly fascinating field in recent years, and my journey into it has been an exciting and rewarding experience. In this blog post, I would like to share my personal journey to machine learning and the lessons I've learned along the way.</p>
+        <img src="images/data_anaylsis1.png" alt="Blog Image">
+        <h4>The Spark of Curiosity</h4>
+        <p>My journey began with a spark of curiosity. I was always fascinated by the ability of machines to learn and make intelligent decisions. This curiosity led me to delve deeper into the world of artificial intelligence and machine learning.</p>
+        <h4>Education and Learning Resources</h4>
+        <p>Education played a crucial role in my journey. I started by taking online courses and tutorials that introduced me to the fundamentals of machine learning. Platforms like Coursera, Udemy, and edX provided excellent resources that helped me understand concepts like regression, classification, and neural networks.</p>
+        <h4>Hands-On Projects</h4>
+        <p>Theoretical knowledge alone was not enough. To solidify my understanding, I actively engaged in hands-on projects. I started with simple exercises, implementing basic algorithms and models. As my confidence grew, I took on more complex projects, such as image classification and natural language processing.</p>
+        <h4>Community and Collaboration</h4>
+        <p>Being part of the machine learning community was a game-changer. I joined online forums, participated in Kaggle competitions, and attended local meetups. Engaging with like-minded individuals and collaborating on projects not only expanded my knowledge but also exposed me to different perspectives and innovative approaches.</p>
+        <h4>Real-World Applications</h4>
+        <p>Applying machine learning to real-world problems was a significant milestone in my journey. I sought opportunities to work on projects in domains like healthcare, finance, and computer vision. These experiences allowed me to witness the impact of machine learning firsthand and reinforced my passion for the field.</p>
+        <h4>Continual Learning and Growth</h4>
+        <p>Machine learning is a rapidly evolving field, and staying updated with the latest advancements is essential. I continue to learn and explore new techniques, frameworks, and research papers. Reading blogs, attending conferences, and taking part in online courses keep me engaged and motivated.</p>
+        <h4>Conclusion</h4>
+        <p>My journey to machine learning has been an incredible adventure of self-discovery and continuous learning. It has opened up a world of possibilities and allowed me to contribute to solving complex problems. If you're considering diving into machine learning, remember that the journey is unique for everyone. Embrace the challenges, stay curious, and keep pushing your boundaries.</p>
+      </article>
+
+      <article class="post">
+        <h1>How I Started Loving Data-Driven Decision Making</h1>
+        <p class="metadata">Published on June 3, 2023 by Hafez Ahmad</p>
+        <div class="post-actions">
+          <button class="likeBtn"><i class="far fa-heart"></i> Like</button>
+          <p class="likesCounter">0</p>
+        </div>
+        <img src="path-to-your-blog-image.jpg" alt="Blog Image">
+        <p>In today's data-rich world, making data-driven decisions is no longer a luxury but a necessity for businesses and individuals alike. By harnessing the power of data, we can unlock valuable insights, mitigate risks, and identify opportunities that may otherwise go unnoticed. However, being truly data-driven goes beyond just collecting and analyzing data—it requires a deliberate and thoughtful approach. Here are some key principles to consider when aiming to make data-driven decisions.</p>
+        <h4>The Awakening</h4>
+        <p>My journey into the world of data-driven decision making started with an awakening. I realized that we are surrounded by an incredible amount of data that holds valuable insights. It dawned on me that I could leverage this data to make informed decisions and improve outcomes.</p>
+        <h4>Curiosity and Learning</h4>
+        <p>Driven by curiosity, I delved into the field of data science and analytics. I immersed myself in online courses, books, and tutorials to understand the foundations of data analysis. Learning statistical concepts, data visualization, and data manipulation techniques provided me with a solid grounding in the field.</p>
+        <h4>Exploring Real-World Data</h4>
+        <p>Applying what I learned, I sought out opportunities to work with real-world data. Whether it was analyzing customer behavior, market trends, or operational metrics, I dove into datasets to uncover patterns and insights. This hands-on experience solidified my understanding and showcased the potential of data-driven decision making.</p>
+        <h4>Data Visualization and Storytelling</h4>
+        <p>I discovered the power of data visualization in conveying complex information effectively. I honed my skills in creating visually compelling charts, graphs, and dashboards that not only presented the data but also told a compelling story. This skill became instrumental in influencing decision makers and driving change.</p>
+        <h4>Impact on Decision Making</h4>
+        <p>As I started incorporating data-driven approaches into my decision-making process, I witnessed the tangible impact it had on outcomes. By basing decisions on evidence and insights derived from data, I could make more informed choices, mitigate risks, and uncover opportunities that were previously hidden.</p>
+        <h4>Sharing and Collaboration</h4>
+        <p>I realized the importance of sharing my knowledge and collaborating with others in the field. I actively participated in data science communities, attended conferences, and engaged in discussions with fellow data enthusiasts. This collaborative environment fostered growth, sparked new ideas, and pushed me to further refine my skills.</p>
+        <h4>Continuous Improvement</h4>
+        <p>Data-driven decision making is an ever-evolving field. I recognized the need for continuous learning and staying abreast of the latest tools, techniques, and trends. By staying curious and dedicating time to self-improvement, I ensure that my data-driven decision-making skills remain sharp and relevant.</p>
+        <h4>Conclusion</h4>
+        <p>My journey into data-driven decision making has been transformative. It has empowered me to make more informed choices, unlock valuable insights, and drive positive change. If you're yet to embark on this journey, I encourage you to embrace the power of data and witness the tremendous impact it can have on your decision-making process.</p>
+      </article>
+
+      <article class="post">
+        <h1>How I Am Improving My Programming Skills</h1>
+        <p class="metadata">Published on June 3, 2023 by Hafez Ahmad</p>
+        <div class="post-actions">
+          <button class="likeBtn"><i class="far fa-heart"></i> Like</button>
+          <p class="likesCounter">0</p>
+        </div>
+        <img src="path-to-your-blog-image.jpg" alt="Blog Image">
+        <p>Programming is a dynamic and ever-evolving field, and as a developer, I am constantly striving to improve my skills. In this blog post, I would like to share some strategies and techniques that I have found helpful in my journey to enhance my programming abilities.</p>
+        <h5>Setting Clear Goals</h5>
+        <p>Improving programming skills starts with setting clear and achievable goals. Whether it's mastering a new programming language, learning a specific framework, or tackling a complex project, defining what you want to achieve helps provide direction and focus.</p>
+        <h5>Continuous Learning</h5>
+        <p>The key to improving programming skills is a commitment to continuous learning. I dedicate time to regularly learn new concepts, explore different programming paradigms, and stay updated with the latest industry trends. Online courses, tutorials, and coding resources have been invaluable in expanding my knowledge.</p>
+        <h5>Practical Application</h5>
+        <p>Applying what you learn in real-world scenarios is crucial to reinforce your programming skills. I actively seek out opportunities to work on projects that challenge me and require me to apply the concepts I've learned. These hands-on experiences provide practical insights and foster problem-solving abilities.</p>
+        <iframe src="water_google_earth_engine.html" style="width: 100%; height: 600px;"></iframe>
+        <h5>Working on Open Source Projects</h5>
+        <p>Contributing to open source projects is a fantastic way to improve programming skills. By collaborating with experienced developers and contributing to real-world projects, I gain exposure to different coding styles, best practices, and project management techniques. It also allows me to receive feedback and learn from the programming community.</p>
+        <h5>Code Review and Feedback</h5>
+        <p>Seeking feedback on your code is an essential part of growth. I actively engage in code reviews with peers and more experienced developers. Constructive feedback helps identify areas for improvement, highlights coding patterns, and promotes writing cleaner and more efficient code.</p>
+        <h5>Building a Supportive Network</h5>
+        <p>Building a network of fellow programmers and mentors is invaluable. Engaging in programming communities, attending meetups, and participating in online forums allows me to connect with like-minded individuals. Sharing knowledge, discussing challenges, and seeking guidance from experienced developers greatly accelerates my learning process.</p>
+        <h5>Problem-Solving Practice</h5>
+        <p>Improving programming skills involves honing problem-solving abilities. I regularly practice coding exercises, participate in coding competitions, and solve algorithmic challenges. These activities enhance my analytical thinking, algorithmic understanding, and ability to tackle complex problems.</p>
+        <h5>Maintaining a Growth Mindset</h5>
+        <p>Embracing a growth mindset is crucial for continuous improvement. Recognizing that programming skills can be developed through effort and perseverance, I approach challenges with a positive attitude and view setbacks as opportunities to learn. This mindset fosters resilience and motivates me to push boundaries.</p>
+        <h4>Conclusion</h4>
+        <p>Improving programming skills is an ongoing journey that requires dedication, persistence, and a thirst for knowledge. By setting clear goals, staying curious, applying what you learn, seeking feedback, and building a supportive network, you can significantly enhance your programming abilities. Embrace the process, enjoy the challenges, and never stop learning.</p>
+      </article>
+
+      <article class="post">
+        <h1>Best Practices in Remote Sensing for Earth Science Applications</h1>
+        <p class="metadata">Published on June 3, 2023 by Hafez Ahmad</p>
+        <div class="post-actions">
+          <button class="likeBtn"><i class="far fa-heart"></i> Like</button>
+          <p class="likesCounter">0</p>
+        </div>
+        <p>Remote sensing technology has revolutionized Earth science applications, providing researchers with valuable data for environmental monitoring, land use mapping, climate studies, and natural resource management. To ensure accurate and reliable results, it is essential to follow best practices in remote sensing. In this blog post, we will explore the top practices that researchers should consider when using remote sensing for Earth science-related applications.</p>
+        <ul>
+          <li>Selection of Appropriate Sensors</li>
+          <li>Ground Truth Data Collection</li>
+          <li>Pre-processing and Image Enhancement</li>
+          <li>Spectral Signature Analysis</li>
+          <li>Image Classification and Analysis</li>
+          <li>Integration of Multiple Data Sources</li>
+          <li>Validation and Accuracy Assessment</li>
+          <li>Long-Term Data Archives and Accessibility</li>
+          <li>Continuous Learning and Skill Development</li>
+          <li>Ethical Considerations</li>
+        </ul>
+      </article>
+    </div>
+
     <div class="pagination">
-        <button id="prevBtn">Previous</button>
-        <button id="nextBtn">Next</button>
-      </div>
-    </main>
-  </body>
-  </html>
+      <button id="prevBtn" disabled>Previous</button>
+      <button id="nextBtn">Next</button>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const postsContainer = document.getElementById('posts');
+      const posts = postsContainer.getElementsByClassName('post');
+      const postsPerPage = 5;
+      let currentPage = 1;
+      let filteredPosts = Array.from(posts);
+      
+      // Initialize like buttons
+      const likeButtons = document.querySelectorAll('.likeBtn');
+      likeButtons.forEach(button => {
+        let likes = parseInt(localStorage.getItem(`likes_${button.closest('.post').querySelector('h1').textContent}`) || '0');
+        const counter = button.nextElementSibling;
+        counter.textContent = likes;
+
+        button.addEventListener('click', () => {
+          likes++;
+          counter.textContent = likes;
+          localStorage.setItem(`likes_${button.closest('.post').querySelector('h1').textContent}`, likes);
+          button.innerHTML = '<i class="fas fa-heart"></i> Liked';
+          button.style.background = '#009688';
+          button.style.color = 'white';
+        });
+      });
+
+      // Enhanced search functionality
+      const filterInput = document.getElementById('filterInput');
+      const filterBtn = document.getElementById('filterBtn');
+
+      function filterPosts() {
+        const searchTerm = filterInput.value.toLowerCase();
+        filteredPosts = Array.from(posts).filter(post => {
+          const title = post.querySelector('h1').textContent.toLowerCase();
+          const preview = post.querySelector('.post-preview');
+          const visibleContent = preview ? 
+            title + ' ' + preview.textContent.substring(0, preview.textContent.indexOf('Read More')).toLowerCase() :
+            title + ' ' + post.textContent.toLowerCase();
+          return visibleContent.includes(searchTerm);
+        });
+        
+        // Reset to first page when searching
+        currentPage = 1;
+        showFilteredPosts();
+        updatePaginationButtons();
+      }
+
+      function showFilteredPosts() {
+        const start = (currentPage - 1) * postsPerPage;
+        const end = start + postsPerPage;
+        const pageSlice = filteredPosts.slice(start, end);
+
+        Array.from(posts).forEach(post => post.style.display = 'none');
+        pageSlice.forEach(post => post.style.display = 'block');
+      }
+
+      function updatePaginationButtons() {
+        const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+        document.getElementById('prevBtn').disabled = currentPage === 1;
+        document.getElementById('nextBtn').disabled = currentPage >= totalPages;
+      }
+
+      filterBtn.addEventListener('click', filterPosts);
+      filterInput.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter') filterPosts();
+      });
+
+      // Pagination
+      document.getElementById('prevBtn').addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          showFilteredPosts();
+          updatePaginationButtons();
+        }
+      });
+
+      document.getElementById('nextBtn').addEventListener('click', () => {
+        const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+        if (currentPage < totalPages) {
+          currentPage++;
+          showFilteredPosts();
+          updatePaginationButtons();
+        }
+      });
+
+      // Clear search
+      filterInput.addEventListener('input', (e) => {
+        if (e.target.value === '') {
+          filteredPosts = Array.from(posts);
+          currentPage = 1;
+          showFilteredPosts();
+          updatePaginationButtons();
+        }
+      });
+
+      // Initial display
+      showFilteredPosts();
+      updatePaginationButtons();
+
+      // Add read more functionality
+      const articles = document.querySelectorAll('.post');
+      articles.forEach(article => {
+        const content = article.innerHTML;
+        const preview = document.createElement('div');
+        preview.className = 'post-preview';
+        preview.innerHTML = content;
+        
+        const readMoreBtn = document.createElement('button');
+        readMoreBtn.className = 'read-more-btn';
+        readMoreBtn.textContent = 'Read More';
+        
+        // Replace article content with preview
+        article.innerHTML = '';
+        article.appendChild(preview);
+        article.appendChild(readMoreBtn);
+        
+        readMoreBtn.addEventListener('click', () => {
+          preview.classList.toggle('expanded');
+          readMoreBtn.textContent = preview.classList.contains('expanded') ? 'Show Less' : 'Read More';
+        });
+      });
+
+      // Image click to expand
+      const images = document.querySelectorAll('.post-image');
+      images.forEach(img => {
+        img.addEventListener('click', () => {
+          if (img.style.maxHeight === '100%') {
+            img.style.maxHeight = '300px';
+            img.style.cursor = 'zoom-in';
+          } else {
+            img.style.maxHeight = '100%';
+            img.style.cursor = 'zoom-out';
+          }
+        });
+        img.style.cursor = 'zoom-in';
+      });
+
+      // Lazy loading for images
+      const lazyImages = document.querySelectorAll('img[data-src]');
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+            observer.unobserve(img);
+          }
+        });
+      });
+
+      lazyImages.forEach(img => imageObserver.observe(img));
+
+      // Tag cloud functionality
+      const tagCloud = document.getElementById('tagCloud');
+      const tags = [
+        { text: 'Machine Learning', weight: 10 },
+        { text: 'Data Science', weight: 8 },
+        { text: 'Programming', weight: 6 },
+        { text: 'Remote Sensing', weight: 5 },
+        { text: 'Oceanography', weight: 7 },
+        { text: 'Climate Change', weight: 4 },
+        { text: 'Decision Making', weight: 6 },
+        { text: 'Research', weight: 9 }
+      ];
+
+      $(tagCloud).jQCloud(tags);
+
+      tagCloud.addEventListener('click', (e) => {
+        if (e.target.classList.contains('tag')) {
+          const tagText = e.target.textContent.toLowerCase();
+          filterInput.value = tagText;
+          filterPosts();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
