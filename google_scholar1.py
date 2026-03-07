@@ -115,8 +115,8 @@ p.add_layout(subtitle)
 
 # Linear trend for previous years (example data - replace with actual historical data)
 # For demonstration, using synthetic data
-years = ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025']
-yearly_citations = [1, 3, 29, 46, 69, 68, 81, 29]  # Replace with your actual yearly citation counts
+years = ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026']  # Replace with actual years
+yearly_citations = [1, 3, 29, 46, 69, 68, 81, 132,26]  # Replace with your actual yearly citation counts
 
 # Add a second plot for citation trends
 trend_source = ColumnDataSource(data=dict(
