@@ -152,6 +152,69 @@
 				}
 			}
 
+			/* Sidebar nav links — clickable hover effect with "Go to page" tooltip */
+			#menu ul ul li a[href$=".html"] {
+				position: relative;
+				transition: all 0.25s ease;
+				padding-left: 0;
+				border-radius: 4px;
+			}
+			#menu ul ul li a[href$=".html"]:hover {
+				background: rgba(25, 118, 210, 0.1);
+				padding-left: 8px;
+				color: #1976D2 !important;
+			}
+			#menu ul ul li a[href$=".html"]::after {
+				content: 'Go to page →';
+				position: absolute;
+				right: 0;
+				top: 50%;
+				transform: translateY(-50%) translateX(4px);
+				font-size: 0.7em;
+				color: #fff;
+				background: #1976D2;
+				padding: 2px 8px;
+				border-radius: 4px;
+				opacity: 0;
+				pointer-events: none;
+				transition: all 0.25s ease;
+				white-space: nowrap;
+				text-transform: none;
+				letter-spacing: 0;
+			}
+			#menu ul ul li a[href$=".html"]:hover::after {
+				opacity: 1;
+				transform: translateY(-50%) translateX(0);
+			}
+
+			/* Clickable activity cards in Research Topics & Analytical Methods */
+			.activity-card[data-href] {
+				cursor: pointer;
+			}
+			.activity-card[data-href] .card-go-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4em;
+				margin-top: auto;
+				padding-top: 0.8em;
+				color: #1976D2;
+				font-weight: 600;
+				font-size: 0.9em;
+				transition: all 0.25s ease;
+				border: none;
+				text-decoration: none;
+			}
+			.activity-card[data-href] .card-go-link i {
+				transition: transform 0.25s ease;
+				font-size: 0.85em;
+			}
+			.activity-card[data-href]:hover .card-go-link {
+				color: #0d47a1;
+			}
+			.activity-card[data-href]:hover .card-go-link i {
+				transform: translateX(5px);
+			}
+
 			/* Content Section Styling */
 			section[id] {
 				scroll-margin-top: 70px;
@@ -235,6 +298,9 @@
 			<a href="#experience"><span>Experience</span></a>
 			<a href="#about"><span>About</span></a>
 			<a href="#publications"><span>Publications</span></a>
+			<a href="#submitted-manuscripts"><span>Submitted</span></a>
+			<a href="#books-chapters"><span>Books</span></a>
+			<a href="#presentations"><span>Presentations</span></a>
 			<a href="#skills"><span>Skills</span></a>
 			<a href="#instruments"><span>Instruments</span></a>
 			<a href="#teaching"><span>Teaching</span></a>
@@ -276,6 +342,9 @@
 										<li><a href="#experience">Experience</a></li>
 										<li><a href="#about">About Me</a></li>
 										<li><a href="#publications">Publications</a></li>
+										<li><a href="#submitted-manuscripts">Submitted Manuscripts</a></li>
+										<li><a href="#books-chapters">Books / Chapters</a></li>
+										<li><a href="#presentations">Presentations / Posters</a></li>
 										<li><a href="#skills">Technical Skills</a></li>
 										<li><a href="#instruments">Oceanographic Instruments</a></li>
 										<li><a href="#teaching">Teaching</a></li>
@@ -730,6 +799,132 @@ of Oktibbeha County of Mississippi, USA </li>
 									</div>
 								</section>
 
+								<!-- SUBMITTED MANUSCRIPTS -->
+								<section id="submitted-manuscripts">
+									<header class="major">
+										<h2><i class="fas fa-paper-plane" style="color:var(--ocean-teal);margin-right:0.45em;"></i>Submitted Manuscripts</h2>
+									</header>
+									<p style="color:var(--text-medium);margin-bottom:1.5em;font-size:0.95em;">Manuscripts currently under peer review at international journals.</p>
+									<div class="timeline">
+										<div class="timeline-item">
+											<div class="timeline-date">2026</div>
+											<div class="timeline-content">
+												<h4>2026 <span class="pub-count">3 manuscripts</span></h4>
+												<ol class="pub-list">
+													<li>Ahmad, H. et al. Spatiotemporal Analysis of Water Quality in the Western Mississippi Sound Using High-Frequency Data from an Autonomous Surface Vessel. <em>Estuaries and Coastal Shelf Science</em>.</li>
+													<li>Ahmad, H. et al. Integration of SWAT and EFDC Models for Hydrodynamic Simulation and Material Flux Assessment in the Mississippi Sound Estuarine System. <em>Environmental Modelling &amp; Software</em>.</li>
+													<li>Ahmad, H. et al. Harmful algal toxins and their producing species composition using the Imaging FlowCytobot. <em>Harmful Algae</em>.</li>
+												</ol>
+											</div>
+										</div>
+										<div class="timeline-item">
+											<div class="timeline-date">2025</div>
+											<div class="timeline-content">
+												<h4>2025 <span class="pub-count">7 manuscripts</span></h4>
+												<ol class="pub-list">
+													<li>Ahmad, H. et al. Modeling land cover dynamics across wildlife management areas and surrounding landscapes to inform conservation planning. <em>Environmental Management</em>.</li>
+													<li>Ahmad, H. et al. AI-driven geospatial modeling of urban expansion and environmental impacts. <em>Remote Sensing in Earth Systems Sciences</em>.</li>
+													<li>Ahmad, H. Spatial and Temporal Patterns of Vegetation Greenness in Response to Climate Variability and Land-Use Changes in the Irrawaddy Delta. <em>International Journal of Applied Earth Observation and Geoinformation</em>.</li>
+													<li>Ahmad, H., Jose, F., Dash, P., Bhuyan, Md. S. Predictive Analysis of Land Use Modeling for Chittagong, Bangladesh Utilizing Remote Sensing and Machine Learning. <em>Remote Sensing in Earth Systems Sciences</em>.</li>
+													<li>Ahmad, H. et al. Long-Term Trends and Seasonal Drivers of Water Quality in US Southern Coastal National Reserves: Unraveling the Impacts of Climate Change. <em>Estuarine, Coastal and Shelf Science</em>.</li>
+													<li>Ahmad, H. et al. Estimating algal bloom and trophic status in Lake Okeechobee, Florida, using VIIRS and OCI/PACE satellite imagery and Machine learning.</li>
+													<li>Ong'ondo, F. J., Ambinakudige, S., Malaki, P. A., Ahmad, H. et al. Land cover change and future projection analysis for Nairobi National Park and adjacent landscapes, using GIS, remote sensing, and cellular automata-artificial neural network. <em>Remote Sensing Applications: Society and Environment</em>.</li>
+												</ol>
+											</div>
+										</div>
+									</div>
+								</section>
+
+								<!-- BOOKS / CHAPTERS -->
+								<section id="books-chapters">
+									<header class="major">
+										<h2><i class="fas fa-book" style="color:var(--ocean-teal);margin-right:0.45em;"></i>Books / Chapters</h2>
+									</header>
+									<div class="timeline">
+										<div class="timeline-item">
+											<div class="timeline-date">2022</div>
+											<div class="timeline-content">
+												<h4>2022 <span class="pub-count">1 book</span></h4>
+												<ol class="pub-list">
+													<li>Fahrni Mansur, E., Billah, G. M. M., Parves, N., Kauser, R., Shamsuddoha, M., Galib, A. J., Khandakar, N., <strong>Ahmad, H.</strong>, Mia, R., Khan, Md. A. R. &amp; Smith, B. D. (2022). <em>Sharks and Rays of Bangladesh: A guide to identifying protected species and their commonly traded parts</em>. Bangladesh Forest Department and Wildlife Conservation Society, Bangladesh.</li>
+												</ol>
+											</div>
+										</div>
+									</div>
+								</section>
+
+								<!-- ABSTRACTS / PRESENTATIONS / POSTERS -->
+								<section id="presentations">
+									<header class="major">
+										<h2><i class="fas fa-chalkboard-teacher" style="color:var(--ocean-teal);margin-right:0.45em;"></i>Abstracts / Presentations / Posters</h2>
+									</header>
+									<p style="color:var(--text-medium);margin-bottom:1.5em;font-size:0.95em;">
+										Conference presentations, invited talks, poster sessions, and symposium contributions.
+									</p>
+									<div class="timeline">
+										<div class="timeline-item">
+											<div class="timeline-date">2025</div>
+											<div class="timeline-content">
+												<h4>2025 <span class="pub-count">6 presentations</span></h4>
+												<ol class="pub-list">
+													<li>Ahmad, H. &amp; Dash, P. Monitoring Estuarine Dynamics Using Remote Sensing, Machine Learning, and Coupled Hydrodynamic&ndash;Watershed Modeling: A Multi-Method Approach. <em>AGU 2025</em>, New Orleans, Louisiana.</li>
+													<li>Dash, P. &amp; Ahmad, H. Water Quality Time Series of Mississippi Sound: Insights from Satellite and Unmanned Aerial Systems Imagery and Autonomous Surface Vessel Data. <em>14th Int. Symposium on Biogeochemistry of Wetland &amp; Aquatic Systems</em>, Baton Rouge, LA.</li>
+													<li>Ahmad, H. &amp; Dash, P. Long-Term Water Quality Trends and Seasonal Drivers in the Western Mississippi Sound: A Remote Sensing and Machine Learning Approach. <em>14th Int. Symposium on Biogeochemistry of Wetland &amp; Aquatic Systems</em>, Baton Rouge, LA.</li>
+													<li>Raburn, D. M., Ahmad, H., Allison Jr., P. F., Adams, S. B. et al. Hidden in plain sight: high-resolution stream networks reveal habitats for petitioned burrowing crayfishes. <em>155th Annual Meeting of the American Fisheries Society</em>, San Antonio, TX.</li>
+													<li>Ahmad, H. &amp; Dash, P. Remote Sensing and Machine Learning for Long-Term Water Quality Monitoring in the Western Mississippi Sound. <em>Spring 2025 Graduate Research Symposium</em>, Starkville, MS.</li>
+													<li>Ahmad, H. &amp; Dash, P. Remote Sensing of Water Quality Parameters over Western Mississippi Sound by Using Sentinel-3 OLCI and Machine Learning. <em>ASLO 2025</em>, Charlotte, NC.</li>
+												</ol>
+											</div>
+										</div>
+										<div class="timeline-item">
+											<div class="timeline-date">2024</div>
+											<div class="timeline-content">
+												<h4>2024 <span class="pub-count">6 presentations</span></h4>
+												<ol class="pub-list">
+													<li>Ahmad, H. &amp; Dash, P. Modeling Hypoxia in the Gulf of Mexico: A Machine Learning Approach with Remote Sensing and Field Data. <em>Fall 2024 Graduate Research Symposium</em>.</li>
+													<li>Ahmad, H. &amp; Jhara, S. I. AI-Driven Approaches for Real-Time Satellite Data Processing and Analysis. <em>NASA Accelerating Informatics for Earth Science</em>, 2024.</li>
+													<li>Ahmad, H., Jose, F., Jhara, S. I. &amp; Dash, P. Mesoscale Eddies and their Impact on Primary Productivity in the Northern Bay of Bengal. <em>Ocean Sciences Meeting 2024 &ndash; AGU</em>, New Orleans, LA.</li>
+													<li>Ahmad, H., Jose, F., Jhara, S. I. &amp; Dash, P. Hypoxia in the Northern Gulf of Mexico: A Comparative Analysis of Machine Learning Algorithms. <em>Ocean Sciences Meeting 2024 &ndash; AGU</em>, New Orleans, LA.</li>
+													<li>Ahmad, H., Jose, F., Jhara, S. I. &amp; Dash, P. Eddy-driven Chlorophyll Concentration Variability in the Andaman Sea. <em>Ocean Sciences Meeting 2024 &ndash; AGU</em>, New Orleans, LA.</li>
+													<li>Ahmad, H., Jose, F., Islam, M. S. &amp; Jhara, S. I. Sustainable Development through the Synergy of Green Energy and Blue Economy in Bangladesh. <em>1st Int. Conference on Oceanographic 2024 (ICO-2024)</em>, BORI, Cox&rsquo;s Bazar, Bangladesh.</li>
+												</ol>
+											</div>
+										</div>
+										<div class="timeline-item">
+											<div class="timeline-date">2023</div>
+											<div class="timeline-content">
+												<h4>2023 <span class="pub-count">5 presentations</span></h4>
+												<ol class="pub-list">
+													<li>Islam, Md. M., Ahmad, H., Sarkar, M. S. I. &amp; Jose, F. Sustainable Coastal Zone Management in Bangladesh: A Blue Economy Perspective through Remote Sensing Data. <em>Taiwan Int. Conference on Ocean Governance 2023 (TICOG 2023)</em>.</li>
+													<li>Ahmad, H. &amp; Jose, F. Mapping, Dynamics, and Future Change Analysis of Sundarbans delta using Cellular Automata and Artificial Neural Network Modeling. <em>IGARSS 2023</em>, Pasadena, CA. doi:10.1109/IGARSS52108.2023.10282057.</li>
+													<li>Islam, Md. M., Ahmad, H., Sarkar, M. S. I. &amp; Jose, F. A comprehensive framework for harnessing blue economy benefits in Bangladesh&rsquo;s central coastal zone. <em>9th Int. Conference on Water and Flood Management (ICWFM 2023)</em>.</li>
+													<li>Ahmad, H. &amp; Jose, F. Seasonal influence of freshwater discharge on primary productivity and euphotic depth in the northern Bay of Bengal. <em>IGARSS 2023</em>, Pasadena, CA. doi:10.1109/IGARSS52108.2023.10281755.</li>
+													<li>Ahmad, H., Miranda, L. E., Dunn, C. G. &amp; Colvin, M. Hydrological connectivity patterns in oxbow lakes of the Lower Mississippi Alluvial Valley. <em>153rd Annual Meeting of the American Fisheries Society</em>, 2023.</li>
+												</ol>
+											</div>
+										</div>
+										<div class="timeline-item">
+											<div class="timeline-date">2021</div>
+											<div class="timeline-content">
+												<h4>2021 <span class="pub-count">1 presentation</span></h4>
+												<ol class="pub-list">
+													<li>Ahmad, H., Jhara, S. I. &amp; Alam, Md. W. Collaborative approach and role of the marine spatial planning to support integrated coastal zone management in Bangladesh. <em>8th Int. Conf. on Water and Flood Management (ICWFM 2021)</em>, Dhaka, Bangladesh.</li>
+												</ol>
+											</div>
+										</div>
+										<div class="timeline-item">
+											<div class="timeline-date">2019</div>
+											<div class="timeline-content">
+												<h4>2019 <span class="pub-count">2 presentations</span></h4>
+												<ol class="pub-list">
+													<li>Ahmad, H. &amp; Jose, F. Spatiotemporal variability of SST and primary productivity in the Bay of Bengal. <em>STEM Undergraduate Research and Internship Symposium</em>, Florida Gulf Coast University, FL.</li>
+													<li>Chase, K., Ahmad, H. &amp; Douglass, J. Are invertebrates in tape grass beds as diverse and productive as those in seagrass beds? <em>STEM Undergraduate Research and Internship Symposium</em>, Florida Gulf Coast University, FL.</li>
+												</ol>
+											</div>
+										</div>
+									</div>
+								</section>
+
 
 								<!-- TECHNICAL SKILLS -->
 								<section id="skills">
@@ -999,53 +1194,61 @@ of Oktibbeha County of Mississippi, USA </li>
 									</header>
 									<p style="color:var(--text-medium);margin-bottom:1.5em;">Core thematic areas driving my research programme, spanning observational, computational, and applied dimensions of ocean and coastal science.</p>
 									<div class="activities-grid">
-										<div class="activity-card">
+										<div class="activity-card" data-href="coastal_hydrodynamics.html">
 											<div class="card-icon"><i class="fas fa-water"></i></div>
 											<h3>Coastal &amp; Estuarine Hydrodynamics</h3>
 											<p>Tidal circulation, freshwater discharge dynamics, storm surge, and wind-driven mixing in estuaries and shallow coastal zones. Numerical modeling with FVCOM and ROMS validated against tide gauge and ADCP observations.</p>
 											<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;"><span class="skill-tag">FVCOM / ROMS</span><span class="skill-tag">Storm Surge</span><span class="skill-tag">Estuarine Circulation</span></div>
+											<span class="card-go-link">Go to page <i class="fas fa-arrow-right"></i></span>
 										</div>
-										<div class="activity-card">
+										<div class="activity-card" data-href="water_quality_hypoxia.html">
 											<div class="card-icon"><i class="fas fa-vial"></i></div>
 											<h3>Coastal Water Quality &amp; Hypoxia</h3>
 											<p>Machine learning and satellite remote sensing for chlorophyll-a, turbidity, CDOM, and dissolved oxygen estimation. Hypoxia dynamics in the northern Gulf of Mexico and Mississippi Sound.</p>
 											<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;"><span class="skill-tag">Water Quality RS</span><span class="skill-tag">Hypoxia</span><span class="skill-tag">Gulf of Mexico</span></div>
+											<span class="card-go-link">Go to page <i class="fas fa-arrow-right"></i></span>
 										</div>
-										<div class="activity-card">
+										<div class="activity-card" data-href="ocean_color_marine_rs.html">
 											<div class="card-icon"><i class="fas fa-satellite"></i></div>
 											<h3>Ocean Color &amp; Marine Remote Sensing</h3>
 											<p>Satellite-derived primary productivity, particulate organic carbon, mesoscale eddies, and phytoplankton functional types from MODIS, Sentinel-2/3, and Landsat archives using GEE-based processing pipelines.</p>
 											<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;"><span class="skill-tag">Ocean Color</span><span class="skill-tag">POC / Chl-a</span><span class="skill-tag">Sentinel / Landsat</span></div>
+											<span class="card-go-link">Go to page <i class="fas fa-arrow-right"></i></span>
 										</div>
-										<div class="activity-card">
+										<div class="activity-card" data-href="machine_learning_ocean_science.html">
 											<div class="card-icon"><i class="fas fa-brain"></i></div>
 											<h3>Machine Learning in Ocean Science</h3>
 											<p>Ensemble ML, deep learning (CNN, LSTM, Transformers), and foundation model fine-tuning for water quality retrieval, plankton classification, habitat mapping, and eddy detection.</p>
 											<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;"><span class="skill-tag">CNN / LSTM</span><span class="skill-tag">Foundation Models</span><span class="skill-tag">XGBoost / RF</span></div>
+											<span class="card-go-link">Go to page <i class="fas fa-arrow-right"></i></span>
 										</div>
-										<div class="activity-card">
+										<div class="activity-card" data-href="marine_ecology_biodiversity.html">
 											<div class="card-icon"><i class="fas fa-leaf"></i></div>
 											<h3>Marine Ecology &amp; Biodiversity</h3>
 											<p>Phytoplankton community structure, seagrass mapping, habitat connectivity, and species distribution modeling. Integration of acoustic telemetry, eDNA, and remote sensing for ecosystem-level assessments.</p>
 											<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;"><span class="skill-tag">SDM</span><span class="skill-tag">Seagrass Mapping</span><span class="skill-tag">Acoustic Telemetry</span></div>
+											<span class="card-go-link">Go to page <i class="fas fa-arrow-right"></i></span>
 										</div>
-										<div class="activity-card">
+										<div class="activity-card" data-href="coastal_hazards_climate_change.html">
 											<div class="card-icon"><i class="fas fa-exclamation-triangle"></i></div>
 											<h3>Coastal Hazards &amp; Climate Change</h3>
 											<p>Sea-level rise impacts, coastal erosion, compound flooding risk, and land-use change detection using time-series remote sensing and delta change modeling (Sundarbans, Irrawaddy, Gulf Coast).</p>
 											<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;"><span class="skill-tag">Sea-Level Rise</span><span class="skill-tag">Delta Change</span><span class="skill-tag">LULC Dynamics</span></div>
+											<span class="card-go-link">Go to page <i class="fas fa-arrow-right"></i></span>
 										</div>
-										<div class="activity-card">
+										<div class="activity-card" data-href="fisheries_acoustics_page.html">
 											<div class="card-icon"><i class="fas fa-fish"></i></div>
 											<h3>Fisheries Acoustics &amp; Biomass Estimation</h3>
 											<p>Quantitative echo integration, target strength analysis, and kriging-based spatial biomass estimation from scientific echosounder surveys. Applied to Gulf of Mexico and freshwater reservoir fisheries.</p>
 											<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;"><span class="skill-tag">Echo Integration</span><span class="skill-tag">Target Strength</span><span class="skill-tag">Echoview</span></div>
+											<span class="card-go-link">Go to page <i class="fas fa-arrow-right"></i></span>
 										</div>
-										<div class="activity-card">
+										<div class="activity-card" data-href="Geographic_information_system.html">
 											<div class="card-icon"><i class="fas fa-map-marked-alt"></i></div>
 											<h3>GIS &amp; Geospatial Data Science</h3>
 											<p>Advanced spatial analysis, land cover change detection, spatial statistics, and geostatistical interpolation for environmental management. GEE-based cloud workflows for large-area coastal monitoring.</p>
 											<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;"><span class="skill-tag">Spatial Analysis</span><span class="skill-tag">Change Detection</span><span class="skill-tag">Geostatistics</span></div>
+											<span class="card-go-link">Go to page <i class="fas fa-arrow-right"></i></span>
 										</div>
 										<div class="activity-card">
 											<div class="card-icon"><i class="fas fa-project-diagram"></i></div>
@@ -1062,53 +1265,61 @@ of Oktibbeha County of Mississippi, USA </li>
 									</header>
 									<p style="color:var(--text-medium);margin-bottom:1.5em;">Quantitative and computational methods applied across research projects in oceanography, coastal science, remote sensing, and ecology.</p>
 									<div class="activities-grid">
-										<div class="activity-card">
+										<div class="activity-card" data-href="ml_deep_learning.html">
 											<div class="card-icon"><i class="fas fa-brain"></i></div>
 											<h3>Machine Learning &amp; Deep Learning</h3>
 											<p>Supervised and unsupervised ensemble methods (Random Forest, XGBoost, Gradient Boosting, SVM) alongside deep learning architectures (CNN, LSTM, U-Net, Vision Transformers). Transfer learning and foundation model fine-tuning for Earth observation tasks including water quality retrieval, habitat mapping, and plankton classification.</p>
 											<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;"><span class="skill-tag">Random Forest / XGBoost</span><span class="skill-tag">CNN / LSTM</span><span class="skill-tag">U-Net / ViT</span><span class="skill-tag">Transfer Learning</span></div>
+											<span class="card-go-link">Go to page <i class="fas fa-arrow-right"></i></span>
 										</div>
-										<div class="activity-card">
+										<div class="activity-card" data-href="multivariate_statistics.html">
 											<div class="card-icon"><i class="fas fa-chart-pie"></i></div>
 											<h3>Multivariate Statistics</h3>
 											<p>PCA / EOF decomposition for oceanographic field analysis, canonical correspondence analysis (CCA), redundancy analysis (RDA), non-metric multidimensional scaling (nMDS), PERMANOVA, cluster analysis, discriminant function analysis (DFA), and partial least squares (PLS) regression for high-dimensional environmental datasets.</p>
 											<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;"><span class="skill-tag">PCA / EOF</span><span class="skill-tag">CCA / RDA</span><span class="skill-tag">nMDS / PERMANOVA</span><span class="skill-tag">Cluster Analysis</span></div>
+											<span class="card-go-link">Go to page <i class="fas fa-arrow-right"></i></span>
 										</div>
-										<div class="activity-card">
+										<div class="activity-card" data-href="spatial_analysis_geostatistics.html">
 											<div class="card-icon"><i class="fas fa-map-marked-alt"></i></div>
 											<h3>Spatial Analysis &amp; Geostatistics</h3>
 											<p>Ordinary and universal kriging, spatial autocorrelation metrics (Moran's I, Getis-Ord Gi*), hotspot analysis, kernel density estimation, geographically weighted regression (GWR), variogram modeling, and spatial interpolation for environmental monitoring and fisheries survey design.</p>
 											<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;"><span class="skill-tag">Kriging</span><span class="skill-tag">Moran's I / Getis-Ord</span><span class="skill-tag">GWR</span><span class="skill-tag">Hotspot Analysis</span></div>
+											<span class="card-go-link">Go to page <i class="fas fa-arrow-right"></i></span>
 										</div>
-										<div class="activity-card">
+										<div class="activity-card" data-href="cellular_automata_land_change.html">
 											<div class="card-icon"><i class="fas fa-th"></i></div>
 											<h3>Cellular Automata &amp; Land Change Modeling</h3>
 											<p>CA-Markov, FLUS, and SLEUTH models for land-use / land-cover (LULC) transition prediction and simulation. Applied to urban growth, coastal delta retreat, mangrove loss, and wetland conversion modeling driven by remote sensing time-series inputs and socio-economic drivers.</p>
 											<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;"><span class="skill-tag">CA-Markov</span><span class="skill-tag">FLUS</span><span class="skill-tag">LULC Transition</span><span class="skill-tag">Urban Growth Simulation</span></div>
+											<span class="card-go-link">Go to page <i class="fas fa-arrow-right"></i></span>
 										</div>
-										<div class="activity-card">
+										<div class="activity-card" data-href="time_series_spectral_analysis.html">
 											<div class="card-icon"><i class="fas fa-wave-square"></i></div>
 											<h3>Time Series &amp; Spectral Analysis</h3>
 											<p>Fast Fourier Transform (FFT), continuous wavelet transform (CWT), empirical mode decomposition (EMD / HHT), seasonal-trend decomposition (STL), Mann-Kendall trend detection, harmonic regression for phenological studies, and tidal constituent analysis (t_tide, UTide) for water-level records.</p>
 											<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;"><span class="skill-tag">Wavelet / EMD</span><span class="skill-tag">Mann-Kendall</span><span class="skill-tag">FFT</span><span class="skill-tag">Tidal Analysis</span></div>
+											<span class="card-go-link">Go to page <i class="fas fa-arrow-right"></i></span>
 										</div>
-										<div class="activity-card">
+										<div class="activity-card" data-href="hydrodynamic_numerical_methods.html">
 											<div class="card-icon"><i class="fas fa-wind"></i></div>
 											<h3>Hydrodynamic Numerical Methods</h3>
 											<p>Finite-volume and finite-element discretization schemes for coastal ocean models. Unstructured mesh generation (SMS, GMSH), open boundary condition specification, model data assimilation (ensemble Kalman filter, optimal interpolation), Lagrangian particle tracking for larval dispersal, and wave-current coupling (FVCOM-SWAVE, ROMS-SWAN).</p>
 											<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;"><span class="skill-tag">Finite Volume / FEM</span><span class="skill-tag">Data Assimilation (EnKF)</span><span class="skill-tag">Lagrangian Tracking</span><span class="skill-tag">Wave-Current Coupling</span></div>
+											<span class="card-go-link">Go to page <i class="fas fa-arrow-right"></i></span>
 										</div>
-										<div class="activity-card">
+										<div class="activity-card" data-href="remote_sensing_image_analysis.html">
 											<div class="card-icon"><i class="fas fa-satellite-dish"></i></div>
 											<h3>Remote Sensing Image Analysis</h3>
 											<p>Atmospheric correction (6S, ACOLITE, SeaDAS, iCOR), supervised and unsupervised image classification, spectral mixture analysis, continuous change detection (CCDC, LandTrendr), SAR backscatter processing (Sentinel-1 / SNAP), pan-sharpening, object-based image analysis (OBIA), and ocean color algorithm development and validation.</p>
 											<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;"><span class="skill-tag">Atmospheric Correction</span><span class="skill-tag">OBIA / Classification</span><span class="skill-tag">CCDC / LandTrendr</span><span class="skill-tag">SAR Processing</span></div>
+											<span class="card-go-link">Go to page <i class="fas fa-arrow-right"></i></span>
 										</div>
-										<div class="activity-card">
+										<div class="activity-card" data-href="ecological_community_analysis.html">
 											<div class="card-icon"><i class="fas fa-leaf"></i></div>
 											<h3>Ecological &amp; Community Analysis</h3>
 											<p>PRIMER-e multivariate community ecology workflows (nMDS, SIMPER, ANOSIM), diversity indices (Shannon, Simpson, Margalef), MaxEnt and Boosted Regression Tree (BRT) species distribution modeling, Ecopath with Ecosim (EwE) food-web analysis, hierarchical occupancy models, and trait-based community assembly analysis.</p>
 											<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;"><span class="skill-tag">nMDS / SIMPER</span><span class="skill-tag">MaxEnt / BRT</span><span class="skill-tag">Ecopath / EwE</span><span class="skill-tag">Occupancy Modeling</span></div>
+											<span class="card-go-link">Go to page <i class="fas fa-arrow-right"></i></span>
 										</div>
 									</div>
 								</section>
@@ -2062,28 +2273,28 @@ coral reefs, marine algae, mollusks, etc. that has been playing a significant ro
 									<li>
 										<span class="opener">Research Topics</span>
 										<ul>
-											<li><a href="#research-topics">Coastal Hydrodynamics</a></li>
-											<li><a href="#research-topics">Water Quality &amp; Hypoxia</a></li>
-											<li><a href="#research-topics">Ocean Color &amp; Marine RS</a></li>
-											<li><a href="#research-topics">Machine Learning in Ocean Science</a></li>
-											<li><a href="#research-topics">Marine Ecology &amp; Biodiversity</a></li>
-											<li><a href="#research-topics">Coastal Hazards &amp; Climate Change</a></li>
-											<li><a href="#research-topics">Fisheries Acoustics</a></li>
-											<li><a href="#research-topics">GIS &amp; Geospatial Data Science</a></li>
-														<li><a href="#research-topics">Hydrological Connectivity</a></li>
+											<li><a href="coastal_hydrodynamics.html" target="_blank">Coastal Hydrodynamics</a></li>
+											<li><a href="water_quality_hypoxia.html">Water Quality &amp; Hypoxia</a></li>
+											<li><a href="ocean_color_marine_rs.html">Ocean Color &amp; Marine RS</a></li>
+											<li><a href="machine_learning_ocean_science.html">Machine Learning in Ocean Science</a></li>
+											<li><a href="marine_ecology_biodiversity.html">Marine Ecology &amp; Biodiversity</a></li>
+											<li><a href="coastal_hazards_climate_change.html">Coastal Hazards &amp; Climate Change</a></li>
+											<li><a href="fisheries_acoustics_page.html">Fisheries Acoustics</a></li>
+											<li><a href="gis_geospatial_data_science.html">GIS &amp; Geospatial Data Science</a></li>
+														<li><a href="hydrological_connectivity.html">Hydrological Connectivity</a></li>
 													</ul>
 												</li>
 												<li>
 													<span class="opener">Analytical Methods</span>
 													<ul>
-														<li><a href="#methods">Machine Learning &amp; Deep Learning</a></li>
-														<li><a href="#methods">Multivariate Statistics</a></li>
-														<li><a href="#methods">Spatial Analysis &amp; Geostatistics</a></li>
-														<li><a href="#methods">Cellular Automata &amp; Land Change</a></li>
-														<li><a href="#methods">Time Series &amp; Spectral Analysis</a></li>
-														<li><a href="#methods">Hydrodynamic Numerical Methods</a></li>
-														<li><a href="#methods">Remote Sensing Image Analysis</a></li>
-														<li><a href="#methods">Ecological &amp; Community Analysis</a></li>
+														<li><a href="ml_deep_learning.html">Machine Learning &amp; Deep Learning</a></li>
+														<li><a href="multivariate_statistics.html">Multivariate Statistics</a></li>
+														<li><a href="spatial_analysis_geostatistics.html">Spatial Analysis &amp; Geostatistics</a></li>
+														<li><a href="cellular_automata_land_change.html">Cellular Automata &amp; Land Change</a></li>
+														<li><a href="time_series_spectral_analysis.html">Time Series &amp; Spectral Analysis</a></li>
+														<li><a href="hydrodynamic_numerical_methods.html">Hydrodynamic Numerical Methods</a></li>
+														<li><a href="remote_sensing_image_analysis.html">Remote Sensing Image Analysis</a></li>
+														<li><a href="ecological_community_analysis.html">Ecological &amp; Community Analysis</a></li>
 									</li>
 								</ul>
 							</nav>
@@ -2228,6 +2439,14 @@ coral reefs, marine algae, mollusks, etc. that has been playing a significant ro
 
 				// Section Navigation Highlighting
 				document.addEventListener('DOMContentLoaded', function() {
+
+					// Make activity cards with data-href clickable
+					document.querySelectorAll('.activity-card[data-href]').forEach(function(card) {
+						card.addEventListener('click', function() {
+							window.location.href = this.getAttribute('data-href');
+						});
+					});
+
 					// Define all sections to track
 					const sections = [
 						document.getElementById('banner'),
@@ -2372,7 +2591,7 @@ coral reefs, marine algae, mollusks, etc. that has been playing a significant ro
 						'Remote Sensing Specialist',
 						'GIS & Data Analyst',
 						'Machine Learning Researcher',
-						'PhD Candidate @ MSU'
+						'PhD in Earth and Atmospheric Sciences @ MSU'
 					];
 					var pi = 0, ci = 0, deleting = false;
 					function typeLoop() {

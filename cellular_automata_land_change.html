@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Cellular Automata &amp; Land Change | Hafez Ahmad</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Cellular Automata and Land Change modeling – CA-Markov, SLEUTH, land use simulation, and transition analysis." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/enhanced.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<style>
+			.topic-hero { background: linear-gradient(135deg, #78350f 0%, #d97706 50%, #fbbf24 100%); color: #fff; padding: 3em 2em; border-radius: 16px; margin-bottom: 2em; }
+			.topic-hero h1 { color: #fff; margin-bottom: 0.3em; }
+			.topic-hero p { color: #fef3c7; font-size: 1.15em; }
+			.viz-container { background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(13,33,55,0.12); padding: 1.5em; margin: 2em 0; }
+			.concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin: 2em 0; }
+			.concept-card { background: #fffbeb; border-left: 4px solid #d97706; padding: 1.5em; border-radius: 0 12px 12px 0; }
+			.concept-card h3 { color: #78350f; margin-bottom: 0.5em; }
+			.concept-card i { color: #d97706; margin-right: 0.5em; }
+			.equation-box { background: #78350f; color: #fcd34d; padding: 1.2em 1.5em; border-radius: 10px; font-family: 'Courier New', monospace; margin: 1em 0; }
+			.ref-list { background: #f8f9fa; padding: 1.5em 2em; border-radius: 10px; margin-top: 2em; }
+			.ref-list li { margin-bottom: 0.5em; font-size: 0.95em; color: #4a5568; }
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Back</strong> Homepage</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/hafezahmad/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://medium.com/@hafezahmad" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+						</ul>
+					</header>
+
+					<div class="topic-hero">
+						<h1><i class="fas fa-th"></i> Cellular Automata &amp; Land Change</h1>
+						<p>Spatially explicit simulation of land use/land cover change using CA-Markov, SLEUTH, and transition probability models</p>
+					</div>
+
+					<section>
+						<header class="major"><h2>Overview</h2></header>
+						<p>Cellular Automata (CA) are discrete dynamic systems where cells in a grid update their states based on transition rules and the states of neighboring cells. When combined with Markov chain transition probabilities, CA models (CA-Markov) simulate future land use/land cover (LULC) scenarios. The SLEUTH model (Slope, Land use, Exclusion, Urban, Transportation, Hillshade) specifically models urban growth. These models are critical for understanding coastal urbanization, mangrove loss, agricultural expansion, and land degradation — all directly affecting coastal ecosystems and water quality.</p>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key Concepts</h2></header>
+						<div class="concept-grid">
+							<div class="concept-card">
+								<h3><i class="fas fa-dice"></i> Markov Chain Transition</h3>
+								<p>A Markov chain models LULC transitions as a stochastic process. The transition probability matrix P(t) gives the probability of changing from class i to class j over time interval t. The Chapman-Kolmogorov equation allows multi-step projection.</p>
+								<div class="equation-box">S(t+1) = S(t) × P<br>P(2t) = P(t) × P(t)</div>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-border-all"></i> CA Neighborhood Rules</h3>
+								<p>CA models add spatial context: a cell's transition depends on its neighbors (Moore/von Neumann neighborhood). This captures spatial contiguity of land change — urban areas expand from existing urban edges, not randomly.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-city"></i> SLEUTH Urban Growth</h3>
+								<p>SLEUTH uses Monte Carlo simulation with 5 growth rules (spontaneous, new spreading, edge, road-influenced, slope). Calibration uses historical LULC maps to tune coefficients. It models urban sprawl and infilling.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-satellite"></i> Change Detection Input</h3>
+								<p>Multi-temporal satellite imagery (Landsat, Sentinel-2) provides the LULC classification maps that serve as inputs. Change detection identifies which pixels changed class between time periods. Accuracy assessment validates classifications.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-check-double"></i> Validation Methods</h3>
+								<p>Kappa statistic, figure of merit (FoM), and quantity/allocation disagreement assess model accuracy. Pontius et al. (2008) framework distinguishes errors of quantity (wrong totals) from errors of allocation (wrong locations).</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-tree"></i> Coastal Applications</h3>
+								<p>CA-Markov projects mangrove deforestation rates, coastal urbanization impacts on water quality, shrimp farm expansion, and land subsidence scenarios. Results inform coastal zone management planning.</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Interactive Visualizations</h2></header>
+
+						<div class="viz-container">
+							<h3>Land Use Change Over Time — Stacked Area Chart</h3>
+							<div id="lulc-plot" style="width:100%;height:420px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Transition Probability Matrix Heatmap</h3>
+							<div id="transition-plot" style="width:100%;height:420px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Simulated CA Grid — Urban Growth (Animated Concept)</h3>
+							<div id="ca-plot" style="width:100%;height:450px;"></div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key References</h2></header>
+						<div class="ref-list">
+							<ol>
+								<li>Clarke, K.C., Hoppen, S. & Gaydos, L. (1997). A self-modifying cellular automaton model of historical urbanization. <em>Environment and Planning B</em>, 24(2), 247–261.</li>
+								<li>Pontius Jr., R.G. et al. (2008). Comparing the input, output, and validation maps for several models of land change. <em>Annals of Regional Science</em>, 42, 11–37.</li>
+								<li>Eastman, J.R. (2012). IDRISI Selva: Guide to GIS and Image Processing. Clark University.</li>
+								<li>Ahmed, A. et al. (2018). Where is the coast? Monitoring coastal land dynamics in Bangladesh. <em>Ocean and Coastal Management</em>, 151, 10–24.</li>
+								<li>Mas, J.F. et al. (2014). Inductive pattern-based land use/cover change models. <em>Landscape Ecology</em>, 29, 1–13.</li>
+							</ol>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div id="sidebar">
+				<div class="inner">
+					<nav id="menu">
+						<header class="major"><h2>Menu</h2></header>
+						<ul>
+							<li><a href="index.html">Homepage</a></li>
+							<li><a href="spatial_analysis_geostatistics.html">Spatial Analysis</a></li>
+							<li><a href="remote_sensing_image_analysis.html">RS Image Analysis</a></li>
+							<li><a href="Geographic_information_system.html">GIS</a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2>Get in touch</h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="#">hafezahmad100@gmail.com</a></li>
+							<li class="icon solid fa-home">Mississippi State University</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Hafez Ahmad. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+		// LULC stacked area
+		(function(){
+			var years=[2000,2005,2010,2015,2020,2025,2030,2035,2040];
+			var forest=[45,42,38,34,30,27,24,22,20];
+			var agri=[25,24,23,22,21,20,19,18,17];
+			var urban=[10,13,17,22,27,31,35,38,41];
+			var water=[12,12,12,12,12,12,12,12,12];
+			var bare=[8,9,10,10,10,10,10,10,10];
+			Plotly.newPlot('lulc-plot',[
+				{x:years,y:forest,name:'Forest/Mangrove',stackgroup:'one',fillcolor:'#059669'},
+				{x:years,y:agri,name:'Agriculture',stackgroup:'one',fillcolor:'#84cc16'},
+				{x:years,y:urban,name:'Urban/Built-up',stackgroup:'one',fillcolor:'#dc2626'},
+				{x:years,y:water,name:'Water Bodies',stackgroup:'one',fillcolor:'#2563eb'},
+				{x:years,y:bare,name:'Bare/Sand',stackgroup:'one',fillcolor:'#d97706'}
+			],{
+				title:'Projected LULC Change (CA-Markov Simulation)',
+				xaxis:{title:'Year'},
+				yaxis:{title:'% of Total Area',range:[0,100]},
+				plot_bgcolor:'#fafcff',paper_bgcolor:'#fff',font:{family:'Open Sans'}
+			},{responsive:true});
+		})();
+
+		// Transition probability matrix
+		(function(){
+			var classes=['Forest','Agriculture','Urban','Water','Bare'];
+			var P=[
+				[0.85,0.08,0.05,0.01,0.01],
+				[0.02,0.82,0.12,0.01,0.03],
+				[0.00,0.02,0.96,0.01,0.01],
+				[0.01,0.01,0.02,0.95,0.01],
+				[0.03,0.05,0.08,0.02,0.82]
+			];
+			Plotly.newPlot('transition-plot',[{
+				z:P,x:classes,y:classes,type:'heatmap',
+				colorscale:[[0,'#fffbeb'],[0.5,'#fbbf24'],[1,'#78350f']],
+				text:P.map(function(r){return r.map(function(v){return v.toFixed(2);});}),
+				texttemplate:'%{text}',
+				colorbar:{title:'Probability'}
+			}],{
+				title:'Markov Transition Probability Matrix (5-year period)',
+				xaxis:{title:'To Class',side:'bottom'},
+				yaxis:{title:'From Class',autorange:'reversed'},
+				plot_bgcolor:'#fff',paper_bgcolor:'#fff',font:{family:'Open Sans'}
+			},{responsive:true});
+		})();
+
+		// Simulated CA grid
+		(function(){
+			var n=40, grid=[];
+			// Init: mostly green/agriculture with urban center
+			for(var j=0;j<n;j++){
+				var row=[];
+				for(var i=0;i<n;i++){
+					var d=Math.sqrt(Math.pow(i-20,2)+Math.pow(j-20,2));
+					if(d<5) row.push(3); // urban
+					else if(d<8 && Math.random()>0.5) row.push(3);
+					else if(Math.random()<0.4) row.push(1); // forest
+					else row.push(2); // agriculture
+				}
+				grid.push(row);
+			}
+			// Run 10 CA iterations (simple spread rule)
+			for(var t=0;t<10;t++){
+				var newGrid=grid.map(function(r){return r.slice();});
+				for(var j=1;j<n-1;j++){
+					for(var i=1;i<n-1;i++){
+						if(grid[j][i]!==3){
+							var urbanNeighbors=0;
+							for(var dj=-1;dj<=1;dj++)for(var di=-1;di<=1;di++){
+								if(grid[j+dj][i+di]===3) urbanNeighbors++;
+							}
+							if(urbanNeighbors>=2 && Math.random()<0.3) newGrid[j][i]=3;
+						}
+					}
+				}
+				grid=newGrid;
+			}
+			Plotly.newPlot('ca-plot',[{
+				z:grid,type:'heatmap',
+				colorscale:[[0,'#2563eb'],[0.33,'#059669'],[0.66,'#84cc16'],[1,'#dc2626']],
+				showscale:false
+			}],{
+				title:'CA Simulation: Urban Growth After 10 Iterations',
+				xaxis:{title:'Column',showgrid:false},
+				yaxis:{title:'Row',showgrid:false},
+				plot_bgcolor:'#fff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				annotations:[{x:20,y:20,text:'Urban<br>Center',showarrow:false,font:{color:'#fff',size:12}}]
+			},{responsive:true});
+		})();
+		</script>
+	</body>
+</html>

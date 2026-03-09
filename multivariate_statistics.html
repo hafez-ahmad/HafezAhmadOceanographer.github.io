@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Multivariate Statistics | Hafez Ahmad</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Multivariate Statistics – PCA, cluster analysis, MANOVA, discriminant analysis for environmental data." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/enhanced.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<style>
+			.topic-hero { background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #60a5fa 100%); color: #fff; padding: 3em 2em; border-radius: 16px; margin-bottom: 2em; }
+			.topic-hero h1 { color: #fff; margin-bottom: 0.3em; }
+			.topic-hero p { color: #dbeafe; font-size: 1.15em; }
+			.viz-container { background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(13,33,55,0.12); padding: 1.5em; margin: 2em 0; }
+			.concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin: 2em 0; }
+			.concept-card { background: #eff6ff; border-left: 4px solid #2563eb; padding: 1.5em; border-radius: 0 12px 12px 0; }
+			.concept-card h3 { color: #1e3a5f; margin-bottom: 0.5em; }
+			.concept-card i { color: #2563eb; margin-right: 0.5em; }
+			.equation-box { background: #1e3a5f; color: #93c5fd; padding: 1.2em 1.5em; border-radius: 10px; font-family: 'Courier New', monospace; margin: 1em 0; }
+			.ref-list { background: #f8f9fa; padding: 1.5em 2em; border-radius: 10px; margin-top: 2em; }
+			.ref-list li { margin-bottom: 0.5em; font-size: 0.95em; color: #4a5568; }
+			.stats-row { display: flex; flex-wrap: wrap; gap: 1em; margin: 1.5em 0; }
+			.stat-box { flex: 1; min-width: 140px; text-align: center; background: linear-gradient(135deg, #2563eb, #60a5fa); color: #fff; padding: 1.2em; border-radius: 12px; }
+			.stat-box .num { font-size: 1.8em; font-weight: 700; }
+			.stat-box .lbl { font-size: 0.85em; opacity: 0.9; }
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Back</strong> Homepage</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/hafezahmad/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://medium.com/@hafezahmad" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+						</ul>
+					</header>
+
+					<div class="topic-hero">
+						<h1><i class="fas fa-chart-bar"></i> Multivariate Statistics</h1>
+						<p>PCA, cluster analysis, ordination, discriminant analysis, and multivariate hypothesis testing for environmental data</p>
+					</div>
+
+					<section>
+						<header class="major"><h2>Overview</h2></header>
+						<p>Multivariate statistics analyze datasets with multiple measured variables simultaneously, revealing patterns, groupings, and relationships that univariate methods miss. In ocean and environmental science, multivariate techniques are essential for analyzing water quality parameters, community composition, environmental gradients, and spatiotemporal patterns. Principal Component Analysis (PCA) reduces dimensionality; cluster analysis groups similar samples; PERMANOVA tests multivariate hypotheses; and canonical correspondence analysis (CCA) relates species composition to environmental drivers.</p>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key Methods</h2></header>
+						<div class="concept-grid">
+							<div class="concept-card">
+								<h3><i class="fas fa-compress-arrows-alt"></i> Principal Component Analysis (PCA)</h3>
+								<p>PCA finds orthogonal axes (principal components) that maximize variance in the data. Eigenvalues measure explained variance; loadings show variable contributions. A scree plot identifies the number of meaningful components. PCA assumes linear relationships and is sensitive to variable scaling.</p>
+								<div class="equation-box">Σv = λv (eigenvalue problem)<br>PC1 = w₁₁X₁ + w₁₂X₂ + ... + w₁ₚXₚ</div>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-object-group"></i> Cluster Analysis</h3>
+								<p>Hierarchical clustering (Ward's, UPGMA) produces dendrograms; partitional methods (K-means, PAM) optimize within-cluster similarity. Silhouette scores and gap statistics determine optimal cluster number. Applied to group water masses, stations, or species assemblages.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-project-diagram"></i> Non-metric MDS (nMDS)</h3>
+								<p>nMDS ordinates samples in low-dimensional space preserving rank-order dissimilarities. Stress &lt; 0.1 indicates good representation. Uses Bray-Curtis dissimilarity for ecological data. Complements ANOSIM/PERMANOVA for group testing.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-exchange-alt"></i> Canonical Correspondence Analysis</h3>
+								<p>CCA constrains ordination axes to be linear combinations of environmental variables, directly relating species composition to gradients (temperature, salinity, depth). Variance partitioning quantifies unique and shared explanatory power.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-balance-scale"></i> PERMANOVA & ANOSIM</h3>
+								<p>Permutational MANOVA tests multivariate group differences using distance matrices and permutation p-values. ANOSIM (Analysis of Similarities) provides a complementary R statistic. Both are robust to non-normality.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-ruler-combined"></i> Discriminant Analysis (LDA/QDA)</h3>
+								<p>Linear and quadratic discriminant analysis find coordinate systems that best separate known groups. LDA assumes equal covariance; QDA allows different covariances per group. Used for species classification from environmental features.</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Interactive Visualizations</h2></header>
+
+						<div class="viz-container">
+							<h3>PCA Biplot — Water Quality Parameters</h3>
+							<div id="pca-plot" style="width:100%;height:480px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Scree Plot — Variance Explained by Components</h3>
+							<div id="scree-plot" style="width:100%;height:400px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Cluster Dendrogram & Silhouette Analysis</h3>
+							<div id="silhouette-plot" style="width:100%;height:420px;"></div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key References</h2></header>
+						<div class="ref-list">
+							<ol>
+								<li>Clarke, K.R. & Warwick, R.M. (2001). <em>Change in Marine Communities: An Approach to Statistical Analysis and Interpretation</em>. PRIMER-E.</li>
+								<li>Legendre, P. & Legendre, L. (2012). <em>Numerical Ecology</em>. 3rd ed. Elsevier.</li>
+								<li>Anderson, M.J. (2001). A new method for non-parametric multivariate analysis of variance. <em>Austral Ecology</em>, 26(1), 32–46.</li>
+								<li>Jolliffe, I.T. (2002). <em>Principal Component Analysis</em>. 2nd ed. Springer.</li>
+								<li>Ter Braak, C.J.F. (1986). Canonical correspondence analysis: A new eigenvector technique for multivariate direct gradient analysis. <em>Ecology</em>, 67(5), 1167–1179.</li>
+							</ol>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div id="sidebar">
+				<div class="inner">
+					<nav id="menu">
+						<header class="major"><h2>Menu</h2></header>
+						<ul>
+							<li><a href="index.html">Homepage</a></li>
+							<li><a href="ml_deep_learning.html">ML & Deep Learning</a></li>
+							<li><a href="ecological_community_analysis.html">Ecological Analysis</a></li>
+							<li><a href="spatial_analysis_geostatistics.html">Spatial Analysis</a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2>Get in touch</h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="#">hafezahmad100@gmail.com</a></li>
+							<li class="icon solid fa-home">Mississippi State University</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Hafez Ahmad. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+		// PCA Biplot
+		(function(){
+			var n=80;
+			var g1x=[],g1y=[],g2x=[],g2y=[],g3x=[],g3y=[];
+			for(var i=0;i<n;i++){
+				g1x.push(-2+1.5*Math.random()); g1y.push(-1+1.5*Math.random());
+				g2x.push(1+1.5*Math.random()); g2y.push(1.5+1.2*Math.random());
+				g3x.push(2+1.2*Math.random()); g3y.push(-2+1.5*Math.random());
+			}
+			var vars=['Temperature','Salinity','DO','Chl-a','Turbidity','pH'];
+			var vx=[0.8,0.6,-0.7,0.3,0.5,-0.4];
+			var vy=[-0.3,0.7,0.5,0.8,-0.6,0.2];
+			var annotations=[];
+			for(var i=0;i<vars.length;i++){
+				annotations.push({ax:0,ay:0,x:vx[i]*3,y:vy[i]*3,xref:'x',yref:'y',axref:'x',ayref:'y',
+					showarrow:true,arrowhead:3,arrowsize:1.5,arrowcolor:'#1e3a5f',arrowwidth:2,
+					text:vars[i],font:{color:'#1e3a5f',size:11}});
+			}
+			Plotly.newPlot('pca-plot',[
+				{x:g1x,y:g1y,mode:'markers',name:'Estuarine',marker:{color:'#2563eb',size:7,opacity:0.7}},
+				{x:g2x,y:g2y,mode:'markers',name:'Shelf',marker:{color:'#16a34a',size:7,opacity:0.7}},
+				{x:g3x,y:g3y,mode:'markers',name:'Open Ocean',marker:{color:'#dc2626',size:7,opacity:0.7}}
+			],{
+				title:'PCA Biplot — Water Quality Stations',
+				xaxis:{title:'PC1 (42.3% variance)',zeroline:true,zerolinecolor:'#ccc'},
+				yaxis:{title:'PC2 (23.1% variance)',zeroline:true,zerolinecolor:'#ccc'},
+				plot_bgcolor:'#fafcff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				annotations:annotations
+			},{responsive:true});
+		})();
+
+		// Scree Plot
+		(function(){
+			var pcs=['PC1','PC2','PC3','PC4','PC5','PC6','PC7','PC8'];
+			var varExp=[42.3,23.1,12.5,8.2,5.1,4.0,3.0,1.8];
+			var cumVar=[42.3,65.4,77.9,86.1,91.2,95.2,98.2,100];
+			Plotly.newPlot('scree-plot',[
+				{x:pcs,y:varExp,type:'bar',name:'Individual %',marker:{color:'#2563eb'}},
+				{x:pcs,y:cumVar,name:'Cumulative %',line:{color:'#dc2626',width:3},mode:'lines+markers',marker:{size:8},yaxis:'y2'}
+			],{
+				title:'Scree Plot: Variance Explained by Principal Components',
+				xaxis:{title:'Principal Component'},
+				yaxis:{title:'Individual Variance Explained (%)',range:[0,50]},
+				yaxis2:{title:'Cumulative %',overlaying:'y',side:'right',range:[0,105]},
+				plot_bgcolor:'#fafcff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				shapes:[{type:'line',x0:-0.5,x1:7.5,y0:70,y1:70,yref:'y2',line:{color:'#f59e0b',dash:'dash',width:2}}],
+				annotations:[{x:'PC3',y:77,yref:'y2',text:'70% threshold',showarrow:false,font:{color:'#f59e0b'}}]
+			},{responsive:true});
+		})();
+
+		// Silhouette-like bar chart (cluster quality)
+		(function(){
+			var k=[2,3,4,5,6,7,8];
+			var sil=[0.55,0.62,0.58,0.48,0.42,0.38,0.32];
+			var colors=sil.map(function(v){return v>0.6?'#16a34a':(v>0.5?'#2563eb':'#dc2626');});
+			Plotly.newPlot('silhouette-plot',[{
+				x:k,y:sil,type:'bar',marker:{color:colors},
+				text:sil.map(function(v){return v.toFixed(2);}),textposition:'outside'
+			}],{
+				title:'Silhouette Score vs. Number of Clusters (Optimal K=3)',
+				xaxis:{title:'Number of Clusters (K)',dtick:1},
+				yaxis:{title:'Mean Silhouette Score',range:[0,0.8]},
+				plot_bgcolor:'#fafcff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				shapes:[{type:'line',x0:1.5,x1:8.5,y0:0.5,y1:0.5,line:{color:'#f59e0b',dash:'dash',width:1.5}}]
+			},{responsive:true});
+		})();
+		</script>
+	</body>
+</html>

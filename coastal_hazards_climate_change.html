@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Coastal Hazards &amp; Climate Change | Hafez Ahmad</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Coastal Hazards and Climate Change – sea level rise, storm surge, erosion, cyclones, and adaptation strategies." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/enhanced.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<style>
+			.topic-hero { background: linear-gradient(135deg, #7f1d1d 0%, #dc2626 50%, #f59e0b 100%); color: #fff; padding: 3em 2em; border-radius: 16px; margin-bottom: 2em; }
+			.topic-hero h1 { color: #fff; margin-bottom: 0.3em; }
+			.topic-hero p { color: #fef3c7; font-size: 1.15em; }
+			.viz-container { background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(13,33,55,0.12); padding: 1.5em; margin: 2em 0; }
+			.concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin: 2em 0; }
+			.concept-card { background: #fef2f2; border-left: 4px solid #dc2626; padding: 1.5em; border-radius: 0 12px 12px 0; }
+			.concept-card h3 { color: #7f1d1d; margin-bottom: 0.5em; }
+			.concept-card i { color: #dc2626; margin-right: 0.5em; }
+			.equation-box { background: #1a2332; color: #fbbf24; padding: 1.2em 1.5em; border-radius: 10px; font-family: 'Courier New', monospace; margin: 1em 0; }
+			.ref-list { background: #f8f9fa; padding: 1.5em 2em; border-radius: 10px; margin-top: 2em; }
+			.ref-list li { margin-bottom: 0.5em; font-size: 0.95em; color: #4a5568; }
+			.stats-row { display: flex; flex-wrap: wrap; gap: 1em; margin: 1.5em 0; }
+			.stat-box { flex: 1; min-width: 140px; text-align: center; background: linear-gradient(135deg, #dc2626, #f59e0b); color: #fff; padding: 1.2em; border-radius: 12px; }
+			.stat-box .num { font-size: 2em; font-weight: 700; }
+			.stat-box .lbl { font-size: 0.85em; opacity: 0.9; }
+			.timeline { position: relative; padding: 1em 0; margin: 2em 0; }
+			.timeline-item { position: relative; padding: 1em 2em; border-left: 3px solid #dc2626; margin-bottom: 1.5em; }
+			.timeline-item::before { content: ''; position: absolute; left: -8px; top: 1.2em; width: 14px; height: 14px; border-radius: 50%; background: #dc2626; }
+			.timeline-item h4 { color: #7f1d1d; margin-bottom: 0.3em; }
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Back</strong> Homepage</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/hafezahmad/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://medium.com/@hafezahmad" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+						</ul>
+					</header>
+
+					<div class="topic-hero">
+						<h1><i class="fas fa-bolt"></i> Coastal Hazards &amp; Climate Change</h1>
+						<p>Sea level rise, tropical cyclones, storm surge, coastal erosion, and adaptation strategies for resilient coastlines</p>
+					</div>
+
+					<section>
+						<header class="major"><h2>Overview</h2></header>
+						<p>Coastal zones face intensifying hazards driven by climate change: accelerating sea level rise, more intense tropical cyclones, increased flooding, shoreline erosion, and saltwater intrusion. The Intergovernmental Panel on Climate Change (IPCC) projects global mean sea level rise of 0.28–1.01 m by 2100, depending on emissions scenario (SSP). Low-lying deltas (Bangladesh, Mekong, Nile) and small island states are particularly vulnerable. Adaptation strategies include nature-based solutions (mangrove restoration, living shorelines), engineered defenses (seawalls, storm surge barriers), managed retreat, and early warning systems.</p>
+
+						<div class="stats-row">
+							<div class="stat-box"><div class="num">3.7 mm/yr</div><div class="lbl">Current SLR rate (accelerating)</div></div>
+							<div class="stat-box"><div class="num">~1 m</div><div class="lbl">Projected SLR by 2100 (high emission)</div></div>
+							<div class="stat-box"><div class="num">~1B</div><div class="lbl">People at risk from coastal flooding</div></div>
+							<div class="stat-box"><div class="num">$1T+</div><div class="lbl">Annual coastal flood damages by 2050</div></div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key Hazards</h2></header>
+						<div class="concept-grid">
+							<div class="concept-card">
+								<h3><i class="fas fa-water"></i> Sea Level Rise</h3>
+								<p>Thermal expansion of ocean water and ice sheet/glacier melt drive global SLR. Regional rates vary due to ocean dynamics, land subsidence, and gravitational effects of ice mass loss. Bangladesh faces compound risks where SLR combines with monsoon flooding and land subsidence.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-hurricane"></i> Tropical Cyclones</h3>
+								<p>Warming SSTs are projected to increase the proportion of intense (Category 4–5) cyclones. The Bay of Bengal and western Pacific are particularly at risk. Cyclone Amphan (2020) caused $13 billion in damages across Bangladesh and India.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-house-flood-water"></i> Storm Surge</h3>
+								<p>Wind-driven water piles against the coast during cyclones, amplified by low pressure. Shallow continental shelves (Bangladesh, Gulf of Mexico) are susceptible to extreme surges. ADCIRC and SLOSH models forecast surge for emergency management.</p>
+								<div class="equation-box">η_surge ≈ (τ_w × L) / (ρ × g × D) + η_IB</div>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-mountain"></i> Coastal Erosion</h3>
+								<p>Sea level rise, wave energy, and reduced sediment supply accelerate shoreline retreat. Bruun Rule provides a first-order estimate: 1 cm SLR ≈ 1 m of shoreline retreat on sandy coasts. Remote sensing (Landsat time series) quantifies decadal change.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-tint-slash"></i> Saltwater Intrusion</h3>
+								<p>Rising sea levels push the freshwater-saltwater interface landward in coastal aquifers and river systems, threatening drinking water supplies and agriculture. The Ghyben-Herzberg relation estimates the depth of the interface.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-hand-holding-water"></i> Adaptation Strategies</h3>
+								<p>Nature-based solutions (mangroves attenuate 66% of wave energy), hard engineering (seawalls, levees), early warning systems, building codes, land-use planning, and managed retreat form an integrated adaptation portfolio.</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Interactive Visualizations</h2></header>
+
+						<div class="viz-container">
+							<h3>Global Mean Sea Level Rise Projections (IPCC SSP Scenarios)</h3>
+							<div id="slr-plot" style="width:100%;height:420px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Tropical Cyclone Intensity Distribution — Historical vs. Projected</h3>
+							<div id="cyclone-plot" style="width:100%;height:420px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Coastal Vulnerability Index Components</h3>
+							<div id="cvi-plot" style="width:100%;height:450px;"></div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key References</h2></header>
+						<div class="ref-list">
+							<ol>
+								<li>IPCC (2021). <em>AR6 Climate Change 2021: The Physical Science Basis</em>. Chapter 9: Ocean, Cryosphere and Sea Level Change.</li>
+								<li>Nicholls, R.J. & Cazenave, A. (2010). Sea-level rise and its impact on coastal zones. <em>Science</em>, 328(5985), 1517–1520.</li>
+								<li>Knutson, T.R. et al. (2020). Tropical cyclones and climate change assessment. <em>Bull. Amer. Meteorol. Soc.</em>, 101(3), E303–E322.</li>
+								<li>Oppenheimer, M. et al. (2019). Sea Level Rise and Implications for Low-Lying Islands, Coasts and Communities. <em>IPCC SROCC</em>.</li>
+								<li>Mentaschi, L. et al. (2018). Global long-term observations of coastal erosion and accretion. <em>Scientific Reports</em>, 8, 12876.</li>
+							</ol>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div id="sidebar">
+				<div class="inner">
+					<nav id="menu">
+						<header class="major"><h2>Menu</h2></header>
+						<ul>
+							<li><a href="index.html">Homepage</a></li>
+							<li><a href="coastal_hydrodynamics.html">Coastal Hydrodynamics</a></li>
+							<li><a href="water_quality_hypoxia.html">Water Quality & Hypoxia</a></li>
+							<li><a href="Coastal_hazards_and_Climate change.html">Original Coastal Hazards Page</a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2>Get in touch</h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="#">hafezahmad100@gmail.com</a></li>
+							<li class="icon solid fa-home">Mississippi State University</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Hafez Ahmad. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+		// SLR Projections
+		(function(){
+			var years=[];
+			for(var y=2020;y<=2100;y+=5) years.push(y);
+			function slrPath(base,rate,accel){
+				var vals=[];
+				years.forEach(function(y){var t=y-2020; vals.push(base+rate*t+accel*t*t);});
+				return vals;
+			}
+			var ssp126=slrPath(0,1.8,0.01);
+			var ssp245=slrPath(0,2.5,0.025);
+			var ssp585=slrPath(0,3.5,0.06);
+			// Convert mm to m total rise
+			ssp126=ssp126.map(function(v){return (v/1000).toFixed(3);});
+			ssp245=ssp245.map(function(v){return (v/1000).toFixed(3);});
+			ssp585=ssp585.map(function(v){return (v/1000).toFixed(3);});
+			Plotly.newPlot('slr-plot',[
+				{x:years, y:ssp126, name:'SSP1-2.6 (low emission)', fill:'tozeroy', fillcolor:'rgba(52,152,219,0.15)', line:{color:'#3498db',width:2.5}},
+				{x:years, y:ssp245, name:'SSP2-4.5 (moderate)', fill:'tozeroy', fillcolor:'rgba(241,196,15,0.15)', line:{color:'#f1c40f',width:2.5}},
+				{x:years, y:ssp585, name:'SSP5-8.5 (high emission)', fill:'tozeroy', fillcolor:'rgba(220,38,38,0.15)', line:{color:'#dc2626',width:2.5}}
+			],{
+				title:'Projected Global Mean Sea Level Rise (m above 2020)',
+				xaxis:{title:'Year'},
+				yaxis:{title:'Sea Level Rise (m)'},
+				plot_bgcolor:'#fafcff', paper_bgcolor:'#fff', font:{family:'Open Sans'}
+			},{responsive:true});
+		})();
+
+		// Cyclone Intensity
+		(function(){
+			var cats = ['Tropical Storm','Cat 1','Cat 2','Cat 3','Cat 4','Cat 5'];
+			var hist = [35,25,18,12,7,3];
+			var proj = [28,20,17,15,12,8];
+			Plotly.newPlot('cyclone-plot',[
+				{x:cats, y:hist, name:'Historical (1980–2020)', type:'bar', marker:{color:'#3498db'}},
+				{x:cats, y:proj, name:'Projected (2050–2100)', type:'bar', marker:{color:'#dc2626'}}
+			],{
+				title:'Tropical Cyclone Frequency Distribution by Category',
+				xaxis:{title:'Intensity Category'},
+				yaxis:{title:'% of Total Storms'},
+				barmode:'group',
+				plot_bgcolor:'#fafcff', paper_bgcolor:'#fff', font:{family:'Open Sans'}
+			},{responsive:true});
+		})();
+
+		// CVI Radar
+		(function(){
+			var categories = ['Sea Level Rise','Shoreline Change','Coastal Slope','Wave Height','Tidal Range','Geomorphology'];
+			var bangladesh = [5,4,5,4,5,4];
+			var florida = [4,3,3,3,2,3];
+			var netherlands = [5,2,4,3,4,3];
+			bangladesh.push(bangladesh[0]);
+			florida.push(florida[0]);
+			netherlands.push(netherlands[0]);
+			var cats2 = categories.concat([categories[0]]);
+			Plotly.newPlot('cvi-plot',[
+				{type:'scatterpolar', r:bangladesh, theta:cats2, name:'Bangladesh', fill:'toself', fillcolor:'rgba(220,38,38,0.15)', line:{color:'#dc2626',width:2}},
+				{type:'scatterpolar', r:florida, theta:cats2, name:'Florida, USA', fill:'toself', fillcolor:'rgba(52,152,219,0.15)', line:{color:'#3498db',width:2}},
+				{type:'scatterpolar', r:netherlands, theta:cats2, name:'Netherlands', fill:'toself', fillcolor:'rgba(46,204,196,0.15)', line:{color:'#4ecdc4',width:2}}
+			],{
+				title:'Coastal Vulnerability Index (CVI) — Regional Comparison',
+				polar:{radialaxis:{visible:true, range:[0,5]}},
+				paper_bgcolor:'#fff', font:{family:'Open Sans'}
+			},{responsive:true});
+		})();
+		</script>
+	</body>
+</html>

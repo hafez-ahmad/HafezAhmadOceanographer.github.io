@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Spatial Analysis &amp; Geostatistics | Hafez Ahmad</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Spatial Analysis and Geostatistics – variograms, kriging, spatial autocorrelation, and geospatial interpolation." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/enhanced.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<style>
+			.topic-hero { background: linear-gradient(135deg, #064e3b 0%, #059669 50%, #34d399 100%); color: #fff; padding: 3em 2em; border-radius: 16px; margin-bottom: 2em; }
+			.topic-hero h1 { color: #fff; margin-bottom: 0.3em; }
+			.topic-hero p { color: #d1fae5; font-size: 1.15em; }
+			.viz-container { background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(13,33,55,0.12); padding: 1.5em; margin: 2em 0; }
+			.concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin: 2em 0; }
+			.concept-card { background: #ecfdf5; border-left: 4px solid #059669; padding: 1.5em; border-radius: 0 12px 12px 0; }
+			.concept-card h3 { color: #064e3b; margin-bottom: 0.5em; }
+			.concept-card i { color: #059669; margin-right: 0.5em; }
+			.equation-box { background: #064e3b; color: #6ee7b7; padding: 1.2em 1.5em; border-radius: 10px; font-family: 'Courier New', monospace; margin: 1em 0; }
+			.ref-list { background: #f8f9fa; padding: 1.5em 2em; border-radius: 10px; margin-top: 2em; }
+			.ref-list li { margin-bottom: 0.5em; font-size: 0.95em; color: #4a5568; }
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Back</strong> Homepage</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/hafezahmad/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://medium.com/@hafezahmad" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+						</ul>
+					</header>
+
+					<div class="topic-hero">
+						<h1><i class="fas fa-map-marked-alt"></i> Spatial Analysis &amp; Geostatistics</h1>
+						<p>Variography, kriging, spatial autocorrelation, hotspot analysis, and geospatial interpolation methods</p>
+					</div>
+
+					<section>
+						<header class="major"><h2>Overview</h2></header>
+						<p>Geostatistics provides a mathematical framework for analyzing spatially correlated data. Founded on the regionalized variable theory of Matheron (1963), geostatistical methods model spatial dependence through variograms and use kriging to produce optimal, unbiased predictions at unsampled locations with associated uncertainty estimates. In ocean science, geostatistics is applied to map seafloor properties, interpolate water quality parameters, estimate fish abundance from acoustic surveys, and analyze spatial patterns of environmental variables. Tobler's First Law — "everything is related to everything else, but near things are more related than distant things" — is the foundational principle.</p>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key Methods</h2></header>
+						<div class="concept-grid">
+							<div class="concept-card">
+								<h3><i class="fas fa-chart-area"></i> Variogram Analysis</h3>
+								<p>The (semi)variogram γ(h) measures spatial dissimilarity as a function of lag distance h. Key parameters: nugget (measurement error + micro-scale variation), sill (total variance), and range (distance beyond which correlation vanishes). Models: spherical, exponential, Gaussian, Matérn.</p>
+								<div class="equation-box">γ(h) = ½ E[(Z(x+h) − Z(x))²]<br>Spherical: γ(h) = C₀ + C₁[1.5(h/a) − 0.5(h/a)³]</div>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-bullseye"></i> Kriging</h3>
+								<p>Ordinary kriging is the Best Linear Unbiased Predictor (BLUP). It estimates Z at unsampled locations as a weighted sum of observed values, with weights determined by the variogram model. The kriging variance provides prediction uncertainty. Variants: simple, universal, indicator, co-kriging.</p>
+								<div class="equation-box">Ẑ(x₀) = Σ λᵢ Z(xᵢ) , Σ λᵢ = 1<br>Minimize: Var[Ẑ(x₀) − Z(x₀)]</div>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-globe"></i> Spatial Autocorrelation</h3>
+								<p>Moran's I and Geary's C quantify global spatial autocorrelation. Local indicators (LISA, Getis-Ord Gi*) identify hotspots and coldspots. Positive autocorrelation (clustered) is common in environmental data.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-th"></i> IDW & Nearest Neighbor</h3>
+								<p>Inverse Distance Weighting (IDW) is a deterministic interpolation that weights observations by inverse distance raised to a power. Simpler than kriging but does not provide uncertainty estimates or account for spatial structure.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-layer-group"></i> Indicator Kriging & Probability Maps</h3>
+								<p>Indicator kriging estimates the probability that a variable exceeds a threshold (e.g., P(DO < 2 mg/L)). This produces risk maps essential for environmental management and spatial decision-making.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-laptop-code"></i> Software & Tools</h3>
+								<p>R: gstat, sp, geoR; Python: scikit-gstat, PyKrige, GSTools; GIS: ArcGIS Geostatistical Analyst, QGIS. GSLIB remains the classic reference implementation.</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Interactive Visualizations</h2></header>
+
+						<div class="viz-container">
+							<h3>Experimental Variogram with Fitted Model</h3>
+							<div id="variogram-plot" style="width:100%;height:420px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Kriging Interpolation — Simulated Spatial Field</h3>
+							<div id="krig-plot" style="width:100%;height:450px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Spatial Autocorrelation (Moran's I Scatterplot)</h3>
+							<div id="moran-plot" style="width:100%;height:420px;"></div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key References</h2></header>
+						<div class="ref-list">
+							<ol>
+								<li>Cressie, N.A.C. (1993). <em>Statistics for Spatial Data</em>. Wiley.</li>
+								<li>Goovaerts, P. (1997). <em>Geostatistics for Natural Resources Evaluation</em>. Oxford University Press.</li>
+								<li>Webster, R. & Oliver, M.A. (2007). <em>Geostatistics for Environmental Scientists</em>. 2nd ed. Wiley.</li>
+								<li>Petitgas, P. (1993). Geostatistics for fish stock assessments: a review and an acoustic application. <em>ICES J. Marine Science</em>, 50, 285–298.</li>
+								<li>Anselin, L. (1995). Local indicators of spatial association — LISA. <em>Geographical Analysis</em>, 27(2), 93–115.</li>
+							</ol>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div id="sidebar">
+				<div class="inner">
+					<nav id="menu">
+						<header class="major"><h2>Menu</h2></header>
+						<ul>
+							<li><a href="index.html">Homepage</a></li>
+							<li><a href="multivariate_statistics.html">Multivariate Statistics</a></li>
+							<li><a href="ml_deep_learning.html">ML & Deep Learning</a></li>
+							<li><a href="Geographic_information_system.html">GIS</a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2>Get in touch</h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="#">hafezahmad100@gmail.com</a></li>
+							<li class="icon solid fa-home">Mississippi State University</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Hafez Ahmad. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+		// Variogram
+		(function(){
+			// Experimental variogram points
+			var lags=[5,10,15,20,25,30,35,40,45,50,55,60,70,80,90,100];
+			var gamma_exp=[0.15,0.35,0.55,0.72,0.82,0.88,0.92,0.95,0.96,0.97,0.98,0.97,0.96,0.99,0.97,0.98];
+			// Spherical model fit: nugget=0.1, sill=0.9, range=40
+			var h_model=[], gamma_model=[];
+			for(var h=0;h<=100;h++){
+				h_model.push(h);
+				if(h===0) gamma_model.push(0);
+				else if(h<=40) gamma_model.push(0.1+0.9*(1.5*(h/40)-0.5*Math.pow(h/40,3)));
+				else gamma_model.push(1.0);
+			}
+			Plotly.newPlot('variogram-plot',[
+				{x:lags,y:gamma_exp,mode:'markers',name:'Experimental',marker:{color:'#059669',size:10}},
+				{x:h_model,y:gamma_model,mode:'lines',name:'Spherical Model',line:{color:'#064e3b',width:2.5}}
+			],{
+				title:'Variogram Analysis: Experimental Points & Spherical Model',
+				xaxis:{title:'Lag Distance (km)'},
+				yaxis:{title:'Semivariance γ(h)'},
+				plot_bgcolor:'#fafcff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				shapes:[
+					{type:'line',x0:0,x1:100,y0:1.0,y1:1.0,line:{color:'#f59e0b',dash:'dash',width:1.5}},
+					{type:'line',x0:40,x1:40,y0:0,y1:1.0,line:{color:'#dc2626',dash:'dot',width:1.5}}
+				],
+				annotations:[
+					{x:50,y:1.02,text:'Sill (C₀+C₁)',showarrow:false,font:{color:'#f59e0b'}},
+					{x:42,y:0.5,text:'Range (a)',showarrow:false,font:{color:'#dc2626'},textangle:-90},
+					{x:5,y:0.12,text:'Nugget (C₀)',showarrow:true,arrowhead:2,font:{color:'#6b7280'}}
+				]
+			},{responsive:true});
+		})();
+
+		// Kriging heatmap
+		(function(){
+			var n=50, z=[];
+			for(var j=0;j<n;j++){
+				var row=[];
+				for(var i=0;i<n;i++){
+					var x=i/n*10, y=j/n*10;
+					var val=3*Math.sin(x/2)*Math.cos(y/3)+2*Math.exp(-((x-5)*(x-5)+(y-5)*(y-5))/8)+0.3*Math.random();
+					row.push(val);
+				}
+				z.push(row);
+			}
+			// sample points
+			var sx=[],sy=[];
+			for(var k=0;k<25;k++){sx.push(Math.random()*50);sy.push(Math.random()*50);}
+			Plotly.newPlot('krig-plot',[
+				{z:z,type:'heatmap',colorscale:'YlGnBu',colorbar:{title:'Value'},zsmooth:'best'},
+				{x:sx,y:sy,mode:'markers',name:'Sample Points',marker:{color:'#fff',size:7,line:{color:'#064e3b',width:2}},type:'scatter'}
+			],{
+				title:'Kriging Interpolation of Simulated Environmental Field',
+				xaxis:{title:'Easting (km)'},
+				yaxis:{title:'Northing (km)'},
+				plot_bgcolor:'#fff',paper_bgcolor:'#fff',font:{family:'Open Sans'}
+			},{responsive:true});
+		})();
+
+		// Moran scatterplot
+		(function(){
+			var x=[],y=[];
+			for(var i=0;i<100;i++){
+				var xi=2*(Math.random()-0.5);
+				x.push(xi);
+				y.push(0.65*xi+0.5*(Math.random()-0.5));
+			}
+			Plotly.newPlot('moran-plot',[
+				{x:x,y:y,mode:'markers',marker:{color:x.map(function(v,i){return v>0&&y[i]>0?'#059669':(v<0&&y[i]<0?'#2563eb':(v>0&&y[i]<0?'#f59e0b':'#dc2626'));}),size:8},type:'scatter',showlegend:false}
+			],{
+				title:"Moran's I Scatterplot (I = 0.65, p < 0.001)",
+				xaxis:{title:'Z (standardized value)',zeroline:true,zerolinecolor:'#333',zerolinewidth:1.5},
+				yaxis:{title:'Spatial Lag of Z',zeroline:true,zerolinecolor:'#333',zerolinewidth:1.5},
+				plot_bgcolor:'#fafcff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				shapes:[{type:'line',x0:-1.5,x1:1.5,y0:-1.5*0.65,y1:1.5*0.65,line:{color:'#064e3b',width:2}}],
+				annotations:[
+					{x:0.8,y:0.8,text:'HH',showarrow:false,font:{color:'#059669',size:16}},
+					{x:-0.8,y:-0.8,text:'LL',showarrow:false,font:{color:'#2563eb',size:16}},
+					{x:0.8,y:-0.5,text:'HL',showarrow:false,font:{color:'#f59e0b',size:16}},
+					{x:-0.8,y:0.5,text:'LH',showarrow:false,font:{color:'#dc2626',size:16}}
+				]
+			},{responsive:true});
+		})();
+		</script>
+	</body>
+</html>

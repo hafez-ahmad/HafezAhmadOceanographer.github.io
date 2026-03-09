@@ -1,0 +1,242 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Ocean Color &amp; Marine Remote Sensing | Hafez Ahmad</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Ocean Color and Marine Remote Sensing – satellite ocean color, chlorophyll retrieval, and marine optics." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/enhanced.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<style>
+			.topic-hero { background: linear-gradient(135deg, #0d2137 0%, #1a3a5c 40%, #00b4d8 80%, #4ecdc4 100%); color: #fff; padding: 3em 2em; border-radius: 16px; margin-bottom: 2em; }
+			.topic-hero h1 { color: #fff; margin-bottom: 0.3em; }
+			.topic-hero p { color: #caf0f8; font-size: 1.15em; }
+			.viz-container { background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(13,33,55,0.12); padding: 1.5em; margin: 2em 0; }
+			.concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin: 2em 0; }
+			.concept-card { background: #f0f5fa; border-left: 4px solid #4ecdc4; padding: 1.5em; border-radius: 0 12px 12px 0; }
+			.concept-card h3 { color: #0d2137; margin-bottom: 0.5em; }
+			.concept-card i { color: #00b4d8; margin-right: 0.5em; }
+			.equation-box { background: #1a2332; color: #90e0ef; padding: 1.2em 1.5em; border-radius: 10px; font-family: 'Courier New', monospace; margin: 1em 0; font-size: 1.05em; }
+			.ref-list { background: #f8f9fa; padding: 1.5em 2em; border-radius: 10px; margin-top: 2em; }
+			.ref-list li { margin-bottom: 0.5em; font-size: 0.95em; color: #4a5568; }
+			.stats-row { display: flex; flex-wrap: wrap; gap: 1em; margin: 1.5em 0; }
+			.stat-box { flex: 1; min-width: 140px; text-align: center; background: linear-gradient(135deg, #0d2137, #00b4d8); color: #fff; padding: 1.2em; border-radius: 12px; }
+			.stat-box .num { font-size: 2em; font-weight: 700; }
+			.stat-box .lbl { font-size: 0.85em; opacity: 0.9; }
+			.sensor-table { width: 100%; border-collapse: collapse; margin: 1.5em 0; }
+			.sensor-table th { background: #0d2137; color: #fff; padding: 0.8em; text-align: left; }
+			.sensor-table td { padding: 0.7em; border-bottom: 1px solid #e8e8e8; }
+			.sensor-table tr:hover { background: #f0f5fa; }
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Back</strong> Homepage</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/hafezahmad/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://medium.com/@hafezahmad" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+						</ul>
+					</header>
+
+					<div class="topic-hero">
+						<h1><i class="fas fa-satellite-dish"></i> Ocean Color &amp; Marine Remote Sensing</h1>
+						<p>Satellite-based observation of ocean bio-optical properties, chlorophyll concentration, and water constituents</p>
+					</div>
+
+					<section>
+						<header class="major"><h2>Overview</h2></header>
+						<p>Ocean color remote sensing measures the spectral distribution of light leaving the ocean surface to infer concentrations of phytoplankton (via chlorophyll-a), colored dissolved organic matter (CDOM), and total suspended matter (TSM). Sensors like MODIS, VIIRS, Sentinel-3 OLCI, and the upcoming PACE mission provide global-scale observations of marine primary productivity, water clarity, and biogeochemical cycles. Atmospheric correction is a critical preprocessing step, as ~90% of the signal at the top of atmosphere originates from the atmosphere rather than the ocean.</p>
+
+						<div class="stats-row">
+							<div class="stat-box"><div class="num">~90%</div><div class="lbl">TOA signal from atmosphere</div></div>
+							<div class="stat-box"><div class="num">PACE</div><div class="lbl">NASA's next-gen ocean color mission</div></div>
+							<div class="stat-box"><div class="num">~50%</div><div class="lbl">Earth's O₂ from ocean phytoplankton</div></div>
+							<div class="stat-box"><div class="num">0.01–64</div><div class="lbl">Chl-a range (mg/m³) in global ocean</div></div>
+						</div>
+
+						<table class="sensor-table">
+							<thead><tr><th>Sensor</th><th>Platform</th><th>Bands</th><th>Resolution</th><th>Period</th></tr></thead>
+							<tbody>
+								<tr><td>SeaWiFS</td><td>OrbView-2</td><td>8</td><td>1.1 km</td><td>1997–2010</td></tr>
+								<tr><td>MODIS</td><td>Terra/Aqua</td><td>36</td><td>250m–1km</td><td>1999–present</td></tr>
+								<tr><td>VIIRS</td><td>Suomi NPP / NOAA-20</td><td>22</td><td>375m–750m</td><td>2011–present</td></tr>
+								<tr><td>OLCI</td><td>Sentinel-3A/B</td><td>21</td><td>300m</td><td>2016–present</td></tr>
+								<tr><td>OCI</td><td>PACE</td><td>Hyperspectral</td><td>1 km</td><td>2024–present</td></tr>
+							</tbody>
+						</table>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key Concepts</h2></header>
+						<div class="concept-grid">
+							<div class="concept-card">
+								<h3><i class="fas fa-palette"></i> Inherent Optical Properties</h3>
+								<p>IOPs — absorption (a) and scattering (b) coefficients — are intrinsic properties of water constituents. They depend on wavelength and the composition of phytoplankton, CDOM, and suspended particles. IOPs form the physical basis for semi-analytical ocean color algorithms.</p>
+								<div class="equation-box">a(λ) = a_w(λ) + a_ph(λ) + a_CDOM(λ) + a_NAP(λ)</div>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-sun"></i> Remote Sensing Reflectance</h3>
+								<p>R_rs(λ) is the ratio of water-leaving radiance to downwelling irradiance just above the surface. It is the primary ocean color product after atmospheric correction and encodes information about water constituents.</p>
+								<div class="equation-box">R_rs(λ) = L_w(λ) / E_d(0⁺, λ)</div>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-leaf"></i> Chlorophyll-a Algorithms</h3>
+								<p>Empirical band-ratio algorithms (OC3M, OC4) relate the ratio of blue-to-green reflectance to Chl-a. Semi-analytical algorithms (QAA, GSM) invert R_rs using physical models. Machine learning approaches are increasingly used for complex optical waters.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-cloud"></i> Atmospheric Correction</h3>
+								<p>Removing atmospheric effects (Rayleigh scattering, aerosol scattering, absorbing gases) is essential. The Gordon & Wang (1994) algorithm iteratively estimates aerosol contributions using NIR bands where water is essentially black.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-water"></i> CDOM & TSM Retrieval</h3>
+								<p>CDOM absorbs strongly in UV/blue wavelengths and can be retrieved via its exponential absorption spectrum. TSM increases backscattering and is retrieved from red/NIR bands where water absorption dominates.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-globe"></i> Primary Productivity</h3>
+								<p>Satellite Chl-a combined with PAR and SST drives models of net primary production (NPP). The VGPM (Behrenfeld & Falkowski, 1997) and Carbon-based Productivity Model (CbPM) estimate global ocean carbon fixation.</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Interactive Visualizations</h2></header>
+
+						<div class="viz-container">
+							<h3>Spectral Remote Sensing Reflectance</h3>
+							<div id="rrs-plot" style="width:100%;height:420px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Chlorophyll-a Seasonal Variability</h3>
+							<div id="chl-plot" style="width:100%;height:420px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Absorption Spectra of Water Constituents</h3>
+							<div id="iop-plot" style="width:100%;height:420px;"></div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key References</h2></header>
+						<div class="ref-list">
+							<ol>
+								<li>IOCCG (2000). <em>Remote Sensing of Ocean Colour in Coastal, and Other Optically-Complex, Waters</em>. Reports of IOCCG, No. 3.</li>
+								<li>Gordon, H.R. & Wang, M. (1994). Retrieval of water-leaving radiance and aerosol optical thickness. <em>Applied Optics</em>, 33(3), 443–452.</li>
+								<li>O'Reilly, J.E. et al. (1998). Ocean color chlorophyll algorithms for SeaWiFS. <em>J. Geophys. Res.</em>, 103(C11), 24937–24953.</li>
+								<li>Behrenfeld, M.J. & Falkowski, P.G. (1997). Photosynthetic rates derived from satellite-based chlorophyll concentration. <em>Limnology and Oceanography</em>, 42(1), 1–20.</li>
+								<li>Lee, Z. et al. (2002). Deriving inherent optical properties from water color: a multi-band quasi-analytical algorithm. <em>Applied Optics</em>, 41(27), 5755–5772.</li>
+							</ol>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div id="sidebar">
+				<div class="inner">
+					<nav id="menu">
+						<header class="major"><h2>Menu</h2></header>
+						<ul>
+							<li><a href="index.html">Homepage</a></li>
+							<li><a href="water_quality_hypoxia.html">Water Quality & Hypoxia</a></li>
+							<li><a href="remote_sensing_image_analysis.html">RS Image Analysis</a></li>
+							<li><a href="marine_ecology_biodiversity.html">Marine Ecology</a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2>Get in touch</h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="#">hafezahmad100@gmail.com</a></li>
+							<li class="icon solid fa-home">Mississippi State University</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Hafez Ahmad. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+		// Rrs spectra
+		(function(){
+			var wl = [];
+			for(var w=400; w<=800; w+=5) wl.push(w);
+			function gauss(x,mu,sig,amp){ return amp*Math.exp(-Math.pow(x-mu,2)/(2*sig*sig)); }
+			var clear=[], coast=[], turbid=[], bloom=[];
+			wl.forEach(function(w){
+				clear.push(0.001+gauss(w,440,30,0.004)+gauss(w,490,40,0.006)-0.00001*(w-400));
+				coast.push(0.002+gauss(w,440,35,0.003)+gauss(w,550,50,0.008)+gauss(w,490,30,0.005));
+				turbid.push(0.003+gauss(w,580,60,0.012)+gauss(w,490,40,0.004)+0.00002*(w-400));
+				bloom.push(0.002+gauss(w,440,25,0.002)+gauss(w,560,40,0.015)+gauss(w,685,15,0.004));
+			});
+			Plotly.newPlot('rrs-plot',[
+				{x:wl, y:clear, name:'Clear Ocean (Chl ~0.1)', line:{color:'#1565c0',width:2.5}},
+				{x:wl, y:coast, name:'Coastal (Chl ~2)', line:{color:'#00b4d8',width:2.5}},
+				{x:wl, y:turbid, name:'Turbid (high TSM)', line:{color:'#a0522d',width:2.5}},
+				{x:wl, y:bloom, name:'Phytoplankton Bloom', line:{color:'#2ecc71',width:2.5}}
+			],{
+				title:'Remote Sensing Reflectance R_rs(λ) for Different Water Types',
+				xaxis:{title:'Wavelength (nm)', range:[400,800]},
+				yaxis:{title:'R_rs (sr⁻¹)'},
+				plot_bgcolor:'#fafcff', paper_bgcolor:'#fff', font:{family:'Open Sans'}
+			},{responsive:true});
+		})();
+
+		// Chl-a seasonal
+		(function(){
+			var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+			var tropical = [0.15,0.14,0.16,0.18,0.15,0.12,0.11,0.12,0.14,0.16,0.17,0.16];
+			var temperate = [0.5,0.8,2.5,5.0,3.5,1.5,0.8,0.7,1.5,2.0,1.2,0.6];
+			var polar = [0.1,0.1,0.2,0.5,2.0,6.0,8.0,5.0,2.0,0.4,0.15,0.1];
+			var upwelling = [3.0,2.5,2.0,3.5,5.0,7.0,8.5,9.0,7.0,5.0,4.0,3.5];
+			Plotly.newPlot('chl-plot',[
+				{x:months, y:tropical, name:'Tropical Open Ocean', line:{color:'#e74c3c',width:2.5}, mode:'lines+markers'},
+				{x:months, y:temperate, name:'Temperate Shelf', line:{color:'#3498db',width:2.5}, mode:'lines+markers'},
+				{x:months, y:polar, name:'Polar/Subpolar', line:{color:'#1a3a5c',width:2.5}, mode:'lines+markers'},
+				{x:months, y:upwelling, name:'Upwelling Zone', line:{color:'#2ecc71',width:2.5}, mode:'lines+markers'}
+			],{
+				title:'Seasonal Chlorophyll-a Concentration by Ocean Region',
+				xaxis:{title:'Month'},
+				yaxis:{title:'Chl-a (mg/m³)', type:'log'},
+				plot_bgcolor:'#fafcff', paper_bgcolor:'#fff', font:{family:'Open Sans'}
+			},{responsive:true});
+		})();
+
+		// IOP absorption spectra
+		(function(){
+			var wl = [];
+			for(var w=350; w<=750; w+=5) wl.push(w);
+			var a_w=[], a_ph=[], a_cdom=[], a_nap=[];
+			wl.forEach(function(w){
+				a_w.push(0.005 + 0.00000005*Math.pow(w-350,3));
+				a_ph.push(0.06*Math.exp(-((w-440)*(w-440))/(2*30*30)) + 0.025*Math.exp(-((w-675)*(w-675))/(2*15*15)));
+				a_cdom.push(0.3*Math.exp(-0.014*(w-440)));
+				a_nap.push(0.1*Math.exp(-0.011*(w-440)));
+			});
+			Plotly.newPlot('iop-plot',[
+				{x:wl, y:a_w, name:'Pure Water a_w', line:{color:'#3498db',width:2.5}},
+				{x:wl, y:a_ph, name:'Phytoplankton a_ph', line:{color:'#2ecc71',width:2.5}},
+				{x:wl, y:a_cdom, name:'CDOM a_CDOM', line:{color:'#8b4513',width:2.5}},
+				{x:wl, y:a_nap, name:'NAP a_NAP', line:{color:'#d4a017',width:2.5}}
+			],{
+				title:'Absorption Coefficients of Water Constituents',
+				xaxis:{title:'Wavelength (nm)', range:[350,750]},
+				yaxis:{title:'Absorption (m⁻¹)', type:'log'},
+				plot_bgcolor:'#fafcff', paper_bgcolor:'#fff', font:{family:'Open Sans'}
+			},{responsive:true});
+		})();
+		</script>
+	</body>
+</html>

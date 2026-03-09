@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Water Quality &amp; Hypoxia | Hafez Ahmad</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Water Quality and Hypoxia research – dissolved oxygen, nutrient loading, eutrophication, and dead zones in coastal waters." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/enhanced.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<style>
+			.topic-hero { background: linear-gradient(135deg, #0d4b3a 0%, #1a6b4f 50%, #2ecc71 100%); color: #fff; padding: 3em 2em; border-radius: 16px; margin-bottom: 2em; }
+			.topic-hero h1 { color: #fff; margin-bottom: 0.3em; }
+			.topic-hero p { color: #d5f5e3; font-size: 1.15em; }
+			.viz-container { background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(13,33,55,0.12); padding: 1.5em; margin: 2em 0; }
+			.concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin: 2em 0; }
+			.concept-card { background: #f0f5fa; border-left: 4px solid #2ecc71; padding: 1.5em; border-radius: 0 12px 12px 0; }
+			.concept-card h3 { color: #0d2137; margin-bottom: 0.5em; }
+			.concept-card i { color: #1a6b4f; margin-right: 0.5em; }
+			.equation-box { background: #1a2332; color: #90e0ef; padding: 1.2em 1.5em; border-radius: 10px; font-family: 'Courier New', monospace; margin: 1em 0; font-size: 1.05em; }
+			.ref-list { background: #f8f9fa; padding: 1.5em 2em; border-radius: 10px; margin-top: 2em; }
+			.ref-list li { margin-bottom: 0.5em; font-size: 0.95em; color: #4a5568; }
+			.stats-row { display: flex; flex-wrap: wrap; gap: 1em; margin: 1.5em 0; }
+			.stat-box { flex: 1; min-width: 140px; text-align: center; background: linear-gradient(135deg, #1a6b4f, #2ecc71); color: #fff; padding: 1.2em; border-radius: 12px; }
+			.stat-box .num { font-size: 2em; font-weight: 700; }
+			.stat-box .lbl { font-size: 0.85em; opacity: 0.9; }
+			.alert-box { background: #fff3cd; border-left: 4px solid #f5a623; padding: 1em 1.5em; border-radius: 0 10px 10px 0; margin: 1em 0; }
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Back</strong> Homepage</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/hafezahmad/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://medium.com/@hafezahmad" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+						</ul>
+					</header>
+
+					<div class="topic-hero">
+						<h1><i class="fas fa-tint"></i> Water Quality &amp; Hypoxia</h1>
+						<p>Investigating dissolved oxygen dynamics, nutrient loading, eutrophication processes, and coastal dead zones</p>
+					</div>
+
+					<section>
+						<header class="major"><h2>Overview</h2></header>
+						<p>Coastal water quality is governed by the interplay among nutrient inputs (nitrogen, phosphorus), physical mixing, biological productivity, and respiration. When nutrient over-enrichment (eutrophication) stimulates excessive algal growth, the subsequent decomposition of organic matter consumes dissolved oxygen (DO), leading to hypoxic (&lt;2 mg/L) or anoxic (0 mg/L) conditions — commonly called "dead zones." These events devastate benthic communities, alter food webs, and impair fisheries. The Gulf of Mexico hypoxic zone, one of the world's largest, can exceed 20,000 km² in summer.</p>
+
+						<div class="stats-row">
+							<div class="stat-box"><div class="num">&gt;500</div><div class="lbl">Documented coastal dead zones globally</div></div>
+							<div class="stat-box"><div class="num">~22,000 km²</div><div class="lbl">Gulf of Mexico dead zone (peak)</div></div>
+							<div class="stat-box"><div class="num">&lt;2 mg/L</div><div class="lbl">Hypoxia threshold for DO</div></div>
+							<div class="stat-box"><div class="num">~80%</div><div class="lbl">Nutrient input from agricultural runoff</div></div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key Processes</h2></header>
+						<div class="concept-grid">
+							<div class="concept-card">
+								<h3><i class="fas fa-seedling"></i> Eutrophication</h3>
+								<p>Excess nitrogen and phosphorus from agricultural runoff, wastewater, and atmospheric deposition stimulate phytoplankton blooms. When these blooms die and sink, microbial decomposition creates a high biological oxygen demand in bottom waters.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-lungs"></i> Dissolved Oxygen Dynamics</h3>
+								<p>DO is supplied by atmospheric exchange and photosynthesis and consumed by respiration and decomposition. Stratification inhibits vertical mixing, trapping low-DO water below the pycnocline during summer months.</p>
+								<div class="equation-box">dO₂/dt = Reaeration + Photosynthesis − Respiration − SOD</div>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-layer-group"></i> Stratification</h3>
+								<p>Freshwater from rivers creates a buoyant surface layer over denser saltwater. This density stratification (pycnocline) limits vertical mixing and traps oxygen-depleted bottom water, intensifying hypoxia.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-fish"></i> Ecological Impacts</h3>
+								<p>Hypoxia causes mass mortality of sessile organisms, forces mobile species to flee, alters predator–prey interactions, and reduces habitat for commercially important crustaceans and fish. Persistent hypoxia degrades biodiversity.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-microscope"></i> Harmful Algal Blooms</h3>
+								<p>Nutrient enrichment can trigger blooms of toxic species (Karenia brevis, Pseudo-nitzschia) that produce toxins affecting marine life and human health through shellfish poisoning and respiratory irritation.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-chart-line"></i> Monitoring & Indicators</h3>
+								<p>Water quality indices combine measurements of DO, turbidity, chlorophyll-a, nutrients (NO₃, PO₄), pH, and temperature. Continuous monitoring buoys, Winkler titration, and optical sensors provide real-time data.</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Interactive Visualizations</h2></header>
+
+						<div class="viz-container">
+							<h3>Dissolved Oxygen Seasonal Cycle</h3>
+							<div id="do-plot" style="width:100%;height:420px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Nutrient Loading vs. Hypoxic Area</h3>
+							<div id="nutrient-plot" style="width:100%;height:420px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Vertical DO Profile — Stratified Water Column</h3>
+							<div id="profile-plot" style="width:100%;height:420px;"></div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key References</h2></header>
+						<div class="ref-list">
+							<ol>
+								<li>Diaz, R.J. & Rosenberg, R. (2008). Spreading dead zones and consequences for marine ecosystems. <em>Science</em>, 321(5891), 926–929.</li>
+								<li>Rabalais, N.N. et al. (2002). Beyond science into policy: Gulf of Mexico hypoxia and the Mississippi River. <em>BioScience</em>, 52(2), 129–142.</li>
+								<li>Breitburg, D. et al. (2018). Declining oxygen in the global ocean and coastal waters. <em>Science</em>, 359(6371), eaam7240.</li>
+								<li>Kemp, W.M. et al. (2005). Eutrophication of Chesapeake Bay: historical trends and ecological interactions. <em>Marine Ecology Progress Series</em>, 303, 1–29.</li>
+								<li>Fennel, K. & Testa, J.M. (2019). Biogeochemical controls on coastal hypoxia. <em>Annual Review of Marine Science</em>, 11, 105–130.</li>
+							</ol>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div id="sidebar">
+				<div class="inner">
+					<nav id="menu">
+						<header class="major"><h2>Menu</h2></header>
+						<ul>
+							<li><a href="index.html">Homepage</a></li>
+							<li><a href="coastal_hydrodynamics.html">Coastal Hydrodynamics</a></li>
+							<li><a href="ocean_color_marine_rs.html">Ocean Color & Marine RS</a></li>
+							<li><a href="marine_ecology_biodiversity.html">Marine Ecology</a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2>Get in touch</h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="#">hafezahmad100@gmail.com</a></li>
+							<li class="icon solid fa-home">Mississippi State University</li>
+						</ul>
+					</section>
+					<footer id="footer">
+						<p class="copyright">&copy; Hafez Ahmad. All rights reserved.</p>
+					</footer>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+		// DO Seasonal Cycle
+		(function(){
+			var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+			var do_surface = [10.5,10.2,9.8,8.5,7.2,5.8,4.5,3.8,4.2,6.5,8.2,9.8];
+			var do_bottom = [9.0,8.5,7.5,5.5,3.2,1.5,0.8,0.5,1.2,3.5,6.0,8.0];
+			var threshold = months.map(function(){return 2;});
+			Plotly.newPlot('do-plot',[
+				{x:months, y:do_surface, name:'Surface DO', line:{color:'#2ecc71',width:3}, mode:'lines+markers'},
+				{x:months, y:do_bottom, name:'Bottom DO', line:{color:'#e74c3c',width:3}, mode:'lines+markers'},
+				{x:months, y:threshold, name:'Hypoxia Threshold (2 mg/L)', line:{color:'#f5a623',width:2,dash:'dash'}}
+			],{
+				title:'Seasonal Dissolved Oxygen in a Stratified Estuary',
+				xaxis:{title:'Month'},
+				yaxis:{title:'Dissolved Oxygen (mg/L)', range:[0,12]},
+				plot_bgcolor:'#fafcff', paper_bgcolor:'#fff', font:{family:'Open Sans'},
+				shapes:[{type:'rect',x0:-0.5,x1:11.5,y0:0,y1:2,fillcolor:'rgba(231,76,60,0.1)',line:{width:0}}]
+			},{responsive:true});
+		})();
+
+		// Nutrient Loading vs. Hypoxic Area
+		(function(){
+			var years = [];
+			var nLoad = [], area = [];
+			for(var y=1985; y<=2025; y++){
+				years.push(y);
+				var n = 1.2 + 0.03*(y-1985) + 0.3*Math.sin((y-1985)*0.8) + 0.15*Math.random();
+				nLoad.push(n.toFixed(2));
+				var a = 5000 + 400*(y-1985) + 2000*Math.sin((y-1985)*0.6) + 1500*Math.random();
+				area.push(Math.round(a));
+			}
+			Plotly.newPlot('nutrient-plot',[
+				{x:years, y:nLoad, name:'N Loading (Mt/yr)', yaxis:'y', line:{color:'#1a6b4f',width:2.5}, mode:'lines+markers', marker:{size:5}},
+				{x:years, y:area, name:'Hypoxic Area (km²)', yaxis:'y2', fill:'tozeroy', fillcolor:'rgba(231,76,60,0.15)', line:{color:'#e74c3c',width:2.5}}
+			],{
+				title:'Mississippi–Atchafalaya River Basin: N Loading vs. Dead Zone Area',
+				xaxis:{title:'Year'},
+				yaxis:{title:'Nitrogen Load (million tonnes)', side:'left'},
+				yaxis2:{title:'Hypoxic Area (km²)', overlaying:'y', side:'right'},
+				plot_bgcolor:'#fafcff', paper_bgcolor:'#fff', font:{family:'Open Sans'}
+			},{responsive:true});
+		})();
+
+		// Vertical DO Profile
+		(function(){
+			var depth = [], do_val = [], temp = [], sal = [];
+			for(var d=0; d<=30; d+=0.5){
+				depth.push(-d);
+				// Surface oxygenated, pycnocline ~8-12m, bottom hypoxic
+				var dov = d<8 ? 7.5-0.2*d : (d<14 ? 7.5-0.2*8 - 0.8*(d-8) : 1.2-0.05*(d-14));
+				do_val.push(Math.max(0.3, dov + 0.2*Math.random()));
+				temp.push(d<8 ? 28-0.3*d : (d<14 ? 28-0.3*8-1.2*(d-8) : 20.8-0.1*(d-14)));
+				sal.push(d<8 ? 20+0.5*d : (d<14 ? 24+1.5*(d-8) : 33+0.1*(d-14)));
+			}
+			Plotly.newPlot('profile-plot',[
+				{y:depth, x:do_val, name:'DO (mg/L)', line:{color:'#2ecc71',width:3}, mode:'lines'},
+				{y:depth, x:temp, name:'Temp (°C)', line:{color:'#e74c3c',width:2}, xaxis:'x2', mode:'lines'},
+				{y:depth, x:sal, name:'Salinity (PSU)', line:{color:'#3498db',width:2}, xaxis:'x3', mode:'lines'}
+			],{
+				title:'Vertical Profile: DO, Temperature & Salinity',
+				yaxis:{title:'Depth (m)', showgrid:true, gridcolor:'#e8e8e8'},
+				xaxis:{title:'DO (mg/L)', position:0, anchor:'y', domain:[0,0.3], color:'#2ecc71'},
+				xaxis2:{title:'Temp (°C)', overlaying:'x', side:'bottom', position:0, anchor:'free', domain:[0.35,0.65], color:'#e74c3c'},
+				xaxis3:{title:'Salinity (PSU)', overlaying:'x', side:'bottom', position:0, anchor:'free', domain:[0.7,1], color:'#3498db'},
+				plot_bgcolor:'#fafcff', paper_bgcolor:'#fff', font:{family:'Open Sans'},
+				shapes:[{type:'rect',x0:0,x1:2,y0:-30,y1:0,xref:'x',fillcolor:'rgba(231,76,60,0.08)',line:{width:0}}]
+			},{responsive:true});
+		})();
+		</script>
+	</body>
+</html>

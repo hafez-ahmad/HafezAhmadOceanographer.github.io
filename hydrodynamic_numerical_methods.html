@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Hydrodynamic Numerical Methods | Hafez Ahmad</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Numerical methods for hydrodynamic modeling — finite difference, finite element, finite volume methods for ocean circulation and coastal processes." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/enhanced.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<style>
+			.topic-hero { background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 50%, #38bdf8 100%); color: #fff; padding: 3em 2em; border-radius: 16px; margin-bottom: 2em; }
+			.topic-hero h1 { color: #fff; margin-bottom: 0.3em; }
+			.topic-hero p { color: #bae6fd; font-size: 1.15em; }
+			.viz-container { background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(13,33,55,0.12); padding: 1.5em; margin: 2em 0; }
+			.concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin: 2em 0; }
+			.concept-card { background: #f0f9ff; border-left: 4px solid #0284c7; padding: 1.5em; border-radius: 0 12px 12px 0; }
+			.concept-card h3 { color: #0c4a6e; margin-bottom: 0.5em; }
+			.concept-card i { color: #0284c7; margin-right: 0.5em; }
+			.equation-box { background: #0c4a6e; color: #7dd3fc; padding: 1.2em 1.5em; border-radius: 10px; font-family: 'Courier New', monospace; margin: 1em 0; font-size: 0.95em; }
+			.model-table { width: 100%; border-collapse: collapse; margin: 1.5em 0; }
+			.model-table th { background: #0284c7; color: #fff; padding: 0.8em; }
+			.model-table td { padding: 0.7em; border-bottom: 1px solid #e2e8f0; }
+			.model-table tr:nth-child(even) { background: #f0f9ff; }
+			.ref-list { background: #f8f9fa; padding: 1.5em 2em; border-radius: 10px; margin-top: 2em; }
+			.ref-list li { margin-bottom: 0.5em; font-size: 0.95em; color: #4a5568; }
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Back</strong> Homepage</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/hafezahmad/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://medium.com/@hafezahmad" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+						</ul>
+					</header>
+
+					<div class="topic-hero">
+						<h1><i class="fas fa-water"></i> Hydrodynamic Numerical Methods</h1>
+						<p>Computational techniques for solving shallow water equations, Navier-Stokes systems, and coastal circulation models</p>
+					</div>
+
+					<section>
+						<header class="major"><h2>Overview</h2></header>
+						<p>Hydrodynamic numerical methods discretize the governing equations of fluid motion — continuity, momentum, and transport equations — to simulate ocean circulation, tidal dynamics, storm surge, and pollutant dispersion. The shallow water equations (SWE), a depth-integrated form of the Navier-Stokes equations, form the backbone of most coastal and estuarine models. Three primary spatial discretization schemes (finite difference, finite element, finite volume) offer different trade-offs for accuracy, stability, and geometric flexibility. Models like ADCIRC, FVCOM, ROMS, Delft3D, and SCHISM are workhorses of operational and research oceanography.</p>
+					</section>
+
+					<section>
+						<header class="major"><h2>Governing Equations</h2></header>
+						<div class="equation-box">
+							<strong>Shallow Water Equations (2D):</strong><br><br>
+							∂η/∂t + ∂(Hu)/∂x + ∂(Hv)/∂y = 0 &nbsp;&nbsp;(Continuity)<br><br>
+							∂u/∂t + u·∂u/∂x + v·∂u/∂y - fv = -g·∂η/∂x + τˢˣ/(ρH) - τᵇˣ/(ρH) + Aₕ∇²u &nbsp;&nbsp;(x-Momentum)<br><br>
+							∂v/∂t + u·∂v/∂x + v·∂v/∂y + fu = -g·∂η/∂y + τˢʸ/(ρH) - τᵇʸ/(ρH) + Aₕ∇²v &nbsp;&nbsp;(y-Momentum)<br><br>
+							where η = water surface elevation, H = total depth, u,v = velocity components, f = Coriolis parameter, g = gravity
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key Concepts</h2></header>
+						<div class="concept-grid">
+							<div class="concept-card">
+								<h3><i class="fas fa-th"></i> Finite Difference (FD)</h3>
+								<p>FD methods discretize derivatives on structured grids using Taylor series approximations. Arakawa B/C grids stagger variables. Simple to implement but limited to rectangular domains. Used in ROMS (terrain-following, curvilinear).</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-draw-polygon"></i> Finite Element (FE)</h3>
+								<p>FE methods use unstructured triangular/tetrahedral meshes with basis functions. Excellent for complex coastlines and variable resolution. ADCIRC uses linear triangular elements; SCHISM uses mixed triangular-quadrilateral elements.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-cube"></i> Finite Volume (FV)</h3>
+								<p>FV methods conserve fluxes across control volumes. Naturally conservative, well-suited for wetting/drying. FVCOM uses unstructured triangular FV; Delft3D-FM uses flexible mesh approach.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-clock"></i> Time Integration</h3>
+								<p>Explicit methods (Euler, RK4) are simple but restricted by CFL condition (Δt ≤ Δx/c). Implicit methods (Crank-Nicolson) allow larger time steps. Semi-implicit schemes balance accuracy and efficiency for baroclinic-barotropic mode splitting.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-layer-group"></i> Vertical Coordinates</h3>
+								<p>Sigma (terrain-following) coordinates resolve bottom boundary layers; z-level coordinates suit deep ocean; isopycnal coordinates follow density surfaces. Hybrid approaches (HYCOM, SCHISM) combine advantages.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-check-circle"></i> Model Validation</h3>
+								<p>Skill metrics include RMSE, correlation coefficient, Willmott skill score, and bias for water level, velocity, and salinity. Taylor diagrams summarize multi-variable performance. Tidal constituent comparison (M2, S2 amplitude/phase) is standard.</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Common Models</h2></header>
+						<table class="model-table">
+							<tr><th>Model</th><th>Method</th><th>Grid Type</th><th>Application</th></tr>
+							<tr><td><strong>ADCIRC</strong></td><td>FE (CG)</td><td>Unstructured triangles</td><td>Storm surge, tides</td></tr>
+							<tr><td><strong>FVCOM</strong></td><td>FV</td><td>Unstructured triangles</td><td>Estuaries, coastal</td></tr>
+							<tr><td><strong>ROMS</strong></td><td>FD</td><td>Structured curvilinear</td><td>Regional ocean</td></tr>
+							<tr><td><strong>Delft3D</strong></td><td>FD/FV</td><td>Structured/Flexible</td><td>Morphodynamics</td></tr>
+							<tr><td><strong>SCHISM</strong></td><td>FE (DG/CG)</td><td>Mixed tri/quad</td><td>Cross-scale ocean</td></tr>
+							<tr><td><strong>TELEMAC</strong></td><td>FE</td><td>Unstructured triangles</td><td>Rivers, coastal</td></tr>
+						</table>
+					</section>
+
+					<section>
+						<header class="major"><h2>Interactive Visualizations</h2></header>
+
+						<div class="viz-container">
+							<h3>CFL Stability Analysis — Time Step vs. Grid Spacing</h3>
+							<div id="cfl-plot" style="width:100%;height:420px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Simulated 2D Shallow Water — Surface Elevation Field</h3>
+							<div id="swe-plot" style="width:100%;height:460px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Convergence Analysis — Error vs. Grid Resolution</h3>
+							<div id="convergence-plot" style="width:100%;height:420px;"></div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key References</h2></header>
+						<div class="ref-list">
+							<ol>
+								<li>Luettich, R.A., Westerink, J.J. & Scheffner, N.W. (1992). ADCIRC: An advanced three-dimensional circulation model for shelves, coasts, and estuaries. Technical Report DRP-92-6, US Army Corps of Engineers.</li>
+								<li>Chen, C., Liu, H. & Beardsley, R.C. (2003). An unstructured grid, finite-volume, three-dimensional, primitive equations ocean model. <em>J. Atmospheric and Oceanic Technology</em>, 20, 159–186.</li>
+								<li>Shchepetkin, A.F. & McWilliams, J.C. (2005). The regional oceanic modeling system (ROMS). <em>Ocean Modelling</em>, 9(4), 347–404.</li>
+								<li>Zhang, Y.J. et al. (2016). Seamless cross-scale modeling with SCHISM. <em>Ocean Modelling</em>, 102, 64–81.</li>
+								<li>Kantha, L.H. & Clayson, C.A. (2000). <em>Numerical Models of Oceans and Oceanic Processes</em>. Academic Press.</li>
+							</ol>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div id="sidebar">
+				<div class="inner">
+					<nav id="menu">
+						<header class="major"><h2>Menu</h2></header>
+						<ul>
+							<li><a href="index.html">Homepage</a></li>
+							<li><a href="Physical_Oceanography.html">Physical Oceanography</a></li>
+							<li><a href="coastal_hydrodynamics.html">Coastal Hydrodynamics</a></li>
+							<li><a href="Numerical_Oceanography.html">Numerical Oceanography</a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2>Get in touch</h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="#">hafezahmad100@gmail.com</a></li>
+							<li class="icon solid fa-home">Mississippi State University</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Hafez Ahmad. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+		// CFL stability diagram
+		(function(){
+			var dx=[10,20,50,100,200,500,1000,2000,5000];
+			var cWave=Math.sqrt(9.81*10); // ~10m/s for 10m depth
+			var cWave50=Math.sqrt(9.81*50); // ~22m/s for 50m depth
+			var cWave200=Math.sqrt(9.81*200); // ~44m/s for 200m depth
+			var dtStable10=dx.map(function(d){return d/cWave;});
+			var dtStable50=dx.map(function(d){return d/cWave50;});
+			var dtStable200=dx.map(function(d){return d/cWave200;});
+			Plotly.newPlot('cfl-plot',[
+				{x:dx,y:dtStable10,name:'H=10m (c≈10 m/s)',mode:'lines+markers',line:{color:'#22c55e',width:2},marker:{size:6}},
+				{x:dx,y:dtStable50,name:'H=50m (c≈22 m/s)',mode:'lines+markers',line:{color:'#0284c7',width:2},marker:{size:6}},
+				{x:dx,y:dtStable200,name:'H=200m (c≈44 m/s)',mode:'lines+markers',line:{color:'#dc2626',width:2},marker:{size:6}}
+			],{
+				title:'CFL Condition: Maximum Stable Time Step (Δt ≤ Δx/c)',
+				xaxis:{title:'Grid Spacing Δx (m)',type:'log'},
+				yaxis:{title:'Max Δt (seconds)',type:'log'},
+				plot_bgcolor:'#fafcff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				shapes:[{type:'rect',x0:50,x1:500,y0:0.1,y1:1000,fillcolor:'rgba(2,132,199,0.08)',line:{width:0}},
+						{type:'line',x0:10,x1:5000,y0:1,y1:1,line:{color:'#9ca3af',dash:'dash',width:1}}],
+				annotations:[{x:150,y:300,text:'Typical coastal<br>model range',showarrow:false,font:{size:10,color:'#64748b'}}]
+			},{responsive:true});
+		})();
+
+		// 2D shallow water elevation field
+		(function(){
+			var nx=60,ny=60;
+			var x=[],y=[],z=[];
+			for(var j=0;j<ny;j++){
+				var row=[];
+				for(var i=0;i<nx;i++){
+					if(j===0) x.push(i*500); // meters
+					var xi=i*500,yi=j*500;
+					// Simulate tidal wave from left + reflected + Coriolis deflection
+					var eta=0.8*Math.sin(2*Math.PI*xi/15000-0.5)+0.3*Math.sin(2*Math.PI*yi/12000)+
+						0.2*Math.cos(2*Math.PI*(xi+yi)/18000)+
+						(Math.random()-0.5)*0.05;
+					// Land mask (simplified)
+					var dist=Math.sqrt(Math.pow(xi-22000,2)+Math.pow(yi-18000,2));
+					if(dist<3000) eta=NaN; // island
+					row.push(eta);
+				}
+				y.push(j*500);
+				z.push(row);
+			}
+			Plotly.newPlot('swe-plot',[{
+				z:z,x:x,y:y,type:'heatmap',
+				colorscale:[[0,'#1e3a5f'],[0.3,'#0284c7'],[0.5,'#e0f2fe'],[0.7,'#fef3c7'],[1,'#dc2626']],
+				colorbar:{title:'η (m)'},
+				zmin:-1.2,zmax:1.2
+			}],{
+				title:'Simulated Sea Surface Elevation Field (η)',
+				xaxis:{title:'X (m)',scaleanchor:'y'},
+				yaxis:{title:'Y (m)'},
+				plot_bgcolor:'#fff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				annotations:[{x:22000,y:18000,text:'Island',showarrow:false,font:{size:12,color:'#fff'}}]
+			},{responsive:true});
+		})();
+
+		// Convergence plot
+		(function(){
+			var dx=[5000,2000,1000,500,200,100,50];
+			var eFD1=dx.map(function(d){return 0.5*Math.pow(d/5000,1);});
+			var eFD2=dx.map(function(d){return 0.5*Math.pow(d/5000,2);});
+			var eFE2=dx.map(function(d){return 0.3*Math.pow(d/5000,2);});
+			var eFV2=dx.map(function(d){return 0.35*Math.pow(d/5000,2);});
+			// Reference slopes
+			var refO1=dx.map(function(d){return 0.8*d/5000;});
+			var refO2=dx.map(function(d){return 0.8*Math.pow(d/5000,2);});
+			Plotly.newPlot('convergence-plot',[
+				{x:dx,y:eFD1,name:'FD 1st order',mode:'lines+markers',line:{color:'#dc2626',width:2},marker:{symbol:'circle',size:8}},
+				{x:dx,y:eFD2,name:'FD 2nd order',mode:'lines+markers',line:{color:'#ea580c',width:2},marker:{symbol:'square',size:8}},
+				{x:dx,y:eFE2,name:'FE (linear elements)',mode:'lines+markers',line:{color:'#0284c7',width:2},marker:{symbol:'diamond',size:8}},
+				{x:dx,y:eFV2,name:'FV (2nd order)',mode:'lines+markers',line:{color:'#16a34a',width:2},marker:{symbol:'triangle-up',size:8}},
+				{x:dx,y:refO1,name:'O(Δx) reference',mode:'lines',line:{color:'#9ca3af',dash:'dash',width:1}},
+				{x:dx,y:refO2,name:'O(Δx²) reference',mode:'lines',line:{color:'#9ca3af',dash:'dot',width:1}}
+			],{
+				title:'Grid Convergence: L2 Error vs. Resolution',
+				xaxis:{title:'Grid Spacing Δx (m)',type:'log',autorange:'reversed'},
+				yaxis:{title:'L2 Error (m)',type:'log'},
+				plot_bgcolor:'#fafcff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				legend:{x:0.02,y:0.02,bgcolor:'rgba(255,255,255,0.8)'}
+			},{responsive:true});
+		})();
+		</script>
+	</body>
+</html>

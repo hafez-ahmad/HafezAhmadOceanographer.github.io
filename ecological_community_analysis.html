@@ -1,0 +1,245 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Ecological &amp; Community Analysis | Hafez Ahmad</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Ecological and community analysis — diversity indices, ordination, ANOSIM, SIMPER, species-environment relationships, and multivariate ecology." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/enhanced.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<style>
+			.topic-hero { background: linear-gradient(135deg, #14532d 0%, #15803d 50%, #4ade80 100%); color: #fff; padding: 3em 2em; border-radius: 16px; margin-bottom: 2em; }
+			.topic-hero h1 { color: #fff; margin-bottom: 0.3em; }
+			.topic-hero p { color: #bbf7d0; font-size: 1.15em; }
+			.viz-container { background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(13,33,55,0.12); padding: 1.5em; margin: 2em 0; }
+			.concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin: 2em 0; }
+			.concept-card { background: #f0fdf4; border-left: 4px solid #15803d; padding: 1.5em; border-radius: 0 12px 12px 0; }
+			.concept-card h3 { color: #14532d; margin-bottom: 0.5em; }
+			.concept-card i { color: #15803d; margin-right: 0.5em; }
+			.equation-box { background: #14532d; color: #86efac; padding: 1.2em 1.5em; border-radius: 10px; font-family: 'Courier New', monospace; margin: 1em 0; font-size: 0.95em; }
+			.stat-row { display: flex; flex-wrap: wrap; gap: 1.5em; margin: 1.5em 0; }
+			.stat-card { flex: 1; min-width: 140px; background: linear-gradient(135deg, #15803d, #22c55e); color: #fff; padding: 1.2em; border-radius: 12px; text-align: center; }
+			.stat-card .num { font-size: 1.6em; font-weight: 700; }
+			.stat-card .lbl { font-size: 0.85em; opacity: 0.9; }
+			.ref-list { background: #f8f9fa; padding: 1.5em 2em; border-radius: 10px; margin-top: 2em; }
+			.ref-list li { margin-bottom: 0.5em; font-size: 0.95em; color: #4a5568; }
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Back</strong> Homepage</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/hafezahmad/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://medium.com/@hafezahmad" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+						</ul>
+					</header>
+
+					<div class="topic-hero">
+						<h1><i class="fas fa-leaf"></i> Ecological &amp; Community Analysis</h1>
+						<p>Quantitative methods for analyzing species assemblages, diversity patterns, and community-environment relationships</p>
+					</div>
+
+					<div class="stat-row">
+						<div class="stat-card"><div class="num">H'</div><div class="lbl">Shannon Diversity<br>Index</div></div>
+						<div class="stat-card"><div class="num">nMDS</div><div class="lbl">Non-metric MDS<br>Ordination</div></div>
+						<div class="stat-card"><div class="num">SIMPER</div><div class="lbl">Similarity<br>Percentages</div></div>
+						<div class="stat-card"><div class="num">CCA</div><div class="lbl">Canonical<br>Correspondence</div></div>
+					</div>
+
+					<section>
+						<header class="major"><h2>Overview</h2></header>
+						<p>Ecological community analysis provides the statistical toolkit for understanding how species assemblages are structured, how they differ between habitats or treatments, and what environmental factors drive these patterns. This field bridges ecology and multivariate statistics, with methods ranging from diversity indices (Shannon H', Simpson's D, species richness) to ordination techniques (nMDS, CCA, RDA) that visualize community composition in reduced dimensions. Hypothesis testing via ANOSIM, PERMANOVA, and SIMPER identifies which groups differ and which species contribute most to those differences. In marine ecology these methods are applied to benthic invertebrate surveys, fish assemblages, plankton communities, and coral reef monitoring.</p>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key Concepts</h2></header>
+						<div class="concept-grid">
+							<div class="concept-card">
+								<h3><i class="fas fa-chart-bar"></i> Diversity Indices</h3>
+								<p>Shannon index H' = -Σ pᵢ ln(pᵢ) measures uncertainty in species identity. Simpson's D = Σ pᵢ² measures dominance. Pielou's evenness J' = H'/ln(S). Species richness S is the simplest measure. Rarefaction standardizes comparison across samples with different abundances.</p>
+								<div class="equation-box">H' = -Σᵢ₌₁ˢ pᵢ ln(pᵢ)<br>D = 1 - Σᵢ₌₁ˢ pᵢ²<br>J' = H' / ln(S)</div>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-project-diagram"></i> nMDS Ordination</h3>
+								<p>Non-metric multidimensional scaling represents community dissimilarity in 2D/3D. Based on rank-order of Bray-Curtis distances. Stress < 0.1 = good fit; < 0.2 = useful. Points close together = similar communities. Environmental vectors can be overlaid.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-not-equal"></i> ANOSIM &amp; PERMANOVA</h3>
+								<p>ANOSIM (Analysis of Similarity) tests whether between-group dissimilarity exceeds within-group. R statistic ranges 0–1. PERMANOVA partitions variation using distance matrices with permutation tests — more powerful and flexible. Both are non-parametric.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-percent"></i> SIMPER Analysis</h3>
+								<p>Similarity Percentages (SIMPER) identifies which species contribute most to observed dissimilarity between groups. Decomposes Bray-Curtis dissimilarity into species-level contributions. Useful for identifying indicator species but sensitive to high-abundance taxa.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-arrows-alt"></i> CCA / RDA</h3>
+								<p>Canonical Correspondence Analysis relates species composition to environmental gradients (temperature, salinity, depth, sediment type). Constrained ordination axes are linear combinations of environmental variables. RDA for linear species responses; CCA for unimodal.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-seedling"></i> Species-Area &amp; Rarefaction</h3>
+								<p>Species-area relationship S = cAᶻ describes how richness increases with area. Individual-based rarefaction curves estimate richness at equal sample size. Extrapolation methods (Chao1, ACE) estimate total richness including unseen species.</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Interactive Visualizations</h2></header>
+
+						<div class="viz-container">
+							<h3>nMDS Ordination of Marine Benthic Communities</h3>
+							<div id="nmds-plot" style="width:100%;height:460px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Species Rarefaction Curves by Habitat</h3>
+							<div id="rarefaction-plot" style="width:100%;height:420px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>SIMPER — Species Contribution to Group Dissimilarity</h3>
+							<div id="simper-plot" style="width:100%;height:440px;"></div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key References</h2></header>
+						<div class="ref-list">
+							<ol>
+								<li>Clarke, K.R. & Warwick, R.M. (2001). <em>Change in Marine Communities: An Approach to Statistical Analysis and Interpretation</em>, 2nd Ed. PRIMER-E, Plymouth.</li>
+								<li>Anderson, M.J. (2001). A new method for non-parametric multivariate analysis of variance. <em>Austral Ecology</em>, 26, 32–46.</li>
+								<li>Legendre, P. & Legendre, L. (2012). <em>Numerical Ecology</em>, 3rd English Ed. Elsevier.</li>
+								<li>Magurran, A.E. (2004). <em>Measuring Biological Diversity</em>. Blackwell Publishing.</li>
+								<li>ter Braak, C.J.F. (1986). Canonical correspondence analysis: a new eigenvector technique for multivariate direct gradient analysis. <em>Ecology</em>, 67(5), 1167–1179.</li>
+							</ol>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div id="sidebar">
+				<div class="inner">
+					<nav id="menu">
+						<header class="major"><h2>Menu</h2></header>
+						<ul>
+							<li><a href="index.html">Homepage</a></li>
+							<li><a href="marine_ecology_biodiversity.html">Marine Ecology</a></li>
+							<li><a href="multivariate_statistics.html">Multivariate Statistics</a></li>
+							<li><a href="Marine_Ecology.html">Marine Ecology (Overview)</a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2>Get in touch</h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="#">hafezahmad100@gmail.com</a></li>
+							<li class="icon solid fa-home">Mississippi State University</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Hafez Ahmad. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+		// nMDS ordination
+		(function(){
+			function randN(mu,sigma){return mu+sigma*(Math.sqrt(-2*Math.log(Math.random()))*Math.cos(2*Math.PI*Math.random()));}
+			var traces=[];
+			var groups=[
+				{name:'Coral Reef',cx:-1.2,cy:0.8,color:'#dc2626',n:15},
+				{name:'Seagrass Bed',cx:0.5,cy:1.0,color:'#16a34a',n:12},
+				{name:'Sandy Bottom',cx:1.5,cy:-0.5,color:'#d97706',n:10},
+				{name:'Mudflat',cx:-0.3,cy:-1.2,color:'#7c3aed',n:11},
+				{name:'Rocky Shore',cx:-1.8,cy:-0.6,color:'#0284c7',n:13}
+			];
+			groups.forEach(function(g){
+				var xx=[],yy=[];
+				for(var i=0;i<g.n;i++){xx.push(randN(g.cx,0.4));yy.push(randN(g.cy,0.35));}
+				traces.push({x:xx,y:yy,name:g.name,mode:'markers',type:'scatter',
+					marker:{color:g.color,size:10,line:{color:'#fff',width:1}}});
+			});
+			// Environmental vectors
+			var envVecs=[
+				{name:'Temperature',dx:0.8,dy:0.6},
+				{name:'Salinity',dx:-0.5,dy:0.9},
+				{name:'Depth',dx:-0.9,dy:-0.4},
+				{name:'Sediment %Sand',dx:1.1,dy:-0.3}
+			];
+			var annots=envVecs.map(function(v){
+				return {ax:200,ay:220,x:200+v.dx*120,y:220-v.dy*120,xref:'paper',yref:'paper',
+					axref:'pixel',ayref:'pixel',
+					showarrow:true,arrowhead:2,arrowcolor:'#1e293b',arrowwidth:2,
+					text:v.name,font:{size:10,color:'#1e293b'}};
+			});
+			Plotly.newPlot('nmds-plot',traces,{
+				title:'nMDS Ordination of Benthic Communities (Stress = 0.11)',
+				xaxis:{title:'nMDS1',zeroline:true,zerolinecolor:'#d1d5db'},
+				yaxis:{title:'nMDS2',zeroline:true,zerolinecolor:'#d1d5db',scaleanchor:'x'},
+				plot_bgcolor:'#fafcff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				legend:{x:0.01,y:0.99,bgcolor:'rgba(255,255,255,0.8)'}
+			},{responsive:true});
+		})();
+
+		// Rarefaction curves
+		(function(){
+			var individuals=[];for(var i=1;i<=300;i++) individuals.push(i);
+			function rarefaction(Smax,rate){
+				return individuals.map(function(n){return Smax*(1-Math.exp(-rate*n));});
+			}
+			var coralS=rarefaction(85,0.035);
+			var seagrassS=rarefaction(62,0.04);
+			var sandyS=rarefaction(28,0.05);
+			var mudflatS=rarefaction(42,0.03);
+			var rockyS=rarefaction(55,0.032);
+			Plotly.newPlot('rarefaction-plot',[
+				{x:individuals,y:coralS,name:'Coral Reef (S=85)',mode:'lines',line:{color:'#dc2626',width:2}},
+				{x:individuals,y:seagrassS,name:'Seagrass (S=62)',mode:'lines',line:{color:'#16a34a',width:2}},
+				{x:individuals,y:rockyS,name:'Rocky Shore (S=55)',mode:'lines',line:{color:'#0284c7',width:2}},
+				{x:individuals,y:mudflatS,name:'Mudflat (S=42)',mode:'lines',line:{color:'#7c3aed',width:2}},
+				{x:individuals,y:sandyS,name:'Sandy Bottom (S=28)',mode:'lines',line:{color:'#d97706',width:2}}
+			],{
+				title:'Individual-Based Rarefaction Curves',
+				xaxis:{title:'Number of Individuals'},
+				yaxis:{title:'Expected Species Richness'},
+				plot_bgcolor:'#fafcff',paper_bgcolor:'#fff',font:{family:'Open Sans'}
+			},{responsive:true});
+		})();
+
+		// SIMPER bar chart
+		(function(){
+			var species=['Polychaete sp.A','Bivalve sp.B','Amphipod sp.C','Gastropod sp.D','Echinoderm sp.E',
+						 'Polychaete sp.F','Crustacean sp.G','Bivalve sp.H','Nematode sp.I','Bryozoan sp.J'];
+			var contrib=[18.5,14.2,11.8,9.6,8.3,7.1,6.4,5.9,4.8,3.4];
+			var cumul=[];var sum=0;
+			contrib.forEach(function(c){sum+=c;cumul.push(sum);});
+			Plotly.newPlot('simper-plot',[
+				{x:species,y:contrib,name:'Individual %',type:'bar',marker:{color:contrib.map(function(v){
+					return v>10?'#15803d':v>7?'#4ade80':'#bbf7d0';
+				})}},
+				{x:species,y:cumul,name:'Cumulative %',mode:'lines+markers',yaxis:'y2',line:{color:'#dc2626',width:2},marker:{size:6}}
+			],{
+				title:'SIMPER: Species Contribution to Dissimilarity (Coral Reef vs. Sandy Bottom)',
+				xaxis:{title:'Species',tickangle:-35},
+				yaxis:{title:'Contribution (%)',range:[0,25]},
+				yaxis2:{title:'Cumulative %',overlaying:'y',side:'right',range:[0,100]},
+				plot_bgcolor:'#fafcff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				shapes:[{type:'line',x0:-0.5,x1:9.5,y0:70,y1:70,yref:'y2',line:{color:'#9ca3af',dash:'dash',width:1}}],
+				annotations:[{x:6,y:72,yref:'y2',text:'70% cumulative threshold',showarrow:false,font:{size:10,color:'#64748b'}}],
+				barmode:'group'
+			},{responsive:true});
+		})();
+		</script>
+	</body>
+</html>

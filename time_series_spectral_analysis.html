@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Time Series &amp; Spectral Analysis | Hafez Ahmad</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Time series analysis and spectral methods for oceanographic data — Fourier transforms, wavelets, harmonic analysis, and trend decomposition." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/enhanced.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<style>
+			.topic-hero { background: linear-gradient(135deg, #92400e 0%, #ea580c 50%, #fb923c 100%); color: #fff; padding: 3em 2em; border-radius: 16px; margin-bottom: 2em; }
+			.topic-hero h1 { color: #fff; margin-bottom: 0.3em; }
+			.topic-hero p { color: #fed7aa; font-size: 1.15em; }
+			.viz-container { background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(13,33,55,0.12); padding: 1.5em; margin: 2em 0; }
+			.concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin: 2em 0; }
+			.concept-card { background: #fff7ed; border-left: 4px solid #ea580c; padding: 1.5em; border-radius: 0 12px 12px 0; }
+			.concept-card h3 { color: #92400e; margin-bottom: 0.5em; }
+			.concept-card i { color: #ea580c; margin-right: 0.5em; }
+			.equation-box { background: #1c1917; color: #fed7aa; padding: 1.2em 1.5em; border-radius: 10px; font-family: 'Courier New', monospace; margin: 1em 0; font-size: 0.95em; }
+			.stat-row { display: flex; flex-wrap: wrap; gap: 1.5em; margin: 1.5em 0; }
+			.stat-card { flex: 1; min-width: 140px; background: linear-gradient(135deg, #ea580c, #f97316); color: #fff; padding: 1.2em; border-radius: 12px; text-align: center; }
+			.stat-card .num { font-size: 1.8em; font-weight: 700; }
+			.stat-card .lbl { font-size: 0.85em; opacity: 0.9; }
+			.ref-list { background: #f8f9fa; padding: 1.5em 2em; border-radius: 10px; margin-top: 2em; }
+			.ref-list li { margin-bottom: 0.5em; font-size: 0.95em; color: #4a5568; }
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Back</strong> Homepage</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/hafezahmad/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://medium.com/@hafezahmad" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+						</ul>
+					</header>
+
+					<div class="topic-hero">
+						<h1><i class="fas fa-wave-square"></i> Time Series &amp; Spectral Analysis</h1>
+						<p>Extracting periodicities, trends, and frequency-domain structure from oceanographic and environmental data</p>
+					</div>
+
+					<div class="stat-row">
+						<div class="stat-card"><div class="num">FFT</div><div class="lbl">Fast Fourier<br>Transform</div></div>
+						<div class="stat-card"><div class="num">CWT</div><div class="lbl">Continuous Wavelet<br>Transform</div></div>
+						<div class="stat-card"><div class="num">STL</div><div class="lbl">Seasonal-Trend<br>Decomposition</div></div>
+						<div class="stat-card"><div class="num">AR(p)</div><div class="lbl">Autoregressive<br>Models</div></div>
+					</div>
+
+					<section>
+						<header class="major"><h2>Overview</h2></header>
+						<p>Oceanographic measurements — sea surface temperature, tide gauge records, chlorophyll-a concentrations, current velocities, and acoustic backscatter — are inherently time-dependent. Time series analysis provides the mathematical framework to decompose these signals into trend, seasonal, and residual components; spectral analysis transforms data into the frequency domain to identify dominant periodicities (tidal constituents, seasonal cycles, ENSO, PDO). Wavelet analysis extends spectral methods by resolving time-frequency localization — critical for non-stationary signals like hurricane-driven wave events.</p>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key Concepts</h2></header>
+						<div class="concept-grid">
+							<div class="concept-card">
+								<h3><i class="fas fa-chart-line"></i> Fourier Transform</h3>
+								<p>The DFT decomposes a signal into sinusoidal components. The power spectral density (PSD) reveals dominant frequencies. For tidal analysis, harmonic analysis fits known tidal constituents (M2, S2, K1, O1 etc.) to observed water level records.</p>
+								<div class="equation-box">X(f) = Σ x(t)·e^(-i2πft)<br>PSD(f) = |X(f)|² / N</div>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-water"></i> Wavelet Analysis</h3>
+								<p>Continuous wavelet transform (CWT) uses scaled/translated mother wavelets (Morlet, Mexican hat) to produce a time-frequency decomposition. The wavelet power spectrum shows how dominant frequencies evolve over time — revealing ENSO modulations or regime shifts.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-arrow-trend-up"></i> Trend Decomposition</h3>
+								<p>STL (Seasonal-Trend decomposition using LOESS) separates a time series into seasonal, trend, and remainder components. Mann-Kendall test detects monotonic trends; Sen's slope estimates the trend magnitude — standard for SST warming rate analysis.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-sync-alt"></i> Autocorrelation &amp; ARIMA</h3>
+								<p>Autocorrelation function (ACF) and partial ACF (PACF) reveal temporal dependence structure. ARIMA(p,d,q) models capture autoregressive, integrated, and moving-average behavior for forecasting.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-filter"></i> Digital Filtering</h3>
+								<p>Low-pass, high-pass, and band-pass filters isolate specific frequency bands. Butterworth and Lanczos filters remove tidal signals to reveal subtidal currents; running means smooth noisy satellite SST data.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-chart-area"></i> Cross-Spectral Analysis</h3>
+								<p>Coherence and phase spectra assess the frequency-dependent relationship between two signals (e.g., wind stress and sea level). Granger causality tests whether one time series helps predict another.</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Interactive Visualizations</h2></header>
+
+						<div class="viz-container">
+							<h3>Synthetic Sea Surface Temperature — Time Domain &amp; FFT Power Spectrum</h3>
+							<div id="ts-fft-plot" style="width:100%;height:500px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Wavelet Scalogram — Time-Frequency Decomposition</h3>
+							<div id="wavelet-plot" style="width:100%;height:440px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>STL Decomposition of Monthly Sea Level Anomaly</h3>
+							<div id="stl-plot" style="width:100%;height:550px;"></div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key References</h2></header>
+						<div class="ref-list">
+							<ol>
+								<li>Emery, W.J. & Thomson, R.E. (2014). <em>Data Analysis Methods in Physical Oceanography</em>, 3rd Ed. Elsevier.</li>
+								<li>Torrence, C. & Compo, G.P. (1998). A practical guide to wavelet analysis. <em>Bulletin of the American Meteorological Society</em>, 79(1), 61–78.</li>
+								<li>Cleveland, R.B. et al. (1990). STL: A seasonal-trend decomposition procedure based on Loess. <em>J. of Official Statistics</em>, 6(1), 3–73.</li>
+								<li>Pawlowicz, R. et al. (2002). Classical tidal harmonic analysis including error estimates using T_TIDE. <em>Computers & Geosciences</em>, 28, 929–937.</li>
+								<li>Box, G.E.P. et al. (2015). <em>Time Series Analysis: Forecasting and Control</em>, 5th Ed. Wiley.</li>
+							</ol>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div id="sidebar">
+				<div class="inner">
+					<nav id="menu">
+						<header class="major"><h2>Menu</h2></header>
+						<ul>
+							<li><a href="index.html">Homepage</a></li>
+							<li><a href="multivariate_statistics.html">Multivariate Statistics</a></li>
+							<li><a href="ml_deep_learning.html">ML &amp; Deep Learning</a></li>
+							<li><a href="Physical_Oceanography.html">Physical Oceanography</a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2>Get in touch</h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="#">hafezahmad100@gmail.com</a></li>
+							<li class="icon solid fa-home">Mississippi State University</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Hafez Ahmad. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+		// SST time series + FFT
+		(function(){
+			var N=365*5, dt=1; // 5 years daily
+			var t=[],sst=[],days=[];
+			for(var i=0;i<N;i++){
+				days.push(i);
+				t.push(2018+i/365);
+				// annual cycle + semi-annual + ENSO-like + trend + noise
+				sst.push(26 + 4*Math.sin(2*Math.PI*i/365) + 1.2*Math.sin(2*Math.PI*i/182.5) +
+					2*Math.sin(2*Math.PI*i/(365*3.5)) + 0.002*i + (Math.random()-0.5)*1.5);
+			}
+			// Simple FFT magnitude (approximate via DFT for display)
+			var freq=[],power=[];
+			var nf=Math.min(500,Math.floor(N/2));
+			for(var k=1;k<nf;k++){
+				var re=0,im=0;
+				for(var n=0;n<N;n++){
+					re+=sst[n]*Math.cos(2*Math.PI*k*n/N);
+					im-=sst[n]*Math.sin(2*Math.PI*k*n/N);
+				}
+				freq.push(k/(N*dt)*365); // cycles per year
+				power.push(2*(re*re+im*im)/(N*N));
+			}
+			Plotly.newPlot('ts-fft-plot',[
+				{x:t,y:sst,type:'scatter',mode:'lines',name:'SST (°C)',line:{color:'#ea580c',width:1},xaxis:'x',yaxis:'y'},
+				{x:freq,y:power,type:'scatter',mode:'lines',name:'Power Spectrum',line:{color:'#2563eb',width:1.5},xaxis:'x2',yaxis:'y2'}
+			],{
+				grid:{rows:2,columns:1,pattern:'independent',roworder:'top to bottom'},
+				xaxis:{title:'Year',domain:[0,1]},yaxis:{title:'SST (°C)',domain:[0.55,1]},
+				xaxis2:{title:'Frequency (cycles/year)',range:[0,15],domain:[0,1]},yaxis2:{title:'Power',domain:[0,0.42]},
+				title:'SST Time Series (top) & Power Spectrum (bottom)',
+				plot_bgcolor:'#fafcff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				annotations:[
+					{x:1,y:power[Math.round(N/365)-1]||0,xref:'x2',yref:'y2',text:'Annual',showarrow:true,arrowhead:2,ax:-40,ay:-30,font:{size:11,color:'#dc2626'}},
+					{x:2,y:0,xref:'x2',yref:'y2',text:'Semi-annual',showarrow:true,arrowhead:2,ax:30,ay:-40,font:{size:11,color:'#dc2626'}}
+				],
+				showlegend:true
+			},{responsive:true});
+		})();
+
+		// Wavelet scalogram (simulated)
+		(function(){
+			var nt=120,ns=50;
+			var timeArr=[],scaleArr=[],powArr=[];
+			for(var s=0;s<ns;s++){
+				var row=[];
+				scaleArr.push(1+s*0.5); // periods in months
+				for(var t=0;t<nt;t++){
+					if(s===0) timeArr.push(t);
+					var period=1+s*0.5;
+					// Strong annual at period~12, semi-annual ~6, ENSO ~42
+					var p=0;
+					if(Math.abs(period-12)<2) p+=8*Math.exp(-Math.pow(period-12,2)/2);
+					if(Math.abs(period-6)<1.5) p+=4*Math.exp(-Math.pow(period-6,2)/1);
+					if(Math.abs(period-42)<5 && t>30 && t<90) p+=6*Math.exp(-Math.pow(period-42,2)/8);
+					p+=Math.random()*0.5;
+					row.push(p);
+				}
+				powArr.push(row);
+			}
+			Plotly.newPlot('wavelet-plot',[{
+				z:powArr,x:timeArr,y:scaleArr,type:'heatmap',
+				colorscale:[[0,'#fff7ed'],[0.3,'#fb923c'],[0.6,'#ea580c'],[1,'#7c2d12']],
+				colorbar:{title:'Power'}
+			}],{
+				title:'Wavelet Power Spectrum (Morlet wavelet)',
+				xaxis:{title:'Time (months)'},
+				yaxis:{title:'Period (months)',type:'log'},
+				plot_bgcolor:'#fff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				annotations:[
+					{x:60,y:12,text:'Annual signal',showarrow:true,arrowhead:2,ax:60,ay:-30,font:{size:11}},
+					{x:60,y:42,text:'ENSO-like (~3.5 yr)',showarrow:true,arrowhead:2,ax:60,ay:-20,font:{size:11}}
+				]
+			},{responsive:true});
+		})();
+
+		// STL decomposition
+		(function(){
+			var N=180; // 15 years monthly
+			var t=[],observed=[],trend=[],seasonal=[],residual=[];
+			for(var i=0;i<N;i++){
+				t.push(2008+i/12);
+				var tr=3.2+0.003*i+0.00001*i*i;
+				var se=15*Math.sin(2*Math.PI*i/12)+3*Math.sin(2*Math.PI*i/6);
+				var re=(Math.random()-0.5)*4;
+				trend.push(tr);
+				seasonal.push(se);
+				residual.push(re);
+				observed.push(tr+se+re);
+			}
+			Plotly.newPlot('stl-plot',[
+				{x:t,y:observed,name:'Observed SLA (mm)',line:{color:'#1e293b'},xaxis:'x',yaxis:'y'},
+				{x:t,y:trend,name:'Trend',line:{color:'#dc2626',width:2},xaxis:'x2',yaxis:'y2'},
+				{x:t,y:seasonal,name:'Seasonal',line:{color:'#2563eb',width:1.5},xaxis:'x3',yaxis:'y3'},
+				{x:t,y:residual,name:'Residual',type:'bar',marker:{color:'#9ca3af'},xaxis:'x4',yaxis:'y4'}
+			],{
+				grid:{rows:4,columns:1,pattern:'independent',roworder:'top to bottom'},
+				xaxis:{domain:[0,1],showticklabels:false},yaxis:{title:'SLA (mm)',domain:[0.78,1]},
+				xaxis2:{domain:[0,1],showticklabels:false},yaxis2:{title:'Trend',domain:[0.53,0.75]},
+				xaxis3:{domain:[0,1],showticklabels:false},yaxis3:{title:'Seasonal',domain:[0.28,0.5]},
+				xaxis4:{title:'Year',domain:[0,1]},yaxis4:{title:'Residual',domain:[0,0.25]},
+				title:'STL Decomposition of Monthly Sea Level Anomaly',
+				plot_bgcolor:'#fafcff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				showlegend:true,legend:{orientation:'h',y:1.08}
+			},{responsive:true});
+		})();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Fisheries Acoustics | Hafez Ahmad</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Fisheries Acoustics – hydroacoustic surveys, target strength, biomass estimation, and echosounder technology." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/enhanced.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<style>
+			.topic-hero { background: linear-gradient(135deg, #0c1f3f 0%, #1a3a5c 50%, #2980b9 100%); color: #fff; padding: 3em 2em; border-radius: 16px; margin-bottom: 2em; }
+			.topic-hero h1 { color: #fff; margin-bottom: 0.3em; }
+			.topic-hero p { color: #bee3f8; font-size: 1.15em; }
+			.viz-container { background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(13,33,55,0.12); padding: 1.5em; margin: 2em 0; }
+			.concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin: 2em 0; }
+			.concept-card { background: #f0f5fa; border-left: 4px solid #2980b9; padding: 1.5em; border-radius: 0 12px 12px 0; }
+			.concept-card h3 { color: #0c1f3f; margin-bottom: 0.5em; }
+			.concept-card i { color: #2980b9; margin-right: 0.5em; }
+			.equation-box { background: #1a2332; color: #bee3f8; padding: 1.2em 1.5em; border-radius: 10px; font-family: 'Courier New', monospace; margin: 1em 0; }
+			.ref-list { background: #f8f9fa; padding: 1.5em 2em; border-radius: 10px; margin-top: 2em; }
+			.ref-list li { margin-bottom: 0.5em; font-size: 0.95em; color: #4a5568; }
+			.stats-row { display: flex; flex-wrap: wrap; gap: 1em; margin: 1.5em 0; }
+			.stat-box { flex: 1; min-width: 140px; text-align: center; background: linear-gradient(135deg, #1a3a5c, #2980b9); color: #fff; padding: 1.2em; border-radius: 12px; }
+			.stat-box .num { font-size: 2em; font-weight: 700; }
+			.stat-box .lbl { font-size: 0.85em; opacity: 0.9; }
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Back</strong> Homepage</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/hafezahmad/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://medium.com/@hafezahmad" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+						</ul>
+					</header>
+
+					<div class="topic-hero">
+						<h1><i class="fas fa-broadcast-tower"></i> Fisheries Acoustics</h1>
+						<p>Hydroacoustic methods for fish detection, biomass estimation, species classification, and ecosystem assessment</p>
+					</div>
+
+					<section>
+						<header class="major"><h2>Overview</h2></header>
+						<p>Fisheries acoustics uses sound to detect, quantify, and classify aquatic organisms. Scientific echosounders transmit acoustic pulses that scatter off fish swim bladders and zooplankton bodies. The returned signal (echo) carries information about the target's size (target strength), abundance, and depth distribution. Multi-frequency and broadband systems enable species discrimination, while acoustic-trawl surveys combine echosounder and net catch data to produce absolute biomass estimates. This technology is fundamental to stock assessment for fisheries management worldwide, particularly for species like Alaska pollock, herring, and Antarctic krill.</p>
+
+						<div class="stats-row">
+							<div class="stat-box"><div class="num">18–400 kHz</div><div class="lbl">Typical survey frequencies</div></div>
+							<div class="stat-box"><div class="num">EK80</div><div class="lbl">State-of-art broadband echosounder</div></div>
+							<div class="stat-box"><div class="num">~3.4M t</div><div class="lbl">Alaska pollock annual catch</div></div>
+							<div class="stat-box"><div class="num">Sv (dB)</div><div class="lbl">Volume backscattering strength</div></div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key Concepts</h2></header>
+						<div class="concept-grid">
+							<div class="concept-card">
+								<h3><i class="fas fa-waveform"></i> Sonar Equation</h3>
+								<p>The active sonar equation relates transmitted power, propagation loss, target strength, and receiver sensitivity. For fisheries acoustics, the relevant quantity is volume backscattering strength (Sv) for aggregations or target strength (TS) for individual targets.</p>
+								<div class="equation-box">TS = 10 log₁₀(σ_bs) [dB re 1 m²]<br>Sv = 10 log₁₀(sᵥ) [dB re 1 m⁻¹]</div>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-fish"></i> Target Strength</h3>
+								<p>TS is the acoustic measure of an organism's size and shape. For fish, the swim bladder is the dominant scatterer (~90% of echo). TS-length relationships (e.g., TS = 20 log₁₀L − 66 for pollock) convert acoustic data to biological estimates.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-layer-group"></i> Echo Integration</h3>
+								<p>Echo integration sums backscattered energy over depth intervals and along transects to estimate the nautical area scattering coefficient (NASC, sₐ). Combined with TS and catch composition, NASC converts to biomass density.</p>
+								<div class="equation-box">ρ_fish = sₐ / (4π × σ_bs)</div>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-sliders-h"></i> Multi-Frequency Classification</h3>
+								<p>Different organisms scatter sound differently at various frequencies. Frequency response (e.g., Sv at 120 kHz vs 38 kHz) distinguishes fish from krill from gas bubbles. Broadband systems provide continuous frequency response for improved classification.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-map-marked-alt"></i> Survey Design</h3>
+								<p>Acoustic-trawl surveys follow systematic transect patterns (parallel, zigzag) with statistical design for coverage and precision. Geostatistical methods (kriging) interpolate between transects to produce abundance maps.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-laptop-code"></i> Data Processing</h3>
+								<p>Software like Echoview, LSSS, and open-source PyEcholab processes raw acoustic data. Steps include noise removal, bottom detection, calibration, thresholding, species allocation, and integration. The echopype Python package enables reproducible workflows.</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Interactive Visualizations</h2></header>
+
+						<div class="viz-container">
+							<h3>Simulated Echogram (Volume Backscattering Strength)</h3>
+							<div id="echogram-plot" style="width:100%;height:450px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Target Strength vs. Fish Length Relationship</h3>
+							<div id="ts-plot" style="width:100%;height:420px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Frequency Response for Species Discrimination</h3>
+							<div id="freq-plot" style="width:100%;height:420px;"></div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key References</h2></header>
+						<div class="ref-list">
+							<ol>
+								<li>Simmonds, J. & MacLennan, D.N. (2005). <em>Fisheries Acoustics: Theory and Practice</em>. Blackwell Science.</li>
+								<li>Foote, K.G. (1987). Fish target strengths for use in echo integrator surveys. <em>JASA</em>, 82(3), 981–987.</li>
+								<li>De Robertis, A. & Higginbottom, I. (2007). A post-processing technique to estimate the signal-to-noise ratio. <em>ICES J. Marine Science</em>, 64(6), 1282–1291.</li>
+								<li>Korneliussen, R.J. et al. (2008). Acoustic identification of marine species using a feature library. <em>Methods in Oceanography</em>, 1-2, 36–47.</li>
+								<li>Stanton, T.K. et al. (1996). Acoustic scattering characteristics of several zooplankton groups. <em>ICES J. Marine Science</em>, 53, 289–295.</li>
+							</ol>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div id="sidebar">
+				<div class="inner">
+					<nav id="menu">
+						<header class="major"><h2>Menu</h2></header>
+						<ul>
+							<li><a href="index.html">Homepage</a></li>
+							<li><a href="FisheriesAcoustics.html">Original Fisheries Page</a></li>
+							<li><a href="marine_ecology_biodiversity.html">Marine Ecology</a></li>
+							<li><a href="machine_learning_ocean_science.html">ML in Ocean Science</a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2>Get in touch</h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="#">hafezahmad100@gmail.com</a></li>
+							<li class="icon solid fa-home">Mississippi State University</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Hafez Ahmad. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+		// Simulated Echogram
+		(function(){
+			var nx=120, ny=60;
+			var z=[];
+			for(var j=0;j<ny;j++){
+				var row=[];
+				for(var i=0;i<nx;i++){
+					var bg=-75+3*Math.random();
+					// Fish school 1
+					var d1=Math.sqrt(Math.pow(i-40,2)/100+Math.pow(j-20,2)/25);
+					if(d1<3) bg=Math.max(bg,-45+5*Math.random());
+					// Fish school 2
+					var d2=Math.sqrt(Math.pow(i-80,2)/150+Math.pow(j-35,2)/30);
+					if(d2<3) bg=Math.max(bg,-42+4*Math.random());
+					// Dispersed layer
+					if(j>15 && j<22 && i>55 && i<100) bg=Math.max(bg,-60+3*Math.random());
+					// Bottom
+					var bottom = 50+5*Math.sin(i/20)+2*Math.sin(i/7);
+					if(j>bottom) bg=-30+2*Math.random();
+					row.push(bg);
+				}
+				z.push(row);
+			}
+			Plotly.newPlot('echogram-plot',[{
+				z:z, type:'heatmap',
+				colorscale:[[0,'#0c1f3f'],[0.3,'#1a3a5c'],[0.5,'#2980b9'],[0.7,'#f1c40f'],[0.85,'#e67e22'],[1,'#e74c3c']],
+				colorbar:{title:'Sv (dB)'},
+				zmin:-80, zmax:-30
+			}],{
+				title:'Simulated Echogram — Fish Schools & Scattering Layers',
+				xaxis:{title:'Ping Number (distance along transect)'},
+				yaxis:{title:'Depth (sample bins)', autorange:'reversed'},
+				plot_bgcolor:'#0c1f3f', paper_bgcolor:'#fff', font:{family:'Open Sans'}
+			},{responsive:true});
+		})();
+
+		// TS-Length
+		(function(){
+			var L=[], ts_pol=[], ts_her=[], ts_krill=[];
+			for(var l=1;l<=60;l++){
+				L.push(l);
+				ts_pol.push(20*Math.log10(l)-66);
+				ts_her.push(20*Math.log10(l)-71.9);
+				if(l<=6) ts_krill.push(10*Math.log10(l*l)-120+5*Math.random());
+			}
+			var Lk=[];for(var l=1;l<=6;l++) Lk.push(l);
+			Plotly.newPlot('ts-plot',[
+				{x:L, y:ts_pol, name:'Alaska Pollock (TS=20logL-66)', line:{color:'#2980b9',width:2.5}, mode:'lines'},
+				{x:L, y:ts_her, name:'Herring (TS=20logL-71.9)', line:{color:'#e67e22',width:2.5}, mode:'lines'},
+				{x:Lk, y:ts_krill, name:'Krill (approx.)', line:{color:'#e74c3c',width:2.5}, mode:'lines+markers', marker:{size:6}}
+			],{
+				title:'Target Strength vs. Fish Length',
+				xaxis:{title:'Total Length (cm)', type:'log'},
+				yaxis:{title:'Target Strength (dB re 1 m²)'},
+				plot_bgcolor:'#fafcff', paper_bgcolor:'#fff', font:{family:'Open Sans'}
+			},{responsive:true});
+		})();
+
+		// Frequency Response
+		(function(){
+			var freq = [18,38,70,120,200,333];
+			var fish_sb = [-38,-36,-36,-37,-40,-45];
+			var krill = [-80,-75,-68,-62,-58,-56];
+			var gas = [-55,-50,-48,-52,-58,-65];
+			Plotly.newPlot('freq-plot',[
+				{x:freq, y:fish_sb, name:'Fish (swim bladder)', line:{color:'#2980b9',width:3}, mode:'lines+markers', marker:{size:10}},
+				{x:freq, y:krill, name:'Krill', line:{color:'#e74c3c',width:3}, mode:'lines+markers', marker:{size:10}},
+				{x:freq, y:gas, name:'Gas Bubbles', line:{color:'#f1c40f',width:3}, mode:'lines+markers', marker:{size:10}}
+			],{
+				title:'Mean Volume Backscattering Strength vs. Frequency',
+				xaxis:{title:'Frequency (kHz)', type:'log', tickvals:freq, ticktext:freq.map(String)},
+				yaxis:{title:'Sv (dB)'},
+				plot_bgcolor:'#fafcff', paper_bgcolor:'#fff', font:{family:'Open Sans'}
+			},{responsive:true});
+		})();
+		</script>
+	</body>
+</html>

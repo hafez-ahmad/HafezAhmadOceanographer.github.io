@@ -1,0 +1,242 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Machine Learning in Ocean Science | Hafez Ahmad</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Machine Learning in Ocean Science – AI-driven approaches for oceanographic prediction, classification, and pattern discovery." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/enhanced.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<style>
+			.topic-hero { background: linear-gradient(135deg, #1a0a3e 0%, #5b2c8e 50%, #9b59b6 100%); color: #fff; padding: 3em 2em; border-radius: 16px; margin-bottom: 2em; }
+			.topic-hero h1 { color: #fff; margin-bottom: 0.3em; }
+			.topic-hero p { color: #e8daef; font-size: 1.15em; }
+			.viz-container { background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(13,33,55,0.12); padding: 1.5em; margin: 2em 0; }
+			.concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin: 2em 0; }
+			.concept-card { background: #f5f0fa; border-left: 4px solid #9b59b6; padding: 1.5em; border-radius: 0 12px 12px 0; }
+			.concept-card h3 { color: #1a0a3e; margin-bottom: 0.5em; }
+			.concept-card i { color: #5b2c8e; margin-right: 0.5em; }
+			.ref-list { background: #f8f9fa; padding: 1.5em 2em; border-radius: 10px; margin-top: 2em; }
+			.ref-list li { margin-bottom: 0.5em; font-size: 0.95em; color: #4a5568; }
+			.stats-row { display: flex; flex-wrap: wrap; gap: 1em; margin: 1.5em 0; }
+			.stat-box { flex: 1; min-width: 140px; text-align: center; background: linear-gradient(135deg, #5b2c8e, #9b59b6); color: #fff; padding: 1.2em; border-radius: 12px; }
+			.stat-box .num { font-size: 2em; font-weight: 700; }
+			.stat-box .lbl { font-size: 0.85em; opacity: 0.9; }
+			.pipeline-box { background: #1a0a3e; color: #e8daef; padding: 1.5em; border-radius: 12px; margin: 1.5em 0; }
+			.pipeline-box .step { display: inline-block; background: #5b2c8e; color: #fff; padding: 0.5em 1em; border-radius: 8px; margin: 0.3em; font-size: 0.95em; }
+			.pipeline-box .arrow { color: #9b59b6; margin: 0 0.3em; font-size: 1.2em; }
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Back</strong> Homepage</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/hafezahmad/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://medium.com/@hafezahmad" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+						</ul>
+					</header>
+
+					<div class="topic-hero">
+						<h1><i class="fas fa-brain"></i> Machine Learning in Ocean Science</h1>
+						<p>Artificial intelligence and statistical learning methods applied to oceanographic prediction, classification, and pattern discovery</p>
+					</div>
+
+					<section>
+						<header class="major"><h2>Overview</h2></header>
+						<p>Machine learning (ML) is transforming ocean science by enabling extraction of patterns from massive, multi-dimensional datasets that are intractable with traditional methods. From predicting sea surface temperature and ocean currents using neural networks to classifying marine habitats with random forests, ML techniques complement physics-based models by learning complex nonlinear relationships. Deep learning, transfer learning, and physics-informed neural networks (PINNs) represent the frontier, combining data-driven flexibility with domain knowledge constraints.</p>
+
+						<div class="stats-row">
+							<div class="stat-box"><div class="num">10×</div><div class="lbl">Increase in ocean data volume per decade</div></div>
+							<div class="stat-box"><div class="num">PINNs</div><div class="lbl">Physics-Informed Neural Networks</div></div>
+							<div class="stat-box"><div class="num">&gt;500 PB</div><div class="lbl">CMIP6 climate model output</div></div>
+							<div class="stat-box"><div class="num">CNN, LSTM</div><div class="lbl">Most-used architectures</div></div>
+						</div>
+
+						<div class="pipeline-box">
+							<h3 style="color:#fff; margin-bottom:0.8em;">Typical ML Pipeline for Ocean Science</h3>
+							<span class="step"><i class="fas fa-database"></i> Data Collection</span>
+							<span class="arrow">→</span>
+							<span class="step"><i class="fas fa-broom"></i> Preprocessing & QC</span>
+							<span class="arrow">→</span>
+							<span class="step"><i class="fas fa-project-diagram"></i> Feature Engineering</span>
+							<span class="arrow">→</span>
+							<span class="step"><i class="fas fa-cogs"></i> Model Training</span>
+							<span class="arrow">→</span>
+							<span class="step"><i class="fas fa-chart-bar"></i> Validation</span>
+							<span class="arrow">→</span>
+							<span class="step"><i class="fas fa-globe"></i> Prediction & Deployment</span>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Applications in Oceanography</h2></header>
+						<div class="concept-grid">
+							<div class="concept-card">
+								<h3><i class="fas fa-temperature-high"></i> SST & Climate Prediction</h3>
+								<p>LSTMs and ConvLSTMs capture spatiotemporal SST dynamics for seasonal-to-decadal forecasting. Transformer architectures are emerging for long-range climate prediction with attention mechanisms that identify teleconnections.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-map"></i> Habitat Mapping</h3>
+								<p>Random forests, gradient boosting (XGBoost), and CNNs classify benthic habitats (seagrass, coral, sand) from multibeam, satellite imagery, and acoustic backscatter data with high accuracy.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-fish"></i> Species Distribution Modeling</h3>
+								<p>MaxEnt, ensemble ML methods, and deep neural networks predict species occurrence from environmental covariates. These SDMs inform marine spatial planning and conservation prioritization.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-water"></i> Ocean Color & Water Quality</h3>
+								<p>Neural networks (NN) retrieve Chl-a, CDOM, and TSM from satellite reflectance, outperforming traditional band-ratio algorithms in optically complex coastal waters.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-wind"></i> Wave & Surge Forecasting</h3>
+								<p>ML emulators approximate expensive numerical wave models (SWAN, WW3) in real-time. Hybrid models combine physics-based features with ML for improved storm surge prediction.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-dna"></i> eDNA & Biodiversity</h3>
+								<p>ML classifies environmental DNA sequences for species identification, while clustering algorithms discover community structure from metabarcoding data.</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Interactive Visualizations</h2></header>
+
+						<div class="viz-container">
+							<h3>Model Performance Comparison</h3>
+							<div id="perf-plot" style="width:100%;height:420px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Neural Network Decision Boundary (2D Feature Space)</h3>
+							<div id="boundary-plot" style="width:100%;height:450px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Feature Importance for Habitat Classification</h3>
+							<div id="importance-plot" style="width:100%;height:420px;"></div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key References</h2></header>
+						<div class="ref-list">
+							<ol>
+								<li>Reichstein, M. et al. (2019). Deep learning and process understanding for data-driven Earth system science. <em>Nature</em>, 566, 195–204.</li>
+								<li>Raissi, M. et al. (2019). Physics-informed neural networks. <em>J. Computational Physics</em>, 378, 686–707.</li>
+								<li>Lguensat, R. et al. (2018). A deep learning approach for the inversion of ocean surface currents. <em>J. Atmospheric and Oceanic Technology</em>.</li>
+								<li>Malde, K. et al. (2020). Machine intelligence and the data-driven future of marine science. <em>ICES J. Marine Science</em>, 77(4), 1274–1285.</li>
+								<li>Sonnewald, M. et al. (2021). Bridging observations, theory and numerical simulation of the ocean using ML. <em>Environmental Research Letters</em>, 16, 073008.</li>
+							</ol>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div id="sidebar">
+				<div class="inner">
+					<nav id="menu">
+						<header class="major"><h2>Menu</h2></header>
+						<ul>
+							<li><a href="index.html">Homepage</a></li>
+							<li><a href="ml_deep_learning.html">ML & Deep Learning Methods</a></li>
+							<li><a href="multivariate_statistics.html">Multivariate Statistics</a></li>
+							<li><a href="time_series_spectral_analysis.html">Time Series Analysis</a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2>Get in touch</h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="#">hafezahmad100@gmail.com</a></li>
+							<li class="icon solid fa-home">Mississippi State University</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Hafez Ahmad. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+		// Model Performance
+		(function(){
+			var models = ['Linear Reg','Ridge','Lasso','SVR','Random Forest','XGBoost','MLP','CNN','LSTM','Transformer'];
+			var r2 = [0.72,0.74,0.71,0.82,0.88,0.91,0.87,0.93,0.94,0.96];
+			var rmse = [2.8,2.7,2.9,2.1,1.6,1.3,1.7,1.1,0.95,0.75];
+			Plotly.newPlot('perf-plot',[
+				{x:models, y:r2, name:'R² Score', type:'bar', marker:{color:'#5b2c8e'}, yaxis:'y'},
+				{x:models, y:rmse, name:'RMSE', type:'scatter', mode:'lines+markers', line:{color:'#f56a6a',width:3}, marker:{size:8}, yaxis:'y2'}
+			],{
+				title:'Model Comparison: SST Prediction Task',
+				xaxis:{title:'Model', tickangle:-30},
+				yaxis:{title:'R² Score', range:[0.5,1], side:'left'},
+				yaxis2:{title:'RMSE (°C)', overlaying:'y', side:'right', range:[0,4]},
+				plot_bgcolor:'#fafcff', paper_bgcolor:'#fff', font:{family:'Open Sans'},
+				barmode:'group'
+			},{responsive:true});
+		})();
+
+		// Decision boundary heatmap
+		(function(){
+			var n=50;
+			var xv=[], yv=[], z=[];
+			for(var i=0;i<n;i++){
+				var row=[];
+				xv.push(-3+6*i/n);
+				yv.push(-3+6*i/n);
+				for(var j=0;j<n;j++){
+					var x=-3+6*j/n, y=-3+6*i/n;
+					var v = 1/(1+Math.exp(-(2*Math.sin(x*1.5)+1.5*Math.cos(y*2)+0.5*x*y)));
+					row.push(v);
+				}
+				z.push(row);
+			}
+			// scatter points
+			var cx1=[], cy1=[], cx2=[], cy2=[];
+			for(var k=0;k<60;k++){
+				var xx=(Math.random()-0.5)*4, yy=(Math.random()-0.5)*4;
+				var pred=1/(1+Math.exp(-(2*Math.sin(xx*1.5)+1.5*Math.cos(yy*2)+0.5*xx*yy)));
+				if(pred>0.5){cx1.push(xx);cy1.push(yy);}
+				else{cx2.push(xx);cy2.push(yy);}
+			}
+			Plotly.newPlot('boundary-plot',[
+				{z:z, x:xv, y:yv, type:'heatmap', colorscale:[[0,'#1a0a3e'],[0.5,'#9b59b6'],[1,'#f5a623']], showscale:true, colorbar:{title:'P(class 1)'}},
+				{x:cx1, y:cy1, mode:'markers', name:'Class 1 (e.g. Coral)', marker:{color:'#fff',size:8,line:{color:'#f5a623',width:2}}, type:'scatter'},
+				{x:cx2, y:cy2, mode:'markers', name:'Class 0 (e.g. Sand)', marker:{color:'#fff',size:8,symbol:'x',line:{color:'#1a0a3e',width:2}}, type:'scatter'}
+			],{
+				title:'Neural Network Classification Decision Boundary',
+				xaxis:{title:'Feature 1 (e.g. Depth)'},
+				yaxis:{title:'Feature 2 (e.g. Backscatter)'},
+				plot_bgcolor:'#fafcff', paper_bgcolor:'#fff', font:{family:'Open Sans'}
+			},{responsive:true});
+		})();
+
+		// Feature Importance
+		(function(){
+			var features = ['Bathymetry','SST','Chl-a','Salinity','Distance to Shore','Slope','Backscatter','Substrate','Current Speed','Wave Height'];
+			var importance = [0.22,0.18,0.15,0.12,0.09,0.07,0.06,0.05,0.04,0.02];
+			Plotly.newPlot('importance-plot',[
+				{y:features.reverse(), x:importance.reverse(), type:'bar', orientation:'h',
+				 marker:{color:importance.map(function(v){return 'rgba(91,44,142,'+(0.4+v*3)+')';})}}
+			],{
+				title:'Random Forest Feature Importance — Benthic Habitat Classification',
+				xaxis:{title:'Importance Score'},
+				yaxis:{automargin:true},
+				plot_bgcolor:'#fafcff', paper_bgcolor:'#fff', font:{family:'Open Sans'},
+				margin:{l:130}
+			},{responsive:true});
+		})();
+		</script>
+	</body>
+</html>

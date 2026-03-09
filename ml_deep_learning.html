@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Machine Learning &amp; Deep Learning | Hafez Ahmad</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Machine Learning and Deep Learning methods – supervised, unsupervised, CNNs, RNNs, transformers for scientific applications." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/enhanced.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<style>
+			.topic-hero { background: linear-gradient(135deg, #1a0a3e 0%, #6b21a8 50%, #a855f7 100%); color: #fff; padding: 3em 2em; border-radius: 16px; margin-bottom: 2em; }
+			.topic-hero h1 { color: #fff; margin-bottom: 0.3em; }
+			.topic-hero p { color: #e9d5ff; font-size: 1.15em; }
+			.viz-container { background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(13,33,55,0.12); padding: 1.5em; margin: 2em 0; }
+			.concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin: 2em 0; }
+			.concept-card { background: #faf5ff; border-left: 4px solid #a855f7; padding: 1.5em; border-radius: 0 12px 12px 0; }
+			.concept-card h3 { color: #1a0a3e; margin-bottom: 0.5em; }
+			.concept-card i { color: #6b21a8; margin-right: 0.5em; }
+			.equation-box { background: #1a0a3e; color: #c084fc; padding: 1.2em 1.5em; border-radius: 10px; font-family: 'Courier New', monospace; margin: 1em 0; }
+			.ref-list { background: #f8f9fa; padding: 1.5em 2em; border-radius: 10px; margin-top: 2em; }
+			.ref-list li { margin-bottom: 0.5em; font-size: 0.95em; color: #4a5568; }
+			.stats-row { display: flex; flex-wrap: wrap; gap: 1em; margin: 1.5em 0; }
+			.stat-box { flex: 1; min-width: 140px; text-align: center; background: linear-gradient(135deg, #6b21a8, #a855f7); color: #fff; padding: 1.2em; border-radius: 12px; }
+			.stat-box .num { font-size: 2em; font-weight: 700; }
+			.stat-box .lbl { font-size: 0.85em; opacity: 0.9; }
+			.arch-table { width:100%; border-collapse:collapse; margin:1.5em 0; }
+			.arch-table th { background:#1a0a3e; color:#fff; padding:0.8em; text-align:left; }
+			.arch-table td { padding:0.7em; border-bottom:1px solid #e8e8e8; }
+			.arch-table tr:hover { background:#faf5ff; }
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Back</strong> Homepage</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/hafezahmad/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://medium.com/@hafezahmad" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+						</ul>
+					</header>
+
+					<div class="topic-hero">
+						<h1><i class="fas fa-robot"></i> Machine Learning &amp; Deep Learning</h1>
+						<p>Algorithms, architectures, and workflows for supervised, unsupervised, and deep learning in scientific applications</p>
+					</div>
+
+					<section>
+						<header class="major"><h2>Overview</h2></header>
+						<p>Machine learning (ML) encompasses algorithms that learn patterns from data without explicit programming. Supervised learning (regression, classification) maps inputs to known outputs; unsupervised learning (clustering, dimensionality reduction) discovers hidden structure; deep learning uses multi-layer neural networks to learn hierarchical representations. In ocean science, ML powers satellite image classification, species distribution modeling, ocean state forecasting, and anomaly detection. Key Python frameworks include scikit-learn, TensorFlow, PyTorch, and XGBoost.</p>
+
+						<table class="arch-table">
+							<thead><tr><th>Category</th><th>Methods</th><th>Ocean Science Application</th></tr></thead>
+							<tbody>
+								<tr><td>Supervised – Regression</td><td>Linear, SVR, RF, Gradient Boosting, MLP</td><td>SST prediction, Chl-a retrieval</td></tr>
+								<tr><td>Supervised – Classification</td><td>SVM, RF, XGBoost, CNN</td><td>Habitat mapping, species ID</td></tr>
+								<tr><td>Unsupervised – Clustering</td><td>K-Means, DBSCAN, GMM, SOM</td><td>Water mass classification, regime detection</td></tr>
+								<tr><td>Deep Learning – CNN</td><td>ResNet, U-Net, VGG</td><td>Semantic segmentation of satellite imagery</td></tr>
+								<tr><td>Deep Learning – RNN/LSTM</td><td>LSTM, GRU, ConvLSTM</td><td>Time series forecasting, surge prediction</td></tr>
+								<tr><td>Deep Learning – Transformer</td><td>Vision Transformer, GPT-style</td><td>Foundation models for Earth observation</td></tr>
+								<tr><td>Physics-Informed</td><td>PINNs, Neural ODEs</td><td>Constrained ocean dynamics learning</td></tr>
+							</tbody>
+						</table>
+					</section>
+
+					<section>
+						<header class="major"><h2>Core Concepts</h2></header>
+						<div class="concept-grid">
+							<div class="concept-card">
+								<h3><i class="fas fa-chart-line"></i> Bias-Variance Tradeoff</h3>
+								<p>Model error = Bias² + Variance + Irreducible noise. Simple models (high bias) underfit; complex models (high variance) overfit. Cross-validation, regularization (L1/L2), and ensemble methods balance this tradeoff.</p>
+								<div class="equation-box">MSE = Bias²(f̂) + Var(f̂) + σ²</div>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-network-wired"></i> Neural Network Architecture</h3>
+								<p>A neural network is a composition of linear transformations with nonlinear activations. Each layer: z = Wx + b, a = σ(z). Backpropagation computes gradients for weight updates via chain rule. Dropout, batch normalization, and skip connections improve training.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-th"></i> Convolutional Neural Networks</h3>
+								<p>CNNs use learnable spatial filters (kernels) to extract local features from images. Pooling reduces spatial dimensions; stacked layers learn hierarchical features. U-Net is popular for semantic segmentation of satellite/sonar imagery.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-clock"></i> Recurrent & Sequence Models</h3>
+								<p>LSTMs and GRUs process sequential data with gating mechanisms that control information flow, solving the vanishing gradient problem. ConvLSTM combines spatial and temporal learning for spatiotemporal forecasting (e.g., SST fields).</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-random"></i> Ensemble Methods</h3>
+								<p>Random Forest (bagging decision trees) and Gradient Boosting (XGBoost, LightGBM) combine many weak learners into a powerful predictor. Feature importance measures aid interpretability.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-bullseye"></i> Hyperparameter Tuning</h3>
+								<p>Grid search, random search, and Bayesian optimization (Optuna, Hyperopt) find optimal hyperparameters. Nested cross-validation prevents information leakage between tuning and evaluation.</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Interactive Visualizations</h2></header>
+
+						<div class="viz-container">
+							<h3>Learning Curves — Bias vs. Variance</h3>
+							<div id="learning-plot" style="width:100%;height:420px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Confusion Matrix — Habitat Classification</h3>
+							<div id="confusion-plot" style="width:100%;height:450px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Training Loss & Validation Loss Over Epochs</h3>
+							<div id="loss-plot" style="width:100%;height:420px;"></div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key References</h2></header>
+						<div class="ref-list">
+							<ol>
+								<li>Goodfellow, I., Bengio, Y. & Courville, A. (2016). <em>Deep Learning</em>. MIT Press.</li>
+								<li>Hastie, T., Tibshirani, R. & Friedman, J. (2009). <em>The Elements of Statistical Learning</em>. Springer.</li>
+								<li>LeCun, Y., Bengio, Y. & Hinton, G. (2015). Deep learning. <em>Nature</em>, 521, 436–444.</li>
+								<li>Reichstein, M. et al. (2019). Deep learning and process understanding for data-driven Earth system science. <em>Nature</em>, 566, 195–204.</li>
+								<li>Chen, T. & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. <em>KDD</em>, 785–794.</li>
+							</ol>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div id="sidebar">
+				<div class="inner">
+					<nav id="menu">
+						<header class="major"><h2>Menu</h2></header>
+						<ul>
+							<li><a href="index.html">Homepage</a></li>
+							<li><a href="machine_learning_ocean_science.html">ML in Ocean Science</a></li>
+							<li><a href="multivariate_statistics.html">Multivariate Statistics</a></li>
+							<li><a href="time_series_spectral_analysis.html">Time Series Analysis</a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2>Get in touch</h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="#">hafezahmad100@gmail.com</a></li>
+							<li class="icon solid fa-home">Mississippi State University</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Hafez Ahmad. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+		// Learning Curves
+		(function(){
+			var n=[50,100,200,500,1000,2000,5000,10000];
+			var train_simple=[0.35,0.34,0.33,0.32,0.32,0.31,0.31,0.31];
+			var val_simple=[0.45,0.42,0.39,0.36,0.35,0.34,0.33,0.33];
+			var train_complex=[0.02,0.03,0.04,0.05,0.06,0.07,0.08,0.09];
+			var val_complex=[0.55,0.48,0.40,0.32,0.25,0.20,0.17,0.14];
+			Plotly.newPlot('learning-plot',[
+				{x:n,y:train_simple,name:'Simple Model – Train',line:{color:'#3498db',width:2,dash:'dash'}},
+				{x:n,y:val_simple,name:'Simple Model – Validation',line:{color:'#3498db',width:2.5}},
+				{x:n,y:train_complex,name:'Complex Model – Train',line:{color:'#a855f7',width:2,dash:'dash'}},
+				{x:n,y:val_complex,name:'Complex Model – Validation',line:{color:'#a855f7',width:2.5}}
+			],{
+				title:'Learning Curves: Simple (High Bias) vs. Complex (High Variance) Model',
+				xaxis:{title:'Training Set Size',type:'log'},
+				yaxis:{title:'Error (MSE)',range:[0,0.6]},
+				plot_bgcolor:'#fafcff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				annotations:[
+					{x:3.7,y:0.32,text:'High Bias<br>(underfitting)',showarrow:true,arrowhead:2,font:{color:'#3498db'}},
+					{x:2.7,y:0.48,text:'High Variance<br>(overfitting)',showarrow:true,arrowhead:2,font:{color:'#a855f7'}}
+				]
+			},{responsive:true});
+		})();
+
+		// Confusion Matrix
+		(function(){
+			var labels=['Coral','Seagrass','Sand','Rock','Mud'];
+			var cm=[[42,3,1,2,0],[2,38,2,0,1],[1,2,44,1,3],[3,0,2,40,2],[0,1,3,1,45]];
+			Plotly.newPlot('confusion-plot',[{
+				z:cm, x:labels, y:labels, type:'heatmap',
+				colorscale:[[0,'#faf5ff'],[0.5,'#c084fc'],[1,'#6b21a8']],
+				text:cm.map(function(r){return r.map(String);}),
+				texttemplate:'%{text}',
+				hovertemplate:'True: %{y}<br>Predicted: %{x}<br>Count: %{z}<extra></extra>'
+			}],{
+				title:'Confusion Matrix — Benthic Habitat Classification (RF)',
+				xaxis:{title:'Predicted Class',side:'bottom'},
+				yaxis:{title:'True Class',autorange:'reversed'},
+				plot_bgcolor:'#fff',paper_bgcolor:'#fff',font:{family:'Open Sans'}
+			},{responsive:true});
+		})();
+
+		// Training/Validation Loss
+		(function(){
+			var epochs=[],tl=[],vl=[];
+			for(var e=1;e<=100;e++){
+				epochs.push(e);
+				tl.push(2.5*Math.exp(-0.05*e)+0.1+0.02*Math.random());
+				vl.push(2.5*Math.exp(-0.04*e)+0.2+0.05*Math.sin(e/5)+0.03*Math.random());
+			}
+			Plotly.newPlot('loss-plot',[
+				{x:epochs,y:tl,name:'Training Loss',line:{color:'#6b21a8',width:2.5}},
+				{x:epochs,y:vl,name:'Validation Loss',line:{color:'#f59e0b',width:2.5}}
+			],{
+				title:'CNN Training: Loss Over Epochs',
+				xaxis:{title:'Epoch'},
+				yaxis:{title:'Cross-Entropy Loss'},
+				plot_bgcolor:'#fafcff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				shapes:[{type:'line',x0:60,x1:60,y0:0,y1:2.5,line:{color:'#e74c3c',dash:'dash',width:1.5}}],
+				annotations:[{x:62,y:1.5,text:'Early Stopping',showarrow:false,font:{color:'#e74c3c'}}]
+			},{responsive:true});
+		})();
+		</script>
+	</body>
+</html>

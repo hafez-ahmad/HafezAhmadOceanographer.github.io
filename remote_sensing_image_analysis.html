@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Remote Sensing Image Analysis | Hafez Ahmad</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Remote sensing image analysis — classification, change detection, spectral indices, atmospheric correction, and machine learning for satellite imagery." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/enhanced.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<style>
+			.topic-hero { background: linear-gradient(135deg, #164e63 0%, #0e7490 50%, #22d3ee 100%); color: #fff; padding: 3em 2em; border-radius: 16px; margin-bottom: 2em; }
+			.topic-hero h1 { color: #fff; margin-bottom: 0.3em; }
+			.topic-hero p { color: #cffafe; font-size: 1.15em; }
+			.viz-container { background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(13,33,55,0.12); padding: 1.5em; margin: 2em 0; }
+			.concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin: 2em 0; }
+			.concept-card { background: #ecfeff; border-left: 4px solid #0e7490; padding: 1.5em; border-radius: 0 12px 12px 0; }
+			.concept-card h3 { color: #164e63; margin-bottom: 0.5em; }
+			.concept-card i { color: #0e7490; margin-right: 0.5em; }
+			.equation-box { background: #164e63; color: #67e8f9; padding: 1.2em 1.5em; border-radius: 10px; font-family: 'Courier New', monospace; margin: 1em 0; }
+			.stat-row { display: flex; flex-wrap: wrap; gap: 1.5em; margin: 1.5em 0; }
+			.stat-card { flex: 1; min-width: 140px; background: linear-gradient(135deg, #0e7490, #06b6d4); color: #fff; padding: 1.2em; border-radius: 12px; text-align: center; }
+			.stat-card .num { font-size: 1.6em; font-weight: 700; }
+			.stat-card .lbl { font-size: 0.85em; opacity: 0.9; }
+			.sensor-table { width: 100%; border-collapse: collapse; margin: 1.5em 0; }
+			.sensor-table th { background: #0e7490; color: #fff; padding: 0.8em; }
+			.sensor-table td { padding: 0.7em; border-bottom: 1px solid #e2e8f0; }
+			.sensor-table tr:nth-child(even) { background: #ecfeff; }
+			.ref-list { background: #f8f9fa; padding: 1.5em 2em; border-radius: 10px; margin-top: 2em; }
+			.ref-list li { margin-bottom: 0.5em; font-size: 0.95em; color: #4a5568; }
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Back</strong> Homepage</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/hafezahmad100" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/hafez.ahmad100" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.linkedin.com/in/hafez-ahmad-37a49b102/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/hafezahmad/?hl=en" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://medium.com/@hafezahmad" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+						</ul>
+					</header>
+
+					<div class="topic-hero">
+						<h1><i class="fas fa-satellite-dish"></i> Remote Sensing Image Analysis</h1>
+						<p>Satellite and airborne image processing — classification, spectral indices, change detection, and atmospheric correction for Earth observation</p>
+					</div>
+
+					<div class="stat-row">
+						<div class="stat-card"><div class="num">10m</div><div class="lbl">Sentinel-2<br>Resolution</div></div>
+						<div class="stat-card"><div class="num">13</div><div class="lbl">Spectral Bands<br>(Sentinel-2)</div></div>
+						<div class="stat-card"><div class="num">16-day</div><div class="lbl">Landsat Revisit<br>Cycle</div></div>
+						<div class="stat-card"><div class="num">50+</div><div class="lbl">Years of Landsat<br>Archive</div></div>
+					</div>
+
+					<section>
+						<header class="major"><h2>Overview</h2></header>
+						<p>Remote sensing image analysis transforms raw satellite radiance data into meaningful geospatial information about Earth's surface. The workflow encompasses radiometric calibration, atmospheric correction (converting top-of-atmosphere to surface reflectance), spectral index computation (NDVI, NDWI, MNDWI), image classification (supervised/unsupervised), and change detection. For coastal and ocean applications, these techniques map shoreline change, mangrove extent, water turbidity, coral reef health, aquaculture expansion, and land use/cover dynamics. Modern approaches increasingly integrate deep learning (U-Net, DeepLab) and cloud platforms (Google Earth Engine).</p>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key Concepts</h2></header>
+						<div class="concept-grid">
+							<div class="concept-card">
+								<h3><i class="fas fa-sun"></i> Atmospheric Correction</h3>
+								<p>Converting TOA radiance to surface reflectance by removing atmospheric scattering/absorption effects. Methods range from dark object subtraction (DOS) to radiative transfer models (6S, MODTRAN). Essential for multi-temporal analysis and accurate spectral indices.</p>
+								<div class="equation-box">ρ_surface = (L_TOA - L_path) × π / (E_sun × cos θ × T↓ × T↑)</div>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-palette"></i> Spectral Indices</h3>
+								<p>Band ratio indices enhance specific features: NDVI = (NIR-Red)/(NIR+Red) for vegetation; NDWI = (Green-NIR)/(Green+NIR) for water; MNDWI = (Green-SWIR)/(Green+SWIR) for urban-water discrimination; FAI for floating algae.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-object-group"></i> Image Classification</h3>
+								<p>Supervised (Random Forest, SVM, MLC) and unsupervised (K-means, ISODATA) methods assign land cover classes. Object-based image analysis (OBIA) segments pixels into objects before classification. Accuracy assessed via confusion matrix, kappa, F1-score.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-exchange-alt"></i> Change Detection</h3>
+								<p>Post-classification comparison, image differencing, PCA-based change, and spectral change vectors detect LULC transitions. Multi-temporal composites (BFAST, LandTrendr) detect gradual and abrupt changes in long time series.</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-brain"></i> Deep Learning for RS</h3>
+								<p>CNNs (U-Net, ResNet, DeepLabV3+) achieve state-of-the-art classification and segmentation. Transfer learning from ImageNet to RS imagery. Semantic segmentation maps every pixel; instance segmentation identifies individual objects (ships, buildings).</p>
+							</div>
+							<div class="concept-card">
+								<h3><i class="fas fa-cloud"></i> Cloud Computing (GEE)</h3>
+								<p>Google Earth Engine provides petabyte-scale access to satellite archives with server-side processing. Enables continental and global analyses without downloading data. Python and JavaScript APIs support reproducible workflows.</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Common Sensors</h2></header>
+						<table class="sensor-table">
+							<tr><th>Sensor</th><th>Resolution</th><th>Bands</th><th>Revisit</th><th>Best For</th></tr>
+							<tr><td>Landsat 8/9 (OLI)</td><td>30m (15m pan)</td><td>11</td><td>8 days (combined)</td><td>LULC, long-term change</td></tr>
+							<tr><td>Sentinel-2 (MSI)</td><td>10-60m</td><td>13</td><td>5 days</td><td>Vegetation, water, urban</td></tr>
+							<tr><td>MODIS (Terra/Aqua)</td><td>250-1000m</td><td>36</td><td>Daily</td><td>Ocean color, fire, global</td></tr>
+							<tr><td>Sentinel-1 (SAR)</td><td>5-20m</td><td>C-band</td><td>6 days</td><td>Flood mapping, all-weather</td></tr>
+							<tr><td>Planet (Dove)</td><td>3-5m</td><td>4-8</td><td>Daily</td><td>High-frequency monitoring</td></tr>
+							<tr><td>WorldView-3</td><td>0.31m (pan)</td><td>29</td><td>1 day</td><td>Detailed mapping</td></tr>
+						</table>
+					</section>
+
+					<section>
+						<header class="major"><h2>Interactive Visualizations</h2></header>
+
+						<div class="viz-container">
+							<h3>Spectral Signatures of Common Land Cover Types</h3>
+							<div id="spectral-plot" style="width:100%;height:440px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>Classification Accuracy — Confusion Matrix Heatmap</h3>
+							<div id="confusion-plot" style="width:100%;height:440px;"></div>
+						</div>
+
+						<div class="viz-container">
+							<h3>NDVI Time Series — Mangrove vs. Agriculture vs. Urban</h3>
+							<div id="ndvi-plot" style="width:100%;height:420px;"></div>
+						</div>
+					</section>
+
+					<section>
+						<header class="major"><h2>Key References</h2></header>
+						<div class="ref-list">
+							<ol>
+								<li>Lillesand, T.M., Kiefer, R.W. & Chipman, J.W. (2015). <em>Remote Sensing and Image Interpretation</em>, 7th Ed. Wiley.</li>
+								<li>Gorelick, N. et al. (2017). Google Earth Engine: planetary-scale geospatial analysis for everyone. <em>Remote Sensing of Environment</em>, 202, 18–27.</li>
+								<li>Zhu, Z. & Woodcock, C.E. (2014). Continuous change detection and classification of land cover using all available Landsat data. <em>Remote Sensing of Environment</em>, 144, 152–171.</li>
+								<li>Ma, L. et al. (2019). Deep learning in remote sensing applications: A meta-analysis and review. <em>ISPRS J. Photogrammetry and Remote Sensing</em>, 152, 166–177.</li>
+								<li>McFeeters, S.K. (1996). The use of the Normalized Difference Water Index (NDWI) in the delineation of open water features. <em>Int. J. Remote Sensing</em>, 17(7), 1425–1432.</li>
+							</ol>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div id="sidebar">
+				<div class="inner">
+					<nav id="menu">
+						<header class="major"><h2>Menu</h2></header>
+						<ul>
+							<li><a href="index.html">Homepage</a></li>
+							<li><a href="ocean_color_marine_rs.html">Ocean Color &amp; Marine RS</a></li>
+							<li><a href="Geographic_information_system.html">GIS</a></li>
+							<li><a href="google earth engine to xarray.html">GEE to Xarray</a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2>Get in touch</h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="#">hafezahmad100@gmail.com</a></li>
+							<li class="icon solid fa-home">Mississippi State University</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Hafez Ahmad. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+		// Spectral signatures
+		(function(){
+			var bands=['Blue (490)','Green (560)','Red (665)','RE1 (705)','RE2 (740)','RE3 (783)','NIR (842)','SWIR1 (1610)','SWIR2 (2190)'];
+			var water=  [0.08,0.06,0.04,0.03,0.02,0.02,0.01,0.001,0.001];
+			var veg=    [0.03,0.06,0.03,0.08,0.22,0.35,0.42,0.18,0.08];
+			var urban=  [0.10,0.12,0.15,0.16,0.17,0.18,0.20,0.22,0.20];
+			var bare=   [0.12,0.15,0.20,0.22,0.24,0.26,0.28,0.32,0.30];
+			var mangrove=[0.02,0.04,0.025,0.06,0.15,0.25,0.30,0.12,0.05];
+			Plotly.newPlot('spectral-plot',[
+				{x:bands,y:water,name:'Water',mode:'lines+markers',line:{color:'#2563eb',width:2},marker:{size:7}},
+				{x:bands,y:veg,name:'Vegetation',mode:'lines+markers',line:{color:'#16a34a',width:2},marker:{size:7}},
+				{x:bands,y:mangrove,name:'Mangrove',mode:'lines+markers',line:{color:'#15803d',width:2,dash:'dash'},marker:{size:7}},
+				{x:bands,y:urban,name:'Urban',mode:'lines+markers',line:{color:'#dc2626',width:2},marker:{size:7}},
+				{x:bands,y:bare,name:'Bare Soil',mode:'lines+markers',line:{color:'#d97706',width:2},marker:{size:7}}
+			],{
+				title:'Spectral Reflectance Signatures (Sentinel-2 Bands)',
+				xaxis:{title:'Band (nm)'},yaxis:{title:'Surface Reflectance',range:[0,0.5]},
+				plot_bgcolor:'#fafcff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				shapes:[{type:'rect',x0:'NIR (842)',x1:'NIR (842)',y0:0,y1:0.5,fillcolor:'rgba(22,163,74,0.05)',line:{width:0}}],
+				annotations:[{x:'NIR (842)',y:0.44,text:'NIR peak<br>(vegetation)',showarrow:false,font:{size:10,color:'#16a34a'}}]
+			},{responsive:true});
+		})();
+
+		// Confusion matrix
+		(function(){
+			var classes=['Water','Mangrove','Agriculture','Urban','Bare Soil'];
+			var cm=[
+				[95, 1, 0, 2, 2],
+				[ 2,88, 5, 2, 3],
+				[ 0, 4,86, 5, 5],
+				[ 1, 1, 4,90, 4],
+				[ 1, 2, 3, 4,90]
+			];
+			var text=cm.map(function(r){return r.map(function(v){return v+'%';});});
+			Plotly.newPlot('confusion-plot',[{
+				z:cm,x:classes,y:classes,type:'heatmap',
+				colorscale:[[0,'#ecfeff'],[0.5,'#06b6d4'],[1,'#164e63']],
+				text:text,texttemplate:'%{text}',
+				colorbar:{title:'%'}
+			}],{
+				title:'Classification Confusion Matrix (Random Forest, OA=89.8%)',
+				xaxis:{title:'Predicted Class',side:'bottom'},
+				yaxis:{title:'True Class',autorange:'reversed'},
+				plot_bgcolor:'#fff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				annotations:[{x:2.5,y:-0.5,xref:'x',text:'Overall Accuracy: 89.8% | Kappa: 0.87',showarrow:false,font:{size:12,color:'#164e63'}}]
+			},{responsive:true});
+		})();
+
+		// NDVI time series
+		(function(){
+			var months=[];
+			for(var y=2018;y<=2023;y++) for(var m=1;m<=12;m++) months.push(y+(m-1)/12);
+			var n=months.length;
+			var mangrove=[],agri=[],urban=[];
+			for(var i=0;i<n;i++){
+				var mo=i%12;
+				mangrove.push(0.65+0.12*Math.sin(2*Math.PI*mo/12)+0.02*Math.sin(2*Math.PI*mo/6)+(Math.random()-0.5)*0.04-0.003*i/12);
+				agri.push(0.3+0.25*Math.sin(2*Math.PI*(mo-2)/12)+(Math.random()-0.5)*0.06);
+				urban.push(0.12+0.03*Math.sin(2*Math.PI*mo/12)+(Math.random()-0.5)*0.02+0.001*i/12);
+			}
+			Plotly.newPlot('ndvi-plot',[
+				{x:months,y:mangrove,name:'Mangrove',mode:'lines',line:{color:'#15803d',width:2}},
+				{x:months,y:agri,name:'Agriculture',mode:'lines',line:{color:'#84cc16',width:2}},
+				{x:months,y:urban,name:'Urban',mode:'lines',line:{color:'#dc2626',width:2}}
+			],{
+				title:'NDVI Time Series by Land Cover Type (2018–2023)',
+				xaxis:{title:'Year'},yaxis:{title:'NDVI',range:[-0.1,1.0]},
+				plot_bgcolor:'#fafcff',paper_bgcolor:'#fff',font:{family:'Open Sans'},
+				shapes:[
+					{type:'line',x0:2018,x1:2023.9,y0:0,y1:0,line:{color:'#9ca3af',dash:'dash',width:1}},
+					{type:'rect',x0:2018,x1:2023.9,y0:0.2,y1:0.7,fillcolor:'rgba(22,163,74,0.05)',line:{width:0}}
+				],
+				annotations:[{x:2021,y:0.95,text:'Healthy vegetation: NDVI > 0.5',showarrow:false,font:{size:10,color:'#15803d'}}]
+			},{responsive:true});
+		})();
+		</script>
+	</body>
+</html>
